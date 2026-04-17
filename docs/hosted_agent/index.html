@@ -3,1119 +3,1621 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microsoft Foundry — Deploy Your First Hosted Agent | Hands-on Lab</title>
+    <title>Microsoft Foundry Agent Service — 에이전트 유형 비교 가이드</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* ===== Reset & Base ===== */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        :root {
+            --azure-primary: #0078D4;
+            --azure-dark: #004578;
+            --azure-light: #DEECF9;
+            --azure-accent: #50E6FF;
+            --bg-light: #F5F7FA;
+            --card-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            --card-hover-shadow: 0 8px 32px rgba(0,120,212,0.18);
+            --radius: 16px;
+            --sidebar-width: 260px;
+        }
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #ffffff;
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-light);
             color: #1a1a1a;
             line-height: 1.7;
-            font-size: 16px;
         }
 
-        /* ===== Header / Hero ===== */
-        .hero {
-            background: linear-gradient(135deg, #0078d4 0%, #005a9e 50%, #003966 100%);
-            color: #fff;
-            padding: 64px 32px 56px;
-            text-align: center;
+        /* ===== NAVBAR ===== */
+        .top-nav {
+            background: linear-gradient(135deg, var(--azure-dark) 0%, var(--azure-primary) 100%);
+            padding: 0.6rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
         }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.18);
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 20px;
-            padding: 4px 16px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+        .top-nav .breadcrumb {
+            margin: 0;
+            background: transparent;
+            padding: 0;
         }
-        .hero h1 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-        .hero p {
-            font-size: 1.15rem;
-            opacity: 0.92;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .hero-meta {
-            margin-top: 24px;
-            font-size: 0.88rem;
-            opacity: 0.75;
-        }
-        .hero-meta span { margin: 0 12px; }
-
-        /* ===== Layout ===== */
-        .container {
-            max-width: 920px;
-            margin: 0 auto;
-            padding: 0 28px;
-        }
-
-        /* ===== TOC ===== */
-        .toc {
-            background: #f8f9fa;
-            border: 1px solid #e1e4e8;
-            border-radius: 10px;
-            padding: 28px 32px;
-            margin: 40px auto;
-            max-width: 920px;
-        }
-        .toc h2 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #0078d4;
-            margin-bottom: 14px;
-        }
-        .toc ol {
-            padding-left: 20px;
-        }
-        .toc li {
-            margin-bottom: 6px;
-        }
-        .toc a {
-            color: #1a1a1a;
+        .top-nav .breadcrumb-item,
+        .top-nav .breadcrumb-item a {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
             text-decoration: none;
+        }
+        .top-nav .breadcrumb-item.active {
+            color: #fff;
             font-weight: 500;
         }
-        .toc a:hover { color: #0078d4; text-decoration: underline; }
-
-        /* ===== Sections ===== */
-        section {
-            margin: 48px auto;
-            max-width: 920px;
+        .top-nav .breadcrumb-item+.breadcrumb-item::before {
+            color: rgba(255,255,255,0.5);
+            content: "›";
         }
-        section > h2 {
-            font-size: 1.65rem;
+        .nav-brand {
+            color: #fff !important;
             font-weight: 700;
-            color: #0078d4;
-            border-bottom: 3px solid #0078d4;
-            padding-bottom: 10px;
-            margin-bottom: 24px;
-        }
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin: 28px 0 12px;
-        }
-        h4 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: #333;
-            margin: 20px 0 8px;
-        }
-        p { margin-bottom: 14px; }
-
-        /* ===== Callout Boxes ===== */
-        .callout {
-            border-left: 4px solid;
-            border-radius: 6px;
-            padding: 16px 20px;
-            margin: 20px 0;
-            font-size: 0.95rem;
-        }
-        .callout-why {
-            border-color: #d83b01;
-            background: #fef3ee;
-        }
-        .callout-info {
-            border-color: #0078d4;
-            background: #f0f6ff;
-        }
-        .callout-tip {
-            border-color: #107c10;
-            background: #f0faf0;
-        }
-        .callout-warn {
-            border-color: #ffb900;
-            background: #fffbe6;
-        }
-        .callout-title {
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        /* ===== Tables ===== */
-        .table-wrap {
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.93rem;
-        }
-        thead th {
-            background: #0078d4;
-            color: #fff;
-            font-weight: 600;
-            padding: 12px 14px;
-            text-align: left;
-            white-space: nowrap;
-        }
-        tbody td {
-            padding: 11px 14px;
-            border-bottom: 1px solid #e1e4e8;
-            vertical-align: top;
-        }
-        tbody tr:nth-child(even) { background: #f8f9fa; }
-        tbody tr:hover { background: #eef4fc; }
-
-        /* ===== Code Blocks ===== */
-        pre {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            border-radius: 8px;
-            padding: 18px 22px;
-            overflow-x: auto;
-            font-size: 0.88rem;
-            line-height: 1.6;
-            margin: 16px 0;
-            font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
-        }
-        code {
-            font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
-            font-size: 0.88em;
-        }
-        p code, li code, td code {
-            background: #eef0f3;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #c7254e;
-        }
-        .cmd-comment { color: #6a9955; }
-        .cmd-keyword { color: #569cd6; }
-        .cmd-string { color: #ce9178; }
-
-        /* ===== Step Cards ===== */
-        .step {
-            background: #fff;
-            border: 1px solid #e1e4e8;
-            border-radius: 10px;
-            padding: 24px 28px;
-            margin: 24px 0;
-            position: relative;
-        }
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: #0078d4;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 50%;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-        .step-header {
+            font-size: 1.1rem;
+            text-decoration: none;
             display: flex;
             align-items: center;
-            margin-bottom: 14px;
+            gap: 0.5rem;
         }
-        .step-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #1a1a1a;
+        .nav-brand i { font-size: 1.3rem; }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - 56px);
+            background: #fff;
+            border-right: 1px solid #e8e8e8;
+            overflow-y: auto;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            transition: transform 0.3s;
         }
-        .expected-result {
-            background: #f0faf0;
-            border: 1px solid #b7e4b7;
-            border-radius: 6px;
-            padding: 12px 16px;
-            margin-top: 14px;
-            font-size: 0.93rem;
-        }
-        .expected-result::before {
-            content: "Expected Result";
-            display: block;
-            font-weight: 700;
-            color: #107c10;
-            margin-bottom: 4px;
+        .sidebar .nav-link {
+            padding: 0.45rem 1.5rem;
+            color: #555;
             font-size: 0.85rem;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            color: var(--azure-primary);
+            border-left-color: var(--azure-primary);
+            background: var(--azure-light);
+            font-weight: 500;
+        }
+        .sidebar .nav-heading {
+            padding: 0.6rem 1.5rem 0.3rem;
+            font-size: 0.7rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.08em;
+            color: #999;
         }
 
-        /* ===== Screenshot Placeholder ===== */
-        .screenshot-placeholder {
-            background: #f0f2f5;
-            border: 2px dashed #b0b8c4;
-            border-radius: 8px;
-            padding: 32px 20px;
-            text-align: center;
-            color: #5a6570;
-            font-size: 0.9rem;
-            margin: 16px 0;
-        }
-        .screenshot-placeholder .icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-            display: block;
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 0;
+            min-height: 100vh;
         }
 
-        /* ===== Architecture Diagram Placeholder ===== */
-        .architecture-diagram {
-            background: linear-gradient(135deg, #f0f6ff 0%, #e8eef7 100%);
-            border: 2px dashed #0078d4;
-            border-radius: 10px;
-            padding: 48px 20px;
-            text-align: center;
-            color: #0058a3;
-            margin: 24px 0;
+        /* ===== HERO ===== */
+        .hero-section {
+            background: linear-gradient(135deg, #001D3D 0%, var(--azure-dark) 40%, var(--azure-primary) 100%);
+            color: #fff;
+            padding: 4rem 2rem 3rem;
+            position: relative;
+            overflow: hidden;
         }
-        .architecture-diagram .icon { font-size: 2.6rem; margin-bottom: 10px; display: block; }
-        .architecture-diagram .label { font-weight: 700; font-size: 1.05rem; }
-        .architecture-diagram .desc { font-size: 0.9rem; margin-top: 4px; opacity: 0.8; }
-
-        /* ===== Comparison Highlight ===== */
-        .highlight-cell { font-weight: 600; color: #107c10; }
-        .neutral-cell { color: #5a5a5a; }
-        .caution-cell { color: #d83b01; }
-
-        /* ===== Ordered List in steps ===== */
-        .step ol, .step ul {
-            padding-left: 20px;
-            margin: 8px 0;
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(80,230,255,0.12) 0%, transparent 70%);
+            border-radius: 50%;
         }
-        .step li { margin-bottom: 6px; }
-
-        /* ===== Footer ===== */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #6a737d;
+        .hero-section h1 {
+            font-weight: 900;
+            font-size: 2.4rem;
+            margin-bottom: 0.8rem;
+        }
+        .hero-section .lead {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 700px;
+        }
+        .hero-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.2rem;
             font-size: 0.85rem;
-            border-top: 1px solid #e1e4e8;
-            margin-top: 60px;
+            color: rgba(255,255,255,0.7);
         }
-        footer a { color: #0078d4; text-decoration: none; }
+        .hero-meta i { margin-right: 0.3rem; }
 
-        /* ===== Responsive ===== */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero { padding: 40px 20px; }
-            section { margin: 32px auto; }
-            pre { padding: 14px 16px; font-size: 0.82rem; }
+        /* ===== SECTION ===== */
+        .content-section {
+            padding: 3rem 2.5rem;
+        }
+        .content-section:nth-child(even) {
+            background: #fff;
+        }
+        .section-title {
+            font-weight: 800;
+            font-size: 1.7rem;
+            color: var(--azure-dark);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .section-title i {
+            color: var(--azure-primary);
+            font-size: 1.4rem;
+        }
+        .section-subtitle {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            max-width: 750px;
         }
 
-        /* ===== Print ===== */
-        @media print {
-            .hero { background: #0078d4 !important; -webkit-print-color-adjust: exact; }
-            pre { white-space: pre-wrap; word-break: break-all; }
+        /* ===== AGENT CARDS ===== */
+        .agent-card {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--card-shadow);
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
         }
+        .agent-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--card-hover-shadow);
+        }
+        .agent-card .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: #fff;
+        }
+        .agent-card.prompt .card-icon { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .agent-card.workflow .card-icon { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .agent-card.hosted .card-icon { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+
+        .agent-card h3 {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        .agent-card .badge-type {
+            display: inline-block;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .agent-card.prompt .badge-type { background: #EDE7F6; color: #5E35B1; }
+        .agent-card.workflow .badge-type { background: #FCE4EC; color: #C2185B; }
+        .agent-card.hosted .badge-type { background: #E0F7FA; color: #00838F; }
+
+        .agent-card .card-desc {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+        .pros-cons { margin-bottom: 1rem; }
+        .pros-cons dt {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--azure-primary);
+            margin-bottom: 0.2rem;
+        }
+        .pros-cons dd {
+            font-size: 0.82rem;
+            color: #555;
+            margin-bottom: 0.6rem;
+            padding-left: 0.8rem;
+            border-left: 2px solid var(--azure-light);
+        }
+        .use-case-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .use-case-list li {
+            font-size: 0.82rem;
+            padding: 0.25rem 0;
+            color: #444;
+        }
+        .use-case-list li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: 700;
+            margin-right: 0.4rem;
+        }
+
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-table {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        .comparison-table thead th {
+            background: var(--azure-primary);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 1rem;
+            border: none;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .comparison-table thead th:first-child {
+            text-align: left;
+            background: var(--azure-dark);
+        }
+        .comparison-table tbody td {
+            padding: 0.85rem 1rem;
+            font-size: 0.85rem;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .comparison-table tbody td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            background: #FAFBFD;
+        }
+        .comparison-table tbody tr:hover {
+            background: var(--azure-light);
+        }
+        .table-check { color: #28a745; font-weight: 700; }
+        .table-cross { color: #dc3545; }
+
+        /* ===== DECISION GUIDE ===== */
+        .decision-flow {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--card-shadow);
+            padding: 2rem;
+        }
+        .decision-node {
+            background: var(--azure-light);
+            border: 2px solid var(--azure-primary);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        .decision-node.question {
+            background: var(--azure-primary);
+            color: #fff;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 0.78rem;
+        }
+        .decision-arrow {
+            text-align: center;
+            padding: 0.6rem 0;
+            color: var(--azure-primary);
+            font-size: 1.5rem;
+        }
+        .decision-label {
+            font-size: 0.75rem;
+            color: #888;
+            font-weight: 500;
+        }
+        .recommend-card {
+            background: linear-gradient(135deg, var(--azure-light), #fff);
+            border: 2px solid var(--azure-primary);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            text-align: center;
+        }
+        .recommend-card h5 {
+            color: var(--azure-primary);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        .recommend-card p {
+            font-size: 0.8rem;
+            color: #555;
+            margin: 0;
+        }
+
+        /* ===== ACCORDION DETAIL ===== */
+        .detail-accordion .accordion-button {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--azure-dark);
+            background: #fff;
+            border: none;
+            box-shadow: none;
+        }
+        .detail-accordion .accordion-button:not(.collapsed) {
+            background: var(--azure-light);
+            color: var(--azure-primary);
+        }
+        .detail-accordion .accordion-body {
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .detail-accordion .accordion-item {
+            border: 1px solid #e8e8e8;
+            border-radius: 12px !important;
+            margin-bottom: 0.8rem;
+            overflow: hidden;
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 10px;
+            padding: 0.3rem 1.2rem;
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            font-size: 0.82rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            white-space: pre;
+            line-height: 1.7;
+            tab-size: 4;
+        }
+        .code-block .keyword { color: #569CD6; }
+        .code-block .string { color: #CE9178; }
+        .code-block .comment { color: #6A9955; }
+        .code-block .func { color: #DCDCAA; }
+
+        /* ===== DIAGRAM IMAGE ===== */
+        .diagram-container {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--card-shadow);
+            padding: 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .diagram-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .diagram-container .diagram-caption {
+            margin-top: 1rem;
+            font-size: 0.82rem;
+            color: #888;
+        }
+
+        /* ===== LINKS SECTION ===== */
+        .ref-link-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1rem 1.3rem;
+            border: 1px solid #e8e8e8;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        .ref-link-card:hover {
+            border-color: var(--azure-primary);
+            box-shadow: 0 4px 16px rgba(0,120,212,0.1);
+            transform: translateY(-2px);
+        }
+        .ref-link-card i {
+            color: var(--azure-primary);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+        .ref-link-card h6 {
+            font-weight: 600;
+            color: var(--azure-primary);
+            margin-bottom: 0.2rem;
+            font-size: 0.9rem;
+        }
+        .ref-link-card p {
+            font-size: 0.78rem;
+            color: #888;
+            margin: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .page-footer {
+            background: var(--azure-dark);
+            color: rgba(255,255,255,0.7);
+            padding: 2rem 2.5rem;
+            font-size: 0.8rem;
+        }
+        .page-footer a {
+            color: var(--azure-accent);
+            text-decoration: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 991px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .hero-section h1 { font-size: 1.8rem; }
+            .content-section { padding: 2rem 1.2rem; }
+        }
+
+        /* ===== SCROLLBAR ===== */
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
+
+        /* ===== MISC ===== */
+        .badge-preview {
+            background: #FFF3E0;
+            color: #E65100;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-left: 0.4rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, var(--azure-light), #E3F2FD);
+            border-left: 4px solid var(--azure-primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0;
+        }
+        .highlight-box p {
+            margin: 0;
+            font-size: 0.88rem;
+        }
+        .pattern-badge {
+            display: inline-block;
+            background: var(--azure-light);
+            color: var(--azure-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin: 0.2rem;
+        }
+        .framework-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+        .img-screenshot {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+        }
+        .step-list {
+            counter-reset: steps;
+            list-style: none;
+            padding: 0;
+        }
+        .step-list li {
+            counter-increment: steps;
+            padding: 0.6rem 0 0.6rem 3rem;
+            position: relative;
+            font-size: 0.88rem;
+        }
+        .step-list li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 28px;
+            height: 28px;
+            background: var(--azure-primary);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 48px;
+            height: 48px;
+            background: var(--azure-primary);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            z-index: 1200;
+            box-shadow: 0 4px 16px rgba(0,120,212,0.4);
+            cursor: pointer;
+        }
+        @media (max-width: 991px) {
+            .sidebar-toggle { display: flex; align-items: center; justify-content: center; }
+        }
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+        .sidebar-overlay.show { display: block; }
     </style>
 </head>
 <body>
 
-<!-- ============================================================ -->
-<!-- HERO                                                         -->
-<!-- ============================================================ -->
-<header class="hero">
-    <div class="hero-badge">Hands-on Lab</div>
-    <h1>Deploy Your First Hosted Agent<br>on Microsoft Foundry</h1>
-    <p>Microsoft Foundry Agent Service의 등장 배경부터 아키텍처, 그리고 Hosted Agent를 직접 배포하는 실습까지 — 엔터프라이즈 AI Agent의 새로운 패러다임을 경험합니다.</p>
-    <div class="hero-meta">
-        <span>대상: 엔터프라이즈 고객 · 파트너 · 세일즈 엔지니어</span><br>
-        <span>난이도: 중급</span>
-        <span>소요 시간: 약 60분</span>
-        <span>최종 업데이트: 2026-04</span>
-    </div>
-</header>
-
-<!-- ============================================================ -->
-<!-- TABLE OF CONTENTS                                            -->
-<!-- ============================================================ -->
-<nav class="toc container">
-    <h2>목차</h2>
-    <ol>
-        <li><a href="#section1">왜 Microsoft Foundry와 Hosted Agent가 등장했는가?</a></li>
-        <li><a href="#section2">기존 방식과의 비교</a></li>
-        <li><a href="#section3">아키텍처 개요</a></li>
-        <li><a href="#section4">Hands-on Lab: Deploy Your First Hosted Agent</a>
-            <ol style="margin-top:6px;">
-                <li><a href="#prereq">사전 준비 사항</a></li>
-                <li><a href="#step1">Step 1 — 샘플 프로젝트 설정</a></li>
-                <li><a href="#step2">Step 2 — 로컬에서 Agent 테스트</a></li>
-                <li><a href="#step3">Step 3 — Foundry Agent Service에 배포</a></li>
-                <li><a href="#step4">Step 4 — Playground에서 검증</a></li>
-                <li><a href="#step5">Step 5 — 리소스 정리</a></li>
+<!-- ===== NAVBAR ===== -->
+<nav class="top-nav">
+    <div class="container-fluid d-flex align-items-center justify-content-between px-3">
+        <a class="nav-brand" href="https://ai.azure.com/" target="_blank">
+            <i class="bi bi-microsoft"></i> Microsoft Foundry
+        </a>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="https://learn.microsoft.com/en-us/azure/foundry/" target="_blank">Azure Foundry</a></li>
+                <li class="breadcrumb-item"><a href="https://learn.microsoft.com/en-us/azure/foundry/agents/overview" target="_blank">Agent Service</a></li>
+                <li class="breadcrumb-item active">에이전트 유형 비교</li>
             </ol>
-        </li>
-        <li><a href="#section5">주요 설정 및 개념 정리</a></li>
-        <li><a href="#section6">다음 단계</a></li>
-    </ol>
+        </nav>
+    </div>
 </nav>
 
-<!-- ============================================================ -->
-<!-- SECTION 1: 왜 등장했는가                                       -->
-<!-- ============================================================ -->
-<section id="section1" class="container">
-    <h2>1. 왜 Microsoft Foundry와 Hosted Agent가 등장했는가?</h2>
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+    <div class="nav-heading">개요</div>
+    <a class="nav-link" href="#overview">에이전트란?</a>
+    <a class="nav-link" href="#components">에이전트 구성요소</a>
+    <div class="nav-heading">에이전트 유형</div>
+    <a class="nav-link" href="#agent-cards">3종 에이전트 비교 카드</a>
+    <a class="nav-link" href="#comparison-table">상세 비교 테이블</a>
+    <div class="nav-heading">가이드</div>
+    <a class="nav-link" href="#decision-guide">어떤 에이전트를 선택할까?</a>
+    <a class="nav-link" href="#detail-prompt">Prompt Agent 상세</a>
+    <a class="nav-link" href="#detail-workflow">Workflow Agent 상세</a>
+    <a class="nav-link" href="#detail-hosted">Hosted Agent 상세</a>
+    <div class="nav-heading">참고</div>
+    <a class="nav-link" href="#references">참고 자료 링크</a>
+    <div class="nav-heading">실습</div>
+    <a class="nav-link" href="lab.html" style="color:#00838F;"><i class="bi bi-laptop me-1"></i>Hosted Agent 실전 실습</a>
+</aside>
 
-    <h3>AI Agent의 부상과 현실적 한계</h3>
-    <p>
-        2024~2025년 사이 AI Agent는 단순 챗봇을 넘어 <strong>도구를 호출하고, 외부 데이터에 접근하며, 멀티-스텝 추론</strong>을 통해 자율적으로 작업을 완료하는 애플리케이션으로 진화했습니다.
-        그러나 대부분의 조직이 Agent를 직접 구축할 때 다음과 같은 공통된 문제에 부딪혔습니다.
-    </p>
+<!-- ===== SIDEBAR TOGGLE ===== -->
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="목차 토글">
+    <i class="bi bi-list"></i>
+</button>
 
-    <div class="callout callout-why">
-        <div class="callout-title">기존 Agent 구현의 핵심 과제</div>
-        <ul>
-            <li><strong>인프라 복잡성</strong> — 컨테이너화, 웹 서버 설정, 오토스케일링, 롤백 파이프라인을 직접 설계·운영해야 합니다.</li>
-            <li><strong>상태 관리</strong> — 대화 이력(Thread), 컨텍스트 윈도우, 메모리 영속성을 개발자가 직접 구현해야 하며, Redis·CosmosDB 등 별도 인프라가 필요합니다.</li>
-            <li><strong>보안 통합</strong> — API 키 관리, 인증·인가(Entra ID/RBAC), 네트워크 격리, 콘텐츠 필터링을 각각 설정해야 합니다.</li>
-            <li><strong>도구(Tool) 오케스트레이션</strong> — 코드 인터프리터, 파일 검색(RAG), Function Calling 등을 별도 서비스로 구축하고 연동해야 합니다.</li>
-            <li><strong>관찰성(Observability) 부재</strong> — Agent의 의사결정 과정을 추적·디버깅할 End-to-End 트레이싱 체계가 없어 "블랙박스" 문제가 발생합니다.</li>
-            <li><strong>멀티 에이전트 조율</strong> — 여러 Agent 간 협업이 필요할 때, 라우팅·핸드오프·공유 컨텍스트를 직접 구현해야 합니다.</li>
-        </ul>
-    </div>
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
 
-    <h3>Microsoft Foundry Agent Service — 플랫폼 수준의 해결</h3>
-    <p>
-        <strong>Microsoft Foundry Agent Service</strong>(이전 Azure AI Foundry Agent Service)는 이러한 과제를 <em>플랫폼 수준</em>에서 해결하기 위해 등장했습니다.
-        핵심 아이디어는 다음과 같습니다.
-    </p>
-    <ul>
-        <li><strong>Fully Managed Runtime</strong> — 호스팅, 스케일링, 대화 오케스트레이션, 라이프사이클 관리를 플랫폼이 담당합니다.</li>
-        <li><strong>Built-in Enterprise Security</strong> — Microsoft Entra ID, Azure RBAC, 콘텐츠 필터, VNet 격리가 기본 내장되어 있습니다.</li>
-        <li><strong>Built-in Tools</strong> — Web Search, File Search, Code Interpreter, Memory, MCP 서버, Custom Functions이 관리형으로 제공됩니다.</li>
-        <li><strong>Multi-model Support</strong> — GPT-4o, GPT-4.1, Llama, DeepSeek 등 Foundry 모델 카탈로그의 다양한 모델을 코드 변경 없이 교체할 수 있습니다.</li>
-        <li><strong>End-to-End Observability</strong> — 모든 모델 호출, 도구 실행, 의사결정을 추적하는 에이전트 트레이싱과 Application Insights 연동이 기본 제공됩니다.</li>
-    </ul>
-
-    <h3>Hosted Agent — "Bring Your Own Code"의 완성</h3>
-    <p>
-        Foundry Agent Service는 세 가지 에이전트 유형을 지원합니다: <strong>Prompt Agent</strong>(노코드), <strong>Workflow Agent</strong>(선언적 멀티-에이전트 오케스트레이션), 그리고 <strong>Hosted Agent</strong>.
-    </p>
-    <p>
-        <strong>Hosted Agent</strong>는 개발자가 <em>원하는 프레임워크</em>(Microsoft Agent Framework, LangGraph, 또는 커스텀 코드)로 작성한 에이전트를 <strong>컨테이너로 패키징</strong>하여 Agent Service에 배포하는 방식입니다.
-        개발자는 오케스트레이션 로직에 집중하고, 인프라·보안·스케일링은 Foundry가 관리합니다.
-    </p>
-
-    <div class="callout callout-info">
-        <div class="callout-title">Hosted Agent가 해결하는 것</div>
-        <p>
-            오픈소스 프레임워크로 에이전트를 구축할 때 일반적으로 관리해야 하는 — <em>컨테이너화, 웹 서버 설정, 보안 통합, 메모리 영속성, 인프라 스케일링, 데이터 전송, 계측, 버전 롤백</em> —
-            이 모든 것을 Hosted Agent 플랫폼이 대신합니다.
-        </p>
-    </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- SECTION 2: 기존 방식과의 비교                                    -->
-<!-- ============================================================ -->
-<section id="section2" class="container">
-    <h2>2. 기존 방식과의 비교</h2>
-
-    <p>AI Agent를 구현하는 세 가지 대표적인 접근 방식을 기능, 운영 책임, 확장성, 보안, 개발 난이도 기준으로 비교합니다.</p>
-
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th style="width:18%;">비교 기준</th>
-                    <th style="width:27%;">Azure OpenAI +<br>직접 호스팅 Agent</th>
-                    <th style="width:27%;">Microsoft Agent Framework<br>기반 Agent</th>
-                    <th style="width:28%;">Microsoft Foundry<br>Hosted Agent</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>개발 방식</strong></td>
-                    <td>LangChain/AutoGen 등 프레임워크로 직접 구현, VM/AKS에 배포</td>
-                    <td>Agent Framework SDK로 구현, 직접 또는 App Service에 배포</td>
-                    <td class="highlight-cell">Agent Framework / LangGraph / 커스텀 코드로 구현, Foundry가 컨테이너 호스팅</td>
-                </tr>
-                <tr>
-                    <td><strong>상태 관리</strong></td>
-                    <td class="caution-cell">Redis/CosmosDB 등으로 직접 구현</td>
-                    <td>SDK의 Thread/Run이 관리, 스토리지는 선택 필요</td>
-                    <td class="highlight-cell">Fully Managed — Thread, Run, 대화 오케스트레이션 자동 관리</td>
-                </tr>
-                <tr>
-                    <td><strong>도구(Tools)</strong></td>
-                    <td class="caution-cell">Function Calling만 가능, RAG/Code Interpreter 직접 구축</td>
-                    <td>Code Interpreter, File Search, Function Calling 제공</td>
-                    <td class="highlight-cell">Web Search, File Search, Code Interpreter, Memory, MCP 서버, Custom Functions 내장</td>
-                </tr>
-                <tr>
-                    <td><strong>모델 지원</strong></td>
-                    <td>Azure OpenAI 모델만 사용</td>
-                    <td>Azure OpenAI 모델 중심</td>
-                    <td class="highlight-cell">Foundry 모델 카탈로그 전체 (GPT-4o, GPT-4.1, Llama, DeepSeek 등)</td>
-                </tr>
-                <tr>
-                    <td><strong>인프라 운영</strong></td>
-                    <td class="caution-cell">VM/AKS 프로비저닝, 스케일링, 패치, 롤백 전부 직접 관리</td>
-                    <td class="neutral-cell">App Service/AKS에 배포 시 일부 관리 필요</td>
-                    <td class="highlight-cell">완전 관리형 — 프로비저닝, 오토스케일링, 롤백 자동</td>
-                </tr>
-                <tr>
-                    <td><strong>보안</strong></td>
-                    <td class="caution-cell">API 키 관리, 네트워크, RBAC 모두 직접 구성</td>
-                    <td class="neutral-cell">Entra ID 사용 가능, 네트워크/RBAC는 직접 구성</td>
-                    <td class="highlight-cell">Entra ID, RBAC, 콘텐츠 필터, VNet 격리 기본 내장</td>
-                </tr>
-                <tr>
-                    <td><strong>관찰성</strong></td>
-                    <td class="caution-cell">자체 로깅/트레이싱 구현 필요</td>
-                    <td class="neutral-cell">부분적으로 지원</td>
-                    <td class="highlight-cell">E2E 트레이싱, Application Insights, 메트릭 대시보드 내장</td>
-                </tr>
-                <tr>
-                    <td><strong>배포 채널</strong></td>
-                    <td class="caution-cell">직접 API 엔드포인트 구축</td>
-                    <td class="neutral-cell">API 엔드포인트 직접 구축</td>
-                    <td class="highlight-cell">Teams, Microsoft 365 Copilot, Entra Agent Registry로 자동 배포 가능</td>
-                </tr>
-                <tr>
-                    <td><strong>개발 난이도</strong></td>
-                    <td class="caution-cell">높음 (코드 + 인프라 + 보안)</td>
-                    <td class="neutral-cell">중간 (SDK가 일부 추상화)</td>
-                    <td class="highlight-cell">낮음 (에이전트 로직에만 집중)</td>
-                </tr>
-                <tr>
-                    <td><strong>멀티 에이전트</strong></td>
-                    <td class="caution-cell">직접 라우팅/핸드오프 구현</td>
-                    <td class="neutral-cell">제한적 지원</td>
-                    <td class="highlight-cell">Workflow Agent와 연계한 네이티브 멀티 에이전트 지원</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="callout callout-tip">
-        <div class="callout-title">핵심 차별점</div>
-        <p>
-            Hosted Agent의 본질적 가치는 <strong>"개발자는 에이전트 로직(What)에만 집중하고, 플랫폼이 운영(How)을 책임진다"</strong>는 것입니다.
-            기존 방식에서 전체 노력의 60~70%를 차지하던 인프라·보안·관찰성 업무가 플랫폼으로 이전됩니다.
-        </p>
-    </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- SECTION 3: 아키텍처                                            -->
-<!-- ============================================================ -->
-<section id="section3" class="container">
-    <h2>3. 아키텍처 개요</h2>
-
-    <h3>Hosted Agent의 구조적 동작 원리</h3>
-    <p>
-        Hosted Agent는 개발자 코드를 컨테이너 이미지로 패키징하여 Foundry Agent Service의 관리형 런타임 위에서 실행하는 구조입니다.
-        아래의 네 가지 핵심 계층이 유기적으로 협력합니다.
-    </p>
-
-    <!-- ===== Architecture Diagram Placeholder ===== -->
-    <div class="architecture-diagram">
-        <span class="icon">&#128736;</span>
-        <div class="label">[ 아키텍처 다이어그램 삽입 위치 ]</div>
-        <div class="desc">아래 설명된 4개 계층(Model → Tools → Orchestration → Runtime)의 관계를 시각화하는 다이어그램을 삽입하세요.<br>
-        권장 형식: Foundry Portal 스크린샷 또는 Visio/Mermaid 기반 커스텀 다이어그램</div>
-    </div>
-
-    <h4>계층 1 — Models (추론 엔진)</h4>
-    <p>
-        Foundry 모델 카탈로그에서 GPT-4o, GPT-4.1, Llama, DeepSeek 등 다양한 LLM을 선택할 수 있습니다.
-        모델은 Agent의 추론(reasoning)과 언어 생성을 담당하며, <strong>코드 변경 없이 모델을 교체</strong>할 수 있습니다.
-        Model Router(Preview)를 사용하면 요청별로 비용/성능 최적 모델을 자동 선택하는 것도 가능합니다.
-    </p>
-
-    <h4>계층 2 — Tools (실행 능력)</h4>
-    <p>
-        Agent가 외부 세계와 상호작용하는 수단입니다. Foundry Agent Service는 다음과 같은 Built-in 도구를 제공합니다.
-    </p>
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th>도구</th>
-                    <th>역할</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td><strong>Web Search</strong></td><td>실시간 인터넷 검색을 통한 최신 정보 접근</td></tr>
-                <tr><td><strong>File Search</strong></td><td>벡터 스토어 기반 관리형 RAG — 문서 업로드 후 자동 청킹·검색·인용</td></tr>
-                <tr><td><strong>Code Interpreter</strong></td><td>샌드박스 환경에서 Python 코드 실행 (데이터 분석, 차트 생성)</td></tr>
-                <tr><td><strong>Memory</strong></td><td>대화 간 지속적 컨텍스트 유지 (Preview)</td></tr>
-                <tr><td><strong>MCP Servers</strong></td><td>Azure DevOps 등 외부 서비스와의 표준화된 연결</td></tr>
-                <tr><td><strong>Custom Functions</strong></td><td>개발자 정의 비즈니스 로직 호출 (Function Calling)</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <p>모든 도구는 <strong>관리형 인증</strong>(Service Managed Credentials, On-Behalf-Of/OBO)을 지원하여 별도 자격 증명 관리가 불필요합니다.</p>
-
-    <h4>계층 3 — Orchestration (오케스트레이션)</h4>
-    <p>
-        Hosted Agent에서 오케스트레이션 로직은 <strong>개발자가 코드로 작성</strong>합니다.
-        Agent Framework, LangGraph, 또는 커스텀 코드를 사용하여 도구 호출 순서, 멀티-스텝 추론, 에이전트 간 협업 로직을 정의합니다.
-    </p>
-    <p>
-        <strong>Hosting Adapter</strong>는 이 개발자 코드와 Foundry 런타임 사이의 추상화 계층입니다.
-        Foundry 요청/응답 포맷 ↔ 프레임워크 네이티브 데이터 구조 간 <em>자동 프로토콜 변환</em>, 대화 관리, 스트리밍 이벤트 생성, OpenTelemetry 기반 관찰성 연동을 처리합니다.
-    </p>
-
-    <h4>계층 4 — Agent Runtime (런타임)</h4>
-    <p>
-        Foundry의 관리형 런타임이 모든 운영 측면을 담당합니다.
-    </p>
-    <ul>
-        <li><strong>프로비저닝 & 오토스케일링</strong> — CPU/Memory 레플리카 크기 설정 후 자동 스케일링</li>
-        <li><strong>대화 오케스트레이션 & 상태 관리</strong> — Thread, Run, 메시지를 플랫폼이 관리</li>
-        <li><strong>ID 관리</strong> — 미배포 Agent는 프로젝트 Managed Identity, 배포 후에는 전용 Agent Identity 할당</li>
-        <li><strong>관찰성</strong> — Application Insights 통합, 에이전트 트레이싱, 메트릭 대시보드</li>
-        <li><strong>버전 관리 & 배포</strong> — 자동 스냅샷, 롤백, 안정적 엔드포인트 제공</li>
-    </ul>
-
-    <!-- ===== Sequence Diagram Placeholder ===== -->
-    <div class="architecture-diagram">
-        <span class="icon">&#128260;</span>
-        <div class="label">[ 요청 처리 시퀀스 다이어그램 삽입 위치 ]</div>
-        <div class="desc">사용자 → Agent Runtime → Model → Tool 호출 → 응답 반환의 흐름을 시퀀스 다이어그램으로 삽입하세요.<br>
-        특히 Hosting Adapter가 중간에서 프로토콜 변환을 수행하는 과정을 표현하면 이해에 도움됩니다.</div>
-    </div>
-
-    <div class="callout callout-info">
-        <div class="callout-title">Agent 유형별 오케스트레이션 차이</div>
-        <ul>
-            <li><strong>Prompt Agent</strong> — 오케스트레이션을 플랫폼이 자동 처리 (노코드)</li>
-            <li><strong>Workflow Agent</strong> — YAML 선언형 정의로 멀티-에이전트 분기/합류 오케스트레이션</li>
-            <li><strong>Hosted Agent</strong> — 개발자가 코드로 직접 오케스트레이션 (최대 유연성)</li>
-        </ul>
-    </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- SECTION 4: HANDS-ON LAB                                       -->
-<!-- ============================================================ -->
-<section id="section4" class="container">
-    <h2>4. Hands-on Lab: Deploy Your First Hosted Agent</h2>
-
-    <p>
-        이 실습에서는 <strong>Azure Developer CLI(azd)</strong>를 사용하여 Web Search 도구를 갖춘 Hosted Agent를 Foundry Agent Service에 배포합니다.
-        실습 완료 후, Foundry Playground에서 Agent와 대화할 수 있습니다.
-    </p>
-
-    <div class="callout callout-warn">
-        <div class="callout-title">Hosted Agent는 현재 Public Preview 상태입니다.</div>
-        <p>배포된 Agent는 과금이 발생합니다. 실습이 끝나면 반드시 리소스를 정리하세요.</p>
-    </div>
-
-    <!-- ===== Prerequisites ===== -->
-    <h3 id="prereq">사전 준비 사항</h3>
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th>항목</th>
-                    <th>요구 사항</th>
-                    <th>확인 방법</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Azure 구독</strong></td>
-                    <td>활성 Azure Subscription (<a href="https://azure.microsoft.com/free" target="_blank" rel="noopener">무료 생성 가능</a>)</td>
-                    <td>Azure Portal 접속 확인</td>
-                </tr>
-                <tr>
-                    <td><strong>구독 권한</strong></td>
-                    <td>해당 구독에 <code>Contributor</code> 역할 이상</td>
-                    <td>Azure Portal → 구독 → IAM 확인</td>
-                </tr>
-                <tr>
-                    <td><strong>Python</strong></td>
-                    <td>3.10 이상</td>
-                    <td><code>python --version</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Azure Developer CLI (azd)</strong></td>
-                    <td>v1.23.0 이상</td>
-                    <td><code>azd version</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Azure CLI</strong></td>
-                    <td>최신 버전 권장</td>
-                    <td><code>az version</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Docker (선택)</strong></td>
-                    <td>커스텀 이미지 빌드 시 필요</td>
-                    <td><code>docker --version</code></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- ===== STEP 1 ===== -->
-    <div class="step" id="step1">
-        <div class="step-header">
-            <span class="step-number">1</span>
-            <span class="step-title">샘플 프로젝트 설정 (Set up the sample project)</span>
-        </div>
-
-        <h4>1-1. AI Agent 확장 설치</h4>
-        <p>Azure Developer CLI에 AI Agent 확장을 설치합니다.</p>
-<pre><span class="cmd-comment"># AI Agent 확장 설치</span>
-azd ext install azure.ai.agents
-
-<span class="cmd-comment"># 설치 확인</span>
-azd ext list</pre>
-
-        <h4>1-2. Hosted Agent 프로젝트 초기화</h4>
-        <p>새 프로젝트를 초기화하면 대화형 설정이 시작됩니다.</p>
-<pre>azd ai agent init</pre>
-        <p>프롬프트에서 <strong>"Start new from a template"</strong>을 선택한 후, 아래 항목을 순서대로 설정합니다.</p>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>설정 항목</th><th>설명</th><th>예시 값</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Environment name</strong></td>
-                        <td>리소스 그룹 이름이 됩니다 (<code>rg-{이름}</code>)</td>
-                        <td><code>my-hosted-agent</code></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Azure subscription</strong></td>
-                        <td>리소스를 생성할 구독 선택</td>
-                        <td>구독 목록에서 선택</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Location</strong></td>
-                        <td>리소스 배포 리전</td>
-                        <td><code>Korea Central</code> / <code>East US</code></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Model SKU</strong></td>
-                        <td>사용할 모델의 SKU</td>
-                        <td>리전/구독에 맞는 SKU 선택</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Deployment name</strong></td>
-                        <td>모델 배포 이름</td>
-                        <td><code>gpt-4.1</code></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Container size</strong></td>
-                        <td>CPU/Memory 할당</td>
-                        <td>기본값 수용 또는 커스텀 설정</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="callout callout-warn">
-            <div class="callout-title">MCP 서버를 사용하지 않는 경우</div>
-            <p><code>agent.yaml</code> 파일에서 아래 라인을 주석 처리하거나 삭제하세요.</p>
-<pre><span class="cmd-comment"># agent.yaml 에서 아래 라인 제거 또는 주석 처리</span>
-- name: AZURE_AI_PROJECT_TOOL_CONNECTION_ID
-  value: &lt;CONNECTION_ID_PLACEHOLDER&gt;</pre>
-        </div>
-
-        <h4>1-3. Azure 리소스 프로비저닝</h4>
-        <p>필요한 모든 Azure 리소스를 생성합니다. <strong>약 5분</strong> 소요됩니다.</p>
-<pre>azd provision</pre>
-
-        <p>이 명령으로 생성되는 리소스:</p>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>리소스</th><th>용도</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Resource Group</td><td>모든 관련 리소스를 하나의 그룹으로 조직화</td></tr>
-                    <tr><td>Model Deployment</td><td>Agent가 사용할 LLM 모델 배포</td></tr>
-                    <tr><td>Foundry Project</td><td>Agent를 호스팅하고 AI 기능을 제공하는 프로젝트</td></tr>
-                    <tr><td>Azure Container Registry</td><td>Agent 컨테이너 이미지 저장소</td></tr>
-                    <tr><td>Log Analytics Workspace</td><td>로그 데이터 중앙 관리</td></tr>
-                    <tr><td>Application Insights</td><td>Agent 성능 모니터링 및 로그</td></tr>
-                    <tr><td>Managed Identity</td><td>Azure 서비스에 대한 Agent 인증</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="screenshot-placeholder">
-            <span class="icon">&#128247;</span>
-            <strong>[ 스크린샷 삽입 위치 ]</strong><br>
-            Azure Portal에서 생성된 리소스 그룹과 하위 리소스 목록 캡처
-        </div>
-
-        <div class="expected-result">
-            <code>azd provision</code> 완료 후, 터미널에 생성된 리소스 목록과 Foundry Project 엔드포인트가 표시됩니다.
-            Azure Portal에서 <code>rg-my-hosted-agent</code> 리소스 그룹을 확인할 수 있습니다.
-        </div>
-    </div>
-
-    <!-- ===== STEP 2 ===== -->
-    <div class="step" id="step2">
-        <div class="step-header">
-            <span class="step-number">2</span>
-            <span class="step-title">로컬에서 Agent 테스트 (Test the agent locally)</span>
-        </div>
-
-        <h4>2-1. Agent 로컬 실행</h4>
-        <p>이 명령은 자동으로 환경 설정, 종속성 설치, Agent 시작을 처리합니다.</p>
-<pre>azd ai agent run</pre>
-        <p><code>azure.yaml</code>에 정의된 <code>startupCommand</code>를 사용하여 Agent를 로컬(<code>localhost:8088</code>)에서 시작합니다.</p>
-
-        <div class="screenshot-placeholder">
-            <span class="icon">&#128247;</span>
-            <strong>[ 스크린샷 삽입 위치 ]</strong><br>
-            <code>azd ai agent run</code> 실행 후 터미널에 Agent가 시작된 모습 캡처
-        </div>
-
-        <h4>2-2. 테스트 메시지 전송</h4>
-        <p><strong>별도의 터미널</strong>을 열어 아래 명령으로 Agent에 테스트 메시지를 보냅니다.</p>
-<pre><span class="cmd-comment"># 별도 터미널에서 실행</span>
-azd ai agent invoke --local <span class="cmd-string">"What is Microsoft Foundry?"</span></pre>
-
-        <div class="callout callout-tip">
-            <div class="callout-title">로컬 테스트의 장점</div>
-            <ul>
-                <li>컨테이너화 전에 Agent 동작을 빠르게 검증할 수 있습니다.</li>
-                <li>개발 환경에서 디버깅이 용이합니다.</li>
-                <li>다양한 입력 시나리오를 빠르게 테스트할 수 있습니다.</li>
-                <li>Foundry Responses API와의 호환성을 사전 검증할 수 있습니다.</li>
-            </ul>
-        </div>
-
-        <h4>일반적인 로컬 실행 오류 해결</h4>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>오류</th><th>해결 방법</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>AuthenticationError</code> / <code>DefaultAzureCredential failure</code></td>
-                        <td><code>azd auth login</code>으로 세션 갱신</td>
-                    </tr>
-                    <tr>
-                        <td><code>ResourceNotFound</code></td>
-                        <td>Foundry Portal에서 엔드포인트 URL이 맞는지 확인</td>
-                    </tr>
-                    <tr>
-                        <td><code>DeploymentNotFound</code></td>
-                        <td>Build &gt; Deployments에서 배포 이름 확인</td>
-                    </tr>
-                    <tr>
-                        <td><code>Connection refused</code></td>
-                        <td>포트 8088을 사용 중인 다른 프로세스가 없는지 확인</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="expected-result">
-            Web Search 결과를 기반으로 Microsoft Foundry에 대한 정보를 포함한 응답이 표시됩니다.
-        </div>
-    </div>
-
-    <!-- ===== STEP 3 ===== -->
-    <div class="step" id="step3">
-        <div class="step-header">
-            <span class="step-number">3</span>
-            <span class="step-title">Foundry Agent Service에 배포 (Deploy to Foundry)</span>
-        </div>
-
-        <p>로컬 테스트가 성공적으로 완료되면, Agent를 Foundry Agent Service에 배포합니다.</p>
-<pre>azd deploy</pre>
-
-        <p>배포 완료 후 다음과 같은 출력이 표시됩니다.</p>
-<pre><span class="cmd-comment">Deploying services (azd deploy)</span>
-
-(✓) Done: Deploying service af-agent-with-foundry-tools
-
-  - Agent playground (portal):
-    https://ai.azure.com/nextgen/.../build/agents/af-agent-with-foundry-tools/build?version=1
-
-  - Agent endpoint:
-    https://ai-account-&lt;name&gt;.services.ai.azure.com/api/projects/&lt;project&gt;/agents/af-agent-with-foundry-tools/versions/1</pre>
-
-        <div class="screenshot-placeholder">
-            <span class="icon">&#128247;</span>
-            <strong>[ 스크린샷 삽입 위치 ]</strong><br>
-            <code>azd deploy</code> 완료 후 터미널에 표시되는 Agent Playground URL과 Endpoint URL 캡처
-        </div>
-
-        <h4>배포 후 상태 확인</h4>
-<pre><span class="cmd-comment"># Agent 상태 확인</span>
-azd ai agent show
-
-<span class="cmd-comment"># Agent 로그 확인</span>
-azd ai agent monitor</pre>
-
-        <div class="expected-result">
-            <code>azd ai agent show</code> 실행 시 Agent 상태가 <strong>"Started"</strong>로 표시됩니다.
-            Foundry Portal과 REST API 엔드포인트 URL이 제공됩니다.
-        </div>
-    </div>
-
-    <!-- ===== STEP 4 ===== -->
-    <div class="step" id="step4">
-        <div class="step-header">
-            <span class="step-number">4</span>
-            <span class="step-title">Foundry Playground에서 검증</span>
-        </div>
-
-        <h4>방법 A: CLI로 테스트</h4>
-<pre><span class="cmd-comment"># 배포된 Agent에 메시지 전송</span>
-azd ai agent invoke <span class="cmd-string">"What is Microsoft Foundry?"</span></pre>
-
-        <h4>방법 B: Foundry Portal Playground에서 테스트</h4>
-        <ol>
-            <li><a href="https://ai.azure.com" target="_blank" rel="noopener">Foundry Portal</a>에 Azure 계정으로 로그인합니다.</li>
-            <li><strong>Recent projects</strong>에서 프로젝트를 선택하거나, <strong>All projects</strong>에서 찾습니다.</li>
-            <li>좌측 내비게이션에서 <strong>Build</strong> → <strong>Agents</strong>를 선택합니다.</li>
-            <li>Agent 목록에서 배포한 Agent 이름을 클릭합니다.</li>
-            <li>상단 툴바의 <strong>"Open in playground"</strong>를 클릭합니다.</li>
-            <li>채팅 인터페이스에서 <strong>"What is Microsoft Foundry?"</strong>를 입력하고 Enter를 누릅니다.</li>
-            <li>Web Search 결과를 기반으로 Agent가 응답하는지 확인합니다.</li>
-        </ol>
-
-        <div class="screenshot-placeholder">
-            <span class="icon">&#128247;</span>
-            <strong>[ 스크린샷 삽입 위치 ]</strong><br>
-            Foundry Portal Playground에서 Agent와 대화하는 화면 캡처.<br>
-            Agent가 Web Search 결과를 포함하여 응답하는 모습이 보여야 합니다.
-        </div>
-
-        <div class="expected-result">
-            Playground에서 Agent가 Web Search 도구를 사용하여 Microsoft Foundry에 대한 최신 정보를 포함한 응답을 생성합니다.
-            응답에 소스 정보가 포함될 수 있습니다.
-        </div>
-    </div>
-
-    <!-- ===== STEP 5 ===== -->
-    <div class="step" id="step5">
-        <div class="step-header">
-            <span class="step-number">5</span>
-            <span class="step-title">리소스 정리 (Clean up)</span>
-        </div>
-
-        <div class="callout callout-warn">
-            <div class="callout-title">과금 방지를 위해 반드시 리소스를 정리하세요.</div>
-            <p>
-                이 명령은 리소스 그룹 내 <strong>모든 Azure 리소스</strong>(Foundry Project, 모델 배포, Container Registry, Application Insights, Hosted Agent)를 <strong>영구 삭제</strong>합니다. 이 작업은 되돌릴 수 없습니다.
+    <!-- HERO -->
+    <section class="hero-section" id="top">
+        <div class="container">
+            <h1>Microsoft Foundry Agent Service<br><span style="font-weight:400;font-size:0.6em;">에이전트 유형 비교 가이드</span></h1>
+            <p class="lead">
+                Prompt Agent, Workflow Agent, Hosted Agent — 세 가지 에이전트 유형의 특징과 차이점을 한눈에 비교하고, 프로젝트에 적합한 에이전트를 선택하세요.
             </p>
+            <div class="hero-meta">
+                <span><i class="bi bi-calendar3"></i> 2026년 4월 17일 업데이트</span>
+                <span><i class="bi bi-book"></i> MS Learn 공식 문서 기반</span>
+                <span><i class="bi bi-globe2"></i> 한국어</span>
+            </div>
         </div>
+    </section>
 
-        <h4>5-1. 삭제 대상 미리보기</h4>
-<pre><span class="cmd-comment"># 삭제될 리소스를 미리 확인</span>
-azd down --preview</pre>
+    <!-- ===== OVERVIEW ===== -->
+    <section class="content-section" id="overview">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-robot"></i> 에이전트(Agent)란?</h2>
+            <p class="section-subtitle">
+                에이전트는 대규모 언어 모델(LLM)을 활용하여 사용자 요청을 추론하고, 이를 수행하기 위해 자율적으로 행동하는 AI 애플리케이션입니다. 단순히 텍스트를 생성하는 챗봇과 달리, 에이전트는 도구를 호출하고, 외부 데이터에 접근하며, 다단계 의사결정을 통해 작업을 완료합니다.
+            </p>
 
-        <h4>5-2. 리소스 삭제 실행</h4>
-<pre>azd down</pre>
-
-        <h4>5-3. 삭제 확인</h4>
-        <p>Azure Portal에서 리소스 그룹으로 이동하여 리소스가 더 이상 표시되지 않는지 확인합니다. 리소스 그룹이 비어 있다면 그룹 자체도 삭제할 수 있습니다.</p>
-
-        <div class="expected-result">
-            모든 Azure 리소스가 성공적으로 삭제되고, Azure Portal에서 해당 리소스 그룹이 비어 있거나 삭제된 상태로 확인됩니다.
+            <div class="highlight-box">
+                <p><strong>Foundry Agent Service</strong>는 호스팅, 스케일링, ID 관리, 관찰 가능성, 엔터프라이즈 보안을 자동으로 처리하므로, 개발자는 에이전트 로직에만 집중할 수 있습니다.</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================================ -->
-<!-- SECTION 5: 주요 설정 및 개념 정리                                -->
-<!-- ============================================================ -->
-<section id="section5" class="container">
-    <h2>5. 주요 설정 및 개념 정리</h2>
+    <!-- ===== COMPONENTS DIAGRAM ===== -->
+    <section class="content-section" id="components">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-diagram-3"></i> 에이전트 3대 구성요소</h2>
+            <p class="section-subtitle">모든 에이전트는 아래 세 가지 핵심 요소의 조합으로 구성됩니다.</p>
 
-    <h3>핵심 파일 구조</h3>
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr><th>파일</th><th>역할</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>agent.yaml</code></td>
-                    <td>Agent 매니페스트 — 모델 배포, 도구 연결, 환경 변수 등 Agent의 전체 구성을 선언적으로 정의합니다.</td>
-                </tr>
-                <tr>
-                    <td><code>azure.yaml</code></td>
-                    <td>Azure Developer CLI 서비스 정의 — Agent를 azd 서비스로 등록하고, startupCommand, 배포 설정을 관리합니다.</td>
-                </tr>
-                <tr>
-                    <td><code>main.py</code></td>
-                    <td>Agent 애플리케이션 진입점 — Agent Framework/LangGraph로 작성된 에이전트 로직과 Hosting Adapter 초기화 코드가 포함됩니다.</td>
-                </tr>
-                <tr>
-                    <td><code>Dockerfile</code></td>
-                    <td>컨테이너 이미지 빌드 정의 — <code>--platform linux/amd64</code> 지정이 필수입니다 (Hosted Agent는 Linux AMD64에서 실행).</td>
-                </tr>
-                <tr>
-                    <td><code>requirements.txt</code></td>
-                    <td>Python 종속성 — <code>azure-ai-agentserver-agentframework</code> 등 Foundry SDK 패키지가 포함됩니다.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="text-center p-3">
+                        <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#667eea,#764ba2);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;margin-bottom:0.8rem;">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+                        <h5 style="font-weight:700;">Model (LLM)</h5>
+                        <p style="font-size:0.85rem;color:#666;">추론 및 언어 이해 능력을 제공하는 대규모 언어 모델. GPT-4o, Llama, DeepSeek 등 Foundry 모델 카탈로그의 다양한 모델을 지원합니다.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-3">
+                        <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#f093fb,#f5576c);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;margin-bottom:0.8rem;">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <h5 style="font-weight:700;">Instructions</h5>
+                        <p style="font-size:0.85rem;color:#666;">목표, 제약 조건, 행동 방침을 정의합니다. 프롬프트 기반 지시, 워크플로 정의, 또는 호스트 에이전트 코드가 될 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-3">
+                        <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#4facfe,#00f2fe);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;margin-bottom:0.8rem;">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <h5 style="font-weight:700;">Tools</h5>
+                        <p style="font-size:0.85rem;color:#666;">검색, 파일 작업, API 호출 등 데이터 또는 액션에 접근할 수 있는 도구. 웹 검색, 코드 인터프리터, MCP 서버 등을 지원합니다.</p>
+                    </div>
+                </div>
+            </div>
 
-    <h3>주요 환경 변수</h3>
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr><th>변수명</th><th>설명</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>PROJECT_ENDPOINT</code></td>
-                    <td>Foundry Project의 API 엔드포인트 URL (예: <code>https://&lt;resource&gt;.services.ai.azure.com/api/projects/&lt;project&gt;</code>)</td>
-                </tr>
-                <tr>
-                    <td><code>MODEL_DEPLOYMENT_NAME</code></td>
-                    <td>사용할 모델 배포 이름 (예: <code>gpt-4.1</code>)</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+            <!-- Official MS Diagram -->
+            <div class="diagram-container">
+                <img src="https://learn.microsoft.com/en-us/azure/foundry/agents/media/what-is-an-agent.png" 
+                     alt="AI 에이전트 구성요소 다이어그램 - Model, Instructions, Tools" 
+                     loading="lazy">
+                <div class="diagram-caption">
+                    <i class="bi bi-info-circle"></i> AI 에이전트의 핵심 구성요소 다이어그램 &mdash; 
+                    <a href="https://learn.microsoft.com/en-us/azure/foundry/agents/overview" target="_blank" rel="noopener">Microsoft Learn 공식 문서</a>
+                </div>
+            </div>
 
-    <h3>Agent Identity 모델</h3>
-    <p>보안 아키텍처에서 중요한 개념입니다.</p>
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr><th>상태</th><th>사용되는 Identity</th><th>설명</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>미배포 (개발/테스트)</strong></td>
-                    <td>Project Managed Identity</td>
-                    <td>Foundry Project의 시스템 할당 Managed Identity. 프로젝트 내 모든 미배포 Agent가 공유합니다.</td>
-                </tr>
-                <tr>
-                    <td><strong>배포 완료 (Published)</strong></td>
-                    <td>Agent Identity (전용)</td>
-                    <td>Foundry가 Agent 전용 Identity를 프로비저닝합니다. Azure 리소스 접근 권한을 별도 재구성해야 합니다.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+            <!-- Runtime Components Diagram -->
+            <div class="diagram-container mt-4">
+                <img src="https://learn.microsoft.com/en-us/azure/foundry/agents/media/runtime-components.png" 
+                     alt="에이전트 런타임 루프 다이어그램" 
+                     loading="lazy">
+                <div class="diagram-caption">
+                    <i class="bi bi-info-circle"></i> 에이전트 런타임 루프: Agent → Conversation → Response 상호작용 흐름 &mdash; 
+                    <a href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/runtime-components" target="_blank" rel="noopener">Runtime Components 문서</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h3>컨테이너 레플리카 사이즈</h3>
-    <p>Hosted Agent는 아래의 CPU/Memory 쌍으로 레플리카 크기를 설정할 수 있습니다. 실습에서는 기본값을 사용해도 충분합니다.</p>
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr><th>vCPU (cores)</th><th>Memory (GiB)</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>0.25</td><td>0.5</td></tr>
-                <tr><td>0.5</td><td>1.0</td></tr>
-                <tr><td>1.0</td><td>2.0</td></tr>
-                <tr><td>2.0</td><td>4.0</td></tr>
-                <tr><td>4.0</td><td>8.0</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <p style="font-size:0.88rem; color:#6a737d;">* 0.25~4.0 vCPU 범위에서 0.25 단위로 조정 가능합니다. 전체 목록은 공식 문서를 참조하세요.</p>
+    <!-- ===== 3 AGENT CARDS ===== -->
+    <section class="content-section" id="agent-cards">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-grid-3x3-gap"></i> 3종 에이전트 유형 비교</h2>
+            <p class="section-subtitle">각 에이전트 유형의 핵심 특징, 장·단점, 적합한 사용 사례를 카드로 한눈에 비교하세요.</p>
 
-    <h3>지원 리전 (Korea 포함)</h3>
-    <p>Hosted Agent는 다음 리전에서 사용 가능합니다 (2026년 4월 기준).</p>
-    <p style="font-size:0.93rem;">
-        East US, East US 2, South Central US, North Central US, West US, West US 3,
-        Canada East, Canada Central, Brazil South,
-        France Central, Germany West Central, Italy North, Spain Central,
-        Sweden Central, Norway East, Poland Central, Switzerland North, UK South,
-        South Africa North, UAE North,
-        <strong>Korea Central</strong>, Japan East,
-        Southeast Asia, South India, Australia East
-    </p>
-</section>
+            <div class="row g-4">
+                <!-- PROMPT AGENT -->
+                <div class="col-lg-4">
+                    <div class="agent-card prompt">
+                        <div class="card-icon"><i class="bi bi-chat-square-text"></i></div>
+                        <h3>Prompt Agent</h3>
+                        <span class="badge-type">완전 관리형 · 코드 불필요</span>
+                        <p class="card-desc">
+                            구성만으로 정의되는 에이전트입니다. 지시(Instructions), 모델 선택, 도구를 Foundry 포털 또는 SDK/API로 설정하면 Agent Service가 자동으로 오케스트레이션과 호스팅을 처리합니다.
+                        </p>
+                        <dl class="pros-cons">
+                            <dt><i class="bi bi-plus-circle"></i> 장점</dt>
+                            <dd>코드 없이 포털에서 수 분 만에 에이전트 생성 가능. 빠른 프로토타이핑에 최적. SDK/REST API로도 동일하게 생성 가능.</dd>
+                            <dt><i class="bi bi-dash-circle"></i> 단점</dt>
+                            <dd>단일 에이전트 오케스트레이션만 지원. 복잡한 분기 로직이나 멀티 에이전트 시나리오에는 한계가 있음.</dd>
+                        </dl>
+                        <h6 style="font-size:0.82rem;font-weight:700;color:#333;margin-bottom:0.5rem;">적합 사례</h6>
+                        <ul class="use-case-list">
+                            <li>빠른 프로토타이핑 및 PoC</li>
+                            <li>내부 도구 / 단순 Q&A 봇</li>
+                            <li>커스텀 오케스트레이션이 불필요한 간단 작업</li>
+                            <li>포털에서 비개발자도 생성 가능</li>
+                        </ul>
+                    </div>
+                </div>
 
-<!-- ============================================================ -->
-<!-- SECTION 6: 다음 단계                                           -->
-<!-- ============================================================ -->
-<section id="section6" class="container">
-    <h2>6. 다음 단계</h2>
+                <!-- WORKFLOW AGENT -->
+                <div class="col-lg-4">
+                    <div class="agent-card workflow">
+                        <div class="card-icon"><i class="bi bi-diagram-2"></i></div>
+                        <h3>Workflow Agent <span class="badge-preview">Preview</span></h3>
+                        <span class="badge-type">비주얼 빌더 · 선언형</span>
+                        <p class="card-desc">
+                            액션 시퀀스를 비주얼 빌더로 오케스트레이션하거나, 여러 에이전트를 조율하는 선언형(Declarative) 에이전트입니다. Foundry 포털 비주얼 빌더 또는 VS Code에서 YAML로 정의합니다.
+                        </p>
+                        <dl class="pros-cons">
+                            <dt><i class="bi bi-plus-circle"></i> 장점</dt>
+                            <dd>코드 없이 멀티 에이전트 오케스트레이션. if/else 분기, 변수 처리, Human-in-the-loop 승인 워크플로 지원. Power Fx 표현식 사용 가능.</dd>
+                            <dt><i class="bi bi-dash-circle"></i> 단점</dt>
+                            <dd>현재 Preview 상태. 커스텀 프레임워크 통합이 제한적. 복잡한 커스텀 로직에는 Hosted Agent가 더 적합.</dd>
+                        </dl>
+                        <h6 style="font-size:0.82rem;font-weight:700;color:#333;margin-bottom:0.5rem;">적합 사례</h6>
+                        <ul class="use-case-list">
+                            <li>다단계 워크플로 자동화</li>
+                            <li>에이전트 간 협업(핸드Off)</li>
+                            <li>승인 워크플로(Human-in-the-loop)</li>
+                            <li>반복 가능한 비즈니스 프로세스</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <p>첫 번째 Hosted Agent 배포를 완료했습니다. 다음 단계로 Agent의 기능을 확장할 수 있습니다.</p>
+                <!-- HOSTED AGENT -->
+                <div class="col-lg-4">
+                    <div class="agent-card hosted">
+                        <div class="card-icon"><i class="bi bi-box-seam"></i></div>
+                        <h3>Hosted Agent <span class="badge-preview">Preview</span></h3>
+                        <span class="badge-type">컨테이너 기반 · 코드 필요</span>
+                        <p class="card-desc">
+                            원하는 프레임워크로 코드를 작성하고 컨테이너 이미지로 배포하는 코드 기반 에이전트입니다. Agent Framework, LangGraph 또는 커스텀 코드를 사용하며, Foundry가 런타임·스케일링·인프라를 관리합니다.
+                        </p>
+                        <dl class="pros-cons">
+                            <dt><i class="bi bi-plus-circle"></i> 장점</dt>
+                            <dd>오케스트레이션 로직 완전 제어. Agent Framework, LangGraph, 커스텀 코드 지원. Docker 기반 로컬 테스트 가능. OpenTelemetry 통합 관찰 가능성.</dd>
+                            <dt><i class="bi bi-dash-circle"></i> 단점</dt>
+                            <dd>코드 작성 및 Docker 컨테이너화 필요. Preview 중 VNet 분리 미지원. 아이템당 2MB 제한이 아닌 컨테이너 리소스 관리 필요.</dd>
+                        </dl>
+                        <h6 style="font-size:0.82rem;font-weight:700;color:#333;margin-bottom:0.5rem;">적합 사례</h6>
+                        <ul class="use-case-list">
+                            <li>커스텀 프레임워크 통합</li>
+                            <li>복잡한 멀티 에이전트 시스템</li>
+                            <li>완전한 동작 제어가 필요한 경우</li>
+                            <li>기존 에이전트 코드의 클라우드 배포</li>
+                        </ul>
+                        <a href="lab.html" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:0.8rem;padding:0.5rem 1rem;background:linear-gradient(135deg,#4facfe,#00f2fe);color:#fff;border-radius:8px;font-size:0.82rem;font-weight:600;text-decoration:none;"><i class="bi bi-laptop"></i> 실전 실습 가이드 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr><th>확장 영역</th><th>설명</th><th>참고 문서</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>MCP Tools 연결</strong></td>
-                    <td>Azure DevOps 등 외부 서비스 MCP 서버를 Agent에 연결하여 기능 확장</td>
-                    <td>Connect MCP tools</td>
-                </tr>
-                <tr>
-                    <td><strong>Function Calling</strong></td>
-                    <td>커스텀 비즈니스 로직을 Agent에 통합 (JSON 스키마로 함수 정의)</td>
-                    <td>Use function calling</td>
-                </tr>
-                <tr>
-                    <td><strong>File Search</strong></td>
-                    <td>문서를 업로드하여 관리형 RAG(벡터 검색)를 Agent에 추가</td>
-                    <td>Add file search</td>
-                </tr>
-                <tr>
-                    <td><strong>Code Interpreter</strong></td>
-                    <td>Agent에 Python 코드 실행 기능을 추가 (데이터 분석, 차트 생성)</td>
-                    <td>Enable code interpreter</td>
-                </tr>
-                <tr>
-                    <td><strong>Agent Lifecycle 관리</strong></td>
-                    <td>버전 관리, 업데이트, 롤백, 모니터링 등 운영 가이드</td>
-                    <td>Manage hosted agent lifecycle</td>
-                </tr>
-                <tr>
-                    <td><strong>채널 배포</strong></td>
-                    <td>Teams, Microsoft 365 Copilot, Entra Agent Registry를 통한 배포</td>
-                    <td>Publish hosted agents</td>
-                </tr>
-                <tr>
-                    <td><strong>멀티 에이전트 워크플로</strong></td>
-                    <td>여러 Agent를 조합하여 복잡한 비즈니스 프로세스 자동화</td>
-                    <td>Workflow agents</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <!-- ===== COMPARISON TABLE ===== -->
+    <section class="content-section" id="comparison-table">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-table"></i> 상세 비교 테이블</h2>
+            <p class="section-subtitle">핵심 비교 항목을 한눈에 확인할 수 있는 테이블입니다.</p>
 
-    <div class="callout callout-info">
-        <div class="callout-title">공식 리소스</div>
-        <ul>
-            <li><strong>Microsoft Foundry Agent Service 공식 문서</strong>: <a href="https://learn.microsoft.com/en-us/azure/foundry/agents/overview" target="_blank" rel="noopener">learn.microsoft.com/azure/foundry/agents/overview</a></li>
-            <li><strong>Quickstart: Deploy your first hosted agent</strong>: <a href="https://learn.microsoft.com/en-us/azure/foundry/agents/quickstarts/quickstart-hosted-agent" target="_blank" rel="noopener">learn.microsoft.com/.../quickstart-hosted-agent</a></li>
-            <li><strong>Hosted Agent 개념</strong>: <a href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents" target="_blank" rel="noopener">learn.microsoft.com/.../hosted-agents</a></li>
-            <li><strong>Foundry Agent Samples (GitHub)</strong>: foundry-samples repository</li>
-            <li><strong>Microsoft AI Discord 커뮤니티</strong>: discord.gg/microsoft-ai</li>
-        </ul>
-    </div>
-</section>
+            <div class="table-responsive comparison-table">
+                <table class="table table-bordered mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width:22%;">비교 항목</th>
+                            <th style="width:26%;"><i class="bi bi-chat-square-text me-1"></i>Prompt Agent</th>
+                            <th style="width:26%;"><i class="bi bi-diagram-2 me-1"></i>Workflow Agent <small class="badge-preview">Preview</small></th>
+                            <th style="width:26%;"><i class="bi bi-box-seam me-1"></i>Hosted Agent <small class="badge-preview">Preview</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>코드 필요 여부</td>
+                            <td><span class="table-cross"><i class="bi bi-x-lg"></i></span> No</td>
+                            <td><span class="table-cross"><i class="bi bi-x-lg"></i></span> No (YAML 선택)</td>
+                            <td><span class="table-check"><i class="bi bi-check-lg"></i></span> Yes</td>
+                        </tr>
+                        <tr>
+                            <td>호스팅</td>
+                            <td>완전 관리형</td>
+                            <td>완전 관리형</td>
+                            <td>컨테이너 기반, 관리형</td>
+                        </tr>
+                        <tr>
+                            <td>오케스트레이션</td>
+                            <td>단일 에이전트</td>
+                            <td>멀티 에이전트, 분기</td>
+                            <td>커스텀 로직</td>
+                        </tr>
+                        <tr>
+                            <td>적합 용도</td>
+                            <td>프로토타이핑, 간단 작업</td>
+                            <td>다단계 자동화, 승인 워크플로</td>
+                            <td>완전 제어, 커스텀 프레임워크</td>
+                        </tr>
+                        <tr>
+                            <td>구현 위치</td>
+                            <td>Foundry Portal / SDK / REST API</td>
+                            <td>Foundry Portal 비주얼 빌더 / VS Code YAML</td>
+                            <td>VS Code + Docker + ACR</td>
+                        </tr>
+                        <tr>
+                            <td>프레임워크</td>
+                            <td>N/A</td>
+                            <td>Power Fx 표현식</td>
+                            <td>Agent Framework, LangGraph, Custom</td>
+                        </tr>
+                        <tr>
+                            <td>VNet 격리</td>
+                            <td><span class="table-check"><i class="bi bi-check-lg"></i></span> 지원</td>
+                            <td><span class="table-check"><i class="bi bi-check-lg"></i></span> 지원</td>
+                            <td><span class="table-cross"><i class="bi bi-x-lg"></i></span> 미지원 (Preview 중)</td>
+                        </tr>
+                        <tr>
+                            <td>에이전트 ID</td>
+                            <td>프로젝트 관리 ID</td>
+                            <td>프로젝트 관리 ID</td>
+                            <td>프로젝트 관리 ID → 게시 후 전용 ID</td>
+                        </tr>
+                        <tr>
+                            <td>로컬 테스트</td>
+                            <td>Playground / SDK</td>
+                            <td>VS Code Playground</td>
+                            <td>Hosting Adapter (localhost:8088)</td>
+                        </tr>
+                        <tr>
+                            <td>게시 채널</td>
+                            <td colspan="3" class="text-center">웹 앱 미리보기, Microsoft 365 Copilot & Teams, REST API 엔드포인트, 커스텀 앱</td>
+                        </tr>
+                        <tr>
+                            <td>가용 리전(Hosted)</td>
+                            <td colspan="2" class="text-center" style="color:#999;">— (모든 Foundry 지원 리전)</td>
+                            <td style="font-size:0.78rem;">East US, West US, Korea Central, Japan East, Sweden Central 등 25개 리전</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
-<!-- ============================================================ -->
-<!-- FOOTER                                                       -->
-<!-- ============================================================ -->
-<footer>
-    <p>
-        이 문서는 Microsoft Foundry 공식 문서를 기반으로 작성되었습니다.<br>
-        최신 정보는 <a href="https://learn.microsoft.com/en-us/azure/foundry/agents/" target="_blank" rel="noopener">Microsoft Foundry Agent Service 공식 문서</a>를 참고하세요.
-    </p>
-    <p style="margin-top: 10px;">
-        &copy; 2026 Microsoft Corporation. All rights reserved.
-    </p>
-</footer>
+    <!-- ===== DECISION GUIDE ===== -->
+    <section class="content-section" id="decision-guide">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-signpost-split"></i> 어떤 에이전트를 선택할까?</h2>
+            <p class="section-subtitle">시나리오에 따라 적합한 에이전트 유형을 추천합니다. 아래 플로우를 참고하세요.</p>
 
+            <div class="decision-flow">
+                <div class="row g-4">
+                    <!-- Row 1: Starting Question -->
+                    <div class="col-12 text-center">
+                        <div class="decision-node question" style="width:140px;height:140px;font-size:0.85rem;">
+                            커스텀 코드가<br>필요한가요?
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Branches -->
+                    <div class="col-md-6">
+                        <div class="decision-arrow"><i class="bi bi-arrow-down"></i></div>
+                        <div class="decision-label text-center mb-2">아니오 (No-code)</div>
+                        <div class="decision-node" style="background:#FAF0FF;border-color:#764ba2;">
+                            <i class="bi bi-question-circle me-1"></i> 여러 에이전트 조율 / 분기 로직이 필요한가요?
+                        </div>
+                        <div class="row g-3 mt-2">
+                            <div class="col-6">
+                                <div class="decision-arrow"><i class="bi bi-arrow-down"></i></div>
+                                <div class="decision-label text-center mb-1">아니오</div>
+                                <div class="recommend-card">
+                                    <h5><i class="bi bi-chat-square-text"></i> Prompt Agent</h5>
+                                    <p>빠른 프로토타이핑,<br>단순 작업, 내부 도구</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="decision-arrow"><i class="bi bi-arrow-down"></i></div>
+                                <div class="decision-label text-center mb-1">예</div>
+                                <div class="recommend-card" style="border-color:#C2185B;">
+                                    <h5 style="color:#C2185B;"><i class="bi bi-diagram-2"></i> Workflow Agent</h5>
+                                    <p>다단계 자동화,<br>승인 워크플로, 에이전트 협업</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="decision-arrow"><i class="bi bi-arrow-down"></i></div>
+                        <div class="decision-label text-center mb-2">예 (Code-based)</div>
+                        <div class="recommend-card" style="border-color:#00838F;margin-top:calc(1.2rem + 40px + 0.5rem + 2.4rem + 1rem);">
+                            <h5 style="color:#00838F;"><i class="bi bi-box-seam"></i> Hosted Agent</h5>
+                            <p>커스텀 프레임워크, 완전 제어,<br>멀티 에이전트 시스템, 기존 코드 배포</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario Recommendations -->
+            <div class="row g-3 mt-4">
+                <div class="col-md-4">
+                    <div class="p-3 rounded-3" style="background:#EDE7F6;">
+                        <h6 style="color:#5E35B1;font-weight:700;"><i class="bi bi-lightning-charge"></i> 빠르게 시작하고 싶다면</h6>
+                        <p style="font-size:0.82rem;color:#555;margin:0;">→ <strong>Prompt Agent</strong>를 포털에서 바로 생성. 코드 없이 수 분 만에 에이전트를 만들어 테스트할 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 rounded-3" style="background:#FCE4EC;">
+                        <h6 style="color:#C2185B;font-weight:700;"><i class="bi bi-people"></i> 팀 승인 프로세스가 필요하다면</h6>
+                        <p style="font-size:0.82rem;color:#555;margin:0;">→ <strong>Workflow Agent</strong>의 Human-in-the-loop 패턴을 활용하세요. 비주얼 빌더로 조건 분기와 승인 노드를 쉽게 추가합니다.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 rounded-3" style="background:#E0F7FA;">
+                        <h6 style="color:#00838F;font-weight:700;"><i class="bi bi-gear-wide-connected"></i> 기존 LangGraph 코드가 있다면</h6>
+                        <p style="font-size:0.82rem;color:#555;margin:0;">→ <strong>Hosted Agent</strong>로 컨테이너 이미지를 빌드하고 Foundry에 배포. 기존 코드를 그대로 활용할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DETAIL: PROMPT AGENT ===== -->
+    <section class="content-section" id="detail-prompt">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-chat-square-text"></i> Prompt Agent 상세</h2>
+            <p class="section-subtitle">구성만으로 에이전트를 정의하고, 포털에서 바로 생성할 수 있는 가장 간단한 유형입니다.</p>
+
+            <div class="accordion detail-accordion" id="accordionPrompt">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#promptOverview">
+                            <i class="bi bi-info-circle me-2"></i> 개요 및 특징
+                        </button>
+                    </h2>
+                    <div id="promptOverview" class="accordion-collapse collapse show" data-bs-parent="#accordionPrompt">
+                        <div class="accordion-body">
+                            <p>Prompt Agent는 <strong>지시(Instructions), 모델, 도구</strong>로 구성되며 코드 없이 Foundry 포털, SDK, 또는 REST API로 생성합니다. Agent Service가 오케스트레이션과 호스팅을 자동으로 처리합니다.</p>
+                            <ul>
+                                <li><strong>Model:</strong> GPT-4o, GPT-5-mini, Llama, DeepSeek 등 Foundry 모델 카탈로그의 모든 모델 사용 가능</li>
+                                <li><strong>Tools:</strong> Web Search, File Search, Memory, Code Interpreter, MCP Server, Custom Functions</li>
+                                <li><strong>버전 관리:</strong> 각 저장은 불변의 새 버전을 생성하고, 이전 버전과 비교 가능</li>
+                                <li><strong>게시:</strong> 안정적인 엔드포인트로 게시하여 Teams, M365 Copilot 등에서 사용 가능</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#promptCode">
+                            <i class="bi bi-code-slash me-2"></i> SDK 코드 예시 (Python)
+                        </button>
+                    </h2>
+                    <div id="promptCode" class="accordion-collapse collapse" data-bs-parent="#accordionPrompt">
+                        <div class="accordion-body">
+                            <p>Python SDK를 사용한 Prompt Agent 생성 예시:</p>
+                            <div class="code-block">
+<span class="keyword">from</span> azure.identity <span class="keyword">import</span> DefaultAzureCredential
+<span class="keyword">from</span> azure.ai.projects <span class="keyword">import</span> AIProjectClient
+<span class="keyword">from</span> azure.ai.projects.models <span class="keyword">import</span> PromptAgentDefinition
+
+PROJECT_ENDPOINT = <span class="string">"https://resource_name.ai.azure.com/api/projects/project_name"</span>
+
+project = AIProjectClient(
+    endpoint=PROJECT_ENDPOINT,
+    credential=<span class="func">DefaultAzureCredential</span>(),
+)
+
+<span class="comment"># 프롬프트 에이전트 생성</span>
+agent = project.agents.<span class="func">create_version</span>(
+    agent_name=<span class="string">"my-agent"</span>,
+    definition=<span class="func">PromptAgentDefinition</span>(
+        model=<span class="string">"gpt-5-mini"</span>,
+        instructions=<span class="string">"You are a helpful assistant."</span>,
+    ),
+)
+<span class="func">print</span>(f<span class="string">"Agent: {agent.name}, Version: {agent.version}"</span>)
+                            </div>
+                            <p class="mt-2" style="font-size:0.82rem;">
+                                <a href="https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code" target="_blank" rel="noopener">
+                                    <i class="bi bi-box-arrow-up-right"></i> 전체 퀵스타트 가이드 보기 →
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#promptChat">
+                            <i class="bi bi-chat-dots me-2"></i> 에이전트와 대화하기
+                        </button>
+                    </h2>
+                    <div id="promptChat" class="accordion-collapse collapse" data-bs-parent="#accordionPrompt">
+                        <div class="accordion-body">
+                            <p>생성된 에이전트와 멀티턴 대화를 진행하는 예시:</p>
+                            <div class="code-block">
+openai = project.<span class="func">get_openai_client</span>()
+
+<span class="comment"># 대화 세션 생성</span>
+conversation = openai.conversations.<span class="func">create</span>()
+
+<span class="comment"># 첫 번째 질문</span>
+response = openai.responses.<span class="func">create</span>(
+    conversation=conversation.id,
+    extra_body={<span class="string">"agent_reference"</span>: {<span class="string">"name"</span>: <span class="string">"my-agent"</span>, <span class="string">"type"</span>: <span class="string">"agent_reference"</span>}},
+    input=<span class="string">"프랑스의 수도는 어디인가요?"</span>,
+)
+<span class="func">print</span>(response.output_text)
+
+<span class="comment"># 후속 질문 (대화 맥락 유지)</span>
+follow_up = openai.responses.<span class="func">create</span>(
+    conversation=conversation.id,
+    extra_body={<span class="string">"agent_reference"</span>: {<span class="string">"name"</span>: <span class="string">"my-agent"</span>, <span class="string">"type"</span>: <span class="string">"agent_reference"</span>}},
+    input=<span class="string">"그 도시의 인구는 얼마인가요?"</span>,
+)
+<span class="func">print</span>(follow_up.output_text)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DETAIL: WORKFLOW AGENT ===== -->
+    <section class="content-section" id="detail-workflow">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-diagram-2"></i> Workflow Agent 상세 <span class="badge-preview">Preview</span></h2>
+            <p class="section-subtitle">비주얼 빌더로 멀티 에이전트 오케스트레이션, 분기 로직, 승인 워크플로를 코드 없이 구성합니다.</p>
+
+            <div class="accordion detail-accordion" id="accordionWorkflow">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wfPatterns">
+                            <i class="bi bi-collection me-2"></i> 워크플로 패턴
+                        </button>
+                    </h2>
+                    <div id="wfPatterns" class="accordion-collapse collapse show" data-bs-parent="#accordionWorkflow">
+                        <div class="accordion-body">
+                            <p>Foundry는 세 가지 주요 오케스트레이션 패턴을 제공합니다:</p>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-4">
+                                    <div class="p-3 text-center rounded-3" style="background:#F3E5F5;">
+                                        <i class="bi bi-person-check" style="font-size:2rem;color:#7B1FA2;"></i>
+                                        <h6 class="mt-2" style="font-weight:700;">Human-in-the-loop</h6>
+                                        <p style="font-size:0.78rem;color:#666;margin:0;">사용자에게 질문을 던지고 응답을 기다린 후 진행. 승인 요청, 정보 수집에 활용.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 text-center rounded-3" style="background:#E8F5E9;">
+                                        <i class="bi bi-arrow-right-circle" style="font-size:2rem;color:#2E7D32;"></i>
+                                        <h6 class="mt-2" style="font-weight:700;">Sequential</h6>
+                                        <p style="font-size:0.78rem;color:#666;margin:0;">에이전트 결과를 다음 에이전트에 순차 전달. 파이프라인, 다단계 처리에 적합.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 text-center rounded-3" style="background:#E3F2FD;">
+                                        <i class="bi bi-chat-right-dots" style="font-size:2rem;color:#1565C0;"></i>
+                                        <h6 class="mt-2" style="font-weight:700;">Group Chat</h6>
+                                        <p style="font-size:0.78rem;color:#666;margin:0;">컨텍스트/규칙에 따라 에이전트 간 동적 제어 전환. 에스컬레이션, 전문가 핸드오프.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wfBuilder">
+                            <i class="bi bi-layout-wtf me-2"></i> 비주얼 빌더 사용 방법
+                        </button>
+                    </h2>
+                    <div id="wfBuilder" class="accordion-collapse collapse" data-bs-parent="#accordionWorkflow">
+                        <div class="accordion-body">
+                            <ol class="step-list">
+                                <li><a href="https://ai.azure.com/" target="_blank">Microsoft Foundry</a>에 로그인합니다.</li>
+                                <li>상단 메뉴에서 <strong>Build</strong>를 선택합니다.</li>
+                                <li><strong>Create new workflow</strong> → 패턴(Sequential / Group Chat / Human-in-the-loop)을 선택합니다.</li>
+                                <li>각 에이전트 노드를 선택하여 기존 에이전트를 연결하거나 새 에이전트를 생성합니다.</li>
+                                <li>비주얼라이저에서 <strong>Save</strong>를 클릭하여 변경사항을 저장합니다.</li>
+                                <li><strong>Run Workflow</strong>를 선택하여 채팅 창에서 워크플로를 테스트합니다.</li>
+                            </ol>
+
+                            <!-- Workflow Visual Builder Screenshots -->
+                            <div class="diagram-container mt-3">
+                                <img src="https://learn.microsoft.com/en-us/azure/foundry/media/workflows/ask-a-question-node.png" 
+                                     alt="Workflow - Ask a Question 노드 설정 화면" 
+                                     class="img-screenshot" loading="lazy">
+                                <div class="diagram-caption">
+                                    <i class="bi bi-info-circle"></i> Workflow의 "Ask a Question" 노드 구성 화면 &mdash;
+                                    <a href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow" target="_blank" rel="noopener">Workflow 문서</a>
+                                </div>
+                            </div>
+
+                            <div class="diagram-container mt-3">
+                                <img src="https://learn.microsoft.com/en-us/azure/foundry/media/workflows/if-else-condition.png" 
+                                     alt="Workflow - If/Else 조건 분기 설정 화면" 
+                                     class="img-screenshot" loading="lazy">
+                                <div class="diagram-caption">
+                                    <i class="bi bi-info-circle"></i> If/Else 조건 분기에서 시스템 변수를 활용하는 화면 &mdash;
+                                    <a href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow" target="_blank" rel="noopener">Workflow 문서</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wfNodes">
+                            <i class="bi bi-bricks me-2"></i> 노드 유형
+                        </button>
+                    </h2>
+                    <div id="wfNodes" class="accordion-collapse collapse" data-bs-parent="#accordionWorkflow">
+                        <div class="accordion-body">
+                            <p>워크플로의 빌딩 블록인 노드 타입:</p>
+                            <div class="row g-2">
+                                <div class="col-sm-6">
+                                    <div class="p-2 rounded" style="background:#f8f9fa;">
+                                        <strong><i class="bi bi-robot text-primary"></i> Agent</strong> — 에이전트를 호출합니다
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-2 rounded" style="background:#f8f9fa;">
+                                        <strong><i class="bi bi-signpost-2 text-primary"></i> Logic</strong> — if/else, go to, for each
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-2 rounded" style="background:#f8f9fa;">
+                                        <strong><i class="bi bi-database text-primary"></i> Data Transform</strong> — 변수 설정, 값 파싱
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-2 rounded" style="background:#f8f9fa;">
+                                        <strong><i class="bi bi-chat text-primary"></i> Basic Chat</strong> — 메시지 전송 / 질문
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="highlight-box mt-3">
+                                <p><strong>Power Fx 표현식</strong> — Excel과 유사한 로우코드 수식 언어를 사용하여 데이터를 조작하고, 변수를 설정하고, 조건을 평가할 수 있습니다.</p>
+                            </div>
+
+                            <div class="diagram-container mt-3">
+                                <img src="https://learn.microsoft.com/en-us/azure/foundry/media/workflows/response-format.png" 
+                                     alt="Workflow - JSON Schema 응답 포맷 설정" 
+                                     class="img-screenshot" loading="lazy">
+                                <div class="diagram-caption">
+                                    <i class="bi bi-info-circle"></i> JSON Schema로 에이전트의 구조화된 출력 포맷을 설정하는 화면 &mdash;
+                                    <a href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow" target="_blank" rel="noopener">Workflow 문서</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DETAIL: HOSTED AGENT ===== -->
+    <section class="content-section" id="detail-hosted">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-box-seam"></i> Hosted Agent 상세 <span class="badge-preview">Preview</span></h2>
+            <p class="section-subtitle">코드 기반 에이전트를 컨테이너 이미지로 빌드하고 Foundry Agent Service에 배포합니다.</p>
+
+            <div class="accordion detail-accordion" id="accordionHosted">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#hostedFramework">
+                            <i class="bi bi-puzzle me-2"></i> 지원 프레임워크 및 언어
+                        </button>
+                    </h2>
+                    <div id="hostedFramework" class="accordion-collapse collapse show" data-bs-parent="#accordionHosted">
+                        <div class="accordion-body">
+                            <div class="table-responsive mb-3">
+                                <table class="table table-sm table-bordered">
+                                    <thead style="background:#f8f9fa;">
+                                        <tr><th>프레임워크</th><th class="text-center">Python</th><th class="text-center">.NET (C#)</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Microsoft Agent Framework</strong></td>
+                                            <td class="text-center table-check"><i class="bi bi-check-lg"></i></td>
+                                            <td class="text-center table-check"><i class="bi bi-check-lg"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>LangGraph</strong></td>
+                                            <td class="text-center table-check"><i class="bi bi-check-lg"></i></td>
+                                            <td class="text-center table-cross"><i class="bi bi-x-lg"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Custom Code</strong></td>
+                                            <td class="text-center table-check"><i class="bi bi-check-lg"></i></td>
+                                            <td class="text-center table-check"><i class="bi bi-check-lg"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h6 style="font-weight:700;">어댑터 패키지</h6>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="framework-badge"><i class="bi bi-filetype-py"></i> azure-ai-agentserver-core</span>
+                                <span class="framework-badge"><i class="bi bi-filetype-py"></i> azure-ai-agentserver-agentframework</span>
+                                <span class="framework-badge"><i class="bi bi-filetype-py"></i> azure-ai-agentserver-langgraph</span>
+                                <span class="framework-badge"><i class="bi bi-filetype-cs"></i> Azure.AI.AgentServer.Core</span>
+                                <span class="framework-badge"><i class="bi bi-filetype-cs"></i> Azure.AI.AgentServer.AgentFramework</span>
+                            </div>
+
+                            <div class="highlight-box">
+                                <p><strong>Hosting Adapter</strong> — 프레임워크 추상화 레이어로, 에이전트를 HTTP 서비스로 노출하여 로컬 테스트 및 배포를 간소화합니다. 대화 관리, 메시지 직렬화, 스트리밍, OpenTelemetry 관찰 가능성을 자동 처리합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hostedDeploy">
+                            <i class="bi bi-rocket-takeoff me-2"></i> 배포 흐름
+                        </button>
+                    </h2>
+                    <div id="hostedDeploy" class="accordion-collapse collapse" data-bs-parent="#accordionHosted">
+                        <div class="accordion-body">
+                            <h6 style="font-weight:700;margin-bottom:1rem;">컨테이너 기반 배포 프로세스</h6>
+                            <ol class="step-list">
+                                <li><strong>로컬 에이전트 실행:</strong> Hosting Adapter로 에이전트를 래핑하고 <code>localhost:8088</code>에서 REST API로 테스트합니다.</li>
+                                <li><strong>Docker 이미지 빌드:</strong> <code>docker build --platform linux/amd64</code>로 이미지를 생성합니다. (반드시 linux/amd64 플랫폼 지정!)</li>
+                                <li><strong>ACR에 푸시:</strong> Azure Container Registry에 이미지를 태그하고 푸시합니다.</li>
+                                <li><strong>ACR 권한 구성:</strong> 프로젝트 관리 ID에 Container Registry Repository Reader 역할을 부여합니다.</li>
+                                <li><strong>Capability Host 생성:</strong> 계정 레벨 capability host를 생성하고 <code>enablePublicHostingEnvironment: true</code>로 설정합니다.</li>
+                                <li><strong>에이전트 버전 생성:</strong> Foundry SDK로 에이전트를 등록합니다.</li>
+                                <li><strong>배포 시작:</strong> <code>az cognitiveservices agent start</code>로 에이전트를 시작합니다.</li>
+                            </ol>
+
+                            <div class="highlight-box mt-3">
+                                <p><strong><i class="bi bi-lightbulb"></i> Azure Developer CLI (azd) 사용 시:</strong> <code>azd ai agent init</code> → <code>azd up</code> 두 명령으로 프로비저닝부터 배포까지 자동화할 수 있습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hostedCode">
+                            <i class="bi bi-code-slash me-2"></i> Agent Framework 코드 예시
+                        </button>
+                    </h2>
+                    <div id="hostedCode" class="accordion-collapse collapse" data-bs-parent="#accordionHosted">
+                        <div class="accordion-body">
+                            <p>Microsoft Agent Framework를 사용한 Hosted Agent 예시 (Python):</p>
+                            <div class="code-block">
+<span class="keyword">from</span> agent_framework <span class="keyword">import</span> ai_function, ChatAgent
+<span class="keyword">from</span> agent_framework.azure <span class="keyword">import</span> AzureAIAgentClient
+<span class="keyword">from</span> azure.ai.agentserver.agentframework <span class="keyword">import</span> from_agent_framework
+<span class="keyword">from</span> azure.identity <span class="keyword">import</span> DefaultAzureCredential
+
+<span class="comment"># 커스텀 로컬 도구 정의</span>
+@ai_function
+<span class="keyword">def</span> <span class="func">get_local_date_time</span>(iana_timezone: str) -> str:
+    <span class="string">"""특정 타임존의 현재 날짜와 시간을 반환합니다."""</span>
+    <span class="keyword">from</span> datetime <span class="keyword">import</span> datetime
+    <span class="keyword">from</span> zoneinfo <span class="keyword">import</span> ZoneInfo
+    tz = <span class="func">ZoneInfo</span>(iana_timezone)
+    current_time = datetime.<span class="func">now</span>(tz)
+    <span class="keyword">return</span> current_time.<span class="func">strftime</span>(<span class="string">'%Y-%m-%d %H:%M:%S %Z'</span>)
+
+<span class="comment"># 에이전트 생성</span>
+agent = <span class="func">ChatAgent</span>(
+    chat_client=<span class="func">AzureAIAgentClient</span>(
+        project_endpoint=PROJECT_ENDPOINT,
+        model_deployment_name=<span class="string">"gpt-4.1"</span>,
+        credential=<span class="func">DefaultAzureCredential</span>(),
+    ),
+    instructions=<span class="string">"You are a helpful assistant."</span>,
+    tools=[get_local_date_time],
+)
+
+<span class="comment"># Hosting Adapter로 래핑하여 실행</span>
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="func">from_agent_framework</span>(agent).<span class="func">run</span>()
+                            </div>
+
+                            <p class="mt-3" style="font-size:0.82rem;"><strong>로컬 테스트 방법:</strong></p>
+                            <div class="code-block">
+<span class="comment"># 에이전트 실행 후 localhost:8088에서 테스트</span>
+POST http://localhost:8088/responses
+Content-Type: application/json
+
+{
+    <span class="string">"input"</span>: <span class="string">"서울의 현재 시간은?"</span>
+}
+                            </div>
+
+                            <p class="mt-2" style="font-size:0.82rem;">
+                                <a href="https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents" target="_blank" rel="noopener">
+                                    <i class="bi bi-github"></i> Python 코드 샘플 보기 →
+                                </a>
+                                &nbsp;|&nbsp;
+                                <a href="https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/csharp/hosted-agents" target="_blank" rel="noopener">
+                                    <i class="bi bi-github"></i> C# 코드 샘플 보기 →
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hostedManage">
+                            <i class="bi bi-sliders me-2"></i> 관리 및 운영
+                        </button>
+                    </h2>
+                    <div id="hostedManage" class="accordion-collapse collapse" data-bs-parent="#accordionHosted">
+                        <div class="accordion-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h6 style="font-weight:700;"><i class="bi bi-arrow-repeat text-primary"></i> 생명주기 관리</h6>
+                                    <ul style="font-size:0.85rem;">
+                                        <li><strong>Create</strong> — 에이전트 버전 생성 및 등록</li>
+                                        <li><strong>Start</strong> — 배포 시작 (min/max replicas 설정)</li>
+                                        <li><strong>Update</strong> — 버전형/비버전형 업데이트</li>
+                                        <li><strong>Stop</strong> — 배포 중지 (replica → 0)</li>
+                                        <li><strong>Delete</strong> — 버전/전체 삭제</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 style="font-weight:700;"><i class="bi bi-graph-up text-primary"></i> 관찰 가능성</h6>
+                                    <ul style="font-size:0.85rem;">
+                                        <li>OpenTelemetry traces, metrics, logs</li>
+                                        <li>Application Insights 자동 연동 (azd 사용 시)</li>
+                                        <li>Container Log Stream API</li>
+                                        <li>Foundry 포털 Traces 탭</li>
+                                        <li>커스텀 OTEL Collector 엔드포인트 지정 가능</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h6 class="mt-3" style="font-weight:700;"><i class="bi bi-hdd-rack text-primary"></i> Replica 크기</h6>
+                            <p style="font-size:0.85rem;">CPU 0.25~4 코어, 메모리 0.5~8 GiB까지 지원. Scale-to-zero(<code>--min-replicas 0</code>)로 유휴 시 비용 절감 가능.</p>
+
+                            <div class="highlight-box">
+                                <p><strong><i class="bi bi-shield-lock"></i> 보안 주의사항:</strong> 컨테이너 이미지에 시크릿을 넣지 마세요. 관리 ID와 Key Vault 연결을 사용하여 시크릿을 관리하세요. Non-Microsoft 도구/서버와의 데이터 흐름을 주의 깊게 검토하세요.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hostedLimits">
+                            <i class="bi bi-exclamation-triangle me-2"></i> Preview 제한사항
+                        </button>
+                    </h2>
+                    <div id="hostedLimits" class="accordion-collapse collapse" data-bs-parent="#accordionHosted">
+                        <div class="accordion-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered">
+                                    <thead style="background:#FFF3E0;">
+                                        <tr><th>제한 항목</th><th class="text-center">값</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>구독당 Hosted Agent 리소스</td><td class="text-center">100</td></tr>
+                                        <tr><td>Foundry 리소스당 Hosted Agent</td><td class="text-center">200</td></tr>
+                                        <tr><td>최대 min_replica</td><td class="text-center">2</td></tr>
+                                        <tr><td>최대 max_replica</td><td class="text-center">5</td></tr>
+                                        <tr><td>사설 네트워킹(VNet)</td><td class="text-center">미지원 (Preview)</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p style="font-size:0.82rem;color:#888;">
+                                <i class="bi bi-info-circle"></i> 관리형 호스팅 런타임 과금은 Preview 기간 중 2026년 4월 1일 이후 활성화됩니다. 
+                                <a href="https://azure.microsoft.com/pricing/details/ai-foundry/" target="_blank" rel="noopener">가격 페이지</a>를 확인하세요.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== REFERENCES ===== -->
+    <section class="content-section" id="references">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-link-45deg"></i> 참고 자료 링크</h2>
+            <p class="section-subtitle">Microsoft Learn 공식 문서 및 관련 리소스 모음입니다.</p>
+
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-4">
+                    <a class="ref-link-card" href="https://learn.microsoft.com/en-us/azure/foundry/agents/overview" target="_blank" rel="noopener">
+                        <i class="bi bi-book"></i>
+                        <div>
+                            <h6>Agent Service Overview</h6>
+                            <p>에이전트 서비스 개요 및 유형별 비교</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="ref-link-card" href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow" target="_blank" rel="noopener">
+                        <i class="bi bi-diagram-2"></i>
+                        <div>
+                            <h6>Workflow Agents</h6>
+                            <p>워크플로 에이전트 상세 가이드</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="ref-link-card" href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents" target="_blank" rel="noopener">
+                        <i class="bi bi-box-seam"></i>
+                        <div>
+                            <h6>Hosted Agents</h6>
+                            <p>호스트드 에이전트 상세 가이드</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="ref-link-card" href="https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code" target="_blank" rel="noopener">
+                        <i class="bi bi-lightning-charge"></i>
+                        <div>
+                            <h6>Foundry Quickstart</h6>
+                            <p>모델 및 에이전트 시작하기 퀵스타트</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="ref-link-card" href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/runtime-components" target="_blank" rel="noopener">
+                        <i class="bi bi-cpu"></i>
+                        <div>
+                            <h6>Runtime Components</h6>
+                            <p>에이전트, 대화, 응답 런타임 구성요소</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="ref-link-card" href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/development-lifecycle" target="_blank" rel="noopener">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <div>
+                            <h6>Development Lifecycle</h6>
+                            <p>에이전트 개발 생명주기 가이드</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="ref-link-card" href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog" target="_blank" rel="noopener">
+                        <i class="bi bi-tools"></i>
+                        <div>
+                            <h6>Tool Catalog</h6>
+                            <p>사용 가능한 도구 카탈로그</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="ref-link-card" href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-agent" target="_blank" rel="noopener">
+                        <i class="bi bi-share"></i>
+                        <div>
+                            <h6>Publish & Share Agents</h6>
+                            <p>에이전트 게시 및 공유 방법</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="ref-link-card" href="./lab.html" style="border-color:#00838F;background:#E0F7FA;">
+                        <i class="bi bi-laptop" style="color:#00838F;"></i>
+                        <div>
+                            <h6 style="color:#00838F;">Hosted Agent 실전 실습</h6>
+                            <p>처음부터 끝까지 Hosted Agent 구축 핸즈온 랩</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="ref-link-card" href="https://github.com/microsoft-foundry/foundry-samples" target="_blank" rel="noopener">
+                        <i class="bi bi-github"></i>
+                        <div>
+                            <h6>Foundry Samples (GitHub)</h6>
+                            <p>공식 코드 샘플 리포지토리</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-1">
+                        <i class="bi bi-microsoft me-1"></i> <strong>Microsoft Foundry Agent Service</strong> — 에이전트 유형 비교 가이드
+                    </p>
+                    <p class="mb-0">
+                        본 문서는 <a href="https://learn.microsoft.com/en-us/azure/foundry/agents/overview" target="_blank">Microsoft Learn 공식 문서</a>를 기반으로 작성되었습니다.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end mt-2 mt-md-0">
+                    <p class="mb-0">
+                        최종 업데이트: 2026년 4월 17일 &nbsp;|&nbsp;
+                        &copy; 2026 Microsoft. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div><!-- // main-content -->
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Sidebar toggle for mobile
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('show');
+        sidebarOverlay.classList.toggle('show');
+    });
+    sidebarOverlay.addEventListener('click', () => {
+        sidebar.classList.remove('show');
+        sidebarOverlay.classList.remove('show');
+    });
+
+    // Active sidebar link on scroll
+    const sections = document.querySelectorAll('[id]');
+    const navLinks = document.querySelectorAll('.sidebar .nav-link');
+
+    function updateActiveLink() {
+        const scrollPos = window.scrollY + 120;
+        let current = '';
+        sections.forEach(section => {
+            if (section.offsetTop <= scrollPos) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+
+    // Smooth scroll for sidebar links (only for in-page #anchors)
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href') || '';
+            // Only intercept in-page anchor links; let cross-page links navigate normally
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.getElementById(href.substring(1));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            // Close mobile sidebar either way
+            sidebar.classList.remove('show');
+            sidebarOverlay.classList.remove('show');
+        });
+    });
+</script>
 </body>
 </html>
