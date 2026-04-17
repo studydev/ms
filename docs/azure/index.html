@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure — ms.studydev.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="page-category">
+
+<nav class="top-nav">
+    <div class="container-fluid d-flex align-items-center justify-content-between px-3">
+        <a class="nav-brand" href="../"><i class="bi bi-microsoft"></i> ms.studydev.com</a>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../">Home</a></li>
+                <li class="breadcrumb-item active">Azure</li>
+            </ol>
+        </nav>
+    </div>
+</nav>
+
+<div class="main-content">
+    <section class="hero-section">
+        <div class="container">
+            <h1><i class="bi bi-cloud"></i> Azure</h1>
+            <p class="lead">Azure Foundry, AI Agent, Cosmos DB 등 Azure 플랫폼 관련 학습 자료와 실전 가이드 모음입니다.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-folder2-open"></i> 문서 목록</h2>
+            <ul class="doc-list" data-category="azure" id="docList"></ul>
+        </div>
+    </section>
+
+    <footer class="page-footer">
+        <div class="container">
+            <p class="mb-0">
+                <a href="../">← Home</a> &nbsp;|&nbsp;
+                <a href="https://github.com/studydev/ms" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
+            </p>
+        </div>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/site.js"></script>
+<script>
+    fetch('../manifest.json', { cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (manifest) {
+            var ul = document.getElementById('docList');
+            if (!manifest || !manifest.categories || !manifest.categories.azure) {
+                ul.innerHTML = '<li class="empty">준비 중입니다…</li>';
+                return;
+            }
+            var docs = manifest.categories.azure.docs || [];
+            if (!docs.length) {
+                ul.innerHTML = '<li class="empty">준비 중입니다…</li>';
+                return;
+            }
+            ul.innerHTML = docs.map(function (d) {
+                var p = d.path.replace(/^azure\//, '');
+                return '<li><a href="' + p + '"><i class="bi bi-file-earmark-text"></i> ' + d.title + '</a>'
+                    + (d.description ? '<span class="doc-desc">' + d.description + '</span>' : '')
+                    + '</li>';
+            }).join('');
+        });
+</script>
+</body>
+</html>

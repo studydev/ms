@@ -1,0 +1,43 @@
+name: Generate docs/manifest.json
+
+on:
+    push:
+        branches: [main]
+        paths:
+            - 'docs/**/*.html'
+            - 'docs/azure/**'
+            - 'docs/m365/**'
+            - 'docs/github/**'
+            - '.github/workflows/generate-manifest.yml'
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    build-manifest:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: '3.12'
+
+            - name: Generate manifest.json
+              run: |
+                  python3 scripts/generate_manifest.py
+
+            - name: Commit & push if changed
+              run: |
+                  if git diff --quiet docs/manifest.json; then
+                      echo "No manifest changes."
+                      exit 0
+                  fi
+                  git config user.name  "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git add docs/manifest.json
+                  git commit -m "chore(manifest): regenerate docs/manifest.json"
+                  git push

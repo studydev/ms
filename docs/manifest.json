@@ -1,0 +1,27 @@
+{
+    "generatedAt": "2026-04-17T03:27:50Z",
+    "categories": {
+        "azure": {
+            "label": "Azure",
+            "description": "Azure Foundry, AI Agent, Cosmos DB, App Service 등 Azure 전반.",
+            "docs": [
+                {
+                    "slug": "hosted_agent",
+                    "title": "Microsoft Foundry Agent Service — 에이전트 유형 비교 가이드",
+                    "description": "Prompt Agent, Workflow Agent, Hosted Agent — 세 가지 에이전트 유형의 특징과 차이점을 한눈에 비교하고, 프로젝트에 적합한 에이전트를 선택하세요.",
+                    "path": "azure/hosted_agent/"
+                }
+            ]
+        },
+        "m365": {
+            "label": "Microsoft 365",
+            "description": "Copilot, Graph API, Teams, SharePoint 등.",
+            "docs": []
+        },
+        "github": {
+            "label": "GitHub",
+            "description": "GitHub Actions, Copilot, Codespaces 등.",
+            "docs": []
+        }
+    }
+}
