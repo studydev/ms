@@ -115,12 +115,66 @@ body {
     background: radial-gradient(circle, rgba(0,242,254,0.15) 0%, transparent 70%);
 }
 .page-lab .sidebar-toggle { background: var(--hosted-color); box-shadow: 0 4px 16px rgba(0,131,143,0.4); }
+/* M365 page variant */
+.page-m365 .hero-section {
+    background: linear-gradient(135deg, #001D3D 0%, var(--azure-dark) 40%, #D83B01 100%);
+}
+.page-m365 .hero-section::before {
+    background: radial-gradient(circle, rgba(235,131,23,0.12) 0%, transparent 70%);
+}
+.page-m365 .sidebar-toggle { background: var(--m365-color); box-shadow: 0 4px 16px rgba(216,59,1,0.4); }
+.page-m365 .sidebar .nav-link:hover,
+.page-m365 .sidebar .nav-link.active {
+    color: var(--m365-color); border-left-color: var(--m365-color);
+    background: #FFF3E0;
+}
+.page-m365 .step-card::before { background: var(--m365-gradient); }
+.page-m365 .step-card .step-number { background: var(--m365-gradient); }
+/* M365 page — unified card colors */
+.page-m365 .agent-card .card-icon { background: var(--m365-gradient); }
+.page-m365 .agent-card .badge-type { background: var(--azure-light); color: var(--azure-dark); }
 .lab-badge {
     display: inline-flex; align-items: center; gap: 0.4rem;
     background: rgba(0,242,254,0.2); border: 1px solid rgba(0,242,254,0.4);
     padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: #fff;
     margin-top: 1rem;
 }
+
+/* ===== HERO SPEECH BUBBLE ===== */
+.hero-section .speech-bubble {
+    position: relative;
+    display: inline-block;
+    max-width: 720px;
+    margin-top: 1.2rem;
+    padding: 1.2rem 1.6rem 1.2rem 3rem;
+    background: #fff;
+    color: #1a1a1a;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.hero-section .speech-bubble::after {
+    content: "";
+    position: absolute;
+    left: 2.4rem;
+    bottom: -14px;
+    width: 0; height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 16px solid #fff;
+    filter: drop-shadow(0 4px 3px rgba(0,0,0,0.08));
+}
+.hero-section .speech-bubble-quote {
+    position: absolute;
+    left: 0.9rem;
+    top: 0.8rem;
+    font-size: 1.8rem;
+    color: var(--m365-color);
+    opacity: 0.55;
+    line-height: 1;
+}
+.hero-section .speech-bubble b { color: var(--m365-color); }
 
 /* ===== SECTION ===== */
 .content-section { padding: 3rem 2.5rem; }

@@ -16,7 +16,20 @@
         "m365": {
             "label": "Microsoft 365",
             "description": "Copilot, Graph API, Teams, SharePoint 등.",
-            "docs": []
+            "docs": [
+                {
+                    "slug": "meeting_in_30min",
+                    "title": "30분 뒤 미팅, 발표 자료가 없다 — 긴급 준비 실전기",
+                    "description": "일정이 당겨졌다. 근거는 흩어져 있다. 30분 안에 '말이 되는 자료'를 만들기 위한 4단계 순서 — 수집 → 메시지 → 시각화 → 시연.",
+                    "path": "m365/meeting_in_30min/"
+                },
+                {
+                    "slug": "cowork_html_guide",
+                    "title": "M365 Cowork로 HTML 문서 만들기",
+                    "description": "Cowork에서 생성한 HTML을 사이트 표준 템플릿으로 변환하고 GitHub Pages로 배포·공유하는 전체 워크플로 가이드.",
+                    "path": "m365/cowork_html_guide/"
+                }
+            ]
         },
         "github": {
             "label": "GitHub",
