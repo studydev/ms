@@ -498,6 +498,14 @@ body {
 .step-tl-item.active .step-tl-label { color: var(--azure-primary); font-weight: 700; }
 .step-tl-item.active .step-tl-desc { color: var(--azure-primary); opacity: 0.75; }
 
+/* ===== RESPONSIVE IMAGE ===== */
+.hero-comic-img {
+    max-width: 640px;
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+}
+
 /* ===== MISC ===== */
 .badge-preview {
     background: #FFF3E0; color: #E65100; font-size: 0.65rem; font-weight: 600;
