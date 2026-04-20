@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>비즈니스 및 기술 문서 HTML로 뚝딱! - M365 Copilot Cowork</title>
+    <title>[Cowork] 비즈니스 및 기술 문서 HTML로 뚝딱!</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
         </a>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../../">MS Tech</a></li>
+                <li class="breadcrumb-item"><a href="../../">Home</a></li>
                 <li class="breadcrumb-item"><a href="../">M365</a></li>
                 <li class="breadcrumb-item active">문서 뚝딱!</li>
             </ol>
@@ -34,14 +34,14 @@
     <div class="nav-heading">시작하기</div>
     <a class="nav-link" href="#showcase">이런 결과물을 만들 수 있습니다</a>
     <a class="nav-link" href="#why">왜 이 방법인가</a>
-    <div class="nav-heading">실전 워크플로</div>
+    <div class="nav-heading">작업 순서</div>
     <ol class="step-timeline" id="stepTimeline" data-past-anchor="advanced">
         <li class="step-tl-item" data-step="step1">
             <a class="step-tl-link" href="#step1">
                 <span class="step-tl-circle">1</span>
                 <span class="step-tl-body">
-                    <span class="step-tl-label">Cowork에서 생성</span>
-                    <span class="step-tl-desc">프롬프트 → HTML</span>
+                    <span class="step-tl-label">자료 수집</span>
+                    <span class="step-tl-desc">Researcher Agent</span>
                 </span>
             </a>
         </li>
@@ -49,8 +49,8 @@
             <a class="step-tl-link" href="#step2">
                 <span class="step-tl-circle">2</span>
                 <span class="step-tl-body">
-                    <span class="step-tl-label">출력 파일 찾기</span>
-                    <span class="step-tl-desc">Coworker/sessions/</span>
+                    <span class="step-tl-label">HTML 문서 생성</span>
+                    <span class="step-tl-desc">Cowork 프롬프트</span>
                 </span>
             </a>
         </li>
@@ -58,8 +58,8 @@
             <a class="step-tl-link" href="#step3">
                 <span class="step-tl-circle">3</span>
                 <span class="step-tl-body">
-                    <span class="step-tl-label">저장소로 복사</span>
-                    <span class="step-tl-desc">docs/카테고리/slug/</span>
+                    <span class="step-tl-label">출력 파일 찾기</span>
+                    <span class="step-tl-desc">Coworker/sessions/</span>
                 </span>
             </a>
         </li>
@@ -67,23 +67,15 @@
             <a class="step-tl-link" href="#step4">
                 <span class="step-tl-circle">4</span>
                 <span class="step-tl-body">
-                    <span class="step-tl-label">템플릿 변환</span>
-                    <span class="step-tl-desc">Copilot 활용</span>
-                </span>
-            </a>
-        </li>
-        <li class="step-tl-item" data-step="step5">
-            <a class="step-tl-link" href="#step5">
-                <span class="step-tl-circle">5</span>
-                <span class="step-tl-body">
-                    <span class="step-tl-label">등록 & 배포</span>
-                    <span class="step-tl-desc">manifest + git push</span>
+                    <span class="step-tl-label">Word · PPT 전환</span>
+                    <span class="step-tl-desc">상세 편집</span>
                 </span>
             </a>
         </li>
     </ol>
     <div class="nav-heading">더 알아보기</div>
     <a class="nav-link" href="#advanced">고급 활용 팁</a>
+    <a class="nav-link" href="#share">이 결과물 공유하기</a>
     <a class="nav-link" href="#references">참고 자료</a>
 </aside>
 
@@ -99,10 +91,10 @@
     <section class="hero-section" id="top">
         <div class="container">
             <div class="lab-badge"><i class="bi bi-stars"></i> 실전 가이드</div>
-            <h1 style="margin-top:0.8rem;">M365 Cowork로<br>HTML 문서 & 슬라이드 만들기<br><span style="font-weight:400;font-size:0.5em;">대화 한 번으로 시각적 결과물을, Git Push 한 번으로 전 세계에 공유</span></h1>
+            <h1 style="margin-top:0.8rem;">M365 Cowork로<br>HTML 문서 & 슬라이드 만들기<br><span style="font-weight:400;font-size:0.5em;">대화 한 번으로 시각적 결과물을, 수집부터 다듬기까지 자동으로</span></h1>
             <p class="lead">
-                짧은 시간 안에 시각적으로 효과적인 기술 문서, 가이드, 프레젠테이션 슬라이드를 만들고 싶으신가요?<br>
-                M365 Cowork에게 말하면 됩니다. 나머지는 이 가이드가 알려드립니다.
+                사내에 흩어져 있는 Word · PowerPoint · Pages · Outlook · Teams 자료와 웹 검색 결과를 한번에 끌어모아, 보기 좋은 HTML 문서와 슬라이드로 자동 완성합니다.<br>
+                수집부터 다듬기까지, 대화 한 번이면 충분합니다.
             </p>
             <div class="hero-meta">
                 <span><i class="bi bi-clock"></i> 읽기 시간: 10분</span>
@@ -181,7 +173,7 @@
         <div class="container">
             <h2 class="section-title"><i class="bi bi-question-circle"></i> 왜 이 방법인가</h2>
             <p class="section-subtitle">
-                Cowork로 만든 멋진 HTML, 그런데 어떻게 다른 사람에게 보여주나요?
+                주제는 비슷한데 정보가 여러 곳에 흩어져 있나요? 수집·정리·디자인까지 M365 Copilot이 한 번에 처리합니다.
             </p>
 
             <div class="row g-4">
@@ -189,11 +181,11 @@
                     <div class="callout callout-info">
                         <strong><i class="bi bi-exclamation-circle"></i> 기존의 고충</strong>
                         <ul style="font-size:0.88rem; margin-bottom:0;">
-                            <li>HTML 파일을 만들어도 <b>공유할 곳</b>이 마땅치 않음</li>
-                            <li>웹서버를 직접 구축·운영하려면 비용과 노력이 큼</li>
-                            <li>파일을 메일로 보내면 레이아웃이 깨지거나 열기 불편</li>
-                            <li>문서가 늘어날수록 관리·디자인 일관성 유지가 어려움</li>
-                            <li>업데이트할 때마다 파일을 다시 보내야 함</li>
+                            <li>자료가 <b>Word · PPT · Pages · Outlook · Teams</b>에 흩어져 있음</li>
+                            <li>웹 검색 결과까지 더해 일일이 정리하려면 시간이 오래 걸림</li>
+                            <li>Markdown 만으로는 <b>시각적 강조</b>에 한계가 있음</li>
+                            <li>디자인 일관성을 맞추려면 별도의 템플릿 작업이 필요</li>
+                            <li>초안 이후에는 세부 수정 · 발표용 변환이 다시 일거리</li>
                         </ul>
                     </div>
                 </div>
@@ -201,11 +193,11 @@
                     <div class="callout callout-info">
                         <strong><i class="bi bi-check-circle"></i> 이 워크플로의 해결</strong>
                         <ul style="font-size:0.88rem; margin-bottom:0;">
-                            <li>GitHub Pages로 <b>무료</b> 정적 호스팅</li>
-                            <li><code>git push</code> 한 번으로 <b>자동 배포</b></li>
-                            <li>공용 CSS/JS 템플릿으로 <b>일관된 디자인</b></li>
-                            <li>manifest.json 기반 <b>자동 목록 관리</b></li>
-                            <li>커스텀 도메인으로 <b>깔끔한 URL 공유</b></li>
+                            <li><b>Researcher Agent</b>가 사내 문서 + 웹 검색을 심층 수집</li>
+                            <li><b>M365 연결</b>로 Word/PPT/Pages/Outlook/Teams 정보를 한 곳에서 활용</li>
+                            <li>Cowork가 <b>하이라이트 · 카드 · 코드 블록</b>까지 갖춘 HTML 자동 생성</li>
+                            <li>같은 대화에서 <b>슬라이드 형태</b>로 재구성 가능</li>
+                            <li>필요하면 <b>Word · PPT로 전환</b>해 세밀하게 편집</li>
                         </ul>
                     </div>
                 </div>
@@ -215,6 +207,11 @@
             <h5 style="font-weight:700; margin-top:2rem;">전체 파이프라인</h5>
             <div class="flow-diagram">
                 <div class="flow-node">
+                    <i class="bi bi-search"></i>
+                    Researcher로<br>자료 수집
+                </div>
+                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                <div class="flow-node active">
                     <i class="bi bi-chat-dots"></i>
                     Cowork에서<br>HTML 생성
                 </div>
@@ -225,30 +222,105 @@
                 </div>
                 <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
                 <div class="flow-node">
-                    <i class="bi bi-box-arrow-in-right"></i>
-                    저장소로<br>복사
+                    <img class="app-icon" src="../../icons/word.svg" alt="Word/PPT">
+                    Word · PPT<br>전환 편집
                 </div>
-                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
-                <div class="flow-node active">
-                    <i class="bi bi-palette"></i>
-                    사이트 템플릿<br>변환
+            </div>
+
+            <div class="callout callout-tip" style="margin-top:1.5rem;">
+                <strong><i class="bi bi-signpost-split"></i> 만들기만으로 끝이 아닙니다 — 공유까지 한걸음 더</strong>
+                HTML로 완성한 결과물은 이 페이지 아래쪽 <a href="#share">"다음 단계" 섹션</a>에서 안내하는 방법으로 손쉽게 공유할 수 있습니다. 터미널 없이 브라우저만으로 진행 가능합니다.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STEP 1: Researcher Agent로 자료 수집 ===== -->
+    <section class="content-section" id="step1">
+        <div class="container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Researcher Agent로 자료 수집</h3>
+                <p>
+                    M365 Copilot의 <b>Researcher Agent</b>를 이용하면 사내 문서와 웹 검색 결과를 심층적으로 조사하여, 원하는 주제에 맞는 자료를 한 번에 모을 수 있습니다. 수집 결과는 <b>Markdown · Pages · Word</b> 형태로 저장되어 이후 단계에서 재사용하기 편리합니다.
+                </p>
+
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-layers-half me-1"></i> 연결되는 데이터 소스</h5>
+                <p style="font-size:0.9rem; color:#555;">
+                    Researcher는 사용자의 권한 범위 내 M365 Graph를 통해 다음 소스를 자동 탐색합니다. 웹 검색도 함께 수행되어 최신 동향까지 반영됩니다.
+                </p>
+
+                <div class="row g-3 mt-1">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="prereq-card">
+                            <img class="app-icon" src="../../icons/word.svg" alt="Microsoft Word">
+                            <h6>Word</h6>
+                            <p>기획서 · 보고서</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="prereq-card">
+                            <img class="app-icon" src="../../icons/powerpoint.svg" alt="Microsoft PowerPoint">
+                            <h6>PowerPoint</h6>
+                            <p>발표 자료</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="prereq-card">
+                            <img class="app-icon" src="../../icons/onenote.svg" alt="Microsoft Pages">
+                            <h6>Pages</h6>
+                            <p>협업 노트</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="prereq-card">
+                            <img class="app-icon" src="../../icons/outlook.svg" alt="Microsoft Outlook">
+                            <h6>Outlook</h6>
+                            <p>메일 · 첨부</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="prereq-card">
+                            <img class="app-icon" src="../../icons/teams.svg" alt="Microsoft Teams">
+                            <h6>Teams</h6>
+                            <p>채팅 · 회의</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="prereq-card">
+                            <img class="app-icon" src="../../icons/Globe.svg" alt="Web">
+                            <h6>Web</h6>
+                            <p>최신 검색</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
-                <div class="flow-node">
-                    <i class="bi bi-globe2"></i>
-                    배포 &<br>공유
+
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-chat-dots me-1"></i> 프롬프트 예시</h5>
+                <div class="callout callout-info">
+                    <strong>Researcher Agent 프롬프트</strong>
+                    "사내 Teams와 SharePoint에 저장된 <b>'파트너 온보딩'</b> 관련 문서를 찾아주고, 최근 6개월간 업계 모범 사례도 웹에서 조사해줘. 핵심 개념·사례·체크리스트 형태로 정리한 뒤 <b>Pages 문서</b>로 저장해줘."
+                </div>
+
+                <div class="callout callout-tip">
+                    <strong><i class="bi bi-lightbulb"></i> 출력 형식 선택 팁</strong>
+                    <ul style="font-size:0.86rem; margin-bottom:0;">
+                        <li><b>Markdown</b> — 이후 Cowork 프롬프트에 통째로 붙여 넣기 쉬움</li>
+                        <li><b>Pages</b> — 팀과 공동 편집하며 자료를 보강할 때 유리</li>
+                        <li><b>Word</b> — 사내 결재/공식 배포용 원본으로 재사용</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== STEP 1: Cowork에서 HTML 생성 ===== -->
-    <section class="content-section" id="step1">
+    <!-- ===== STEP 2: Cowork에서 HTML 생성 ===== -->
+    <section class="content-section" id="step2">
         <div class="container">
             <div class="step-card">
-                <div class="step-number">1</div>
+                <div class="step-number">2</div>
                 <h3>Cowork에서 HTML 문서 생성하기</h3>
-                <p>M365 Cowork(<a href="https://cowork.microsoft.com" target="_blank" rel="noopener">cowork.microsoft.com</a>)에서 원하는 주제를 대화형으로 요청합니다.</p>
+                <p>
+                    Step 1에서 모은 자료를 기반으로, M365 Copilot <b>Cowork</b>(<a href="https://cowork.microsoft.com" target="_blank" rel="noopener">cowork.microsoft.com</a>)에 원하는 결과물을 요청합니다. Markdown으로 표현하기 어려운 <b>카드 레이아웃 · 하이라이트 박스 · 아이콘 · 코드 블록</b>까지 자동으로 구성됩니다.
+                </p>
 
                 <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;">사례별 프롬프트 패턴</h5>
 
@@ -257,12 +329,12 @@
                         <div class="callout callout-info">
                             <strong><i class="bi bi-file-earmark-richtext"></i> 기술 문서를 만들 때</strong>
                             <p style="margin-top:0.5rem; font-size:0.85rem; margin-bottom:0.5rem;">
-                                "[주제]에 대해 한국어로 정리해줘. 핵심 개념, 모범 사례, 예시 코드를 포함하고, 코드 블록에 구문 하이라이트를 넣어서 <b>HTML 파일로</b> 만들어줘."
+                                "방금 Pages에 저장한 <b>'파트너 온보딩'</b> 문서를 바탕으로, 핵심 개념 · 모범 사례 · 체크리스트를 정리해서 <b>HTML 파일로</b> 만들어줘. 코드 블록은 구문 하이라이트 포함해서."
                             </p>
                             <div class="d-flex flex-wrap gap-1">
                                 <span class="pattern-badge">표로 정리</span>
-                                <span class="pattern-badge">코드 예시 포함</span>
-                                <span class="pattern-badge">목차 추가</span>
+                                <span class="pattern-badge">아이콘 카드</span>
+                                <span class="pattern-badge">목차 포함</span>
                             </div>
                         </div>
                     </div>
@@ -270,7 +342,7 @@
                         <div class="callout callout-info">
                             <strong><i class="bi bi-easel"></i> 슬라이드를 만들 때</strong>
                             <p style="margin-top:0.5rem; font-size:0.85rem; margin-bottom:0.5rem;">
-                                "[주제]를 10장 분량의 <b>HTML 슬라이드</b>로 만들어줘. 각 슬라이드에 제목, 핵심 포인트 3개, 아이콘을 넣고 키보드 좌우 화살표로 넘길 수 있게 해줘."
+                                "이 내용을 10장 분량의 <b>HTML 슬라이드</b>로 만들어줘. 각 슬라이드에 제목, 핵심 포인트 3개, 관련 아이콘을 넣고 좌우 화살표로 넘길 수 있게."
                             </p>
                             <div class="d-flex flex-wrap gap-1">
                                 <span class="pattern-badge">슬라이드 형태</span>
@@ -287,35 +359,35 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="tl-title">1차: 콘텐츠 생성</div>
-                        <div class="tl-desc">"[주제]에 대해 HTML 문서로 정리해줘" → 기본 구조와 콘텐츠 확보</div>
+                        <div class="tl-desc">수집한 자료 기반으로 "HTML 문서로 정리해줘" → 기본 구조·콘텐츠 확보</div>
                     </div>
                     <div class="timeline-item">
                         <div class="tl-title">2차: 시각적 개선</div>
-                        <div class="tl-desc">"스타일을 좀 더 세련되게 해줘. 카드 레이아웃과 아이콘을 추가해줘" → 디자인 강화</div>
+                        <div class="tl-desc">"스타일을 좀 더 세련되게 해줘. 카드 레이아웃과 아이콘 추가" → 디자인 강화</div>
                     </div>
                     <div class="timeline-item">
                         <div class="tl-title">3차: 기능 추가</div>
-                        <div class="tl-desc">"목차를 추가하고 반응형으로 바꿔줘. 코드 복사 버튼도 넣어줘" → 완성도 향상</div>
+                        <div class="tl-desc">"목차 추가, 반응형, 코드 복사 버튼 삽입" → 완성도 향상</div>
                     </div>
                     <div class="timeline-item">
                         <div class="tl-title">4차: 슬라이드 변환 (선택)</div>
-                        <div class="tl-desc">"이 내용을 기반으로 PowerPoint 슬라이드로 변환해줘" → 프레젠테이션용</div>
+                        <div class="tl-desc">"같은 내용을 HTML 슬라이드로 재구성해줘" → 발표 자료화</div>
                     </div>
                 </div>
 
                 <div class="callout callout-info mt-3">
                     <strong><i class="bi bi-info-circle"></i> Cowork의 HTML 출력</strong>
-                    Cowork는 대화 중 생성한 HTML을 로컬 파일로 저장합니다. "HTML 파일로 만들어줘"라고 요청하면 독립 실행 가능한 HTML 파일이 세션 출력 폴더에 저장됩니다.
+                    "HTML 파일로 만들어줘"라고 요청하면, Cowork가 독립 실행 가능한 HTML을 세션 출력 폴더에 저장합니다. 다음 단계에서 이 파일을 확인하는 방법을 설명합니다.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== STEP 2: 출력 파일 찾기 ===== -->
-    <section class="content-section" id="step2">
+    <!-- ===== STEP 3: 출력 파일 찾기 ===== -->
+    <section class="content-section" id="step3">
         <div class="container">
             <div class="step-card">
-                <div class="step-number">2</div>
+                <div class="step-number">3</div>
                 <h3>출력 파일 위치 찾기</h3>
                 <p>Cowork가 생성한 HTML 파일은 로컬 파일 시스템에 자동 저장됩니다.</p>
 
@@ -352,194 +424,64 @@ C:\Users\hyounsoo\Documents\Coworker\sessions\<span class="string">a1b2c3d4-e5f6
         </div>
     </section>
 
-    <!-- ===== STEP 3: 나만의 GitHub Pages 만들기 & 파일 넣기 ===== -->
-    <section class="content-section" id="step3">
-        <div class="container">
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h3>나만의 GitHub Pages 만들기 & 파일 넣기</h3>
-                <p>Cowork에서 만든 HTML을 공유하려면 호스팅할 곳이 필요합니다. GitHub Pages를 사용하면 무료로 정적 사이트를 만들 수 있습니다.</p>
-
-                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;">3-1. 나만의 GitHub Pages 저장소 만들기</h5>
-                <p style="font-size:0.9rem; color:#555;">
-                    이미 만들어진 템플릿(<a href="https://github.com/studydev/ms" target="_blank" rel="noopener">studydev/ms</a> 등)을 Fork하거나, 새 저장소를 만들어 GitHub Pages를 활성화합니다.
-                </p>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="tl-title">1. GitHub에서 새 저장소 생성 (또는 Fork)</div>
-                        <div class="tl-desc"><a href="https://github.com/new" target="_blank" rel="noopener">github.com/new</a>에서 저장소를 만들거나, 기존 템플릿 저장소를 Fork합니다.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="tl-title">2. GitHub Pages 활성화</div>
-                        <div class="tl-desc">저장소 Settings → Pages → Source에서 <b>Deploy from a branch</b>를 선택하고 <code>main</code> 브랜치의 <code>/docs</code> 폴더를 지정합니다.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="tl-title">3. 로컬에 Clone</div>
-                        <div class="tl-desc">생성한 저장소를 로컬에 Clone합니다. 이후 VS Code나 파일 탐색기에서 작업할 수 있습니다.</div>
-                    </div>
-                </div>
-
-                <div class="callout callout-info mt-3">
-                    <strong><i class="bi bi-info-circle"></i> 이미 저장소가 있다면</strong>
-                    이 단계는 건너뛰세요. 기존 저장소를 VS Code로 열면 바로 다음 단계로 진행할 수 있습니다.
-                </div>
-
-                <h5 style="font-weight:700; font-size:1rem; margin-top:2rem;">3-2. 파일 탐색기에서 HTML 파일 복사</h5>
-                <p style="font-size:0.9rem; color:#555;">
-                    복잡한 CLI 명령은 필요 없습니다. 파일 탐색기(또는 VS Code Explorer)에서 직관적으로 작업합니다.
-                </p>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="tl-title">1. 카테고리 폴더로 이동</div>
-                        <div class="tl-desc">저장소의 <code>docs/</code> 아래에서 Azure · M365 · GitHub 중 해당 카테고리 폴더를 엽니다.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="tl-title">2. 새 폴더 만들기</div>
-                        <div class="tl-desc">카테고리 폴더 안에 문서용 하위 폴더를 만듭니다 (예: <code>cosmos_db_partition</code>).</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="tl-title">3. HTML 파일 복사</div>
-                        <div class="tl-desc">Step 2에서 찾은 Cowork 출력 HTML 파일을 새로 만든 폴더에 드래그 &amp; 드롭합니다.</div>
-                    </div>
-                </div>
-
-                <div class="callout callout-info mt-3">
-                    <strong><i class="bi bi-info-circle"></i> VS Code에서 작업하기</strong>
-                    저장소를 VS Code로 열면 좌측 Explorer에서 폴더 생성, 파일 드래그 &amp; 드롭이 모두 가능합니다. CLI 없이도 직관적으로 작업할 수 있습니다.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== STEP 4: 템플릿 변환 ===== -->
+    <!-- ===== STEP 4: Word / PowerPoint 전환 편집 ===== -->
     <section class="content-section" id="step4">
         <div class="container">
             <div class="step-card">
                 <div class="step-number">4</div>
-                <h3>GitHub Copilot으로 디자인 변환하기</h3>
+                <h3>Word · PowerPoint로 전환해서 섬세하게 편집</h3>
                 <p>
-                    파일을 복사해 넣었다면, VS Code에서 GitHub Copilot에게 사이트 표준에 맞게 변환해 달라고 요청하면 됩니다. Copilot이 인라인 스타일 제거, 공용 CSS/JS 적용, 사이드바·네비게이션 추가를 자동으로 처리합니다.
+                    HTML은 시각적으로는 강력하지만, <b>세부 문구 수정 · 순서 변경 · 이미지 교체</b> 같은 작업은 익숙한 도구가 더 편합니다. Cowork에게 같은 대화 안에서 <b>Word 또는 PowerPoint</b>로 전환해 달라고 요청하면, 편집과 소유권 관리가 한층 쉬워집니다.
                 </p>
 
-                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-robot me-1"></i> Copilot에게 요청하는 방법</h5>
-                <p style="font-size:0.9rem; color:#555;">
-                    VS Code에서 저장소를 열고 Copilot Chat에 아래와 같이 요청합니다.
-                </p>
-
-                <div class="callout callout-info">
-                    <strong><i class="bi bi-chat-dots"></i> Copilot 프롬프트 예시</strong>
-                    <div class="code-block" style="margin-top:0.5rem; font-size:0.82rem;">
-"docs/azure/cosmos_db_partition/ 폴더에 새로 추가된 HTML 파일을
-이 사이트의 표준 디자인과 폴더 구조에 맞게 변환해줘.
-copilot-instructions.md 규칙을 따라서 공용 CSS/JS만 사용하고,
-사이드바와 네비게이션을 포함한 index.html로 만들어줘."
-<button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> 복사</button></div>
-                </div>
-
-                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;">Copilot이 자동으로 처리하는 것</h5>
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-chat-dots me-1"></i> 전환 요청 예시</h5>
                 <div class="row g-3">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="prereq-card">
-                            <i class="bi bi-palette"></i>
-                            <h6>인라인 스타일 제거</h6>
-                            <p><code>&lt;style&gt;</code> 블록 → <code>site.css</code> 참조</p>
+                    <div class="col-md-6">
+                        <div class="callout callout-info">
+                            <strong><img class="app-icon-inline" src="../../icons/word.svg" alt="Word"> Word로 전환</strong>
+                            <p style="font-size:0.86rem; margin:0.4rem 0 0;">
+                                "방금 만든 HTML 문서를 <b>Word 파일</b>로 전환해줘. 본문 스타일은 제목 1~3 계층 구조로 맞추고, 표와 이미지 캡션은 그대로 유지해줘."
+                            </p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="prereq-card">
-                            <i class="bi bi-code-slash"></i>
-                            <h6>인라인 스크립트 제거</h6>
-                            <p><code>&lt;script&gt;</code> 블록 → <code>site.js</code> 참조</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="prereq-card">
-                            <i class="bi bi-layout-sidebar"></i>
-                            <h6>표준 레이아웃 적용</h6>
-                            <p>top-nav, sidebar, hero 구조</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="prereq-card">
-                            <i class="bi bi-braces"></i>
-                            <h6>CSS 변수 활용</h6>
-                            <p>색상·폰트 하드코딩 대신 변수</p>
+                    <div class="col-md-6">
+                        <div class="callout callout-info">
+                            <strong><img class="app-icon-inline" src="../../icons/powerpoint.svg" alt="PowerPoint"> PowerPoint로 전환</strong>
+                            <p style="font-size:0.86rem; margin:0.4rem 0 0;">
+                                "HTML 슬라이드를 <b>PPT 파일</b>로 전환해줘. 각 슬라이드 제목·본문·아이콘 영역을 레이아웃으로 분리하고, 사내 템플릿 색상(#0078D4)을 써줘."
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="callout callout-info mt-3">
-                    <strong><i class="bi bi-check-circle"></i> 핵심 포인트</strong>
-                    이 저장소에는 <code>copilot-instructions.md</code>가 이미 설정되어 있어서, Copilot이 사이트의 디자인 규칙(공용 CSS/JS, 네비게이션 구조, 코드 블록 스타일 등)을 자동으로 인식하고 적용합니다.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== STEP 5: 등록 & 배포 ===== -->
-    <section class="content-section" id="step5">
-        <div class="container">
-            <div class="step-card">
-                <div class="step-number">5</div>
-                <h3>manifest 등록 & 배포</h3>
-                <p>사이트 목록에 등록하고 Git push로 배포합니다. 두 작업을 한번에 처리합니다.</p>
-
-                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-filetype-json me-1"></i> 5-1. manifest.json에 항목 추가</h5>
-
-                <div class="code-label json">docs/manifest.json (해당 카테고리의 docs 배열에 추가)</div>
-<div class="code-block"><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> 복사</button>
-{
-    <span class="string">"slug"</span>: <span class="string">"cosmos_db_partition"</span>,
-    <span class="string">"title"</span>: <span class="string">"Azure Cosmos DB 파티션 키 선택 가이드"</span>,
-    <span class="string">"description"</span>: <span class="string">"파티션 키 설계 모범 사례와 안티 패턴 정리"</span>,
-    <span class="string">"path"</span>: <span class="string">"azure/cosmos_db_partition/"</span>
-}
-</div>
-
-                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-git me-1"></i> 5-2. 커밋 & 배포</h5>
-
-                <div class="code-label bash">Git 커밋 & 배포</div>
-<div class="code-block"><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> 복사</button>
-<span class="comment"># 1. 변경 파일 스테이징</span>
-<span class="prompt">$ </span><span class="cmd">git</span> add docs/azure/cosmos_db_partition/index.html docs/manifest.json
-
-<span class="comment"># 2. Conventional Commits 형식으로 커밋</span>
-<span class="prompt">$ </span><span class="cmd">git</span> commit <span class="flag">-m</span> <span class="string">"docs: Cosmos DB 파티션 키 가이드 추가"</span>
-
-<span class="comment"># 3. main 브랜치에 push → GitHub Pages 자동 배포</span>
-<span class="prompt">$ </span><span class="cmd">git</span> push origin main
-</div>
-
-                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;">배포 확인</h5>
-                <div class="row g-3 mt-2">
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;">어떤 형식을 선택해야 할까?</h5>
+                <div class="row g-3">
                     <div class="col-md-4">
                         <div class="prereq-card">
-                            <i class="bi bi-globe2"></i>
-                            <h6>사이트 접속</h6>
-                            <p><a href="https://ms.studydev.com" target="_blank" rel="noopener">MS Tech</a>에서 확인</p>
+                            <i class="bi bi-code-square" style="color:var(--azure-primary);"></i>
+                            <h6>HTML 유지</h6>
+                            <p>웹에서 공유 · 반응형 · 하이라이트 박스 그대로</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="prereq-card">
-                            <i class="bi bi-link-45deg"></i>
-                            <h6>직접 URL 공유</h6>
-                            <p>MS Tech / azure / cosmos_db_partition</p>
+                            <img class="app-icon" src="../../icons/word.svg" alt="Microsoft Word">
+                            <h6>Word 변환</h6>
+                            <p>장문 편집 · 결재 문서 · PDF 변환</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="prereq-card">
-                            <i class="bi bi-check-circle"></i>
-                            <h6>Actions 상태</h6>
-                            <p>GitHub Actions 탭에서 배포 확인</p>
+                            <img class="app-icon" src="../../icons/powerpoint.svg" alt="Microsoft PowerPoint">
+                            <h6>PPT 변환</h6>
+                            <p>대면 발표 · 애니메이션 · 고객 제안</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="callout callout-info mt-3">
-                    <strong><i class="bi bi-check-circle"></i> 완료!</strong>
-                    push 후 약 1~2분이면 GitHub Pages가 사이트를 업데이트합니다. HTTPS가 적용된 커스텀 도메인 URL로 누구와도 공유할 수 있습니다.
+                <div class="callout callout-tip mt-3">
+                    <strong><i class="bi bi-lightbulb"></i> 권장 워크플로</strong>
+                    <b>HTML에서 구조와 콘텐츠를 먼저 확정</b>하고, 디테일이 필요할 때만 Word/PPT로 넘기세요. 콘텐츠 작업과 디자인 마감이 분리되어 수정 비용이 크게 줄어듭니다.
                 </div>
             </div>
         </div>
@@ -574,39 +516,38 @@ copilot-instructions.md 규칙을 따라서 공용 CSS/JS만 사용하고,
                     </div>
                 </div>
 
-                <!-- TIP 2: 일괄 변환 -->
+                <!-- TIP 2: Researcher → Cowork 체이닝 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tip2">
-                            <i class="bi bi-collection me-2"></i> 여러 문서를 한번에 변환·배포하기
+                            <i class="bi bi-diagram-3 me-2"></i> Researcher → Cowork 체이닝으로 품질 높이기
                         </button>
                     </h2>
                     <div id="tip2" class="accordion-collapse collapse" data-bs-parent="#advancedAccordion">
                         <div class="accordion-body">
+                            <p>한 번의 프롬프트로 모든 걸 끝내려 하지 말고, 두 에이전트를 역할 분담하세요.</p>
                             <ol class="step-list">
-                                <li>각 HTML 파일을 해당 카테고리 폴더에 <code>original.html</code>로 복사</li>
-                                <li>Copilot에게 폴더 목록을 전달하며 일괄 변환 요청</li>
-                                <li><code>manifest.json</code>에 모든 항목 일괄 추가</li>
-                                <li>한번의 커밋으로 모두 배포</li>
+                                <li><b>Researcher Agent</b>에게 "주제 · 사내 소스 · 웹 소스"를 주고 심층 조사 → Pages 저장</li>
+                                <li>저장된 Pages 링크를 <b>Cowork</b>에 첨부하며 HTML 생성 요청</li>
+                                <li>출처 각주 · 인용 표기까지 유지되며 신뢰도 있는 결과 확보</li>
                             </ol>
                         </div>
                     </div>
                 </div>
 
-                <!-- TIP 3: 업데이트 -->
+                <!-- TIP 3: Cowork 재생성 전략 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tip3">
-                            <i class="bi bi-arrow-repeat me-2"></i> 기존 문서 업데이트
+                            <i class="bi bi-arrow-repeat me-2"></i> 기존 HTML을 부분만 갱신하기
                         </button>
                     </h2>
                     <div id="tip3" class="accordion-collapse collapse" data-bs-parent="#advancedAccordion">
                         <div class="accordion-body">
                             <ul>
-                                <li>Cowork에서 새 버전의 HTML을 생성</li>
-                                <li>기존 <code>index.html</code>이 있는 폴더에 <code>original.html</code>로 복사</li>
-                                <li>Copilot에게 "기존 index.html의 콘텐츠를 original.html 기반으로 업데이트해줘"라고 요청</li>
-                                <li>레이아웃과 네비게이션은 유지하면서 콘텐츠만 교체됨</li>
+                                <li>기존 HTML을 Cowork 대화에 첨부한 뒤, <b>"특정 섹션만"</b> 수정하도록 요청</li>
+                                <li>예: "3번 섹션의 표를 최신 자료 기준으로 다시 만들어줘. 나머지는 그대로 유지해줘."</li>
+                                <li>전체 재생성보다 변경 폭이 작고, 레이아웃·색상 일관성이 유지됩니다.</li>
                             </ul>
                         </div>
                     </div>
@@ -661,6 +602,31 @@ copilot-instructions.md 규칙을 따라서 공용 CSS/JS만 사용하고,
         </div>
     </section>
 
+    <!-- ===== SHARE (다음 단계 브릿지) ===== -->
+    <section class="content-section" id="share">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-arrow-right-circle"></i> 다음 단계 — 이 결과물을 팀과 공유하려면</h2>
+            <p class="section-subtitle">
+                여기까지 오셨다면 보기 좋은 HTML 결과물이 손에 있을 겁니다. 이제 이 결과물을 <b>링크 한 줄로</b> 동료나 고객에게 공유해 보세요. 별도 서버 없이, 브라우저만 있으면 됩니다.
+            </p>
+
+            <div class="highlight-box" style="padding:1.5rem 1.8rem;">
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                    <i class="bi bi-github" style="font-size:2.2rem; color:var(--github-color);"></i>
+                    <div style="flex:1; min-width:240px;">
+                        <h5 style="font-weight:800; margin-bottom:0.3rem;">내가 만든 HTML 결과물을 함께 공유하고 싶다면!</h5>
+                        <p style="margin:0; font-size:0.92rem; color:#444;">
+                            GitHub 웹사이트에서 <b>클릭 몇 번</b>만 하면 공개 URL이 생깁니다. 비개발자도 따라할 수 있는 가장 쉬운 방법을 정리해 두었습니다.
+                        </p>
+                    </div>
+                    <a href="../../github/pages_publishing/" class="btn btn-primary" style="background:var(--github-color); border-color:var(--github-color); font-weight:600; padding:0.6rem 1.2rem;">
+                        공유 가이드 보러 가기 <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== REFERENCES ===== -->
     <section class="content-section" id="references">
         <div class="container">
@@ -676,29 +642,29 @@ copilot-instructions.md 규칙을 따라서 공용 CSS/JS만 사용하고,
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a class="ref-link-card" href="https://pages.github.com/" target="_blank" rel="noopener">
-                        <i class="bi bi-github"></i>
+                    <a class="ref-link-card" href="https://learn.microsoft.com/ko-kr/copilot/researcher" target="_blank" rel="noopener">
+                        <i class="bi bi-search"></i>
                         <div>
-                            <h6>GitHub Pages 공식 문서</h6>
-                            <p>정적 사이트 호스팅 가이드</p>
+                            <h6>Researcher Agent</h6>
+                            <p>M365 Copilot Researcher 개요 · 사용법</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a class="ref-link-card" href="https://ms.studydev.com/" target="_blank" rel="noopener">
-                        <i class="bi bi-globe2"></i>
+                    <a class="ref-link-card" href="https://cowork.microsoft.com" target="_blank" rel="noopener">
+                        <i class="bi bi-chat-dots"></i>
                         <div>
-                            <h6>MS Tech</h6>
-                            <p>이 사이트 메인 페이지</p>
+                            <h6>M365 Copilot Cowork</h6>
+                            <p>Cowork 접속 및 HTML 결과물 생성</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a class="ref-link-card" href="https://github.com/studydev/ms" target="_blank" rel="noopener">
-                        <i class="bi bi-code-slash"></i>
+                    <a class="ref-link-card" href="../../github/pages_publishing/">
+                        <i class="bi bi-share"></i>
                         <div>
-                            <h6>studydev/ms 저장소</h6>
-                            <p>이 사이트의 소스 코드 저장소</p>
+                            <h6>HTML 결과물 공유하기 (추천)</h6>
+                            <p>GitHub Pages로 무료 호스팅하는 별도 가이드</p>
                         </div>
                     </a>
                 </div>
@@ -710,7 +676,7 @@ copilot-instructions.md 규칙을 따라서 공용 CSS/JS만 사용하고,
     <footer class="page-footer">
         <div class="container d-flex flex-wrap justify-content-between align-items-center">
             <span>&copy; 2026 <a href="https://ms.studydev.com">MS Tech</a></span>
-            <span>M365 Cowork HTML & 슬라이드 실전 가이드</span>
+            <span>M365 Cowork — 자료 수집부터 HTML 문서 · 슬라이드 자동화까지</span>
         </div>
     </footer>
 </div>

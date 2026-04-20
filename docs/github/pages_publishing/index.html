@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Pages] 내가 만든 HTML 결과물을 함께 공유하고 싶다면!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/site.css">
+</head>
+<body class="has-sidebar">
+
+<!-- ===== NAVBAR ===== -->
+<nav class="top-nav">
+    <div class="container-fluid d-flex align-items-center justify-content-between px-3">
+        <a class="nav-brand" href="../../">
+            <i class="bi bi-microsoft"></i> MS Tech
+        </a>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../">Home</a></li>
+                <li class="breadcrumb-item"><a href="../">GitHub</a></li>
+                <li class="breadcrumb-item active">HTML 결과물 공유</li>
+            </ol>
+        </nav>
+    </div>
+</nav>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+    <a class="back-link" href="../"><i class="bi bi-arrow-left"></i> GitHub 카테고리로</a>
+    <div class="nav-heading">핵심 3단계</div>
+    <ol class="step-timeline" id="stepTimeline" data-past-anchor="handson">
+        <li class="step-tl-item" data-step="step1">
+            <a class="step-tl-link" href="#step1">
+                <span class="step-tl-circle">1</span>
+                <span class="step-tl-body">
+                    <span class="step-tl-label">저장소 만들기</span>
+                    <span class="step-tl-desc">Pages 켜기</span>
+                </span>
+            </a>
+        </li>
+        <li class="step-tl-item" data-step="step2">
+            <a class="step-tl-link" href="#step2">
+                <span class="step-tl-circle">2</span>
+                <span class="step-tl-body">
+                    <span class="step-tl-label">HTML 업로드</span>
+                    <span class="step-tl-desc">드래그 &amp; 드롭</span>
+                </span>
+            </a>
+        </li>
+        <li class="step-tl-item" data-step="step3">
+            <a class="step-tl-link" href="#step3">
+                <span class="step-tl-circle">3</span>
+                <span class="step-tl-body">
+                    <span class="step-tl-label">URL 공유</span>
+                    <span class="step-tl-desc">완료</span>
+                </span>
+            </a>
+        </li>
+    </ol>
+    <div class="nav-heading">더 알아보기</div>
+    <a class="nav-link" href="#handson">실습으로 더 깊이</a>
+    <a class="nav-link" href="#advanced">고급 · 개발자용</a>
+    <a class="nav-link" href="#limits">제한 사항</a>
+    <a class="nav-link" href="#references">참고 자료</a>
+</aside>
+
+<!-- ===== SIDEBAR TOGGLE ===== -->
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="목차 토글">
+    <i class="bi bi-list"></i>
+</button>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+    <!-- HERO -->
+    <section class="hero-section" id="top">
+        <div class="container">
+            <div class="lab-badge"><i class="bi bi-github"></i> 비개발자도 OK — 핵심 3단계</div>
+            <h1 style="margin-top:0.8rem;">내가 만든 HTML 결과물을<br>함께 공유하고 싶다면!<br><span style="font-weight:400;font-size:0.5em;">터미널 없이, 브라우저에서 클릭 몇 번으로</span></h1>
+            <p class="lead">
+                잘 다듬어진 HTML 파일 하나만 있으면 충분합니다. <b>GitHub 사이트에서 저장소 만들고 → 파일 올리고 → URL 공유</b>, 딱 이 세 단계입니다.
+            </p>
+            <div class="hero-meta">
+                <span><i class="bi bi-clock"></i> 읽기 시간: 5분</span>
+                <span><i class="bi bi-mouse2"></i> 브라우저만 필요</span>
+                <span><i class="bi bi-globe2"></i> 한국어</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 한 눈에 ===== -->
+    <section class="content-section" id="overview">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-diagram-3"></i> 한 눈에 보는 흐름</h2>
+
+            <svg viewBox="0 0 960 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="내 PC의 HTML 파일을 GitHub 저장소에 업로드하면 Pages가 자동 배포해 동료/고객에게 공유됩니다." style="width:100%; max-width:960px; background:#fff; border-radius:12px; box-shadow:var(--card-shadow); padding:1rem;">
+                <defs>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#0078D4"/>
+                    </marker>
+                </defs>
+                <rect x="20" y="40" width="170" height="100" rx="10" fill="#E3F2FD" stroke="#0078D4" stroke-width="2"/>
+                <text x="105" y="72" text-anchor="middle" font-size="22">📄</text>
+                <text x="105" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#004578">내 HTML 파일</text>
+                <text x="105" y="120" text-anchor="middle" font-family="Fira Code" font-size="10" fill="#666">index.html</text>
+
+                <path d="M195 90 L265 90" stroke="#0078D4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                <text x="230" y="80" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#555">업로드</text>
+
+                <rect x="270" y="40" width="190" height="100" rx="10" fill="#F6F8FA" stroke="#24292E" stroke-width="2"/>
+                <text x="365" y="72" text-anchor="middle" font-size="22">📦</text>
+                <text x="365" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#24292E">GitHub 저장소</text>
+                <text x="365" y="120" text-anchor="middle" font-family="Fira Code" font-size="10" fill="#666">main / docs/</text>
+
+                <path d="M465 90 L535 90" stroke="#0078D4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                <text x="500" y="80" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#555">자동 배포</text>
+
+                <rect x="540" y="40" width="190" height="100" rx="10" fill="#FFF3E0" stroke="#E65100" stroke-width="2"/>
+                <text x="635" y="72" text-anchor="middle" font-size="22">🌐</text>
+                <text x="635" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#E65100">GitHub Pages</text>
+                <text x="635" y="120" text-anchor="middle" font-family="Fira Code" font-size="10" fill="#666">*.github.io</text>
+
+                <path d="M735 90 L800 90" stroke="#0078D4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                <text x="767" y="80" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#555">접근</text>
+
+                <rect x="805" y="40" width="140" height="100" rx="10" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+                <text x="875" y="72" text-anchor="middle" font-size="22">👥</text>
+                <text x="875" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#2E7D32">동료</text>
+                <text x="875" y="120" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#2E7D32">고객</text>
+            </svg>
+
+            <div class="row g-3 mt-2">
+                <div class="col-md-4">
+                    <div class="prereq-card">
+                        <i class="bi bi-cash-coin" style="color:#2E7D32;"></i>
+                        <h6>공개 저장소 무료</h6>
+                        <p>별도 서버·비용 없음</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card">
+                        <i class="bi bi-shield-lock" style="color:#5E35B1;"></i>
+                        <h6>HTTPS 기본</h6>
+                        <p>인증서 자동 발급·갱신</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card">
+                        <i class="bi bi-lightning-charge" style="color:#F9A825;"></i>
+                        <h6>1~2분이면 배포</h6>
+                        <p>저장 즉시 전 세계 공개</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STEP 1 ===== -->
+    <section class="content-section" id="step1">
+        <div class="container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>저장소 만들고 Pages 켜기</h3>
+                <p>GitHub에 로그인한 뒤, 브라우저에서 아래 순서로 클릭만 하면 끝입니다. <a href="https://github.com/signup" target="_blank" rel="noopener">GitHub 계정</a>이 없다면 먼저 무료 가입하세요.</p>
+
+                <ol class="step-list">
+                    <li>우측 상단 <b>＋</b> → <b>New repository</b></li>
+                    <li>저장소 이름 입력 (예: <code>my-docs</code>), <b>Public</b> 선택, <b>Add a README</b> 체크, <b>Create repository</b></li>
+                    <li>저장소 화면에서 <b>Settings → Pages</b> 이동</li>
+                    <li><b>Source: Deploy from a branch</b> → Branch는 <code>main</code>, 폴더는 <b><code>/(root)</code></b> 또는 <b><code>/docs</code></b> 선택 후 <b>Save</b></li>
+                </ol>
+
+                <div class="callout callout-success">
+                    <strong><i class="bi bi-check-circle"></i> 완료 확인</strong>
+                    Settings → Pages 상단에 <b>"Your site is live at …"</b> 메시지가 뜨면 성공. URL은 <code>https://&lt;계정&gt;.github.io/&lt;저장소&gt;/</code> 형식입니다.
+                </div>
+
+                <div class="callout callout-tip">
+                    <strong><i class="bi bi-lightbulb"></i> 폴더는 <code>/docs</code> 추천</strong>
+                    웹사이트 파일과 다른 자료를 분리할 수 있어 관리가 편합니다. Jekyll 같은 빌드 도구를 쓰지 않을 거라면, 해당 폴더에 <code>.nojekyll</code>이라는 <b>빈 파일</b>을 하나 두면 안전합니다.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STEP 2 ===== -->
+    <section class="content-section" id="step2">
+        <div class="container">
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>HTML 파일 드래그 &amp; 드롭으로 업로드</h3>
+                <p>저장소 페이지(루트 또는 <code>docs/</code> 폴더 안)에서 진행합니다.</p>
+
+                <ol class="step-list">
+                    <li>상단 <b>Add file → Upload files</b> 클릭</li>
+                    <li>HTML 파일과 필요한 리소스(<code>images/</code> 등)를 화면으로 <b>드래그 &amp; 드롭</b></li>
+                    <li>하단 <b>Commit changes</b> 버튼 클릭</li>
+                </ol>
+
+                <div class="callout callout-info">
+                    <strong><i class="bi bi-info-circle"></i> 파일 이름은 <code>index.html</code></strong>
+                    폴더에 접근하면 자동으로 <code>index.html</code>이 열립니다. 여러 문서를 올릴 땐 문서별 <b>하위 폴더</b>를 만들고 각각 <code>index.html</code>을 두세요. 예: <code>docs/report/index.html</code> → URL <code>.../report/</code>.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STEP 3 ===== -->
+    <section class="content-section" id="step3">
+        <div class="container">
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>URL 열어 확인하고 공유</h3>
+                <p>커밋 후 <b>1~2분</b>(최대 10분) 안에 배포가 끝납니다. Settings → Pages에 안내된 URL로 접속해 보세요.</p>
+
+                <ul style="font-size:0.95rem;">
+                    <li>잘 보이면 그 링크를 <b>Teams · Outlook · 카카오톡</b> 등에 그대로 붙여 공유하면 끝.</li>
+                    <li>수정이 필요할 땐 저장소에서 파일을 열어 연필 아이콘으로 편집 후 <b>Commit</b> — 즉시 반영됩니다.</li>
+                </ul>
+
+                <div class="callout callout-warning">
+                    <strong><i class="bi bi-exclamation-triangle"></i> 안 보일 때 체크 3가지</strong>
+                    <ul style="font-size:0.88rem; margin-bottom:0;">
+                        <li>Pages Source 폴더 설정이 실제 업로드한 폴더와 같은가</li>
+                        <li>파일 이름이 <code>index.html</code>인가 (대소문자 주의)</li>
+                        <li>배포 완료 전일 수 있음 — 1~2분 기다린 뒤 새로고침</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HANDS-ON ===== -->
+    <section class="content-section" id="handson">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-mortarboard"></i> 실습으로 더 깊이 익히기</h2>
+            <p class="section-subtitle">
+                GitHub에서 Pages를 만들고 활용하는 가이드가 필요하다면, 아래 실습을 통해서 더 자세한 사용 방법을 익힐 수 있습니다. GitHub Skills가 제공하는 한국어 공식 핸즈온 코스입니다.
+            </p>
+
+            <a class="ref-link-card" href="https://github.com/skills-kr/github-pages" target="_blank" rel="noopener" style="max-width:720px;">
+                <i class="bi bi-github"></i>
+                <div>
+                    <h6>skills-kr/github-pages — GitHub Pages 실습 (한국어)</h6>
+                    <p>내 저장소에서 단계별 이슈를 따라가며 GitHub Pages를 직접 설정하고 배포해 보는 공식 실습입니다.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== ADVANCED ===== -->
+    <section class="content-section" id="advanced">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-sliders"></i> 고급 · 개발자용 (선택)</h2>
+            <p class="section-subtitle">필요한 경우에만 펼쳐 보세요. 기본 공유에는 필요 없습니다.</p>
+
+            <div class="accordion detail-accordion" id="advAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#advDomain">
+                            <i class="bi bi-globe2 me-2"></i> 커스텀 도메인 (<code>docs.example.com</code>) 연결
+                        </button>
+                    </h2>
+                    <div id="advDomain" class="accordion-collapse collapse" data-bs-parent="#advAccordion">
+                        <div class="accordion-body">
+                            <ol class="step-list">
+                                <li>도메인 등록업체의 DNS 관리에서 <b>CNAME</b> 레코드 추가 — Host: <code>docs</code>, Value: <code>&lt;계정&gt;.github.io</code></li>
+                                <li>저장소 Settings → Pages → <b>Custom domain</b>에 <code>docs.example.com</code> 입력 → Save</li>
+                                <li>DNS 체크가 녹색이 되면 <b>Enforce HTTPS</b> 체크</li>
+                            </ol>
+                            <p style="font-size:0.86rem; color:#555;">
+                                루트 도메인(<code>example.com</code>)을 연결하려면 A/ALIAS/ANAME 레코드가 필요합니다. 최신 IP와 자세한 내용은 <a href="https://docs.github.com/ko/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages" target="_blank" rel="noopener">GitHub 공식 문서</a>를 참고하세요.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#advCli">
+                            <i class="bi bi-terminal me-2"></i> Git CLI로 로컬에서 작업하고 push로 배포
+                        </button>
+                    </h2>
+                    <div id="advCli" class="accordion-collapse collapse" data-bs-parent="#advAccordion">
+                        <div class="accordion-body">
+                            <div class="code-label bash">터미널</div>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> 복사</button>
+<span class="prompt">$ </span><span class="cmd">git</span> clone https://github.com/&lt;계정&gt;/&lt;저장소&gt;.git
+<span class="prompt">$ </span><span class="cmd">cd</span> &lt;저장소&gt; &amp;&amp; <span class="cmd">cp</span> ~/report.html docs/index.html
+<span class="prompt">$ </span><span class="cmd">git</span> add . &amp;&amp; <span class="cmd">git</span> commit <span class="flag">-m</span> <span class="string">"publish"</span> &amp;&amp; <span class="cmd">git</span> push
+</div>
+                            <p style="font-size:0.86rem; color:#666;">push 즉시 자동 빌드·배포가 실행됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#advActions">
+                            <i class="bi bi-gear-wide-connected me-2"></i> GitHub Actions로 목차 · manifest 자동화
+                        </button>
+                    </h2>
+                    <div id="advActions" class="accordion-collapse collapse" data-bs-parent="#advAccordion">
+                        <div class="accordion-body">
+                            <p style="font-size:0.9rem;">여러 문서를 올릴 때 랜딩 페이지에서 목록을 자동으로 렌더링하려면, <code>docs/manifest.json</code>을 Actions로 생성하는 방식이 편합니다. 이 사이트의 예시는 <a href="https://github.com/studydev/ms/blob/main/scripts/generate_manifest.py" target="_blank" rel="noopener"><code>scripts/generate_manifest.py</code></a>를 참고하세요.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LIMITS ===== -->
+    <section class="content-section" id="limits">
+        <div class="container">
+            <h2 class="section-title" style="color:#C62828;"><i class="bi bi-exclamation-octagon" style="color:#C62828;"></i> 꼭 알아둘 제한 사항</h2>
+            <p class="section-subtitle">
+                GitHub Pages는 <b>비상업적 · 정적 용도</b>의 무료 서비스입니다. 자세한 내용은 <a href="https://docs.github.com/ko/pages/getting-started-with-github-pages/github-pages-limits" target="_blank" rel="noopener">GitHub Pages 제한 문서</a>에서 확인하세요.
+            </p>
+
+            <div class="table-responsive">
+                <table class="table resource-table">
+                    <thead>
+                        <tr><th style="width:40%;">항목</th><th>기준</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>저장소 / 게시 사이트 크기</td><td>각 <b>1 GB</b> 권장</td></tr>
+                        <tr><td>월 대역폭</td><td><b>100 GB</b> (soft)</td></tr>
+                        <tr><td>빌드 횟수</td><td>시간당 <b>10회</b> (custom Actions 사용 시 미적용)</td></tr>
+                        <tr><td>배포 타임아웃</td><td><b>10분</b> 초과 시 자동 중단</td></tr>
+                        <tr><td>상업 · 전자상거래 · SaaS 용도</td><td><b>사용 금지</b></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <strong><i class="bi bi-info-circle"></i> 참고</strong>
+                GitHub Free 플랜은 <b>공개 저장소</b>에서만 Pages를 무료로 제공합니다. 비공개(Private) 저장소에 쓰려면 Pro/Team/Enterprise 플랜이 필요합니다. 또한 동적 백엔드(DB·API 서버)는 지원하지 않습니다.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== REFERENCES ===== -->
+    <section class="content-section" id="references">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-link-45deg"></i> 참고 자료</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <a class="ref-link-card" href="https://github.com/skills-kr/github-pages" target="_blank" rel="noopener">
+                        <i class="bi bi-mortarboard"></i>
+                        <div>
+                            <h6>skills-kr/github-pages (실습)</h6>
+                            <p>단계별 이슈를 따라가는 공식 한국어 핸즈온 코스</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a class="ref-link-card" href="https://docs.github.com/ko/pages/getting-started-with-github-pages/creating-a-github-pages-site" target="_blank" rel="noopener">
+                        <i class="bi bi-github"></i>
+                        <div>
+                            <h6>GitHub Pages 사이트 만들기 (공식)</h6>
+                            <p>저장소 생성 · 퍼블리싱 소스 설정</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a class="ref-link-card" href="https://docs.github.com/ko/pages/getting-started-with-github-pages/github-pages-limits" target="_blank" rel="noopener">
+                        <i class="bi bi-exclamation-octagon"></i>
+                        <div>
+                            <h6>GitHub Pages 제한 (공식)</h6>
+                            <p>사용 한도 · 금지된 용도</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a class="ref-link-card" href="../../m365/cowork_html_guide/">
+                        <i class="bi bi-stars"></i>
+                        <div>
+                            <h6>M365 Cowork로 HTML 만들기</h6>
+                            <p>여기서 만든 결과물을 본 가이드로 공유</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="page-footer">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <span>&copy; 2026 <a href="https://ms.studydev.com">MS Tech</a></span>
+            <span>GitHub Pages — 핵심 3단계로 공유하기</span>
+        </div>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../js/site.js"></script>
+</body>
+</html>

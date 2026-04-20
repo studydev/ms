@@ -184,7 +184,7 @@ body {
     margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;
 }
 .section-title i { color: var(--azure-primary); font-size: 1.4rem; }
-.section-subtitle { color: #666; font-size: 1rem; margin-bottom: 2rem; max-width: 750px; }
+.section-subtitle { color: #666; font-size: 1rem; margin-bottom: 2rem; }
 
 /* ===== CARDS (AGENT / CATEGORY) ===== */
 .agent-card, .category-card {
@@ -309,8 +309,27 @@ body {
     background: var(--hosted-gradient); color: #fff; font-weight: 800; font-size: 1.1rem;
     margin-bottom: 1rem;
 }
+.step-card .step-header {
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;
+}
+.step-card .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; min-width: 40px; border-radius: 50%;
+    background: var(--hosted-gradient); color: #fff; font-weight: 800; font-size: 1.1rem;
+}
+.page-m365 .step-card .step-num { background: var(--m365-gradient); }
+.step-card .step-header h4 { font-weight: 700; font-size: 1.2rem; color: #1a1a1a; margin: 0; }
 .step-card h3 { font-weight: 700; font-size: 1.3rem; color: #1a1a1a; margin-bottom: 0.8rem; }
 .step-card p { font-size: 0.9rem; color: #555; }
+
+/* ===== INLINE CODE (줄바꿈 방지) =====
+   본문(callout, 단락, 표, 리스트 등)에 박힌 짧은 `<code>` 토큰이
+   단어 경계에서 잘려 여러 줄로 흩어지는 것을 방지한다.
+   `.code-block` / `pre` 내부의 멀티라인 코드는 영향받지 않는다. */
+:not(pre) > code {
+    white-space: nowrap;
+    word-break: keep-all;
+}
 
 /* ===== CODE BLOCKS ===== */
 .code-block {
@@ -360,18 +379,25 @@ body {
 .callout-danger { background: #FFEBEE; border-left: 4px solid #D32F2F; }
 .callout-success { background: #E8F5E9; border-left: 4px solid #2E7D32; }
 .callout-tip { background: #F3E5F5; border-left: 4px solid #7B1FA2; }
-.callout strong { display: block; margin-bottom: 0.3rem; }
+.callout > strong:first-child { display: block; margin-bottom: 0.3rem; }
 
 /* ===== PREREQ CARDS ===== */
 .prereq-card {
     background: #fff; border-radius: 12px; padding: 1.2rem;
     border: 1px solid #e8e8e8; text-align: center; transition: all 0.2s;
 }
+.prereq-card ul, .prereq-card ol { text-align: left; }
 .prereq-card:hover { border-color: var(--azure-primary); box-shadow: 0 4px 16px rgba(0,120,212,0.1); }
 .prereq-card i { font-size: 2rem; color: var(--azure-primary); }
 .prereq-card h6 { font-weight: 700; margin-top: 0.5rem; font-size: 0.88rem; }
 .prereq-card p { font-size: 0.78rem; color: #888; margin: 0; }
 .prereq-card a { font-size: 0.75rem; }
+
+/* ===== APP ICONS (M365 / Microsoft 공식 SVG) ===== */
+.app-icon { width: 2rem; height: 2rem; display: block; margin: 0 auto; }
+.prereq-card .app-icon { margin-bottom: 0.2rem; }
+.flow-node .app-icon { width: 1.6rem; height: 1.6rem; margin: 0 auto 0.3rem; }
+.app-icon-inline { width: 1.1rem; height: 1.1rem; vertical-align: -0.2rem; margin-right: 0.2rem; }
 
 /* ===== TIMELINE (content) ===== */
 .timeline { position: relative; padding-left: 2rem; }

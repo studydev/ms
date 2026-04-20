@@ -99,6 +99,36 @@ docs/                          # GitHub Pages 루트
 - 복사 버튼 필요 시 `<button class="copy-btn" onclick="copyCode(this)">…</button>` 를 코드 블록 내부에 배치.
 - 토큰 하이라이트 클래스: `.keyword`, `.string`, `.comment`, `.func`, `.cmd`, `.flag`, `.prompt`.
 
+### 아이콘 & 에셋
+
+- **M365/Microsoft 제품 아이콘**은 Bootstrap Icons(`bi-file-earmark-word` 등)가 아니라 **`docs/icons/`의 공식 SVG**(`word.svg`, `powerpoint.svg`, `teams.svg`, `outlook.svg`, `onenote.svg`, `Globe.svg` 등)를 사용한다.
+- 적용 클래스: 카드/플로우 노드 중앙 정렬은 `.app-icon`, 텍스트 옆 인라인은 `.app-icon-inline` (둘 다 `site.css`에 정의).
+- 범용 UI 아이콘(`bi-chat-dots`, `bi-lightbulb`, `bi-clock` 등)과 `nav-brand`의 `bi-microsoft`는 그대로 Bootstrap Icons 사용.
+
+### 플로우 다이어그램
+
+- 인라인 SVG 다이어그램의 노드는 **원(circle) 금지, 사각형(rect)으로 일관**. 화살표는 공통 `<marker id="arrow">` 패턴 재사용.
+- 사람(동료·고객 등)을 표현할 때도 사각형 + 이름 라벨을 사용한다.
+
+### 타깃 오디언스 & 점진적 공개
+
+- **비개발자(현업) 대상 가이드**는 웹 UI 조작(클릭·드래그&드롭)을 메인 경로로 제시하고, 단계 수를 **최소화**한다 (3~4 단계 권장).
+- **개발자 전용 내용**(Git CLI, Actions 워크플로, 커스텀 도메인 DNS 등)은 본문에 노출하지 말고 `.detail-accordion` 안에 접어 둔다.
+- 제한·사실 정보는 공식 MS Learn / GitHub Docs 기준으로 검증하고, 해당 문서를 참고 링크로 남긴다.
+
+### 사이드바 · Breadcrumb · 네비게이션 일관성
+
+**모든 `<category>/<slug>/index.html` 페이지는 아래 패턴을 동일하게 따른다 (`meeting_in_30min` 기준 템플릿):**
+
+1. **Breadcrumb** — `Home → <카테고리> → <현재 페이지 줄임>` 3단계. 모두 사이트 내부 상대 경로(`../../`, `../`)로만 연결. 외부 링크는 breadcrumb에 넣지 않는다. `lab.html` 등 하위 페이지는 4단계(`Home → 카테고리 → 부모 문서 → 현재`).
+2. **Sidebar `back-link`** — 사이드바 최상단에 `<a class="back-link" href="../"><i class="bi bi-arrow-left"></i> <카테고리명> 카테고리로</a>` 필수. 다른 페이지 목록이나 nav-heading보다 위에 배치.
+3. **Sidebar 목차 순서** — `back-link` → `nav-heading` + `nav-link` 블록 → (해당 시) `step-timeline` 블록 → 추가 `nav-heading` + `nav-link` 블록.
+4. **`step-timeline`** — 단계별 프로세스가 있는 페이지에서 사용. 반드시 **사이드바 안**에 배치(본문 `col-lg-*` 분할 금지). `data-past-anchor`로 이후 섹션을 지정해 스크롤 시 전체 완료 상태로 전환. site.js의 scroll-spy가 자동 연동.
+5. **`step-card`** — 본문에서 각 단계를 표현하는 카드.
+   - `<div class="step-number">N</div>` + `<h3>제목</h3>` 방식 (meeting_in_30min 스타일), 또는
+   - `<div class="step-header"><span class="step-num">N</span><h4>제목</h4></div>` 방식 (인라인 flex — 숫자와 제목이 한 줄로 정렬됨).
+   - 두 패턴 모두 `site.css`에 스타일이 정의되어 있으므로 혼용 가능하나, **같은 문서 내에서는 하나만** 사용.
+
 ---
 
 ## 3. manifest.json & 네비게이션

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Azure OpenAI] LLM 모델 마이그레이션 가이드 — GPT-4o mini → GPT-5.4 mini / nano</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/site.css">
+</head>
+<body class="has-sidebar page-compare">
+
+<!-- ===== NAVBAR ===== -->
+<nav class="top-nav">
+    <div class="container-fluid d-flex align-items-center justify-content-between px-3">
+        <a class="nav-brand" href="../../"><i class="bi bi-microsoft"></i> MS Tech</a>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../">Home</a></li>
+                <li class="breadcrumb-item"><a href="../">Azure</a></li>
+                <li class="breadcrumb-item active">LLM 모델 마이그레이션</li>
+            </ol>
+        </nav>
+    </div>
+</nav>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+    <a class="back-link" href="../"><i class="bi bi-arrow-left"></i> Azure 카테고리로</a>
+
+    <div class="nav-heading">배경</div>
+    <a class="nav-link" href="#why">왜 전환이 필요한가</a>
+    <a class="nav-link" href="#retirement">은퇴 일정</a>
+
+    <div class="nav-heading">모델 선택</div>
+    <a class="nav-link" href="#pricing">가격 비교</a>
+    <a class="nav-link" href="#mini-vs-nano">mini vs nano</a>
+
+    <div class="nav-heading">변경사항</div>
+    <a class="nav-link" href="#diff-params">파라미터 매핑</a>
+
+    <div class="nav-heading">플랫폼 설계</div>
+    <a class="nav-link" href="#platform-why">왜 플랫폼이 필요한가</a>
+    <a class="nav-link" href="#platform-arch">전환 계층 아키텍처</a>
+
+    <div class="nav-heading">전환 프로세스</div>
+    <ol class="step-timeline" id="stepTimeline" data-past-anchor="metrics">
+        <li class="step-tl-item" data-step="step1"><a class="step-tl-link" href="#step1"><span class="step-tl-circle">1</span><span class="step-tl-body"><span class="step-tl-label">계약 추출</span><span class="step-tl-desc">현재 상태 문서화</span></span></a></li>
+        <li class="step-tl-item" data-step="step2"><a class="step-tl-link" href="#step2"><span class="step-tl-circle">2</span><span class="step-tl-body"><span class="step-tl-label">스키마 고정</span><span class="step-tl-desc">출력·도구 계약</span></span></a></li>
+        <li class="step-tl-item" data-step="step3"><a class="step-tl-link" href="#step3"><span class="step-tl-circle">3</span><span class="step-tl-body"><span class="step-tl-label">프롬프트 variant</span><span class="step-tl-desc">모델별 최적화</span></span></a></li>
+        <li class="step-tl-item" data-step="step4"><a class="step-tl-link" href="#step4"><span class="step-tl-circle">4</span><span class="step-tl-body"><span class="step-tl-label">Dual-Run 평가</span><span class="step-tl-desc">병렬 실행 + 리뷰</span></span></a></li>
+        <li class="step-tl-item" data-step="step5"><a class="step-tl-link" href="#step5"><span class="step-tl-circle">5</span><span class="step-tl-body"><span class="step-tl-label">점진 롤아웃</span><span class="step-tl-desc">canary → 100%</span></span></a></li>
+    </ol>
+
+    <div class="nav-heading">품질 보증</div>
+    <a class="nav-link" href="#metrics">측정 지표</a>
+    <a class="nav-link" href="#antipatterns">안티패턴</a>
+
+    <div class="nav-heading">도구 &amp; 실전</div>
+    <a class="nav-link" href="#tools">도구 생태계</a>
+    <a class="nav-link" href="#code">Before / After 코드</a>
+    <a class="nav-link" href="#stack">Azure 서비스 스택</a>
+    <a class="nav-link" href="#checklist">체크리스트</a>
+    <a class="nav-link" href="#references">참고 자료</a>
+</aside>
+
+<!-- ===== SIDEBAR TOGGLE ===== -->
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="목차 토글"><i class="bi bi-list"></i></button>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+    <!-- HERO -->
+    <section class="hero-section" id="top">
+        <div class="container">
+            <h1>Azure OpenAI 모델 마이그레이션<br><span style="font-weight:400;font-size:0.6em;">GPT-4o mini → GPT-5.4 mini / nano 전환 가이드</span></h1>
+            <p class="lead">
+                모델 전환 문제는 "모델 이름만 바꾸기"가 아니라 <strong>프롬프트 · 도구 호출 · 출력 형식 · 비용 · 지연</strong>이 함께 흔들리는 <strong>엔지니어링 문제</strong>입니다. 이 가이드는 모델 위에 <strong>전환 계층</strong>을 두고, 스키마 · 가드레일 · 평가를 표준화해 안정적으로 전환하는 플랫폼 설계도를 제시합니다.
+            </p>
+            <div class="hero-meta">
+                <span><i class="bi bi-calendar3"></i> 2026년 4월 기준</span>
+                <span><i class="bi bi-book"></i> MS Learn + OpenAI 공식 문서 기반</span>
+                <span><i class="bi bi-person-check"></i> Human-in-the-Loop</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 1. WHY ===== -->
+    <section class="content-section" id="why">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-exclamation-triangle"></i> 왜 전환이 필요한가</h2>
+            <p class="section-subtitle">Azure OpenAI GA 모델은 <strong>출시 후 12개월</strong> 지원 → 6개월 유예 → 은퇴. 은퇴된 배포는 호출 시 오류를 반환합니다.</p>
+
+            <div class="callout callout-warning">
+                <strong><i class="bi bi-clock-history"></i> 운영 중인 <code>gpt-4o-mini</code>가 있다면 지금이 전환 시점입니다.</strong>
+                <code>gpt-4o-mini (2024-07-18)</code>는 이미 deprecated — 배포 타입에 따라 <strong>2026-03-31&nbsp;~&nbsp;2026-10-01</strong> 사이에 자동 은퇴됩니다.
+            </div>
+
+            <h5 class="mt-4">그런데 "모델 이름만 바꾸면" 되지 않는 이유</h5>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold"><i class="bi bi-x-circle text-danger"></i> 실제로 깨지는 것들</h6>
+                        <ul class="small mb-0">
+                            <li>도구를 호출해야 하는데 자연어로 답해버림</li>
+                            <li>JSON 대신 자유 텍스트를 섞어서 반환</li>
+                            <li>필드명, enum 값, 타입이 미세하게 바뀜</li>
+                            <li>불필요하게 긴 응답 또는 누락된 단계 발생</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #F9A825;">
+                        <h6 class="fw-bold"><i class="bi bi-exclamation-triangle text-warning"></i> 교체 시 흔한 오해</h6>
+                        <ul class="small mb-0">
+                            <li>"프롬프트만 복사하면 동일하게 동작할 것"</li>
+                            <li>"모델이 좋아졌으니 기존 검증 로직이 필요 없을 것"</li>
+                            <li>"출력 형식은 어차피 비슷할 것"</li>
+                            <li>"툴 호출도 알아서 맞춰줄 것"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout callout-info mt-3">
+                <strong><i class="bi bi-lightbulb"></i> 핵심 인사이트</strong> — 안정적인 모델 전환은 모델 선택 문제가 아니라 <strong>애플리케이션 계약(contract)을 모델 밖으로 꺼내는 엔지니어링 문제</strong>입니다.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 2. RETIREMENT ===== -->
+    <section class="content-section" id="retirement" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-calendar-x"></i> 은퇴 일정 (공식 문서 기준)</h2>
+            <p class="section-subtitle"><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements" target="_blank" rel="noopener">MS Learn 모델 은퇴 문서</a> 최신 일정.</p>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light"><tr><th>모델</th><th>버전</th><th>상태</th><th>Deprecation</th><th>Retirement</th><th>대체</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>gpt-4o-mini</code></td><td>2024-07-18</td><td><span class="badge bg-danger">Deprecated</span></td><td>2025-07-18</td><td>Standard: <strong>2026-03-31</strong><br>Global: <strong>2026-10-01</strong></td><td><code>gpt-4.1-mini</code></td></tr>
+                        <tr><td><code>gpt-4o</code></td><td>2024-08-06</td><td><span class="badge bg-danger">Deprecated</span></td><td>2025-08-06</td><td>2026-03-31 / 2026-10-01</td><td><code>gpt-5.1</code></td></tr>
+                        <tr><td><code>gpt-4.1-mini</code></td><td>2025-04-14</td><td><span class="badge bg-success">GA</span></td><td>2026-04-14</td><td>2026-10-14</td><td><code>gpt-5-mini</code></td></tr>
+                        <tr><td><code>gpt-5-mini</code></td><td>2025-08-07</td><td><span class="badge bg-success">GA</span></td><td>2026-08-07</td><td>2027-02-06</td><td class="text-muted">본 가이드 제외</td></tr>
+                        <tr class="table-primary"><td><strong><code>gpt-5.4-mini</code></strong></td><td>2026-03-17</td><td><span class="badge bg-success">GA</span></td><td>2027-03-17</td><td>2027-09-17</td><td>—</td></tr>
+                        <tr class="table-primary"><td><strong><code>gpt-5.4-nano</code></strong></td><td>2026-03-17</td><td><span class="badge bg-success">GA</span></td><td>2027-03-17</td><td>2027-09-17</td><td>—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 3. PRICING ===== -->
+    <section class="content-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-currency-dollar"></i> 가격 비교 &amp; 후보 선정</h2>
+            <p class="section-subtitle">Azure OpenAI <strong>Global Standard</strong> 1M 토큰당 USD (2026-04, <a href="https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/" target="_blank" rel="noopener">Azure</a> / <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI</a> 기준).</p>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light"><tr><th>모델</th><th>Input</th><th>Cached</th><th>Output</th><th>Reasoning</th><th>출시</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>gpt-4o-mini</code> <span class="badge bg-secondary">소스</span></td><td>$0.15</td><td>$0.075</td><td>$0.60</td><td class="text-muted">없음</td><td>2024-07</td></tr>
+                        <tr class="table-light"><td><code>gpt-5-mini</code> <span class="badge bg-warning text-dark">제외</span></td><td>$0.25</td><td>$0.03</td><td>$2.00</td><td>reasoning</td><td>2025-08</td></tr>
+                        <tr class="table-primary"><td><strong><code>gpt-5.4-nano</code></strong> <span class="badge bg-success">후보 A</span></td><td>$0.20</td><td>$0.02</td><td>$1.25</td><td>reasoning</td><td>2026-03</td></tr>
+                        <tr class="table-primary"><td><strong><code>gpt-5.4-mini</code></strong> <span class="badge bg-success">후보 B</span></td><td>$0.75</td><td>$0.075</td><td>$4.50</td><td>reasoning</td><td>2026-03</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="callout callout-warning">
+                <strong><i class="bi bi-slash-circle"></i> <code>gpt-5-mini</code> 제외 사유</strong> — Output $2.00 &gt; nano $1.25, 중간 세대(2025-08)라 재전환 부담, 후보를 5.4 세대로 좁혀 평가 단순화.
+            </div>
+            <h5 class="mt-4"><i class="bi bi-calculator"></i> 월 1억 토큰 비용 시뮬레이션 (Input 70% · Output 30%)</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light"><tr><th>모델</th><th>Input 7천만</th><th>Output 3천만</th><th>월 합계</th><th>대비</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>gpt-4o-mini</code></td><td>$10.50</td><td>$18.00</td><td><strong>$28.50</strong></td><td>1.0×</td></tr>
+                        <tr><td><code>gpt-5.4-nano</code></td><td>$14.00</td><td>$37.50</td><td><strong>$51.50</strong></td><td>≈ 1.8×</td></tr>
+                        <tr><td><code>gpt-5.4-mini</code></td><td>$52.50</td><td>$135.00</td><td><strong>$187.50</strong></td><td>≈ 6.6×</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="callout callout-info">
+                <i class="bi bi-info-circle"></i> <strong>reasoning_tokens도 output 과금.</strong> 내부 추론 토큰이 합산되므로 실제 비용은 위 표보다 커질 수 있습니다.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 4. MINI VS NANO ===== -->
+    <section class="content-section" id="mini-vs-nano" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-diagram-3-fill"></i> mini vs nano — 어느 쪽으로 갈까</h2>
+            <p class="section-subtitle"><strong>nano 먼저 평가</strong> → 통과하면 채택, 못 넘기면 <strong>mini 승급</strong> cascade 전략.</p>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:4px solid #2E7D32;">
+                        <h5><i class="bi bi-lightning-charge" style="color:#2E7D32;"></i> <code>gpt-5.4-nano</code></h5>
+                        <ul class="small mb-0">
+                            <li>분류 · 태깅 · 추출 · 짧은 요약 · Q&amp;A</li>
+                            <li>도구 호출 · 실시간 UX · 대량 배치</li>
+                            <li>예산 민감한 PoC · 내부 서비스</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:4px solid #6A1B9A;">
+                        <h5><i class="bi bi-cpu" style="color:#6A1B9A;"></i> <code>gpt-5.4-mini</code> 승급</h5>
+                        <ul class="small mb-0">
+                            <li>다단계 추론 · 긴 요약 · 코드 생성</li>
+                            <li>복잡한 구조화 출력 · 다국어 뉘앙스</li>
+                            <li>nano 통과율 &lt; 90% 규제/금융 업무</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="callout callout-tip mt-3">
+                <strong><i class="bi bi-lightbulb"></i> Router 패턴</strong> — <code>nano</code>(기본) → <code>mini</code>(escalation) 라우팅으로 평균 비용 nano 수준 유지. Azure <code>model-router</code> 또는 Prompt Flow 분기 노드로 구현.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5. PARAMS (6가지 차이 + 매핑 테이블 통합) ===== -->
+    <section class="content-section" id="diff-params">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-list-check"></i> 핵심 변경사항 &amp; 파라미터 매핑</h2>
+            <p class="section-subtitle"><code>gpt-4o-mini</code>(일반 chat) → <code>gpt-5.4</code>(reasoning). <strong>파라미터 삭제 · 추가 · 리네임 + API 체계 변경 + 역할 변경</strong>이 동시에 발생합니다.</p>
+
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle" style="table-layout:fixed;">
+                    <colgroup><col style="width:22%;"><col style="width:24%;"><col style="width:24%;"><col style="width:30%;"></colgroup>
+                    <thead class="table-light"><tr><th>파라미터</th><th>gpt-4o-mini</th><th>gpt-5.4 (reasoning)</th><th>조치</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>temperature</code></td><td>0 ~ 2</td><td>미지원 (고정 1.0)</td><td><span class="badge bg-danger">삭제</span></td></tr>
+                        <tr><td><code>top_p</code></td><td>0 ~ 1</td><td>미지원</td><td><span class="badge bg-danger">삭제</span></td></tr>
+                        <tr><td><code>presence_penalty</code><br><code>frequency_penalty</code></td><td>-2 ~ 2</td><td>미지원</td><td><span class="badge bg-danger">삭제</span></td></tr>
+                        <tr><td><code>logprobs</code><br><code>logit_bias</code></td><td>지원</td><td>미지원</td><td><span class="badge bg-danger">삭제</span></td></tr>
+                        <tr><td><code>max_tokens</code></td><td>지원</td><td>미지원</td><td><span class="badge bg-warning text-dark">리네임</span><br><small>Chat: <code>max_completion_tokens</code><br>Resp: <code>max_output_tokens</code></small></td></tr>
+                        <tr><td><code>role: system</code></td><td>권장</td><td>호환</td><td><span class="badge bg-info">→ <code>developer</code></span></td></tr>
+                        <tr><td><code>reasoning_effort</code></td><td>—</td><td>none ~ high</td><td><span class="badge bg-success">추가</span></td></tr>
+                        <tr><td><code>verbosity</code></td><td>—</td><td>low / med / high</td><td><span class="badge bg-success">추가 (선택)</span></td></tr>
+                        <tr><td>base URL</td><td style="word-break:break-all;"><small><code>.../deployments/{name}/<wbr>chat/completions<wbr>?api-version=…</code></small></td><td><code>.../openai/v1/</code></td><td><span class="badge bg-info">변경</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-info mt-3">
+                <strong><i class="bi bi-info-circle"></i> 결정성 감소에 주의.</strong> <code>temperature</code>가 1.0으로 고정되어 동일 입력에도 출력이 달라집니다. 평가는 문자열 비교가 아닌 <strong>의미 기반 비교</strong>로 전환해야 합니다.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 6. PLATFORM WHY (신규) ===== -->
+    <section class="content-section" id="platform-why" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-layers"></i> 왜 "전환 플랫폼"이 필요한가</h2>
+            <p class="section-subtitle">업계는 거의 예외 없이 아래 <strong>4축</strong>으로 문제를 해결합니다. 단일 만능 도구보다 <strong>전환 계층 + 구조화 출력 + 검증 + 평가</strong>를 조합하는 방식이 일반적입니다.</p>
+
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light"><tr><th style="width:18%;">축</th><th style="width:32%;">역할</th><th>왜 필요한가</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>모델 추상화</strong></td><td>여러 모델/벤더를 공통 API로 감싸고 라우팅·폴백·재시도 관리</td><td>모델 이름 변경이 앱 전체 변경으로 번지지 않게 함</td></tr>
+                        <tr><td><strong>구조화 출력</strong></td><td>JSON Schema, typed object, tool schema로 계약 고정</td><td>모델 간 표현 차이를 줄이고 후처리 복잡도를 낮춤</td></tr>
+                        <tr><td><strong>가드레일</strong></td><td>유효성 검사, 재질문, 수정, 차단 규칙을 별도 계층에서 운영</td><td>스키마는 맞는데 의미가 틀린 출력, 위험한 툴 호출을 차단</td></tr>
+                        <tr><td><strong>평가·회귀 테스트</strong></td><td>모델 변경 전후를 동일 테스트셋으로 비교</td><td>"안정적으로 유지됐다"를 감이 아니라 수치로 검증</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 7. PLATFORM ARCH (신규) ===== -->
+    <section class="content-section" id="platform-arch">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-diagram-3"></i> 전환 계층 아키텍처 — 모델 위에 4-Layer</h2>
+            <p class="section-subtitle">애플리케이션은 모델 세부 차이를 직접 알 필요 없이, <strong>계약과 품질 기준만 유지</strong>하면 됩니다.</p>
+
+            <div class="row g-3 mb-4">
+                <div class="col-md-3">
+                    <div class="prereq-card text-center" style="min-height:130px;border-top:4px solid var(--azure-primary);">
+                        <h6 class="fw-bold">Layer 1<br>Gateway</h6>
+                        <p class="small mb-0">provider 차이 은닉<br>라우팅 · 폴백 · 로그</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="prereq-card text-center" style="min-height:130px;border-top:4px solid #2E7D32;">
+                        <h6 class="fw-bold">Layer 2<br>Schema</h6>
+                        <p class="small mb-0">출력 형식과 툴 인자<br>계약 강제</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="prereq-card text-center" style="min-height:130px;border-top:4px solid #F9A825;">
+                        <h6 class="fw-bold">Layer 3<br>Guardrails</h6>
+                        <p class="small mb-0">검증 · 재질문 · 수정<br>차단 규칙</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="prereq-card text-center" style="min-height:130px;border-top:4px solid #6A1B9A;">
+                        <h6 class="fw-bold">Layer 4<br>Evals</h6>
+                        <p class="small mb-0">회귀 테스트<br>비용 · 지연 비교</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout callout-tip">
+                <strong><i class="bi bi-arrow-repeat"></i> 데이터 흐름</strong> — 클라이언트 요청 → Gateway(모델 선택) → 프롬프트 템플릿/정책 주입 → 구조화 출력 또는 툴 호출 → Validator 검사 → 실패 시 re-ask/fix/fallback → 최종 응답 저장 + 평가 로그.
+            </div>
+
+            <div class="row g-3 mt-3">
+                <div class="col-md-6">
+                    <h6 class="fw-bold">왜 Gateway가 중요한가</h6>
+                    <ul class="small">
+                        <li>벤더별 API 차이와 인증 방식 은닉</li>
+                        <li>에러 코드, 재시도, 타임아웃 정책 중앙화</li>
+                        <li>모델별 비용·지연·정확도 로그 한곳에서 비교</li>
+                        <li>nano/mini 라우팅이 쉬움</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="fw-bold">왜 스키마가 중요한가</h6>
+                    <ul class="small">
+                        <li>모델 교체 후에도 파서가 안 깨짐</li>
+                        <li>툴 인자 이름과 타입을 계약으로 강제</li>
+                        <li>테스트 자동화가 쉬워짐</li>
+                        <li>실패 원인을 "의미 오류"와 "형식 오류"로 분리 가능</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 8. 5-STEP PROCESS ===== -->
+    <section class="content-section" id="steps" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-signpost-split"></i> 5단계 전환 프로세스</h2>
+            <p class="section-subtitle">좌측 사이드바 타임라인이 스크롤에 따라 진행 상태를 표시합니다.</p>
+
+            <!-- Step 1 -->
+            <div class="step-card" id="step1">
+                <div class="step-header"><span class="step-num">1</span><h4>현재 계약을 추출한다 (Baseline)</h4></div>
+                <div class="step-body">
+                    <div class="flow-diagram mb-3" style="overflow-x:auto;">
+                        <svg viewBox="0 0 700 80" width="100%" style="max-width:700px;font-family:'Noto Sans KR',sans-serif;">
+                            <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#0078D4"/></marker></defs>
+                            <rect x="10" y="15" width="150" height="50" rx="6" fill="#E3F2FD" stroke="#0078D4"/>
+                            <text x="85" y="38" text-anchor="middle" font-size="11" font-weight="600">운영 앱</text>
+                            <text x="85" y="55" text-anchor="middle" font-size="10" fill="#555">App Insights · Stored Comp.</text>
+                            <line x1="160" y1="40" x2="210" y2="40" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow)"/>
+                            <rect x="212" y="15" width="150" height="50" rx="6" fill="#FFF8E1" stroke="#F9A825"/>
+                            <text x="287" y="38" text-anchor="middle" font-size="11" font-weight="600">계약 문서화</text>
+                            <text x="287" y="55" text-anchor="middle" font-size="10" fill="#555">프롬프트 · 도구 · 규칙</text>
+                            <line x1="362" y1="40" x2="412" y2="40" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow)"/>
+                            <rect x="414" y="15" width="150" height="50" rx="6" fill="#E8F5E9" stroke="#2E7D32"/>
+                            <text x="489" y="38" text-anchor="middle" font-size="11" font-weight="600">Golden Set 50~200건</text>
+                            <text x="489" y="55" text-anchor="middle" font-size="10" fill="#555">Cosmos DB · Blob</text>
+                        </svg>
+                    </div>
+                    <ul>
+                        <li><strong>시스템 프롬프트, 툴 정의, 필드명, enum, 실패 처리 규칙, 성공 기준</strong>을 문서화합니다. 이 작업 없이 모델만 바꾸면 회귀 여부를 판단할 기준이 없습니다.</li>
+                        <li>운영 앱에서 <strong>대표 시나리오 50~200건</strong>의 (system, user, completion) 트리플을 수집 → <strong>Golden Set</strong> 고정.</li>
+                        <li>포함 필수: Q&amp;A, 문서 요약, 도구 호출, 구조화 출력, 엣지 케이스(금칙어 · 다국어 · 긴 컨텍스트).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card" id="step2">
+                <div class="step-header"><span class="step-num">2</span><h4>출력과 도구를 스키마로 고정한다</h4></div>
+                <div class="step-body">
+                    <ul>
+                        <li>"답변을 JSON으로 주세요" 수준이 아니라, <strong>required fields · enum · 중첩 구조 · 타입을 명시한 JSON Schema</strong>를 사용해야 합니다.</li>
+                        <li>OpenAI <strong>Structured Outputs</strong> 또는 <strong>Instructor</strong> 라이브러리를 사용해 스키마 준수를 강제합니다.</li>
+                        <li>파라미터 변환 스크립트 적용: <code>temperature</code> 등 삭제, <code>max_tokens</code> 리네임, <code>reasoning_effort</code> 추가, v1 API 엔드포인트 전환.</li>
+                    </ul>
+                    <div class="callout callout-info">
+                        <i class="bi bi-info-circle"></i> <strong>작은 모델일수록 더 명시적인 프롬프트가 필요합니다.</strong> nano/mini는 steerability가 높지만, 누락된 단계나 모호한 지시를 덜 보완해주므로 단계 나열, 툴 사용 조건, 금지 조건, 출력 순서, 누락 시 행동을 더 명시적으로 써야 합니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card" id="step3">
+                <div class="step-header"><span class="step-num">3</span><h4>프롬프트 variant를 만들어 테스트한다</h4></div>
+                <div class="step-body">
+                    <div class="flow-diagram mb-3" style="overflow-x:auto;">
+                        <svg viewBox="0 0 700 120" width="100%" style="max-width:700px;font-family:'Noto Sans KR',sans-serif;">
+                            <rect x="10" y="35" width="130" height="50" rx="6" fill="#FFF8E1" stroke="#F9A825"/>
+                            <text x="75" y="58" text-anchor="middle" font-size="11" font-weight="600">Golden Set</text>
+                            <text x="75" y="75" text-anchor="middle" font-size="10" fill="#555">변환된 payload</text>
+                            <line x1="140" y1="45" x2="210" y2="30" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow)"/>
+                            <line x1="140" y1="75" x2="210" y2="90" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow)"/>
+                            <rect x="212" y="5" width="180" height="45" rx="6" fill="#E3F2FD" stroke="#0078D4"/>
+                            <text x="302" y="28" text-anchor="middle" font-size="11" font-weight="600">gpt-4o-mini (baseline)</text>
+                            <text x="302" y="43" text-anchor="middle" font-size="10" fill="#555">reference output</text>
+                            <rect x="212" y="70" width="180" height="45" rx="6" fill="#E8F5E9" stroke="#2E7D32"/>
+                            <text x="302" y="93" text-anchor="middle" font-size="11" font-weight="600">gpt-5.4-nano / mini</text>
+                            <text x="302" y="108" text-anchor="middle" font-size="10" fill="#555">candidate output</text>
+                            <line x1="392" y1="27" x2="460" y2="50" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow)"/>
+                            <line x1="392" y1="93" x2="460" y2="70" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow)"/>
+                            <rect x="462" y="35" width="150" height="50" rx="6" fill="#ECEFF1" stroke="#455A64"/>
+                            <text x="537" y="58" text-anchor="middle" font-size="11" font-weight="600">결과 비교</text>
+                            <text x="537" y="75" text-anchor="middle" font-size="10" fill="#555">latency · tokens · score</text>
+                        </svg>
+                    </div>
+                    <ul>
+                        <li>기존 프롬프트를 그대로 재사용하는 것은 위험합니다. <strong>모델군별 프롬프트 variant</strong>를 만들어야 합니다.</li>
+                        <li>Golden Set을 baseline(gpt-4o-mini) + candidate(nano/mini)에 <strong>Dual-Run 동시 호출</strong>.</li>
+                        <li>Azure Functions Durable / Prompt Flow로 비동기 배치 실행, 각 호출의 latency · tokens · raw JSON 모두 저장.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card" id="step4">
+                <div class="step-header"><span class="step-num">4</span><h4>자동 평가 + 휴먼 리뷰 (Human-in-the-Loop)</h4></div>
+                <div class="step-body">
+                    <div class="row g-2 mb-3">
+                        <div class="col-4">
+                            <div class="prereq-card text-center" style="min-height:110px;">
+                                <i class="bi bi-vector-pen" style="font-size:1.2rem;color:#6A1B9A;"></i>
+                                <h6 class="fw-bold mt-1 mb-0" style="font-size:0.8rem;">Semantic Similarity</h6>
+                                <p class="small mb-0">유사도 ≥ 0.85</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="prereq-card text-center" style="min-height:110px;">
+                                <i class="bi bi-robot" style="font-size:1.2rem;color:#6A1B9A;"></i>
+                                <h6 class="fw-bold mt-1 mb-0" style="font-size:0.8rem;">LLM-as-Judge</h6>
+                                <p class="small mb-0">Foundry Evaluations</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="prereq-card text-center" style="min-height:110px;">
+                                <i class="bi bi-braces" style="font-size:1.2rem;color:#6A1B9A;"></i>
+                                <h6 class="fw-bold mt-1 mb-0" style="font-size:0.8rem;">Structured Match</h6>
+                                <p class="small mb-0">JSON 스키마 검증</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><strong>자동</strong>: Foundry Evaluations SDK로 groundedness · similarity · coherence · relevance 점수 산출.</li>
+                        <li><strong>휴먼</strong>: 임계값 미만만 리뷰 큐 → side-by-side diff UI → Accept / Reject / Edit.</li>
+                        <li>Reject 시 프롬프트 또는 <code>reasoning_effort</code> 조정 후 <strong>Step 3 루프</strong>. 통과율 ≥ 95% 목표.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card" id="step5">
+                <div class="step-header"><span class="step-num">5</span><h4>회귀 테스트 + 점진 롤아웃 (Canary)</h4></div>
+                <div class="step-body">
+                    <div class="flow-diagram mb-3" style="overflow-x:auto;">
+                        <svg viewBox="0 0 700 80" width="100%" style="max-width:700px;font-family:'Noto Sans KR',sans-serif;">
+                            <rect x="10" y="15" width="130" height="50" rx="6" fill="#E8F5E9" stroke="#2E7D32"/>
+                            <text x="75" y="38" text-anchor="middle" font-size="11" font-weight="600">Prompt Registry</text>
+                            <text x="75" y="55" text-anchor="middle" font-size="10" fill="#555">버전 태그 저장</text>
+                            <line x1="140" y1="40" x2="180" y2="40" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow)"/>
+                            <rect x="182" y="15" width="130" height="50" rx="6" fill="#FFF8E1" stroke="#F9A825"/>
+                            <text x="247" y="38" text-anchor="middle" font-size="11" font-weight="600">CI 회귀 게이트</text>
+                            <text x="247" y="55" text-anchor="middle" font-size="10" fill="#555">GitHub Actions</text>
+                            <line x1="312" y1="40" x2="352" y2="40" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow)"/>
+                            <rect x="354" y="15" width="80" height="50" rx="6" fill="#E3F2FD" stroke="#0078D4"/>
+                            <text x="394" y="38" text-anchor="middle" font-size="12" font-weight="700">5%</text>
+                            <text x="394" y="55" text-anchor="middle" font-size="10" fill="#555">canary</text>
+                            <line x1="434" y1="40" x2="460" y2="40" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow)"/>
+                            <rect x="462" y="15" width="80" height="50" rx="6" fill="#E3F2FD" stroke="#0078D4"/>
+                            <text x="502" y="38" text-anchor="middle" font-size="12" font-weight="700">25%</text>
+                            <line x1="542" y1="40" x2="568" y2="40" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow)"/>
+                            <rect x="570" y="15" width="80" height="50" rx="6" fill="#2E7D32" stroke="#2E7D32"/>
+                            <text x="610" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">100%</text>
+                            <text x="610" y="55" text-anchor="middle" font-size="10" fill="#ddd">완료</text>
+                        </svg>
+                    </div>
+                    <ul>
+                        <li>새 모델을 전체에 바로 적용하지 말고, <strong>일부 트래픽만 전환</strong>해 스키마 준수율 · 툴 성공률 · 비용 · latency를 비교.</li>
+                        <li>이전에 실패했던 케이스, 툴 인자 edge case, 긴 문맥, 다단계 추론, safety case를 <strong>회귀 테스트셋</strong>으로 CI에 등록.</li>
+                        <li>프로덕션 <strong>5% → 25% → 100%</strong> 단계적 스위치. App Insights에서 모니터링.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 9. METRICS (신규) ===== -->
+    <section class="content-section" id="metrics">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-rulers"></i> 무엇을 측정해야 "안정적"이라 할 수 있는가</h2>
+            <p class="section-subtitle">아래 6종 지표가 이전 대비 유지되거나 개선되었는지로 전환 성공 여부를 판단합니다.</p>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="prereq-card text-center" style="min-height:120px;">
+                        <h6 class="fw-bold">Task Success</h6>
+                        <p class="small mb-0 text-muted">정답률 · grader score<br>비즈니스 outcome</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card text-center" style="min-height:120px;">
+                        <h6 class="fw-bold">Schema Pass Rate</h6>
+                        <p class="small mb-0 text-muted">JSON schema 통과율<br>파싱 성공률</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card text-center" style="min-height:120px;">
+                        <h6 class="fw-bold">Tool Success</h6>
+                        <p class="small mb-0 text-muted">호출 성공률 · 인자 오류율<br>재시도율</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card text-center" style="min-height:120px;">
+                        <h6 class="fw-bold">Latency</h6>
+                        <p class="small mb-0 text-muted">p50 / p95 응답 시간</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card text-center" style="min-height:120px;">
+                        <h6 class="fw-bold">Cost per Task</h6>
+                        <p class="small mb-0 text-muted">호출당 비용<br>재시도 포함 실제 단가</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card text-center" style="min-height:120px;">
+                        <h6 class="fw-bold">Policy Violations</h6>
+                        <p class="small mb-0 text-muted">금지 응답 · 잘못된 툴 사용<br>누출 위험</p>
+                    </div>
+                </div>
+            </div>
+            <div class="callout callout-tip mt-3">
+                <strong><i class="bi bi-lightbulb"></i> 평가 세트 구성 권장</strong> — 정상 케이스 + 복잡 케이스(다단계 추론, 긴 문맥) + 툴 케이스(필수 호출, 인자 edge) + 안전 케이스(금지 요청, 민감 정보) + <strong>회귀 케이스(과거 장애 입력)</strong>.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 10. ANTIPATTERNS (신규) ===== -->
+    <section class="content-section" id="antipatterns" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-x-octagon"></i> 피해야 할 안티패턴</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #F9A825;">
+                        <h6 class="fw-bold"><i class="bi bi-exclamation-triangle text-warning"></i> 안티패턴 1</h6>
+                        <p class="small mb-0">시스템 프롬프트 하나만 길게 써두고 <strong>모든 모델에 공통 적용</strong>하기. 모델마다 지시 해석 성향이 다르므로 최소한 <strong>모델군별 variant</strong>가 필요합니다.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #F9A825;">
+                        <h6 class="fw-bold"><i class="bi bi-exclamation-triangle text-warning"></i> 안티패턴 2</h6>
+                        <p class="small mb-0">출력이 자연어여도 <strong>후처리에서 대충 파싱</strong>하면 된다고 생각하기. 전환 비용과 장애 가능성을 가장 크게 키우는 방식입니다.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #F9A825;">
+                        <h6 class="fw-bold"><i class="bi bi-exclamation-triangle text-warning"></i> 안티패턴 3</h6>
+                        <p class="small mb-0">라우팅과 fallback 없이 <strong>한 모델만 단일 의존점</strong>으로 사용. 가격 · 성능 · 안정성 변동이 바로 서비스 장애로 이어집니다.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #F9A825;">
+                        <h6 class="fw-bold"><i class="bi bi-exclamation-triangle text-warning"></i> 안티패턴 4</h6>
+                        <p class="small mb-0">평가를 <strong>사람이 몇 번 눈으로 확인</strong>하는 수준에 머무르게 하기. 회귀 테스트가 없으면 "안정성 유지"를 재현 가능하게 증명할 수 없습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 11. TOOLS (Azure + 오픈소스) ===== -->
+    <section class="content-section" id="tools">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-tools"></i> 도구 생태계 — Azure + 오픈소스</h2>
+            <p class="section-subtitle">"플랫폼 하나로 끝내기"보다 <strong>라우팅용 1개 + 구조화용 1개 + 평가용 1개</strong>를 조합하는 구성이 더 안정적입니다.</p>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:4px solid var(--azure-primary);">
+                        <h6 class="fw-bold"><i class="bi bi-arrow-left-right" style="color:var(--azure-primary);"></i> A. 전환/라우팅 중심</h6>
+                        <ul class="small mb-0">
+                            <li><strong>Azure API Management</strong> — Gateway 정책, 429 재시도, 모델 라우팅</li>
+                            <li><strong>LiteLLM</strong> — 100+ provider 공통 인터페이스, fallback</li>
+                            <li><strong>Portkey / OpenRouter</strong> — provider 간 전환, 비용 추적</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:4px solid #2E7D32;">
+                        <h6 class="fw-bold"><i class="bi bi-braces" style="color:#2E7D32;"></i> B. 구조화 출력 중심</h6>
+                        <ul class="small mb-0">
+                            <li><strong>OpenAI Structured Outputs</strong> — 네이티브 JSON Schema 강제</li>
+                            <li><strong>Instructor</strong> — Pydantic 모델 → 자동 스키마 생성 + retry</li>
+                            <li><strong>BAML</strong> — 타입 안전 LLM 함수 정의</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:4px solid #F9A825;">
+                        <h6 class="fw-bold"><i class="bi bi-shield-check" style="color:#F9A825;"></i> C. 검증/가드레일 중심</h6>
+                        <ul class="small mb-0">
+                            <li><strong>Guardrails AI</strong> — validator 실패 시 re-ask/fix/reject</li>
+                            <li><strong>Azure AI Content Safety</strong> — 안전성 검증</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:4px solid #6A1B9A;">
+                        <h6 class="fw-bold"><i class="bi bi-graph-up" style="color:#6A1B9A;"></i> D. 평가/회귀 중심</h6>
+                        <ul class="small mb-0">
+                            <li><strong>Azure AI Foundry Evaluations</strong> — built-in evaluator + multi-model 동시 평가</li>
+                            <li><strong>Promptfoo</strong> — CI/CD 통합 회귀, 커스텀 grader</li>
+                            <li><strong>LangSmith</strong> — 분산 추적 + golden set 비교</li>
+                            <li><strong>VS Code AI Toolkit</strong> — 로컬 multi-model playground</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout callout-tip mt-3">
+                <strong><i class="bi bi-lightbulb"></i> 실전 워크플로우</strong>
+                <strong>① 로컬</strong>: VS Code AI Toolkit에서 대표 10건을 3개 모델로 비교.
+                <strong>② 클라우드</strong>: Foundry Evaluations에서 200건 배치 평가 → 정량 점수.
+                <strong>③ CI</strong>: Promptfoo 또는 <code>azure-ai-evaluation</code> SDK로 야간 회귀 자동 검증.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 12. CODE ===== -->
+    <section class="content-section" id="code" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-code-square"></i> Before / After 코드 비교</h2>
+            <p class="section-subtitle"><code>gpt-4o-mini</code> → <code>gpt-5.4-mini</code>/<code>gpt-5.4-nano</code>. 모델 이름만 바꾸면 동일 코드.</p>
+
+            <h5 class="mt-4"><i class="bi bi-dash-circle text-danger"></i> Before — gpt-4o-mini</h5>
+            <div class="code-label python">Python · AzureOpenAI (기존)</div>
+            <pre class="code-block"><code><span class="keyword">from</span> openai <span class="keyword">import</span> AzureOpenAI
+
+client = AzureOpenAI(
+    azure_endpoint=<span class="string">"https://my-aoai.openai.azure.com/"</span>,
+    api_key=os.getenv(<span class="string">"AZURE_OPENAI_API_KEY"</span>),
+    api_version=<span class="string">"2024-10-01-preview"</span>,
+)
+
+resp = client.chat.completions.create(
+    model=<span class="string">"gpt-4o-mini"</span>,
+    messages=[
+        {<span class="string">"role"</span>: <span class="string">"system"</span>, <span class="string">"content"</span>: SYSTEM_PROMPT},
+        {<span class="string">"role"</span>: <span class="string">"user"</span>,   <span class="string">"content"</span>: user_input},
+    ],
+    temperature=<span class="string">0.2</span>,
+    top_p=<span class="string">0.9</span>,
+    max_tokens=<span class="string">1024</span>,
+    presence_penalty=<span class="string">0.0</span>,
+)
+print(resp.choices[<span class="string">0</span>].message.content)
+</code></pre>
+
+            <h5 class="mt-4"><i class="bi bi-plus-circle text-success"></i> After — gpt-5.4-mini / nano (v1 + Responses)</h5>
+            <div class="code-label python">Python · OpenAI v1 + Entra ID</div>
+            <pre class="code-block"><code><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI
+<span class="keyword">from</span> azure.identity <span class="keyword">import</span> DefaultAzureCredential, get_bearer_token_provider
+
+token_provider = get_bearer_token_provider(
+    DefaultAzureCredential(), <span class="string">"https://ai.azure.com/.default"</span>
+)
+
+client = OpenAI(
+    base_url=<span class="string">"https://my-aoai.openai.azure.com/openai/v1/"</span>,
+    api_key=token_provider,
+)
+
+resp = client.responses.create(
+    model=<span class="string">"gpt-5.4-mini"</span>,           <span class="comment"># 또는 "gpt-5.4-nano"</span>
+    input=[
+        {<span class="string">"role"</span>: <span class="string">"developer"</span>, <span class="string">"content"</span>: SYSTEM_PROMPT},
+        {<span class="string">"role"</span>: <span class="string">"user"</span>,      <span class="string">"content"</span>: user_input},
+    ],
+    <span class="comment"># temperature / top_p / presence_penalty 삭제</span>
+    max_output_tokens=<span class="string">2048</span>,
+    reasoning={<span class="string">"effort"</span>: <span class="string">"none"</span>},
+    text={<span class="string">"verbosity"</span>: <span class="string">"low"</span>},
+)
+print(resp.output_text)
+</code></pre>
+        </div>
+    </section>
+
+    <!-- ===== 13. STACK ===== -->
+    <section class="content-section" id="stack">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-boxes"></i> 권장 Azure 서비스 스택</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle" style="table-layout:fixed;">
+                    <colgroup><col style="width:14%;"><col style="width:32%;"><col style="width:54%;"></colgroup>
+                    <thead class="table-light"><tr><th>계층</th><th>서비스</th><th>역할</th></tr></thead>
+                    <tbody>
+                        <tr><td>Gateway</td><td>Azure API Management</td><td>모델 라우팅 · 429 재시도 · 폴백 정책 · 로깅</td></tr>
+                        <tr><td>모델</td><td>Azure OpenAI in Foundry</td><td>baseline + candidate nano + candidate mini (배포 3개)</td></tr>
+                        <tr><td>스키마</td><td>OpenAI Structured Outputs / Instructor</td><td>JSON Schema 강제 · typed object</td></tr>
+                        <tr><td>가드레일</td><td>Guardrails AI / Content Safety</td><td>validator · re-ask · fix · 안전성 검증</td></tr>
+                        <tr><td>평가</td><td>Foundry Evaluations / Promptfoo</td><td>built-in evaluator · CI 회귀 게이트</td></tr>
+                        <tr><td>오케스트레이션</td><td>Functions (Durable) / Prompt Flow</td><td>Dual-Run 비동기 배치</td></tr>
+                        <tr><td>데이터</td><td>Cosmos DB for NoSQL</td><td>Golden Set · 실행 이력 (파티션 키: <code>scenario_id</code>)</td></tr>
+                        <tr><td>관측</td><td>App Insights + Log Analytics</td><td>latency · token · 6종 지표 KQL 대시보드</td></tr>
+                        <tr><td>보안</td><td>Entra ID + Key Vault</td><td>DefaultAzureCredential · 키 제거</td></tr>
+                        <tr><td>CI/CD</td><td>GitHub Actions</td><td>야간 회귀 평가 · 배포 승인 게이트</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 14. CHECKLIST ===== -->
+    <section class="content-section" id="checklist" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-check2-square"></i> 전환 체크리스트</h2>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <h5>준비</h5>
+                    <ul>
+                        <li>[ ] 현재 모델/버전/API 인벤토리</li>
+                        <li>[ ] 은퇴 일정 대비 여유 ≥ 60일</li>
+                        <li>[ ] 현재 계약(프롬프트 · 도구 · 규칙) 문서화</li>
+                        <li>[ ] Golden Set 50건 이상 수집</li>
+                        <li>[ ] 신규 모델 배포 (GA 리전)</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>플랫폼</h5>
+                    <ul>
+                        <li>[ ] JSON Schema / Structured Outputs 적용</li>
+                        <li>[ ] 모델군별 프롬프트 variant 작성</li>
+                        <li>[ ] Gateway 라우팅 + 폴백 구성</li>
+                        <li>[ ] 가드레일(validator · re-ask) 연결</li>
+                        <li>[ ] Entra ID 역할 부여</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>검증 · 롤아웃</h5>
+                    <ul>
+                        <li>[ ] 파라미터 변환 스크립트 유닛 테스트</li>
+                        <li>[ ] nano 먼저 → 실패 시 mini 승급</li>
+                        <li>[ ] 6종 지표 기준선 대비 달성</li>
+                        <li>[ ] 휴먼 Accept ≥ 95%</li>
+                        <li>[ ] 회귀 CI 등록 · canary 5→25→100%</li>
+                        <li>[ ] App Insights 대시보드 모니터링</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 15. REFERENCES ===== -->
+    <section class="content-section" id="references">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-link-45deg"></i> 참고 자료</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <h6 class="fw-bold">Azure / Microsoft</h6>
+                    <ul class="small">
+                        <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API Pricing</a></li>
+                        <li><a href="https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/" target="_blank" rel="noopener">Azure OpenAI Service Pricing</a></li>
+                        <li><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements" target="_blank" rel="noopener">모델 은퇴 및 Deprecation 일정</a></li>
+                        <li><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models" target="_blank" rel="noopener">Azure OpenAI 모델 카탈로그</a></li>
+                        <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/reasoning" target="_blank" rel="noopener">Reasoning 모델 사용 가이드</a></li>
+                        <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-lifecycle" target="_blank" rel="noopener">Azure OpenAI v1 API 가이드</a></li>
+                        <li><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses" target="_blank" rel="noopener">Responses API 레퍼런스</a></li>
+                        <li><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/evaluation-approach-gen-ai" target="_blank" rel="noopener">Foundry Evaluations 개요</a></li>
+                        <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio" target="_blank" rel="noopener">VS Code AI Toolkit Extension</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="fw-bold">OpenAI / 오픈소스</h6>
+                    <ul class="small">
+                        <li><a href="https://developers.openai.com/api/docs/guides/prompt-engineering" target="_blank" rel="noopener">OpenAI Prompt Engineering Guide</a></li>
+                        <li><a href="https://developers.openai.com/api/docs/guides/structured-outputs" target="_blank" rel="noopener">OpenAI Structured Outputs</a></li>
+                        <li><a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices" target="_blank" rel="noopener">OpenAI Evaluation Best Practices</a></li>
+                        <li><a href="https://developers.openai.com/api/docs/guides/prompt-guidance" target="_blank" rel="noopener">GPT-5.4 Prompt Guidance</a></li>
+                        <li><a href="https://cookbook.openai.com/examples/gpt-5/gpt-5_prompting_guide" target="_blank" rel="noopener">GPT-5 Prompting Cookbook</a></li>
+                        <li><a href="https://docs.litellm.ai/docs/" target="_blank" rel="noopener">LiteLLM Docs</a></li>
+                        <li><a href="https://python.useinstructor.com/" target="_blank" rel="noopener">Instructor</a></li>
+                        <li><a href="https://guardrailsai.com/" target="_blank" rel="noopener">Guardrails AI</a></li>
+                        <li><a href="https://www.promptfoo.dev/" target="_blank" rel="noopener">Promptfoo</a></li>
+                        <li><a href="https://docs.langchain.com/langsmith/evaluation-concepts" target="_blank" rel="noopener">LangSmith Evaluation</a></li>
+                        <li><a href="https://www.anthropic.com/engineering/writing-tools-for-agents" target="_blank" rel="noopener">Anthropic — Writing Tools for Agents</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../js/site.js"></script>
+</body>
+</html>

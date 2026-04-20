@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-04-20T04:09:55Z",
+    "generatedAt": "2026-04-20T18:15:14Z",
     "categories": {
         "azure": {
             "label": "Azure",
@@ -7,26 +7,32 @@
             "docs": [
                 {
                     "slug": "hosted_agent",
-                    "title": "Microsoft Foundry Agent Service — 에이전트 유형 비교 가이드",
+                    "title": "[Foundry] Microsoft Foundry Agent 유형 비교",
                     "description": "Prompt Agent, Workflow Agent, Hosted Agent — 세 가지 에이전트 유형의 특징과 차이점을 한눈에 비교하고, 프로젝트에 적합한 에이전트를 선택하세요.",
                     "path": "azure/hosted_agent/"
+                },
+                {
+                    "slug": "llm_model_migration",
+                    "title": "[AOAI] LLM 모델 마이그레이션 가이드",
+                    "description": "모델 전환 문제는 \"모델 이름만 바꾸기\"가 아니라 프롬프트 · 도구 호출 · 출력 형식 · 비용 · 지연이 함께 흔들리는 엔지니어링 문제입니다. 이 가이드는 모델 위에 전환 계층을 두고, 스키마 · 가드레일 · 평가를 표준화해 안정적으로 전환하는 플랫폼 설계도를 제시합니다.",
+                    "path": "azure/llm_model_migration/"
                 }
             ]
         },
         "m365": {
-            "label": "M365",
+            "label": "Microsoft 365",
             "description": "Copilot, Graph API, Teams, SharePoint 등.",
             "docs": [
                 {
                     "slug": "cowork_html_guide",
-                    "title": "비즈니스 및 기술 문서 HTML로 뚝딱! - M365 Copilot Cowork",
-                    "description": "짧은 시간 안에 시각적으로 효과적인 기술 문서, 가이드, 프레젠테이션 슬라이드를 만들고 싶다고요? M365 Copilot Cowork로 준비해 보세요!",
+                    "title": "[Cowork] 비즈니스 및 기술 문서 HTML로 뚝딱!",
+                    "description": "사내에 흩어져 있는 Word · PowerPoint · Pages · Outlook · Teams 자료와 웹 검색 결과를 한번에 끌어모아, 보기 좋은 HTML 문서와 슬라이드로 자동 완성합니다. 수집부터 다듬기까지, 대화 한 번이면 충분합니다.",
                     "path": "m365/cowork_html_guide/"
                 },
                 {
                     "slug": "meeting_in_30min",
-                    "title": "30분 뒤 미팅, 발표 자료가 아직 없다 - M365 Copilot Cowork",
-                    "description": "열심히 일하고 있는 당신, 잦은 미팅에 아직 효과적으로 준비된 발표자료가 없다고요? M365 Copilot Cowork이 도와 드릴께요!",
+                    "title": "[Cowork] 30분 뒤 미팅, 발표 자료가 아직 없다",
+                    "description": "",
                     "path": "m365/meeting_in_30min/"
                 }
             ]
@@ -34,7 +40,14 @@
         "github": {
             "label": "GitHub",
             "description": "GitHub Actions, Copilot, Codespaces 등.",
-            "docs": []
+            "docs": [
+                {
+                    "slug": "pages_publishing",
+                    "title": "[Pages] 내가 만든 HTML 결과물을 함께 공유하고 싶다면!",
+                    "description": "잘 다듬어진 HTML 파일 하나만 있으면 충분합니다. GitHub 사이트에서 저장소 만들고 → 파일 올리고 → URL 공유, 딱 이 세 단계입니다.",
+                    "path": "github/pages_publishing/"
+                }
+            ]
         }
     }
 }
