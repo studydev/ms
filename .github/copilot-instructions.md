@@ -75,6 +75,15 @@ docs/                          # GitHub Pages 루트
 - **사이드바가 있는 페이지**는 `<body class="has-sidebar ...">` 필수.
 - **메인 랜딩(카테고리 카드형)**에는 사이드바 없음 → `.has-sidebar` 붙이지 않음.
 - **상단 네비**는 `top-nav` + `nav-brand` + `breadcrumb` 동일 구조 유지.
+- **`nav-brand` (좌측 상단 브랜드)는 모든 페이지에서 고정 규칙을 따른다 — UX 일관성을 위해 절대 변경하지 않는다:**
+    - 텍스트: **`MS Tech`** (다른 값 금지 — 제품명/서비스명으로 바꾸지 말 것)
+    - 아이콘: `<i class="bi bi-microsoft"></i>`
+    - 링크: **항상 사이트 루트(Home)**. 파일 깊이에 맞춘 상대 경로만 사용.
+        - `docs/index.html` → `href="./"`
+        - `docs/<category>/index.html` → `href="../"`
+        - `docs/<category>/<slug>/index.html` → `href="../../"`
+    - `target="_blank"` 금지. 같은 탭에서 Home으로 이동해야 한다.
+    - 외부 사이트(예: ai.azure.com, microsoft.com)로 연결하지 않는다. 외부 링크가 필요하면 breadcrumb나 본문 내 참조 섹션에서 처리한다.
 - **히어로**는 `section.hero-section` (페이지 성격별로 `.page-lab` 등 modifier 클래스로 색상 변경).
 
 ### 한국어 & 용어
