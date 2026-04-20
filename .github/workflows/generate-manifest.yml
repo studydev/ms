@@ -1,18 +1,18 @@
-name: Generate docs/manifest.json
+name: Generate docs/manifest.json (manual)
+
+# NOTE:
+# 기본 흐름: manifest.json은 **로컬에서 수동 생성**해 커밋한다.
+#     python3 scripts/generate_manifest.py
+# 이 워크플로는 필요 시 workflow_dispatch 로만 돌려서
+# 생성 결과를 artifact 로 받아볼 수 있도록 남겨 둔다.
+# 저장소에 자동 커밋/푸시하지 않는다 (로컬 수정과 충돌 방지).
+# 나중에 자동 커밋으로 되돌리고 싶으면 push 트리거와 commit step 을 다시 추가하면 된다.
 
 on:
-    push:
-        branches: [main]
-        paths:
-            - 'docs/**/*.html'
-            - 'docs/azure/**'
-            - 'docs/m365/**'
-            - 'docs/github/**'
-            - '.github/workflows/generate-manifest.yml'
     workflow_dispatch:
 
 permissions:
-    contents: write
+    contents: read
 
 jobs:
     build-manifest:
@@ -30,14 +30,12 @@ jobs:
               run: |
                   python3 scripts/generate_manifest.py
 
-            - name: Commit & push if changed
+            - name: Show diff (informational only)
               run: |
-                  if git diff --quiet docs/manifest.json; then
-                      echo "No manifest changes."
-                      exit 0
-                  fi
-                  git config user.name  "github-actions[bot]"
-                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  git add docs/manifest.json
-                  git commit -m "chore(manifest): regenerate docs/manifest.json"
-                  git push
+                  git --no-pager diff -- docs/manifest.json || true
+
+            - name: Upload manifest artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: manifest-json
+                  path: docs/manifest.json

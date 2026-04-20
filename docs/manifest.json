@@ -14,7 +14,7 @@
             ]
         },
         "m365": {
-            "label": "Microsoft 365",
+            "label": "M365",
             "description": "Copilot, Graph API, Teams, SharePoint 등.",
             "docs": [
                 {

@@ -95,17 +95,25 @@ docs/                          # GitHub Pages 루트
 ## 3. manifest.json & 네비게이션
 
 - `docs/manifest.json`은 메인/카테고리 랜딩 페이지가 fetch해서 문서 목록을 그리는 **단일 진실 공급원**입니다.
-- 새 문서 폴더를 만들면 `manifest.json`의 해당 카테고리 `docs` 배열에 항목 추가:
-    ```json
-    {
-        "slug": "cosmos_db_intro",
-        "title": "Azure Cosmos DB 입문 가이드",
-        "description": "NoSQL 기본 개념 + 실습",
-        "path": "azure/cosmos_db_intro/"
-    }
-    ```
+- **manifest.json은 로컬에서 수동 생성 후 커밋하는 것을 기본 흐름으로 합니다.** (GitHub Actions 자동 커밋은 현재 비활성화됨 — 로컬 편집과의 충돌을 피하기 위함)
+- 새 문서 폴더를 만들면 `manifest.json`의 해당 카테고리 `docs` 배열에 반영되어야 합니다. 두 가지 방법 중 하나:
+    1. **스크립트로 재생성 (권장)** — 저장소 루트에서:
+        ```bash
+        python3 scripts/generate_manifest.py
+        ```
+       이 스크립트가 `docs/` 구조를 스캔해 `docs/manifest.json`을 갱신합니다. 생성된 결과를 **같은 커밋에 포함**해서 push.
+    2. **직접 편집** — 항목 예시:
+        ```json
+        {
+            "slug": "cosmos_db_intro",
+            "title": "Azure Cosmos DB 입문 가이드",
+            "description": "NoSQL 기본 개념 + 실습",
+            "path": "azure/cosmos_db_intro/"
+        }
+        ```
 - `path`는 항상 `docs/`를 루트로 하는 상대 경로 + 슬래시(`/`) 종료.
-- **GitHub Actions 워크플로 `.github/workflows/generate-manifest.yml`**이 push 시 `docs/` 구조를 스캔해 자동 커밋할 수 있으므로, 수동 편집 후 `workflow_dispatch`로 재생성 가능.
+- **Copilot 작업 규칙**: 새 문서를 추가하거나 기존 문서의 제목/설명/경로가 바뀌면, **같은 변경 세트 안에서 `scripts/generate_manifest.py`를 실행**해 `docs/manifest.json`을 갱신한 뒤 함께 커밋합니다. `manifest.json`만 따로 다음 푸시로 미루지 않습니다.
+- **GitHub Actions 워크플로 `.github/workflows/generate-manifest.yml`**은 현재 `workflow_dispatch` 수동 실행 전용이며, 결과를 artifact로만 업로드합니다 (저장소에 커밋하지 않음). 나중에 자동 커밋으로 되돌리려면 이 파일에 `push` 트리거와 commit 스텝을 다시 추가하면 됩니다.
 
 ---
 
