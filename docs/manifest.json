@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-04-21T05:02:47Z",
+    "generatedAt": "2026-04-21T05:58:21Z",
     "categories": {
         "azure": {
             "label": "Azure",
@@ -38,7 +38,7 @@
                 {
                     "slug": "meeting_in_30min",
                     "title": "[Cowork] 30분 뒤 미팅, 발표 자료가 아직 없다",
-                    "description": "",
+                    "description": "열심히 일하고 있는 당신, 잦은 미팅에 아직 효과적으로 준비된 발표자료가 없다고요? M365 Copilot Cowork이 도와 드릴께요!",
                     "path": "m365/meeting_in_30min/"
                 }
             ]
