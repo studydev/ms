@@ -13,3 +13,6 @@ ehthumbs.db
 .idea/
 *.swp
 *.swo
+
+# Environment
+.env

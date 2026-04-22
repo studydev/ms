@@ -5,10 +5,12 @@ import os
 from pathlib import Path
 
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from dotenv import load_dotenv
 from openai import AzureOpenAI
 
+load_dotenv(Path(__file__).with_name(".env"))
 
-DEFAULT_ENDPOINT = "https://hyoun-mnib1dak-swedencentral.cognitiveservices.azure.com/"
+DEFAULT_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT", "")
 DEFAULT_API_VERSION = "2025-04-01-preview"
 DEFAULT_DEPLOYMENT = "gpt-image-2"
 DEFAULT_SCOPE = "https://cognitiveservices.azure.com/.default"
