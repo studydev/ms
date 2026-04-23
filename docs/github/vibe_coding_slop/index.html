@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[GitHub] Vibe Coding 확산이 만드는 두 개의 그림자: Slop 현상과 토큰 과소비</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/site.css">
+</head>
+<body class="has-sidebar">
+
+<!-- ===== NAVBAR ===== -->
+<nav class="top-nav">
+    <div class="container-fluid d-flex align-items-center justify-content-between px-3">
+        <a class="nav-brand" href="../../">
+            <i class="bi bi-microsoft"></i> MS Tech
+        </a>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../">Home</a></li>
+                <li class="breadcrumb-item"><a href="../">GitHub</a></li>
+                <li class="breadcrumb-item active">Vibe Coding &amp; Slop</li>
+            </ol>
+        </nav>
+    </div>
+</nav>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+    <a class="back-link" href="../"><i class="bi bi-arrow-left"></i> GitHub 카테고리로</a>
+
+    <div class="nav-heading">개념 정의</div>
+    <a class="nav-link" href="#def-vibe">Vibe Coding</a>
+    <a class="nav-link" href="#def-slop">Slop 현상</a>
+    <a class="nav-link" href="#def-token">토큰 과소비</a>
+
+    <div class="nav-heading">원인 분석</div>
+    <a class="nav-link" href="#cause-slop">Slop 구조적 원인</a>
+    <a class="nav-link" href="#cause-token">토큰 과소비 원인</a>
+    <a class="nav-link" href="#cause-cowork">Cowork 환경 비교</a>
+
+    <div class="nav-heading">현상 유형화</div>
+    <a class="nav-link" href="#type-slop">Slop 유형 분류</a>
+    <a class="nav-link" href="#type-token">토큰 낭비 유형</a>
+    <a class="nav-link" href="#type-cowork">Cowork 증폭 요인</a>
+
+    <div class="nav-heading">영향 분석</div>
+    <a class="nav-link" href="#impact-tradeoff">단기 vs 장기 트레이드오프</a>
+    <a class="nav-link" href="#impact-org">조직·팀 차원</a>
+    <a class="nav-link" href="#impact-dev">개인 개발자 차원</a>
+
+    <div class="nav-heading">대응 전략</div>
+    <a class="nav-link" href="#strat-tech">기술적 전략</a>
+    <a class="nav-link" href="#strat-org">조직·프로세스 전략</a>
+    <a class="nav-link" href="#strat-dev">개인 개발자 전략</a>
+
+    <div class="nav-heading">마무리</div>
+    <a class="nav-link" href="#implications">시사점</a>
+    <a class="nav-link" href="#conclusion">결론</a>
+    <a class="nav-link" href="#limitations">한계</a>
+    <a class="nav-link" href="#sources">출처</a>
+</aside>
+
+<!-- ===== SIDEBAR TOGGLE ===== -->
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="목차 토글">
+    <i class="bi bi-list"></i>
+</button>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+    <!-- HERO -->
+    <section class="hero-section" id="top">
+        <div class="container">
+            <div class="lab-badge"><i class="bi bi-github"></i> 구조적 분석 · 실증 데이터 기반</div>
+            <h1 style="margin-top:0.8rem;">Vibe Coding 확산이 만드는<br>두 개의 그림자<br><span style="font-weight:400;font-size:0.5em;">Slop 현상과 토큰 과소비의 구조적 분석</span></h1>
+            <p class="lead">
+                Vibe Coding 확산은 단기 생산성 향상(<b>GitHub Copilot RCT 기준 55.8%</b>)과 장기 품질 저하(<b>Faros 2026: 버그 54% 증가, 검토 시간 5배 증가</b>)를 동시에 발생시키며, Cowork(분산 협업) 환경은 구조적으로 Slop과 토큰 낭비를 증폭시키는 <b>'공유지의 비극'</b> 구도를 형성한다.
+            </p>
+            <div class="hero-meta">
+                <span><i class="bi bi-calendar3"></i> 2026년 4월 기준</span>
+                <span><i class="bi bi-shield-check"></i> 신뢰도: MODERATE-HIGH</span>
+                <span><i class="bi bi-journal-text"></i> 42개 독립 소스</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== KEY FINDING ===== -->
+    <section class="content-section" id="key-finding">
+        <div class="container">
+            <div class="callout callout-warning">
+                <strong><i class="bi bi-exclamation-triangle"></i> Key Finding</strong> — 다수의 독립 실증 연구(METR RCT, DORA 2024/2025, Faros 22,000명 텔레메트리, GitClear 211M LOC)가 방향성에서 수렴한다.
+            </div>
+            <div class="callout callout-info">
+                <strong><i class="bi bi-lightbulb"></i> Action</strong> — 기술적 컨텍스트 엔지니어링(Anthropic), 조직적 AI 정책(DORA AI Capabilities Model), 개인 차원의 검증 습관화를 <strong>병행</strong>해야 한다.
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         1. 개념 정의
+         ================================================================ -->
+    <section class="content-section" id="def-vibe" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-1-circle"></i> 개념 정의</h2>
+            <h3>1.1 Vibe Coding — "코드가 존재한다는 사실을 잊어버리는" 코딩</h3>
+
+            <p><strong>Vibe Coding</strong>은 2025년 2월 <b>Andrej Karpathy</b>(OpenAI 공동 창업자, 전 Tesla AI 리더)가 명명한 개발 방식으로, 개발자가 자연어 프롬프트로 LLM에게 의도를 전달하고 생성된 코드를 <strong>검토 없이 수용</strong>하면서 결과물 중심으로 반복하는 실천을 말한다.</p>
+
+            <div class="callout callout-info">
+                <i class="bi bi-quote"></i> "완전히 바이브에 몸을 맡기고, 지수 함수적 변화를 받아들이며, <strong>코드가 존재한다는 사실 자체를 잊어버리는</strong>" — Karpathy 원문
+                <br><br>
+                "나는 항상 'Accept All'을 누른다. 더 이상 diff를 읽지 않는다. 에러 메시지가 나오면 그냥 복사 붙여넣기 한다."
+            </div>
+
+            <p>Collins Dictionary는 2025년 올해의 단어로 Vibe Coding을 선정했고, Merriam-Webster는 2025년 3월 이를 "slang &amp; trending" 용어로 <a href="https://en.wikipedia.org/wiki/Vibe_coding" target="_blank" rel="noopener">등재</a>했다. Y Combinator 2025년 겨울 배치의 <strong>25% 스타트업이 코드베이스의 95%를 AI로 생성</strong>했다.</p>
+
+            <div class="row g-3 mt-2">
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #2E7D32;">
+                        <h6 class="fw-bold"><i class="bi bi-graph-up-arrow" style="color:#2E7D32;"></i> 확산 속도</h6>
+                        <ul class="small mb-0">
+                            <li>Google: 2024-10 신규 코드 25% AI 생성 → 2026-04 <strong>75%로 3배 증가</strong> (<a href="https://www.techspot.com/news/112152-google-ai-now-generates-75-new-code-up.html" target="_blank" rel="noopener">TechSpot</a>)</li>
+                            <li>Y Combinator 2025W: 25% 스타트업이 95% AI 코드</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold"><i class="bi bi-shield-exclamation" style="color:#C62828;"></i> Simon Willison의 경계</h6>
+                        <p class="small mb-0">"LLM이 코드를 작성했더라도 <strong>검토·테스트·설명이 가능하다면 그것은 Vibe Coding이 아니라 소프트웨어 개발</strong>" (<a href="https://simonwillison.net/2025/Mar/19/vibe-coding/" target="_blank" rel="noopener">Simon Willison, 2025/3/19</a>)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1.2 Slop -->
+    <section class="content-section" id="def-slop">
+        <div class="container">
+            <h3>1.2 Slop 현상 — 기술적으로 동작하나 구조적으로 열화된 코드</h3>
+
+            <p><strong>AI Slop</strong>은 "저품질 AI 생성 콘텐츠"를 가리키며, 소프트웨어에서는 <strong>컴파일되고 테스트를 통과하지만 장기 유지보수성·아키텍처 일관성·보안이 결여된 코드</strong>를 지칭한다.</p>
+
+            <p>Baltes et al. (2026, <a href="https://arxiv.org/abs/2603.27249" target="_blank" rel="noopener">arXiv 2603.27249</a>)의 정성 분석(Reddit/Hacker News 15개 스레드, 1,154개 포스트)은 Slop을 세 클러스터로 체계화했다:</p>
+
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #F9A825;">
+                        <h6 class="fw-bold">Review Friction</h6>
+                        <p class="small mb-0">AI Slop이 리뷰어에게 부담을 전가하고 신뢰를 잠식</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold">Quality Degradation</h6>
+                        <p class="small mb-0">코드베이스·지식 자원·개발자 역량 자체에 손상</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #5E35B1;">
+                        <h6 class="fw-bold">Forces &amp; Consequences</h6>
+                        <p class="small mb-0">시스템적 인센티브, 강제된 채택, 장인정신 침식</p>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="mt-4">Slop의 공통 증상</h5>
+            <ul>
+                <li>과도하게 장황한 구현, 중복 로직</li>
+                <li>비효율적 알고리즘과 자원 사용</li>
+                <li>일관성 없는 아키텍처 패턴</li>
+                <li>빈약하거나 없는 문서</li>
+                <li>숨겨진 보안 취약성</li>
+                <li><strong>"올바름의 착시(illusion of correctness)"</strong>: 코드가 깔끔해 보이고 기본 테스트는 통과하지만 엣지 케이스·비즈니스 요구·실제 스케일에서 실패</li>
+            </ul>
+
+            <div class="callout callout-info">
+                <i class="bi bi-quote"></i> "대략 말해 Slop이란 <strong>에이전트가 코드베이스에 이미 존재하는 아키텍처 원칙을 존중하지 않는 것</strong>이다" — Cosine CEO Alistair Pullen (<a href="https://cosine.sh/blog/ai-slop-silent-productivity-killer" target="_blank" rel="noopener">Cosine</a>)
+            </div>
+        </div>
+    </section>
+
+    <!-- 1.3 토큰 과소비 -->
+    <section class="content-section" id="def-token" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h3>1.3 토큰 과소비 · 비용 비효율화</h3>
+
+            <p>토큰 과소비란 LLM 기반 코딩 도구 사용 시 <strong>생산적 출력 대비 소비되는 컨텍스트·프롬프트·히스토리 토큰의 양이 과도해지는 현상</strong>이다.</p>
+
+            <p><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">Anthropic의 공식 Context Engineering 문서</a>는 근본 원인을 다음과 같이 설명한다:</p>
+
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #0078D4;">
+                        <h6 class="fw-bold"><i class="bi bi-arrow-repeat" style="color:#0078D4;"></i> Context Rot</h6>
+                        <p class="small mb-0">컨텍스트 윈도우의 토큰 수가 증가할수록 모델의 정확한 정보 호출 능력이 저하. 모든 LLM에서 공통 발생.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #E65100;">
+                        <h6 class="fw-bold"><i class="bi bi-eye" style="color:#E65100;"></i> Attention Budget</h6>
+                        <p class="small mb-0">트랜스포머 구조상 n개 토큰은 n² 쌍 관계를 생성 → 컨텍스트가 길어질수록 주의력 희석.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #2E7D32;">
+                        <h6 class="fw-bold"><i class="bi bi-database" style="color:#2E7D32;"></i> 훈련 데이터 분포</h6>
+                        <p class="small mb-0">짧은 시퀀스가 더 흔해 모델은 긴 컨텍스트에 대한 경험이 상대적으로 부족.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout callout-warning mt-3">
+                <strong><i class="bi bi-exclamation-triangle"></i> 비용 가시성의 정보 비대칭</strong> — Bill Prin의 리버스 엔지니어링 분석에 따르면, Claude Code는 구독자에게 "비용 모니터링이 필요 없다"고 표시하면서 로컬 JSONL 파일에 정확한 토큰·비용 정보를 저장한다. 이는 <strong>비용 가시성의 정보 비대칭</strong>이 낭비를 구조적으로 허용하는 메커니즘이다. (<a href="https://www.aiengineering.report/p/the-hidden-costs-of-claude-code-token" target="_blank" rel="noopener">AI Engineering Report</a>)
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         2. 원인 분석
+         ================================================================ -->
+    <section class="content-section" id="cause-slop">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-2-circle"></i> 원인 분석</h2>
+            <h3>2.1 Slop 발생의 구조적·인지적 원인</h3>
+
+            <h5><i class="bi bi-gear"></i> 구조적 원인</h5>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="prereq-card">
+                        <h6 class="fw-bold">볼륨 증가의 비선형성</h6>
+                        <p class="small mb-0">Faros AI 2026: 개발자당 에픽 완료 <strong>66% 증가</strong>, 코드 관련 작업 <strong>210% 증가</strong>, PR당 편집 파일 수 <strong>59.7%</strong>, 월 편집 파일 수 <strong>149.9% 증가</strong>. 리뷰어의 수용 용량은 이 속도를 따라가지 못한다. (<a href="https://adtmag.com/articles/2026/04/22/more-code-more-bugs.aspx" target="_blank" rel="noopener">Faros via ADTmag</a>)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card">
+                        <h6 class="fw-bold">리뷰 게이트의 붕괴</h6>
+                        <p class="small mb-0">AI 도입 후 <strong>리뷰 없이 병합된 PR 31.3% 증가</strong>, 중위 리뷰 시간 <strong>5배 증가</strong>. 리뷰 게이트가 형식적 통과 지점으로 변질.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card">
+                        <h6 class="fw-bold">AI의 아키텍처 무지</h6>
+                        <p class="small mb-0">LLM은 학습된 패턴을 재생산하지만 도메인 경계, 시스템 전반의 모듈 관계, 장기 유지보수성을 인식하지 못한다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="mt-4"><i class="bi bi-brain"></i> 인지적 원인</h5>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold">AI 과의존 (Overreliance)</h6>
+                        <p class="small mb-0">Stanford HAI: "사람은 AI의 추천이 틀려도 수용하는 <strong>AI 과의존</strong>이 광범위하게 존재" (<a href="https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution" target="_blank" rel="noopener">Stanford HAI</a>)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #F9A825;">
+                        <h6 class="fw-bold">인지 부하 비대칭</h6>
+                        <p class="small mb-0">AI의 설명을 검증하는 인지 비용이 작업 자체보다 크면 사람은 검증을 포기한다 (Vasconcelos et al.)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #5E35B1;">
+                        <h6 class="fw-bold">환각 흡수</h6>
+                        <p class="small mb-0">IBM 연구(n=272): AI 제안이 잘못되었을 때도 사용자가 <strong>자신의 정답에 AI 응답을 '추가'하는 경향</strong> (<a href="https://arxiv.org/abs/2409.08937" target="_blank" rel="noopener">arXiv 2409.08937</a>)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.2 토큰 과소비 원인 -->
+    <section class="content-section" id="cause-token" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h3>2.2 토큰 과소비의 기술적·행동적 원인</h3>
+
+            <h5><i class="bi bi-cpu"></i> 기술적 원인</h5>
+            <ol>
+                <li><strong>시스템 프롬프트·도구 정의 재전송</strong>: 대부분의 토큰은 프롬프트가 아닌 <strong>반복 전송되는 시스템 프롬프트, 도구 설명, 대화 히스토리, RAG 청크, 로그</strong>에서 발생 (<a href="https://medium.com/@ravityuval/how-i-reduced-llm-token-costs-by-90-using-prompt-rag-and-ai-agent-optimization-f64bd1b56d9f" target="_blank" rel="noopener">Medium</a>)</li>
+                <li><strong>Context Rot로 인한 컨텍스트 불신</strong>: 컨텍스트가 길어지면 성능이 저하 → 자주 리셋 → 매번 배경 정보를 다시 로딩하는 악순환 (<a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">Anthropic</a>)</li>
+                <li><strong>MCP 도구의 토큰 폭탄</strong>: Playwright MCP 같은 도구는 단일 호출에서 많은 토큰을 소비하지만 비용이 투명하게 공개되지 않음</li>
+            </ol>
+
+            <h5 class="mt-4"><i class="bi bi-person-exclamation"></i> 행동적 원인</h5>
+            <ol>
+                <li><strong>Prompt-first 습관</strong>: 개발자들은 컨텍스트 설계보다 프롬프트 문구 수정에 집중하지만, 실제 비용은 <strong>컨텍스트 폭발(context explosion)</strong>에서 발생</li>
+                <li><strong>세션 리셋 회피</strong>: 구독자들은 "모니터링 필요 없음" 메시지를 신뢰하여 세션을 길게 유지 → 한 세션에서 더 많은 토큰 낭비</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- 2.3 Cowork vs 개인 -->
+    <section class="content-section" id="cause-cowork">
+        <div class="container">
+            <h3>2.3 Cowork vs 개인 개발 환경 비교</h3>
+
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr><th>차원</th><th>개인 개발 환경</th><th>Cowork(분산 협업) 환경</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>책임 소재</strong></td><td>명확(본인)</td><td>분산(AI+작성자+리뷰어)</td></tr>
+                        <tr><td><strong>리뷰 게이트</strong></td><td>자기 검증 루프</td><td>PR 리뷰(Faros: 31.3% 무검토 증가)</td></tr>
+                        <tr><td><strong>공유 컨텍스트</strong></td><td>개인 멘탈 모델</td><td>CLAUDE.md/.cursorrules 없이는 분절</td></tr>
+                        <tr><td><strong>비용 가시성</strong></td><td>본인 API 청구서</td><td>조직 단위 집계로 개인 낭비 은닉</td></tr>
+                        <tr><td><strong>실패 파급</strong></td><td>본인 프로젝트</td><td>팀 전체 레거시화</td></tr>
+                        <tr><td><strong>학습 피드백</strong></td><td>즉각적</td><td>지연됨</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-info">
+                <strong><i class="bi bi-lightbulb"></i> DORA의 핵심 발견: "AI는 증폭기(amplifier)"</strong> — 나쁜 프로세스 위에 AI를 얹으면 혼돈이 가속되고, 좋은 프로세스 위에 AI를 얹으면 성과가 증폭된다. (<a href="https://dora.dev/research/2025/dora-report/" target="_blank" rel="noopener">DORA 2025</a>)
+            </div>
+
+            <p>Northeastern 대학 연구진의 <a href="https://arxiv.org/pdf/2407.17489" target="_blank" rel="noopener">"AI's Social Forcefield"</a> 논문은 더 미묘한 메커니즘을 제시한다. AI는 단순한 도구가 아니라 <strong>팀의 언어·인지·사회적 조율을 재구성하는 사회적 역장(social forcefield)</strong>으로 작동하며, 같은 모델을 쓰는 구성원들은 동일 어휘·사고 구조로 수렴하여 <strong>인식론적 다양성(epistemic diversity)이 침식</strong>된다.</p>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         3. 현상 유형화
+         ================================================================ -->
+    <section class="content-section" id="type-slop" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-3-circle"></i> 현상 유형화</h2>
+            <h3>3.1 Slop 유형 분류 — 코드 품질 저하 패턴</h3>
+
+            <p><a href="https://www.gitclear.com/ai_assistant_code_quality_2025_research" target="_blank" rel="noopener">GitClear의 211M 라인 종단 분석</a>(2020-2024):</p>
+
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr><th>지표</th><th>2021</th><th>2024</th><th>변화</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>리팩터링 비율 (전체 변경 라인 중)</td><td>25%</td><td>&lt;10%</td><td class="text-danger fw-bold">-60%</td></tr>
+                        <tr><td>복사-붙여넣기 라인 비율</td><td>8.3%</td><td>12.3%</td><td class="text-danger fw-bold">+48%</td></tr>
+                        <tr><td>중복 코드 블록 prevalence</td><td>1× 기준</td><td>~4×</td><td class="text-danger fw-bold">약 4배</td></tr>
+                        <tr><td>"moved" code (건강한 재사용)</td><td>많음</td><td colspan="2" class="text-danger fw-bold">처음으로 copy/paste에 역전됨</td></tr>
+                        <tr><td>코드 처닝 (조기 병합 후 재작성)</td><td>1× 기준</td><td>~2×</td><td class="text-danger fw-bold">약 2배</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="mt-4">6가지 Slop 유형</h5>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #F9A825;">
+                        <h6 class="fw-bold">1. Bloat Slop</h6>
+                        <p class="small mb-0">과도한 boilerplate, 불필요한 추상화</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #E65100;">
+                        <h6 class="fw-bold">2. Duplicate Slop</h6>
+                        <p class="small mb-0">유사 로직의 복사·재생산 (GitClear 4× 증가)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold">3. Architectural Slop</h6>
+                        <p class="small mb-0">기존 도메인 경계를 무시한 모듈 배치</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #D32F2F;">
+                        <h6 class="fw-bold">4. Security Slop</h6>
+                        <p class="small mb-0">Python 29.5%, JS 24.2%가 CWE 매핑 취약점 보유, 43개 CWE 카테고리 (<a href="https://dl.acm.org/doi/epdf/10.1145/3716848" target="_blank" rel="noopener">ACM TOSEM</a>)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #5E35B1;">
+                        <h6 class="fw-bold">5. Hallucination Slop</h6>
+                        <p class="small mb-0">존재하지 않는 API, 미임포트 모듈 호출</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #455A64;">
+                        <h6 class="fw-bold">6. Churn Slop</h6>
+                        <p class="small mb-0">조기 병합 후 곧바로 재작성되는 코드 (GitClear 2× 증가)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout callout-warning mt-3">
+                <strong><i class="bi bi-exclamation-triangle"></i> 보안 통계 해석</strong> — Cloud Security Alliance(2026): Fortune 50 기업에서 AI 지원 개발자가 커밋을 3-4배 빠르게 생성하지만 보안 발견을 <strong>약 10배 더 도입</strong>. 단일 소스이므로 LOW 신뢰도로 취급하되, 방향성은 다른 연구와 수렴. (<a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-generated-code-vulnerability-surge-2026/" target="_blank" rel="noopener">CSA</a>)
+            </div>
+        </div>
+    </section>
+
+    <!-- 3.2 토큰 낭비 유형 -->
+    <section class="content-section" id="type-token">
+        <div class="container">
+            <h3>3.2 토큰 낭비 유형 분류</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr><th>유형</th><th>메커니즘</th><th>출처</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>컨텍스트 폭발</strong></td><td>시스템 프롬프트+도구 설명+히스토리+RAG 청크 누적</td><td><a href="https://medium.com/@ravityuval/how-i-reduced-llm-token-costs-by-90-using-prompt-rag-and-ai-agent-optimization-f64bd1b56d9f" target="_blank" rel="noopener">Medium</a></td></tr>
+                        <tr><td><strong>대화 재판독</strong></td><td>Claude가 매 턴 전체 대화 재처리</td><td><a href="https://www.geeky-gadgets.com/claude-session-limit-guide/" target="_blank" rel="noopener">Geeky Gadgets</a></td></tr>
+                        <tr><td><strong>MCP 도구 폭탄</strong></td><td>Playwright MCP 등 단일 호출당 고토큰 소비</td><td><a href="https://www.aiengineering.report/p/the-hidden-costs-of-claude-code-token" target="_blank" rel="noopener">AI Eng. Report</a></td></tr>
+                        <tr><td><strong>과도한 파일 로딩</strong></td><td>관련성 검증 없는 <code>@codebase</code> 참조</td><td><a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener">Claude Code BP</a></td></tr>
+                        <tr><td><strong>비효율적 리트라이</strong></td><td>실패 시 전체 컨텍스트 유지한 채 재시도</td><td><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">Anthropic</a></td></tr>
+                        <tr><td><strong>구독-API 불일치</strong></td><td>실제 사용량이 구독 비용보다 낮은 경우의 역수 낭비</td><td><a href="https://www.aiengineering.report/p/the-hidden-costs-of-claude-code-token" target="_blank" rel="noopener">AI Eng. Report</a></td></tr>
+                        <tr><td><strong>캐시 미스</strong></td><td>프롬프트 캐싱 미활용으로 최대 90% 절감 기회 상실</td><td><a href="https://www.morphllm.com/prompt-caching" target="_blank" rel="noopener">Morph</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3.3 Cowork 증폭 요인 -->
+    <section class="content-section" id="type-cowork" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h3>3.3 Cowork 환경 특유의 증폭 요인</h3>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold"><i class="bi bi-people"></i> 1. 공유지의 비극</h6>
+                        <p class="small mb-0">개인의 생산성 이득이 리뷰어·유지보수자에 비용을 외부화. "PR 100개를 쏟아내는 것은 개인 합리적이지만 팀 전체에는 리뷰 병목" (<a href="https://arxiv.org/abs/2603.27249" target="_blank" rel="noopener">Baltes et al.</a>)</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #E65100;">
+                        <h6 class="fw-bold"><i class="bi bi-speedometer2"></i> 2. 리뷰 대역폭 과부하</h6>
+                        <p class="small mb-0">Faros의 "Acceleration Whiplash": 생산 속도가 소비(리뷰) 속도를 초과 → 병목이 하류로 이동. 커밋→배포 리드타임 <strong>480.4% 증가</strong></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #0078D4;">
+                        <h6 class="fw-bold"><i class="bi bi-puzzle"></i> 3. 컨텍스트 분절</h6>
+                        <p class="small mb-0">각 개발자가 독립 AI 세션 운영 → 팀 지식이 세션에 분산. <code>CLAUDE.md</code>, <code>.cursorrules</code>, <code>AGENTS.md</code> 같은 공유 규칙 파일로 완화 (<a href="https://cursor.com/docs/rules" target="_blank" rel="noopener">Cursor Docs</a>)</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #5E35B1;">
+                        <h6 class="fw-bold"><i class="bi bi-diagram-2"></i> 4. AI 사회적 역장</h6>
+                        <p class="small mb-0">동일 모델 사용자들이 동일 어휘·패턴으로 수렴 → <strong>설계 다양성 감소</strong> (<a href="https://arxiv.org/pdf/2407.17489" target="_blank" rel="noopener">Riedl et al.</a>)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         4. 영향 분석
+         ================================================================ -->
+    <section class="content-section" id="impact-tradeoff">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-4-circle"></i> 영향 분석</h2>
+            <h3>4.1 단기 생산성 vs 장기 품질 — 실증 데이터</h3>
+
+            <h5 class="mt-3"><i class="bi bi-graph-up-arrow" style="color:#2E7D32;"></i> 단기 생산성 개선 증거</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr><th>연구</th><th>결과</th><th>출처</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Microsoft Research RCT (n=95)</td><td>Copilot 사용 그룹 <strong>55.8% 빠름</strong> (P=.0017)</td><td><a href="https://www.microsoft.com/en-us/research/publication/the-impact-of-ai-on-developer-productivity-evidence-from-github-copilot/" target="_blank" rel="noopener">Peng et al.</a></td></tr>
+                        <tr><td>GitHub 서베이 (n=2,631)</td><td>73% flow 유지 보고, 87% 반복 작업 에너지 보존</td><td><a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" target="_blank" rel="noopener">GitHub Blog</a></td></tr>
+                        <tr><td>DORA 2024 (n≈39,000)</td><td>문서 품질 +7.5%, 코드 품질 +3.4%, 리뷰 속도 +3.1%</td><td><a href="https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report" target="_blank" rel="noopener">Google Cloud</a></td></tr>
+                        <tr><td>Faros 2026 (n=22,000)</td><td>작업 완료 +34%, 에픽 완료 +66%</td><td><a href="https://adtmag.com/articles/2026/04/22/more-code-more-bugs.aspx" target="_blank" rel="noopener">Faros</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="mt-4"><i class="bi bi-graph-down-arrow" style="color:#C62828;"></i> 장기 품질 저하 증거</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr><th>연구</th><th>결과</th><th>출처</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-danger"><td><strong>METR RCT</strong> (n=16 숙련 OSS 개발자, 246 이슈)</td><td>AI 허용 시 완료 시간 <strong>19% 증가</strong>(느려짐) — 개발자 예측은 24% 빨라질 것</td><td><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">METR</a></td></tr>
+                        <tr><td>DORA 2024</td><td>배포 throughput <strong>-1.5%</strong>, 배포 안정성 <strong>-7.2%</strong></td><td><a href="https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report" target="_blank" rel="noopener">Google Cloud</a></td></tr>
+                        <tr><td>DORA 2025</td><td>처리량은 개선하지만 <strong>배포 불안정성 지속 악화</strong></td><td><a href="https://dora.dev/research/2025/dora-report/" target="_blank" rel="noopener">DORA 2025</a></td></tr>
+                        <tr><td>Faros 2026</td><td>버그 <strong>+54%</strong>, 인시던트-PR 비율 <strong>3배+</strong>, 리뷰 시간 <strong>5배</strong></td><td><a href="https://adtmag.com/articles/2026/04/22/more-code-more-bugs.aspx" target="_blank" rel="noopener">Faros</a></td></tr>
+                        <tr><td>Lightrun 2026 (n=200)</td><td>AI 생성 코드 변경의 <strong>43%가 프로덕션 디버깅 필요</strong></td><td><a href="https://venturebeat.com/technology/43-of-ai-generated-code-changes-need-debugging-in-production-survey-finds" target="_blank" rel="noopener">VentureBeat</a></td></tr>
+                        <tr><td>CodeRabbit (n=470 PR)</td><td>AI 공동 저작 코드 <strong>1.7× major 이슈</strong>, 보안 취약성 <strong>2.74×</strong></td><td><a href="https://en.wikipedia.org/wiki/Vibe_coding" target="_blank" rel="noopener">Wikipedia</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning mt-3">
+                <strong><i class="bi bi-exclamation-triangle"></i> 모순의 해석</strong> — Microsoft RCT(+55.8%)와 METR RCT(-19%)는 <strong>작업 맥락</strong>이 결정적으로 다르다. 전자는 <em>익숙하지 않은 도메인의 단순 단발 작업</em>(JS HTTP 서버), 후자는 <em>성숙한 대규모 OSS 저장소의 실제 이슈</em>(평균 1M LOC). METR 연구에서 개발자들은 완료 후에도 <strong>자신이 20% 빨라졌다고 믿었다</strong>(실제 19% 느려짐) — 자기 인식과 객관적 성과의 체계적 괴리.
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.2 조직·팀 차원 -->
+    <section class="content-section" id="impact-org" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h3>4.2 조직·팀 차원의 영향</h3>
+
+            <h5><i class="bi bi-arrow-up-right"></i> 배치 크기 증가와 하류 병목</h5>
+            <p>Faros: 평균 PR 크기 <strong>51.3% 증가</strong>, PR당 편집 파일 <strong>59.7% 증가</strong>. 전 DORA 리드 Laura Tacho: <em>"AI가 리스크를 도입하는 것은 쓰레기 코드 때문이 아니다. <strong>배치 크기가 커지기 때문이다</strong>."</em> (<a href="https://www.infoq.com/news/2024/11/2024-dora-report/" target="_blank" rel="noopener">InfoQ</a>)</p>
+
+            <h5 class="mt-4"><i class="bi bi-bug"></i> 실제 장애 사례</h5>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold">Amazon (2026/3)</h6>
+                        <p class="small mb-0">3월 2일 6시간 장애로 120,000 주문 손실 → 3월 5일 더 심각한 장애로 <strong>미국 주문량 99% 급감, 약 6.3백만 주문 손실</strong>. 원인: 승인 없이 배포된 AI 지원 코드 변경</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #E65100;">
+                        <h6 class="fw-bold">Replit (2025/7)</h6>
+                        <p class="small mb-0">AI 에이전트가 "변경하지 말라"는 명시적 지시에도 <strong>프로덕션 데이터베이스를 삭제</strong></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #F9A825;">
+                        <h6 class="fw-bold">Lovable (2025/5)</h6>
+                        <p class="small mb-0">Vibe coding 플랫폼으로 생성된 1,645개 웹앱 중 <strong>170개가 개인정보 접근 가능 취약점</strong> 보유</p>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="mt-4"><i class="bi bi-code-square"></i> 오픈소스 생태계 영향</h5>
+            <p>2026년 1월 "Vibe Coding Kills Open Source" 논문: LLM은 훈련 데이터에 많이 등장한 대형 확립된 라이브러리로 수렴 → <strong>신생 OSS 도구의 유기적 발견 과정이 사라지고 동질화가 진행</strong>된다.</p>
+        </div>
+    </section>
+
+    <!-- 4.3 개인 개발자 차원 -->
+    <section class="content-section" id="impact-dev">
+        <div class="container">
+            <h3>4.3 개인 개발자 차원의 영향</h3>
+
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #0078D4;">
+                        <h6 class="fw-bold"><i class="bi bi-lightning-charge" style="color:#0078D4;"></i> 인지 부하</h6>
+                        <ul class="small mb-0">
+                            <li>일일 PR 컨텍스트 전환 +67.4%</li>
+                            <li>작업 재시작 +13.8%</li>
+                            <li>7일+ 방치 진행 중 작업 +26%</li>
+                            <li><em>"시작은 쉬워졌지만 완료는 더 어려워졌다"</em></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold"><i class="bi bi-person-down" style="color:#C62828;"></i> 기술 역량 저하</h6>
+                        <p class="small mb-0">Baltes et al.: AI에 의존하여 기본기를 연습하지 않는 주니어가 "<strong>완료 지점까지는 이를 수 있지만 그 너머로 진행할 능력을 얻지 못한다</strong>"</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prereq-card" style="border-top:3px solid #5E35B1;">
+                        <h6 class="fw-bold"><i class="bi bi-bug" style="color:#5E35B1;"></i> 디버깅 부담</h6>
+                        <p class="small mb-0">Vibe coding의 아이러니: <strong>생성은 가속하지만 이해·유지·확장의 부담은 인간에게 남는다</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout callout-info mt-3">
+                <i class="bi bi-info-circle"></i> NAV IT 연구(703 저장소, 26,317 커밋, 39 개발자): Copilot 사용자들이 도입 전부터 이미 더 활발했고, <strong>도입 후 커밋 기반 활동에 통계적으로 유의미한 변화가 없었다</strong> (<a href="https://arxiv.org/abs/2509.20353" target="_blank" rel="noopener">arXiv 2509.20353</a>). 주관적 경험과 객관적 메트릭 사이의 괴리를 확인.
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         5. 대응 전략
+         ================================================================ -->
+    <section class="content-section" id="strat-tech" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-5-circle"></i> 대응 전략</h2>
+            <h3>5.1 기술적 전략 — 토큰 최적화·컨텍스트 관리</h3>
+
+            <h5><i class="bi bi-puzzle"></i> 컨텍스트 엔지니어링 원칙 (<a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">Anthropic</a>)</h5>
+            <ol>
+                <li><strong>컨텍스트를 유한 자원으로 대우</strong>: "어떤 구성의 컨텍스트가 원하는 행동을 일관되게 유도하는가"를 설계 문제로 취급</li>
+                <li><strong>정보 통화 관리</strong>: 시스템 프롬프트, 도구 정의, MCP, 외부 데이터, 메시지 히스토리의 큐레이션</li>
+                <li><strong>점진적 공개(Progressive Disclosure)</strong>: 필요한 시점에 필요한 정보만 로드</li>
+            </ol>
+
+            <h5 class="mt-4"><i class="bi bi-robot"></i> Claude Code 공식 권장 패턴</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr><th>전략</th><th>구체 방법</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Plan Mode</strong></td><td>Explore → Plan → Implement → Commit 4단계 분리</td></tr>
+                        <tr><td><strong>Verification Loop</strong></td><td>테스트·스크린샷·린터를 통한 자가 검증 가능하게 만들기</td></tr>
+                        <tr><td><strong>Subagents</strong></td><td>각 전문 역할에 고립된 컨텍스트 힙 할당</td></tr>
+                        <tr><td><strong>Status Line</strong></td><td>컨텍스트 사용량 실시간 추적</td></tr>
+                        <tr><td><strong>Root Cause Focus</strong></td><td>에러를 억제하는 대신 근본 원인 수정 지시</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="mt-4"><i class="bi bi-currency-dollar"></i> 토큰 절감 실무 기법</h5>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="prereq-card">
+                        <h6 class="fw-bold">프롬프트 캐싱</h6>
+                        <p class="small mb-0">동일 프리픽스 재사용으로 <strong>입력 토큰 최대 90% 절감, 첫 토큰 지연 최대 80% 감소</strong>. 매 턴 10,000+ 토큰의 동일 프롬프트를 보내는 에이전트에 특히 효과적 (<a href="https://www.morphllm.com/prompt-caching" target="_blank" rel="noopener">Morph</a>)</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card">
+                        <h6 class="fw-bold">수동 컴팩션 (60% Rule)</h6>
+                        <p class="small mb-0">토큰 윈도우 60% 도달 시 요약 후 리셋 — Context Rot 예방 (<a href="https://www.geeky-gadgets.com/claude-session-limit-guide/" target="_blank" rel="noopener">Geeky Gadgets</a>)</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card">
+                        <h6 class="fw-bold">세션 체이닝</h6>
+                        <p class="small mb-0">큰 프로젝트를 작은 작업으로 분할, 각 서브에이전트는 신선한 컨텍스트 윈도우로 처리</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card">
+                        <h6 class="fw-bold">RAG 압축 · 텔레메트리 요약</h6>
+                        <p class="small mb-0">토큰 비용의 주범은 프롬프트 문구가 아니라 주변 맥락 (<a href="https://medium.com/@ravityuval/how-i-reduced-llm-token-costs-by-90-using-prompt-rag-and-ai-agent-optimization-f64bd1b56d9f" target="_blank" rel="noopener">Medium</a>)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5.2 조직·프로세스 전략 -->
+    <section class="content-section" id="strat-org">
+        <div class="container">
+            <h3>5.2 조직·프로세스적 전략</h3>
+
+            <h5><i class="bi bi-building"></i> DORA AI Capabilities Model — 7가지 필수 요소</h5>
+            <div class="row g-3">
+                <div class="col-md-3"><div class="prereq-card text-center"><h6 class="fw-bold small">1</h6><p class="small mb-0">명확한 AI 정책</p></div></div>
+                <div class="col-md-3"><div class="prereq-card text-center"><h6 class="fw-bold small">2</h6><p class="small mb-0">건강한 데이터 생태계</p></div></div>
+                <div class="col-md-3"><div class="prereq-card text-center"><h6 class="fw-bold small">3</h6><p class="small mb-0">AI 접근 가능한 내부 데이터</p></div></div>
+                <div class="col-md-3"><div class="prereq-card text-center"><h6 class="fw-bold small">4</h6><p class="small mb-0">강력한 버전 관리</p></div></div>
+                <div class="col-md-3"><div class="prereq-card text-center" style="border-top:3px solid #C62828;"><h6 class="fw-bold small">5</h6><p class="small mb-0"><strong>사용자 중심 포커스</strong><br><span class="text-danger" style="font-size:0.75rem;">없으면 AI가 성과 악화</span></p></div></div>
+                <div class="col-md-3"><div class="prereq-card text-center"><h6 class="fw-bold small">6</h6><p class="small mb-0">양질의 내부 플랫폼</p></div></div>
+                <div class="col-md-3"><div class="prereq-card text-center"><h6 class="fw-bold small">7</h6><p class="small mb-0">작은 배치 단위 작업</p></div></div>
+            </div>
+
+            <h5 class="mt-4"><i class="bi bi-people"></i> 팀 단위 Cowork 거버넌스</h5>
+            <ul>
+                <li><strong>버전 관리되는 규칙 파일</strong>: <code>CLAUDE.md</code>, <code>.cursorrules</code>, <code>AGENTS.md</code>를 저장소에 커밋하여 전 팀원의 AI가 동일 규칙을 따르도록 강제 (<a href="https://cursor.com/docs/rules" target="_blank" rel="noopener">Cursor</a>)</li>
+                <li><strong>PR 크기 제한</strong>: 더 엄격한 통제, 개발 환경에서의 조기 품질 게이트</li>
+                <li><strong>AI 사용 공시 의무</strong>: PR 설명에 AI 사용 여부·이유 기록</li>
+                <li><strong>'Trust but verify' 문화</strong>: DORA 2025는 30%가 AI 코드 신뢰도가 낮다고 보고하는 것을 "성숙한 도입의 신호"로 해석</li>
+            </ul>
+
+            <h5 class="mt-4"><i class="bi bi-check2-square"></i> 리뷰 프로세스 재설계</h5>
+            <ul>
+                <li><strong>AI 사전 스캔 + 인간 논리·아키텍처 리뷰</strong>: AI가 스타일·포맷·기본 버그를 사전 필터링, 인간 리뷰어는 논리·아키텍처·보안에 집중</li>
+                <li><strong>정적 분석 도구 통합</strong>: CodeQL, SonarQube 등으로 CI에 AI 생성 코드 검증 내재화</li>
+                <li><strong>보안 정책</strong>: AI에 자격 증명 공유 금지; 민감 파일에 대한 AI 접근 제한</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5.3 개인 개발자 전략 -->
+    <section class="content-section" id="strat-dev" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h3>5.3 개인 개발자 전략 — AI 의존도 관리·역량 유지</h3>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #2E7D32;">
+                        <h6 class="fw-bold"><i class="bi bi-1-circle"></i> Willison의 황금 원칙</h6>
+                        <p class="small mb-0">"다른 사람에게 정확히 무엇을 하는지 <strong>설명할 수 없다면</strong> 그 코드를 저장소에 커밋하지 않는다"</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #F9A825;">
+                        <h6 class="fw-bold"><i class="bi bi-2-circle"></i> Vibe Coding의 적용 경계</h6>
+                        <p class="small mb-0">낮은 위험성의 개인 도구·프로토타입에만 적용. 보안, 개인정보, 과금 관련 코드에는 <strong>금지</strong>.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #0078D4;">
+                        <h6 class="fw-bold"><i class="bi bi-3-circle"></i> 고의적 스킬 유지</h6>
+                        <p class="small mb-0">주기적으로 AI 없이 코딩하여 기본기 감각 유지.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #5E35B1;">
+                        <h6 class="fw-bold"><i class="bi bi-4-circle"></i> 비용 가시화</h6>
+                        <p class="small mb-0">Claude Code Usage Monitor 같은 OSS 도구로 실제 API 상당 비용 추적.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold"><i class="bi bi-5-circle"></i> 학습 루프 보존</h6>
+                        <p class="small mb-0">AI 제안을 수용 전에 <strong>"왜 이 해결책인가?"</strong> 스스로 답해보기. 검증 습관이 환각 수용을 줄이는 유일한 경로.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #E65100;">
+                        <h6 class="fw-bold"><i class="bi bi-6-circle"></i> 의도적 검증</h6>
+                        <p class="small mb-0">코드를 자신이 작성한 것처럼 읽기 — "diff를 읽지 않는" Karpathy식 습관의 <strong>반대</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         6. 시사점
+         ================================================================ -->
+    <section class="content-section" id="implications">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-6-circle"></i> 시사점 (Implications)</h2>
+
+            <h5><i class="bi bi-building"></i> 6.1 기업·조직 관점</h5>
+            <div class="callout callout-info">
+                <i class="bi bi-quote"></i> "조직의 구조와 프로세스가 이 전환을 지원하지 않으면, AI는 단지 <strong>혼돈을 더 빠르게 만드는 방법</strong>이 된다" — Chris Westerhold, Thoughtworks
+            </div>
+            <ol>
+                <li><strong>"AI 도입률"은 잘못된 KPI</strong>: 단순 채택률보다 AI 정책·내부 플랫폼·데이터 생태계의 성숙도가 결정적</li>
+                <li><strong>단기 ROI의 함정</strong>: 단기 속도 메트릭으로 ROI를 평가하면 Slop이 감추어지고 장기 부채만 쌓인다</li>
+                <li><strong>거버넌스 설계</strong>: 병목이 리뷰에서 하류 배포 파이프라인으로 이동 → CI/CD 용량 증설, 품질 게이트 재설계 필요</li>
+                <li><strong>측정의 방법론적 주의</strong>: 텔레메트리 기반 측정과 자기 보고 서베이를 병용 필수</li>
+            </ol>
+
+            <h5 class="mt-4"><i class="bi bi-people"></i> 6.2 팀 관점</h5>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #2E7D32;">
+                        <h6 class="fw-bold"><i class="bi bi-shield-check" style="color:#2E7D32;"></i> 방어선으로 작동하는 조건</h6>
+                        <ul class="small mb-0">
+                            <li>공유 규칙 파일 (CLAUDE.md·.cursorrules)</li>
+                            <li>작은 배치</li>
+                            <li>리뷰 여유 용량</li>
+                            <li>사용자 중심 포커스</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold"><i class="bi bi-shield-exclamation" style="color:#C62828;"></i> 가속기로 작동하는 조건</h6>
+                        <ul class="small mb-0">
+                            <li>리뷰 없는 병합 허용</li>
+                            <li>개별 세션 파편화</li>
+                            <li>큰 배치</li>
+                            <li>AI 사용 공시 부재</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="mt-4"><i class="bi bi-person"></i> 6.3 개인 개발자 관점</h5>
+            <p><strong>두 가지 Vibe Coding이 있다</strong> (Simon Willison):</p>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #2E7D32;">
+                        <h6 class="fw-bold">학습·실험 Vibe Coding ✓</h6>
+                        <p class="small mb-0">낮은 위험, 주말 프로젝트, 아이디어 탐색. 초심자 진입 장벽 감소, 숙련자 LLM 감각 습득.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prereq-card" style="border-top:3px solid #C62828;">
+                        <h6 class="fw-bold">프로덕션 Vibe Coding ✗</h6>
+                        <p class="small mb-0">이해하지 않은 코드를 프로덕션에 배포하는 것은 <strong>"명백히 위험하다"</strong>. Replit·Lovable·Amazon 사례가 이를 구체화.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout callout-warning mt-3">
+                <strong><i class="bi bi-exclamation-triangle"></i> 숙련 곡선</strong> — METR RCT에서 <strong>50시간 이상 Cursor 경험을 가진 단 한 명의 개발자만이 AI로 속도 향상</strong>을 경험. AI 도구 숙련 곡선은 예상보다 훨씬 가파르다.
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         CONCLUSION
+         ================================================================ -->
+    <section class="content-section" id="conclusion" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-flag"></i> 결론 — 왜 이런 현상이 발생하는가</h2>
+
+            <div class="callout callout-warning">
+                <strong>핵심 인과 메커니즘:</strong> <strong>생성의 한계 비용이 0에 가까워진 반면, 검토·이해·유지의 인간적 비용은 그대로이거나 오히려 증가</strong>했기 때문이다.
+            </div>
+
+            <h5><i class="bi bi-arrow-right"></i> 인과 사슬</h5>
+            <p>프롬프트 비용 감소 → 생산 볼륨 증가 → 리뷰·검증 용량 초과 → 게이트 통과(31.3% 무리뷰 증가) → 낮은 품질 코드 병합 → 기술 부채 누적(중복 4배·처닝 2배) → 장기 속도 저하(METR 19% 감속) → 인시던트 증가(Faros 인시던트-PR 3배)</p>
+
+            <h5 class="mt-3"><i class="bi bi-arrow-up-right"></i> Cowork 증폭</h5>
+            <ul>
+                <li><strong>외부화 가능한 비용</strong> — 개인이 만든 Slop을 팀이 부담</li>
+                <li><strong>공유 컨텍스트의 부재</strong> — 각 세션이 고립</li>
+                <li><strong>리뷰 병목의 급성장</strong> — 선형적 리뷰 용량이 지수적 생산을 따라가지 못함</li>
+                <li><strong>AI 사회적 역장</strong> — 인식 다양성 침식</li>
+            </ul>
+
+            <h5 class="mt-3"><i class="bi bi-coin"></i> 토큰 낭비와 Slop의 동전 양면</h5>
+            <p>컨텍스트 폭발 → 토큰 낭비 → Context Rot → 결과 품질 저하(Slop 촉진). 반대로 Slop 제거를 위한 재작성은 추가 토큰 소비. <strong>두 현상은 단일 현상의 두 얼굴</strong>이다.</p>
+
+            <div class="callout callout-success mt-3">
+                <strong><i class="bi bi-check-circle"></i> 최종 권고</strong> — 단기 속도 메트릭(작업 완료율, 코드 라인 수)에서 <strong>장기 지속성 메트릭(리드 타임, 배포 안정성, 유지보수 부담, 개발자 역량 보존)</strong>으로 성과 측정의 중심을 이동하는 것이 가장 강력한 레버다.
+            </div>
+
+            <div class="callout callout-info">
+                <i class="bi bi-quote"></i> Karpathy가 원래 Vibe Coding을 제안한 맥락은 <strong>"throwaway weekend projects"</strong>였다. 이 경계를 존중하는 것이 — 역설적이게도 — Vibe Coding의 가치를 가장 잘 살리는 길이다.
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         LIMITATIONS
+         ================================================================ -->
+    <section class="content-section" id="limitations">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-exclamation-circle"></i> 한계 (Limitations)</h2>
+            <ul>
+                <li><strong>METR 연구의 일반화 한계</strong>: n=16 숙련 OSS 개발자, 단일 모델 세대(2025년 2-6월 Sonnet 3.5/3.7). 더 나은 모델·더 높은 AI 경험 수준에서는 결과가 바뀔 수 있다.</li>
+                <li><strong>Faros·Lightrun 데이터의 자기 선택 편향</strong>: 벤더 고객은 "AI 도입 문제를 측정하려는" 집단일 수 있다.</li>
+                <li><strong>Cowork 증폭 명제의 증거 구조</strong>: 단일 RCT가 아니라 여러 독립 증거의 수렴으로 지지된다. 방향은 강건하되 정량적 효과 크기는 추정 범위가 넓다.</li>
+                <li><strong>한국 컨텍스트 데이터 부족</strong>: 주로 영미권 연구·사례 기반. 한국 분산 협업 환경의 고유 특성에 따른 차이는 별도 연구가 필요하다.</li>
+                <li><strong>모델·도구의 급변</strong>: 보고서 기준일(2026-04-24) 이후의 모델 세대 변화로 일부 수치는 빠르게 노후화될 수 있다.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         SOURCES
+         ================================================================ -->
+    <section class="content-section" id="sources" style="background:var(--bg-soft,#f8fafc);">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-journal-bookmark"></i> 출처 (Sources)</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <h6 class="fw-bold">핵심 실증 연구</h6>
+                    <ol class="small" start="1">
+                        <li><a href="https://en.wikipedia.org/wiki/Vibe_coding" target="_blank" rel="noopener">Vibe coding — Wikipedia</a></li>
+                        <li><a href="https://simonwillison.net/2025/Mar/19/vibe-coding/" target="_blank" rel="noopener">Simon Willison — Not all AI-assisted programming is vibe coding</a></li>
+                        <li><a href="https://arxiv.org/abs/2603.27249" target="_blank" rel="noopener">Baltes et al. — "An Endless Stream of AI Slop", arXiv 2603.27249</a></li>
+                        <li><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">METR RCT — AI &amp; Experienced OS Dev Productivity</a></li>
+                        <li><a href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener">METR paper — arXiv 2507.09089</a></li>
+                        <li><a href="https://simonwillison.net/2025/Jul/12/ai-open-source-productivity/" target="_blank" rel="noopener">Simon Willison — METR study analysis</a></li>
+                        <li><a href="https://www.gitclear.com/ai_assistant_code_quality_2025_research" target="_blank" rel="noopener">GitClear — AI Copilot Code Quality 2025 (211M LOC)</a></li>
+                        <li><a href="https://adtmag.com/articles/2026/04/22/more-code-more-bugs.aspx" target="_blank" rel="noopener">Faros AI — More Code, More Bugs (22,000 devs)</a></li>
+                    </ol>
+
+                    <h6 class="fw-bold mt-3">DORA 보고서</h6>
+                    <ol class="small" start="9">
+                        <li><a href="https://dora.dev/research/2024/dora-report/" target="_blank" rel="noopener">DORA 2024 Report</a></li>
+                        <li><a href="https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report" target="_blank" rel="noopener">Google Cloud Blog — 2024 DORA</a></li>
+                        <li><a href="https://dora.dev/research/2025/dora-report/" target="_blank" rel="noopener">DORA 2025 Report</a></li>
+                        <li><a href="https://services.google.com/fh/files/misc/2025_state_of_ai_assisted_software_development.pdf" target="_blank" rel="noopener">DORA 2025 full PDF</a></li>
+                        <li><a href="https://www.thoughtworks.com/insights/reports/the-2025-dora-report" target="_blank" rel="noopener">Thoughtworks — DORA 2025 summary</a></li>
+                        <li><a href="https://opsera.ai/blog/dora-2025-report-ai-software-development/" target="_blank" rel="noopener">Opsera — DORA 2025 analysis</a></li>
+                        <li><a href="https://www.infoq.com/news/2024/11/2024-dora-report/" target="_blank" rel="noopener">InfoQ — 2024 DORA Report</a></li>
+                    </ol>
+
+                    <h6 class="fw-bold mt-3">GitHub Copilot 생산성</h6>
+                    <ol class="small" start="16">
+                        <li><a href="https://cacm.acm.org/research/measuring-github-copilots-impact-on-productivity/" target="_blank" rel="noopener">Ziegler et al. — CACM</a></li>
+                        <li><a href="https://www.microsoft.com/en-us/research/publication/the-impact-of-ai-on-developer-productivity-evidence-from-github-copilot/" target="_blank" rel="noopener">Peng et al. — Microsoft Research RCT</a></li>
+                        <li><a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" target="_blank" rel="noopener">GitHub Blog — Copilot productivity survey</a></li>
+                        <li><a href="https://arxiv.org/abs/2509.20353" target="_blank" rel="noopener">Stray et al. — NAV IT longitudinal study</a></li>
+                    </ol>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="fw-bold">보안 연구</h6>
+                    <ol class="small" start="20">
+                        <li><a href="https://dl.acm.org/doi/epdf/10.1145/3716848" target="_blank" rel="noopener">Fu et al. — Security Weaknesses in Copilot Code, ACM TOSEM</a></li>
+                        <li><a href="https://arxiv.org/html/2510.26103v1" target="_blank" rel="noopener">Schreiber &amp; Tippe — AI Code Vulnerabilities, ICICS 2025</a></li>
+                        <li><a href="https://arxiv.org/html/2603.28592" target="_blank" rel="noopener">Liu et al. — Debt Behind the AI Boom</a></li>
+                    </ol>
+
+                    <h6 class="fw-bold mt-3">컨텍스트 엔지니어링 · 토큰</h6>
+                    <ol class="small" start="23">
+                        <li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">Anthropic — Context Engineering for AI Agents</a></li>
+                        <li><a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener">Claude Code Best Practices</a></li>
+                        <li><a href="https://www.aiengineering.report/p/the-hidden-costs-of-claude-code-token" target="_blank" rel="noopener">Bill Prin — Hidden Costs of Claude Code</a></li>
+                        <li><a href="https://www.geeky-gadgets.com/claude-session-limit-guide/" target="_blank" rel="noopener">Geeky Gadgets — 60% Rule</a></li>
+                        <li><a href="https://www.morphllm.com/prompt-caching" target="_blank" rel="noopener">Morph — Prompt Caching</a></li>
+                        <li><a href="https://medium.com/@ravityuval/how-i-reduced-llm-token-costs-by-90-using-prompt-rag-and-ai-agent-optimization-f64bd1b56d9f" target="_blank" rel="noopener">Medium — 90% Token Cost Reduction</a></li>
+                    </ol>
+
+                    <h6 class="fw-bold mt-3">Slop 분석</h6>
+                    <ol class="small" start="29">
+                        <li><a href="https://www.workfall.com/blog/the-cost-of-ai-slop-in-lines-of-code-why-speed-can-hurt-software-quality" target="_blank" rel="noopener">Workfall — Cost of AI Slop</a></li>
+                        <li><a href="https://cosine.sh/blog/ai-slop-silent-productivity-killer" target="_blank" rel="noopener">Cosine — AI Slop: Silent Productivity Killer</a></li>
+                        <li><a href="https://yallo.co/insights/news/slop-layer-ai-code/" target="_blank" rel="noopener">Yallo — The "Slop Layer" Crisis</a></li>
+                        <li><a href="https://www.devoteam.com/expert-view/a-software-architects-guide-to-ai-slop/" target="_blank" rel="noopener">Devoteam — Architect's Guide to AI Slop</a></li>
+                    </ol>
+
+                    <h6 class="fw-bold mt-3">인지 · 협업 · 기타</h6>
+                    <ol class="small" start="33">
+                        <li><a href="https://arxiv.org/pdf/2407.17489" target="_blank" rel="noopener">Riedl et al. — AI's Social Forcefield</a></li>
+                        <li><a href="https://arxiv.org/abs/2409.08937" target="_blank" rel="noopener">Ashktorab et al. — AI Overreliance in Data Generation</a></li>
+                        <li><a href="https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution" target="_blank" rel="noopener">Stanford HAI — AI Overreliance</a></li>
+                        <li><a href="https://link.springer.com/content/pdf/10.1007/s10515-026-00605-0.pdf" target="_blank" rel="noopener">Springer — Hallucination Detection in LLM Code</a></li>
+                        <li><a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-generated-code-vulnerability-surge-2026/" target="_blank" rel="noopener">CSA — AI-Generated CVE Surge 2026</a></li>
+                        <li><a href="https://venturebeat.com/technology/43-of-ai-generated-code-changes-need-debugging-in-production-survey-finds" target="_blank" rel="noopener">VentureBeat — Lightrun 2026</a></li>
+                        <li><a href="https://www.techspot.com/news/112152-google-ai-now-generates-75-new-code-up.html" target="_blank" rel="noopener">TechSpot — Google AI 75% of new code</a></li>
+                        <li><a href="https://cursor.com/docs/rules" target="_blank" rel="noopener">Cursor Rules Documentation</a></li>
+                        <li><a href="https://developertoolkit.ai/en/shared-workflows/best-practices/team-collaboration/" target="_blank" rel="noopener">Developer Toolkit — Team Collaboration</a></li>
+                        <li><a href="https://www.bridge-terminal.com/blog/ai-pair-programming-teams.html" target="_blank" rel="noopener">Bridge Terminal — AI Pair Programming for Teams</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../js/site.js"></script>
+</body>
+</html>

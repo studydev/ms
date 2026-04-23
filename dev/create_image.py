@@ -40,6 +40,11 @@ def parse_args() -> argparse.Namespace:
         help="Text prompt used to generate the image.",
     )
     parser.add_argument(
+        "--prompt-file",
+        default=None,
+        help="Path to a UTF-8 text file containing the prompt (overrides --prompt).",
+    )
+    parser.add_argument(
         "--endpoint",
         default=os.getenv("AZURE_OPENAI_ENDPOINT", DEFAULT_ENDPOINT),
         help="Azure OpenAI endpoint (cognitiveservices.azure.com).",
@@ -88,6 +93,12 @@ def write_image_bytes(data: bytes, output_path: str) -> Path:
 
 def main() -> None:
     args = parse_args()
+
+    # --prompt-file takes precedence over --prompt
+    if args.prompt_file:
+        prompt_path = Path(args.prompt_file)
+        args.prompt = prompt_path.read_text(encoding="utf-8").strip()
+
     client = build_client(args.endpoint, args.api_version)
 
     kwargs: dict = {

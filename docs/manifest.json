@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-04-21T05:58:21Z",
+    "generatedAt": "2026-04-23T18:09:35Z",
     "categories": {
         "azure": {
             "label": "Azure",
@@ -52,6 +52,12 @@
                     "title": "[Pages] 내가 만든 HTML 결과물을 함께 공유하고 싶다면!",
                     "description": "잘 다듬어진 HTML 파일 하나만 있으면 충분합니다. GitHub 사이트에서 저장소 만들고 → 파일 올리고 → URL 공유, 딱 이 세 단계입니다.",
                     "path": "github/pages_publishing/"
+                },
+                {
+                    "slug": "vibe_coding_slop",
+                    "title": "[GitHub] Vibe Coding 확산이 만드는 두 개의 그림자: Slop 현상과 토큰 과소비",
+                    "description": "Vibe Coding 확산은 단기 생산성 향상(GitHub Copilot RCT 기준 55.8%)과 장기 품질 저하(Faros 2026: 버그 54% 증가, 검토 시간 5배 증가)를 동시에 발생시키며, Cowork(분산 협업) 환경은 구조적으로 Slop과 토큰 낭비를 증폭시키는 '…",
+                    "path": "github/vibe_coding_slop/"
                 }
             ]
         }
