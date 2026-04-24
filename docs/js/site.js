@@ -106,6 +106,68 @@
         });
     });
 
+    // ===== Image lightbox (클릭하면 확대) =====
+    // .compare-card img, .customer-card img, .zoomable 클래스가 붙은 이미지에 자동 적용.
+    // 단, 이미지가 <a>로 감싸진 경우는 해당 링크 동작을 존중하도록 건너뜀.
+    (function initLightbox() {
+        var selector = '.compare-card img, .customer-card img, img.zoomable';
+        var imgs = document.querySelectorAll(selector);
+        if (!imgs.length) return;
+
+        // overlay 요소 생성
+        var overlay = document.createElement('div');
+        overlay.className = 'lightbox-overlay';
+        overlay.setAttribute('aria-hidden', 'true');
+        overlay.innerHTML =
+            '<button class="lightbox-close" aria-label="닫기"><i class="bi bi-x-lg"></i></button>' +
+            '<img class="lightbox-img" alt="">' +
+            '<div class="lightbox-caption"></div>';
+        document.body.appendChild(overlay);
+
+        var lightboxImg = overlay.querySelector('.lightbox-img');
+        var lightboxCaption = overlay.querySelector('.lightbox-caption');
+        var closeBtn = overlay.querySelector('.lightbox-close');
+
+        function openLightbox(src, alt) {
+            lightboxImg.src = src;
+            lightboxImg.alt = alt || '';
+            lightboxCaption.textContent = alt || '';
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            overlay.classList.remove('show');
+            document.body.style.overflow = '';
+            // 다음 열기에서 깜빡임 방지를 위해 src는 유지
+        }
+
+        imgs.forEach(function (img) {
+            img.style.cursor = 'zoom-in';
+            var anchor = img.closest('a');
+            if (anchor) {
+                // <a>로 감싸져 있어도 클릭 시 lightbox로 가로채되, Ctrl/Cmd+클릭·중클릭은 기본 새 탭 동작 유지
+                anchor.addEventListener('click', function (e) {
+                    if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+                    e.preventDefault();
+                    openLightbox(img.currentSrc || img.src, img.alt);
+                });
+            } else {
+                img.addEventListener('click', function () {
+                    openLightbox(img.currentSrc || img.src, img.alt);
+                });
+            }
+        });
+
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay || e.target === closeBtn || closeBtn.contains(e.target)) {
+                closeLightbox();
+            }
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && overlay.classList.contains('show')) closeLightbox();
+        });
+    })();
+
     // ===== Copy code button =====
     window.copyCode = function (btn) {
         var block = btn.closest('.code-block');

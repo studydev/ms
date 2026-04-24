@@ -322,6 +322,40 @@ body {
 .step-card h3 { font-weight: 700; font-size: 1.3rem; color: #1a1a1a; margin-bottom: 0.8rem; }
 .step-card p { font-size: 0.9rem; color: #555; }
 
+/* ===== IMAGE LIGHTBOX (클릭 확대 뷰어) ===== */
+.lightbox-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0, 0, 0, 0.88);
+    display: none; align-items: center; justify-content: center;
+    padding: 2rem; cursor: zoom-out;
+}
+.lightbox-overlay.show { display: flex; animation: lb-fade 0.18s ease; }
+@keyframes lb-fade { from { opacity: 0; } to { opacity: 1; } }
+.lightbox-img {
+    max-width: 95vw; max-height: 88vh;
+    object-fit: contain; border-radius: 8px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+    background: #fff;
+}
+.lightbox-caption {
+    position: absolute; bottom: 1rem; left: 50%;
+    transform: translateX(-50%); max-width: 90vw;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem; text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.35rem 0.9rem; border-radius: 20px;
+    pointer-events: none;
+}
+.lightbox-caption:empty { display: none; }
+.lightbox-close {
+    position: absolute; top: 1rem; right: 1rem;
+    width: 44px; height: 44px; border: none; border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12); color: #fff; font-size: 1.1rem;
+    cursor: pointer; transition: background 0.2s;
+    display: inline-flex; align-items: center; justify-content: center;
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.25); }
+
 /* ===== IMAGE COMPARE (create_images 전용 컴포넌트) ===== */
 .compare-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
