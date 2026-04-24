@@ -39,7 +39,7 @@
 
     <div class="nav-heading">프롬프트 가이드</div>
     <a class="nav-link" href="#fundamentals">좋은 프롬프트 8원칙</a>
-    <a class="nav-link" href="#cookbook">Cookbook 예시 프롬프트</a>
+    <a class="nav-link" href="#usecase">업무 활용 Top 3</a>
 
     <div class="nav-heading">비교 갤러리</div>
     <a class="nav-link" href="#compare-001">① 대학생 / Multi-LLM</a>
@@ -209,31 +209,66 @@
         </div>
     </section>
 
-    <!-- ===== 3. Cookbook example prompts ===== -->
-    <section class="content-section" id="cookbook">
+    <!-- ===== 3. Top 3 Use Cases (Prompt + Python + link) ===== -->
+    <section class="content-section" id="usecase">
         <div class="container">
-            <h2 class="section-title"><i class="bi bi-code-slash"></i> Cookbook 예시 프롬프트 — 이렇게 쓰면 잘 나온다</h2>
+            <h2 class="section-title"><i class="bi bi-stars"></i> 업무에서 가장 많이 쓰는 Top 3</h2>
             <p>
-                OpenAI Cookbook에 실린 실전 예시 중, 한국 업무 환경에서도 그대로 응용하기 좋은 네 가지를 골라왔습니다.
-                <strong>구조(라벨) + 제약(보존/배제) + 정확한 텍스트(따옴표)</strong> 패턴이 반복되는 점에 주목하세요.
+                OpenAI Cookbook의 10여 개 use case 중, M365 · 사내 교육 · 마케팅 업무에서
+                <strong>즉시 재사용 가능한 3가지</strong>를 추렸습니다. 각 항목은 ① 어떤 상황에 쓰나 → ② 프롬프트 →
+                ③ Python 호출 코드 순서이고, 결과 이미지와 나머지 use case는 Cookbook에서 바로 확인할 수 있습니다.
             </p>
 
-            <div class="accordion detail-accordion" id="cookbookAcc">
-                <!-- 1. Ads -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#cook1">
-                            <i class="bi bi-megaphone me-2"></i> ① 광고 크리에이티브 — 브리프처럼 쓰기
-                        </button>
-                    </h2>
-                    <div id="cook1" class="accordion-collapse collapse" data-bs-parent="#cookbookAcc">
-                        <div class="accordion-body">
-                            <p class="text-muted" style="font-size:0.85rem;">
-                                브랜드 포지셔닝 · 타깃 · 장면 · 태그라인을 한 프롬프트에 묶어 "창작 브리프"로 제시합니다.
-                                이미지에 들어갈 텍스트는 따옴표로 정확히 한 번만.
-                            </p>
-                            <pre class="code-block"><code>Give me a cool in-culture ad / fashion shot for a brand called Thread.
+            <!-- Top 1: Infographic -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-num">1</span>
+                    <h4>인포그래픽 — 한 장으로 전달하는 설명 자료</h4>
+                </div>
+                <p>
+                    제품 플로우, 프로세스 맵, 포스터, 타임라인 같은
+                    "구조화된 정보를 한 장으로" 전달해야 하는 상황. 빽빽한 레이블과 화살표가 많으므로
+                    <code>quality="high"</code>를 권장합니다.
+                </p>
+
+                <h5 class="mt-3"><i class="bi bi-chat-left-text"></i> 프롬프트</h5>
+<pre class="code-block"><code>Create a detailed Infographic of the functioning and flow of an automatic
+coffee machine like a Jura.
+From bean basket, to grinding, to scale, water tank, boiler, etc.
+I'd like to understand technically and visually the flow.</code></pre>
+
+                <h5 class="mt-3"><i class="bi bi-code-slash"></i> Python 호출</h5>
+<pre class="code-block"><code><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI
+client = OpenAI()
+
+result = client.images.generate(
+    model=<span class="string">"gpt-image-2"</span>,
+    prompt=prompt,
+    size=<span class="string">"1024x1536"</span>,   <span class="comment"># 세로형 인포그래픽</span>
+    quality=<span class="string">"medium"</span>,
+)</code></pre>
+
+                <div class="alert alert-light border mt-2" style="font-size:0.85rem;">
+                    <i class="bi bi-link-45deg"></i>
+                    결과 이미지와 번역(edit) 후속 예시는
+                    <a href="https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide#4-1-infographics"
+                       target="_blank" rel="noopener"><strong>Cookbook 4.1 Infographics</strong></a>에서 확인하세요.
+                </div>
+            </div>
+
+            <!-- Top 2: Ads Creative -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-num">2</span>
+                    <h4>광고 · 캠페인 크리에이티브 — "창작 브리프"로 쓰기</h4>
+                </div>
+                <p>
+                    브랜드 포지셔닝 · 타깃 · 장면 · 태그라인을 한 프롬프트에 묶어 <strong>기술 스펙이 아닌 창작 브리프</strong>
+                    처럼 작성하면, 모델이 아트디렉션을 보완해 줍니다. 이미지에 들어갈 카피는 반드시 따옴표로 한 번만.
+                </p>
+
+                <h5 class="mt-3"><i class="bi bi-chat-left-text"></i> 프롬프트</h5>
+<pre class="code-block"><code>Give me a cool in-culture ad / fashion shot for a brand called Thread.
 It's a hip young street brand. The ad shows a group of friends hanging out
 together with the tagline "Yours to Create."
 
@@ -242,102 +277,82 @@ stylish, contemporary, energetic, and tasteful.
 Use clean composition, strong color direction, natural poses,
 and premium fashion photography cues.
 
-Render the tagline exactly once, clearly and legibly, integrated into the ad layout.
+Render the tagline exactly once, clearly and legibly, integrated into the
+ad layout.
 No extra text, no watermarks, no unrelated logos.</code></pre>
-                            <p style="font-size:0.85rem;"><strong>핵심 패턴</strong> — 브랜드 톤 → 장면 → 카피(따옴표) →
-                            배제 목록("no watermark, no unrelated logos").</p>
-                        </div>
-                    </div>
+
+                <h5 class="mt-3"><i class="bi bi-code-slash"></i> Python 호출</h5>
+<pre class="code-block"><code>result = client.images.generate(
+    model=<span class="string">"gpt-image-2"</span>,
+    prompt=prompt,
+    size=<span class="string">"1024x1536"</span>,
+    quality=<span class="string">"medium"</span>,
+)</code></pre>
+
+                <div class="alert alert-light border mt-2" style="font-size:0.85rem;">
+                    <i class="bi bi-link-45deg"></i>
+                    결과 이미지는
+                    <a href="https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide#4-6-ads-generation"
+                       target="_blank" rel="noopener"><strong>Cookbook 4.6 Ads Generation</strong></a>에서 확인.
+                    앞서 본 한국 고객 작품(④ SEOUL · ⑤ MEGA · ⑥ KOREA)이 정확히 이 패턴의 실제 적용 사례입니다.
                 </div>
+            </div>
 
-                <!-- 2. Comic -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#cook2">
-                            <i class="bi bi-grid-3x3-gap"></i>&nbsp; ② 네컷 만화 — 패널 단위 비트 설계
-                        </button>
-                    </h2>
-                    <div id="cook2" class="accordion-collapse collapse" data-bs-parent="#cookbookAcc">
-                        <div class="accordion-body">
-                            <p class="text-muted" style="font-size:0.85rem;">
-                                스토리를 <strong>패널 1개당 한 비트</strong>로 분해해 구체적 동작으로 묘사합니다.
-                                아래 001~003 비교에서 이 원칙을 한국어로 옮긴 결과를 확인할 수 있습니다.
-                            </p>
-                            <pre class="code-block"><code>Create a short vertical comic-style reel with 4 equal-sized panels.
-
-Panel 1: The owner leaves through the front door. The pet is framed in the
-         window behind them, small against the glass, eyes wide.
-Panel 2: The door clicks shut. Silence breaks. The pet slowly turns toward
-         the empty house, posture shifting, eyes sharp with possibility.
-Panel 3: The house transformed. The pet sprawls across the couch like it
-         owns the place, crumbs nearby, sunlight cutting across the room.
-Panel 4: The door opens. The pet is seated perfectly by the entrance,
-         alert and composed, as if nothing happened.</code></pre>
-                            <p style="font-size:0.85rem;"><strong>핵심 패턴</strong> — 같은 캐릭터의 <strong>행동
-                            변화</strong>를 시간 순서로, 연출 지시(프레이밍·자세·시선)까지 포함.</p>
-                        </div>
-                    </div>
+            <!-- Top 3: Slide / Diagram -->
+            <div class="step-card">
+                <div class="step-header">
+                    <span class="step-num">3</span>
+                    <h4>슬라이드 · 다이어그램 · 차트 — "산출물 스펙"으로 쓰기</h4>
                 </div>
+                <p>
+                    일러스트 요청이 아닌 <strong>산출물(아티팩트) 스펙</strong>처럼 작성합니다. 캔버스 크기 · 위계 · 실제
+                    문구와 수치 · 타이포그래피 · 배제 목록을 모두 프롬프트에 넣고, landscape + <code>quality="high"</code>가
+                    기본.
+                </p>
 
-                <!-- 3. Slide -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#cook3">
-                            <i class="bi bi-easel2"></i>&nbsp; ③ 슬라이드 · 대시보드 — "산출물 스펙"으로 쓰기
-                        </button>
-                    </h2>
-                    <div id="cook3" class="accordion-collapse collapse" data-bs-parent="#cookbookAcc">
-                        <div class="accordion-body">
-                            <p class="text-muted" style="font-size:0.85rem;">
-                                일러스트 요청이 아닌 <strong>산출물 스펙</strong>처럼. 캔버스·위계·실제 텍스트·수치를 모두
-                                프롬프트에 넣고, landscape + <code>quality="high"</code>.
-                            </p>
-                            <pre class="code-block"><code>Create one pitch-deck slide titled "Market Opportunity" that feels like a
+                <h5 class="mt-3"><i class="bi bi-chat-left-text"></i> 프롬프트</h5>
+<pre class="code-block"><code>Create one pitch-deck slide titled "Market Opportunity" that feels like a
 real Series A fundraising slide from a YC-backed startup.
 
-Clean white background, modern sans-serif typography like Inter.
+Use a clean white background, modern sans-serif typography like Inter,
+and a crisp, minimal layout. The slide should include:
 
-Include:
-- A TAM/SAM/SOM concentric-circle diagram in muted blues and grays
-- Market sizing: TAM $42B, SAM $8.7B, SOM $340M
-- A bar chart below showing market growth 2021 → 2026
-- Footnotes: "AGI Research, 2024" and "Internal analysis"
-- A company logo placeholder in the bottom-right corner
+* A TAM/SAM/SOM concentric-circle diagram in muted blues and grays
+* Specific, believable market sizing numbers:
+    - TAM: $42B
+    - SAM: $8.7B
+    - SOM: $340M
+* A clean bar chart below showing market growth from 2021 to 2026,
+  with a subtle upward trend
+* Small footnotes: "AGI Research, 2024" and "Internal analysis"
+* A company logo placeholder in the bottom-right corner
 
 Avoid clip art, stock photography, gradients, shadows, decorative elements,
 or anything that feels generic or overdesigned.</code></pre>
-                            <p style="font-size:0.85rem;"><strong>핵심 패턴</strong> — 레이아웃 · 정확한 수치 ·
-                            타이포그래피 · <strong>배제 목록</strong>이 네 기둥.</p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- 4. Edit -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#cook4">
-                            <i class="bi bi-magic"></i>&nbsp; ④ 편집 — "X만 바꾸고 나머지는 유지"
-                        </button>
-                    </h2>
-                    <div id="cook4" class="accordion-collapse collapse" data-bs-parent="#cookbookAcc">
-                        <div class="accordion-body">
-                            <p class="text-muted" style="font-size:0.85rem;">
-                                편집(edit) API에서 가장 자주 실수하는 지점은 "바꿀 것"만 쓰고 "유지할 것"을 안 쓰는 것.
-                                gpt-image-2는 invariants를 명시할수록 드리프트가 줄어듭니다.
-                            </p>
-                            <pre class="code-block"><code>In this room photo, replace ONLY the white chairs with chairs made of wood.
+                <h5 class="mt-3"><i class="bi bi-code-slash"></i> Python 호출</h5>
+<pre class="code-block"><code>result = client.images.generate(
+    model=<span class="string">"gpt-image-2"</span>,
+    prompt=prompt,
+    size=<span class="string">"1536x864"</span>,   <span class="comment"># 16:9 덱 슬라이드</span>
+    quality=<span class="string">"high"</span>,    <span class="comment"># 작은 텍스트·숫자는 high 권장</span>
+)</code></pre>
 
-Preserve camera angle, room lighting, floor shadows, and surrounding objects.
-Keep all other aspects of the image unchanged.
-Photorealistic contact shadows and fabric texture.</code></pre>
-                            <p style="font-size:0.85rem;"><strong>핵심 패턴</strong> — <code>ONLY</code>, <code>Preserve
-                            …</code>, <code>Keep all other aspects unchanged</code>의 3단 콤보.</p>
-                        </div>
-                    </div>
+                <div class="alert alert-light border mt-2" style="font-size:0.85rem;">
+                    <i class="bi bi-link-45deg"></i>
+                    결과 이미지는
+                    <a href="https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide#4-10-slides-diagrams-charts-and-productivity-images"
+                       target="_blank" rel="noopener"><strong>Cookbook 4.10 Slides, Diagrams, Charts</strong></a>에서
+                    확인하세요.
                 </div>
+            </div>
+
+            <div class="alert alert-info mt-3" style="font-size:0.9rem;">
+                <i class="bi bi-book"></i> <strong>나머지 use case</strong> — 포토리얼리즘(4.3), 로고(4.5),
+                UI 목업(4.8), 과학/교육 다이어그램(4.9), 스타일 전이 · 가상 피팅 · 객체 제거 · 인물 합성(5.x),
+                인테리어 스왑 · 크리스마스 카드 · 굿즈 · 캐릭터 일관성 유지(6.x)까지 모두
+                <a href="https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide"
+                   target="_blank" rel="noopener"><strong>원문 가이드</strong></a>에서 코드와 함께 볼 수 있습니다.
             </div>
         </div>
     </section>
