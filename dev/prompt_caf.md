@@ -1,28 +1,73 @@
-Goal:
-Cowork(협업·공동 작업) 환경에서 Vibe Coding이 확산되면서 나타나는 ‘슬롬(Slump / Slop) 현상’의 개념, 원인, 양상, 그리고 조직·개인 생산성에 미치는 영향을 심층적으로 분석한다.
+Create a clean, modern Korean-language infographic about “Google 8th Gen TPU: Dual Architecture (Training vs Inference)”.
+Style: Google Cloud / tech keynote aesthetic, minimal, high contrast, lots of whitespace, crisp vector shapes, flat icons, subtle gradients.
+Color palette: white background + Google-like accents (blue #4285F4, red #EA4335, yellow #FBBC05, green #34A853) + dark navy text.
+Typography: bold sans-serif for headings, readable sans-serif for body. Ensure Korean text is legible and not distorted.
 
-Context:
-- Vibe Coding은 AI 보조 개발, 즉흥적 코드 생성, 빠른 프로토타이핑 중심의 개발 문화로 확산되고 있다.
-- Cowork 환경(분산 팀, 크로스펑셔널 협업, 원격·하이브리드 근무)에서는 이러한 Vibe Coding이 단기 속도는 높이지만,
-  장기적으로는 코드 품질 저하, 맥락 상실, 인지적 피로, 기술 부채 증가 등 ‘슬롬(생산성·품질 하락 구간)’ 현상이 발생한다는 문제의식이 있다.
-- 이 현상이 개인 개발자 차원의 문제인지, 협업 구조·도구·AI 사용 방식의 문제인지 구분이 필요하다.
+Canvas: 16:9 landscape, 1920x1080.
+Layout: 3 horizontal sections with clear hierarchy and grid alignment.
 
-Research Questions:
-1. Vibe Coding에서 말하는 ‘슬롬(Slump/Slop)’ 현상은 어떻게 정의되는가?
-2. Cowork 환경에서 이 현상이 더 두드러지는 구조적·인지적 이유는 무엇인가?
-3. AI 코딩 도구(예: Copilot, Agent 기반 개발)가 슬롬을 가속하거나 완화하는 조건은 무엇인가?
-4. 단기 생산성 향상과 장기 품질 저하 사이의 트레이드오프에 대한 실증 연구나 사례는 무엇이 있는가?
-5. 슬롬 현상을 줄이기 위한 조직적·기술적·프로세스적 대응 전략은 무엇인가?
+SECTION 1 (Top header):
+- Title (large): “Google 8세대 TPU: 학습·추론 듀얼 아키텍처”
+- Subtitle (smaller): “Google Cloud Next ’26 | 발표: 2026.04.22 | 사상 첫 ‘학습용·추론용 칩 분리’”
+- Add simple icon: split-chip diagram (one chip labeled 8t, one chip labeled 8i) connected by a bracket “Dual Architecture”.
 
-Sources to Explore:
-- 최근 2~3년 내의 AI-assisted coding, Vibe Coding, pair programming, cowork collaboration 관련 학술 논문
-- GitHub, Microsoft, Google 등에서 발표한 엔지니어링 블로그 및 리서치
-- 개발자 커뮤니티(예: Hacker News, Reddit, Dev.to)에서의 실제 경험 사례
-- 조직 심리학, 인지 부하(Cognitive Load), 소프트웨어 아키텍처 관점의 분석 자료
+SECTION 2 (Middle: comparison table with icons):
+Create a 2-column comparison card with rounded rectangles.
+Left column header: “TPU 8t (학습용)”
+Right column header: “TPU 8i (추론용)”
+Row labels on the left side with small icons:
+- 용도
+- 규모/메모리
+- 성능
+- 네트워크
 
-Expectations (Output Format):
-- 개념 정의 → 원인 분석 → 현상 유형화 → 영향 분석 → 대응 전략 순으로 구조화
-- Cowork 환경과 개인 단독 개발 환경을 명확히 비교
-- 가능한 경우 실제 사례, 인용, 연구 결과를 근거로 제시
-- 단순 요약이 아니라 인과관계와 구조적 메커니즘 중심의 분석
-- 마지막에 기업·팀·개인 관점의 시사점(Implications) 정리
+Fill with concise Korean bullet lines:
+TPU 8t:
+- 용도: 프론티어 모델 사전학습
+- 규모: 슈퍼팟 최대 9,600칩
+- 메모리: 슈퍼팟 공유 HBM 2PB
+- 성능: 121 FP4 ExaFLOPS/팟
+- 네트워크: 3D Torus + Virgo Network (DCN 4배)
+
+TPU 8i:
+- 용도: 저지연 추론·AI 에이전트
+- 메모리: 온칩 SRAM 384MB (Ironwood 3배) → 에이전트 단기기억 온칩 유지
+- 성능: Ironwood 대비 성능/달러 80% 개선
+- 네트워크: Boardfly 토폴로지 (지연 최대 50% 개선)
+
+Add 2–3 small callout badges near the table:
+- “Native FP4”
+- “SparseCore (임베딩 가속)”
+- “Axion CPU 호스트 통합”
+
+SECTION 3 (Bottom: key tech + strategy + timeline):
+Create three mini-cards side-by-side:
+
+Card A (주요 기술):
+- Broadcom 공동 설계 + DeepMind 협업
+- 네이티브 FP4 (MXU 처리량 2배)
+- SparseCore: 임베딩 전용
+- Axion CPU로 데이터 준비 병목 완화
+- JAX + Pathways: 단일 논리 클러스터 최대 100만 칩 확장
+- 목표 Goodput 97%+
+
+Card B (Ironwood 대비 요약):
+- 8t 연산 성능 약 2.8배
+- 팟당 컴퓨트 3배
+- 전력당 성능 최대 2배
+Also include a small caption: “Ironwood(7세대) GA: 4.6 PFLOPS/칩, 42.5 ExaFLOPS/슈퍼팟”
+
+Card C (전략적 의미 & 출시):
+- 에이전틱 AI 시대: 학습/추론 요구 분화
+- Anthropic: 2027년 3.5GW 컴퓨트 확장 계약(앵커 고객)
+- 트렌드: AWS처럼 학습·추론 전용 ASIC 분리
+Timeline strip at the bottom:
+- “2026년 말: GA 예정”
+- “(외신) 2027년 말: TSMC 2nm 양산 가능성”
+
+Visual requirements:
+- Use simple icons (chip, network nodes, lightning/latency, dollar/performance, memory).
+- Keep text compact, avoid clutter, consistent spacing.
+- No photos, no 3D realism. Vector infographic only.
+- Ensure all Korean text renders correctly and is readable.
+``

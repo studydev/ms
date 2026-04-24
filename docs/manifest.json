@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-04-23T18:09:35Z",
+    "generatedAt": "2026-04-24T04:31:46Z",
     "categories": {
         "azure": {
             "label": "Azure",
@@ -34,6 +34,12 @@
                     "title": "[Cowork] 비즈니스 및 기술 문서 HTML로 뚝딱!",
                     "description": "사내에 흩어져 있는 Word · PowerPoint · Pages · Outlook · Teams 자료와 웹 검색 결과를 한번에 끌어모아, 보기 좋은 HTML 문서와 슬라이드로 자동 완성합니다. 수집부터 다듬기까지, 대화 한 번이면 충분합니다.",
                     "path": "m365/cowork_html_guide/"
+                },
+                {
+                    "slug": "create_images",
+                    "title": "[Create Images] gpt-image-1.5 vs gpt-image-2 — 프롬프트 비교 가이드",
+                    "description": "동일한 한국어 프롬프트를 gpt-image-1.5와 gpt-image-2로 각각 생성해 품질·텍스트·구성을 비교하고, OpenAI Cookbook 기반 gpt-image-2 프롬프트 작성법과 실제 고객 사례를 정리했습니다.",
+                    "path": "m365/create_images/"
                 },
                 {
                     "slug": "meeting_in_30min",

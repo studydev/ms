@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Create Images] gpt-image-1.5 vs gpt-image-2 — 프롬프트 비교 가이드</title>
+    <meta name="description" content="동일한 한국어 프롬프트를 gpt-image-1.5와 gpt-image-2로 각각 생성해 품질·텍스트·구성을 비교하고, OpenAI Cookbook 기반 gpt-image-2 프롬프트 작성법과 실제 고객 사례를 정리했습니다.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/site.css">
+</head>
+<body class="has-sidebar page-m365">
+
+<!-- ===== NAVBAR ===== -->
+<nav class="top-nav">
+    <div class="container-fluid d-flex align-items-center justify-content-between px-3">
+        <a class="nav-brand" href="../../">
+            <i class="bi bi-microsoft"></i> MS Tech
+        </a>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../">Home</a></li>
+                <li class="breadcrumb-item"><a href="../">M365</a></li>
+                <li class="breadcrumb-item active">이미지 생성 비교</li>
+            </ol>
+        </nav>
+    </div>
+</nav>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+    <a class="back-link" href="../"><i class="bi bi-arrow-left"></i> M365 카테고리로</a>
+
+    <div class="nav-heading">개요</div>
+    <a class="nav-link" href="#intro">무엇이 바뀌었나</a>
+    <a class="nav-link" href="#diff">1.5 → 2 주요 변경</a>
+
+    <div class="nav-heading">프롬프트 가이드</div>
+    <a class="nav-link" href="#fundamentals">좋은 프롬프트 8원칙</a>
+    <a class="nav-link" href="#cookbook">Cookbook 예시 프롬프트</a>
+
+    <div class="nav-heading">비교 갤러리</div>
+    <a class="nav-link" href="#compare-001">① 대학생 / Multi-LLM</a>
+    <a class="nav-link" href="#compare-002">② Copilot WorkIQ</a>
+    <a class="nav-link" href="#compare-003">③ Copilot Agent 사고 파트너</a>
+
+    <div class="nav-heading">고객 작품</div>
+    <a class="nav-link" href="#customer">한국 고객 실제 결과물</a>
+</aside>
+
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="목차 토글">
+    <i class="bi bi-list"></i>
+</button>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+    <!-- HERO -->
+    <section class="hero-section" id="top">
+        <div class="container">
+            <div class="lab-badge"><i class="bi bi-image"></i> Create Images</div>
+            <h1 style="margin-top:0.8rem;">
+                <span class="model-badge v15">gpt-image-1.5</span> →
+                <span class="model-badge v2">gpt-image-2</span><br>
+                동일 프롬프트, 다른 결과
+            </h1>
+            <p class="lead">
+                같은 한국어 프롬프트를 두 모델에 넣었을 때 결과가 어떻게 달라지는지,
+                그리고 gpt-image-2에서는 어떻게 프롬프트를 다시 작성하는 것이 좋은지
+                OpenAI Cookbook 기준으로 정리했습니다.
+            </p>
+            <p class="hero-meta">
+                <span><i class="bi bi-calendar3"></i> 2026.04</span>
+                <span><i class="bi bi-link-45deg"></i>
+                    <a href="https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide"
+                       target="_blank" rel="noopener" style="color:#fff; text-decoration:underline;">
+                        OpenAI Cookbook — Image Gen Prompting Guide
+                    </a>
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== 1. Intro ===== -->
+    <section class="content-section" id="intro">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-info-circle"></i> 무엇이 바뀌었나</h2>
+            <p>
+                <code>gpt-image-2</code>는 <code>gpt-image-1.5</code>·<code>gpt-image-1</code>의 다음 세대 이미지
+                생성 모델로, OpenAI가 <strong>"신규 작업의 기본값"</strong>으로 권장하는 모델입니다. 사진 품질, 편집
+                안정성, 이미지 속 텍스트 렌더링, 복잡한 구조(인포그래픽·다이어그램·네컷 만화)의 일관성이 눈에 띄게
+                향상되었습니다.
+            </p>
+            <p>
+                결론부터 말하면 — <span class="model-badge v15">gpt-image-1.5</span>는 "그럴듯한 일러스트",
+                <span class="model-badge v2">gpt-image-2</span>는 <strong>"레이아웃·타이포그래피·텍스처까지 정돈된
+                결과물"</strong>을 돌려줍니다. 첫 장에서 바로 쓸 수 있는 수준이 올라갔기 때문에, 재시도·수작업 수정 비용이
+                줄어듭니다.
+            </p>
+
+            <h3 id="diff" style="margin-top:2rem;"><i class="bi bi-arrow-left-right"></i> 1.5 → 2 주요 변경</h3>
+            <div class="table-responsive">
+                <table class="diff-table">
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>gpt-image-1.5</th>
+                            <th>gpt-image-2 <span class="model-badge v2">NEW</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>포지셔닝</th>
+                            <td>기존 워크플로 호환 유지용</td>
+                            <td><strong>신규 작업의 기본값</strong> — 사진·편집·브랜드·텍스트 렌더링 전반</td>
+                        </tr>
+                        <tr>
+                            <th>품질 옵션</th>
+                            <td>low / medium / high</td>
+                            <td>low / medium / high — <code>low</code>조차 이전 세대 최고 품질을 상회</td>
+                        </tr>
+                        <tr>
+                            <th>Input fidelity</th>
+                            <td>low / high 수동 지정</td>
+                            <td>기본 출력이 이미 고충실 — 대부분의 경우 지정 불필요</td>
+                        </tr>
+                        <tr>
+                            <th>사이즈</th>
+                            <td>1024×1024, 1024×1536, 1536×1024, auto</td>
+                            <td>제약(최대 변 &lt; 3840, 16 배수, 3:1 이내) 안에서 <strong>임의 해상도</strong>, 최대 2560×1440까지 안정</td>
+                        </tr>
+                        <tr>
+                            <th>이미지 속 텍스트</th>
+                            <td>짧은 영문·로고 위주, 한글은 쉽게 깨짐</td>
+                            <td>글자 가독성·커닝·레이아웃 일관성 향상 — 만화 말풍선·슬라이드 수준 가능</td>
+                        </tr>
+                        <tr>
+                            <th>네컷 만화 / 패널 구성</th>
+                            <td>패널 분할·캐릭터 일관성 흔들림</td>
+                            <td>패널 간 스토리 비트와 캐릭터 일관성 유지</td>
+                        </tr>
+                        <tr>
+                            <th>언제 1.5를 남겨둘까</th>
+                            <td colspan="2">프롬프트 마이그레이션 검증 / 회귀 테스트 / 아직 옮기지 않은 레거시 워크플로용</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-muted mt-2" style="font-size:0.82rem;">
+                <i class="bi bi-journal-text"></i> 출처: OpenAI Developers — GPT Image Generation Models Prompting
+                Guide (2026-04).
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== 2. Prompt Fundamentals ===== -->
+    <section class="content-section" id="fundamentals" style="background:#fff;">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-lightbulb"></i> gpt-image-2 프롬프트 8원칙</h2>
+            <p>
+                OpenAI Cookbook이 정리한, 알파 테스트 전반에서 반복적으로 관찰된 프롬프트 패턴입니다. 기존 1.5 프롬프트를
+                그대로 2로 옮겨도 품질은 올라가지만, 아래 원칙에 맞게 다시 쓰면 <strong>첫 장에서 쓸 수 있는 결과물</strong>
+                확률이 높아집니다.
+            </p>
+            <div class="tip-grid">
+                <div class="tip-card">
+                    <h5><i class="bi bi-diagram-3"></i> 1. 구조 + 목적</h5>
+                    <p>배경 → 주제 → 디테일 → 제약 순서로. "광고", "UI 목업", "인포그래픽"처럼 <strong>용도</strong>를
+                    명시해 모델의 "모드"를 설정하세요.</p>
+                </div>
+                <div class="tip-card">
+                    <h5><i class="bi bi-list-columns"></i> 2. 유지보수 가능한 포맷</h5>
+                    <p>JSON, 라벨된 섹션, 태그, 짧은 문단 — 어떤 포맷이든 의도와 제약이 분명하면 OK. 한 문장 초장문 대신
+                    <strong>줄바꿈 + 라벨</strong>을 선호.</p>
+                </div>
+                <div class="tip-card">
+                    <h5><i class="bi bi-palette"></i> 3. 구체성 + 품질 레버</h5>
+                    <p>재질·질감·매체(수채·3D 렌더·사진)를 명시. 포토리얼리즘이 필요하면 <code>"photorealistic"</code>
+                    단어를 직접 포함하세요.</p>
+                </div>
+                <div class="tip-card">
+                    <h5><i class="bi bi-speedometer2"></i> 4. 지연 vs 충실도</h5>
+                    <p>일상·대량 생성은 <code>quality="low"</code>로 시작. 작은 텍스트, 밀도 높은 인포그래픽, 클로즈업
+                    인물은 <code>medium/high</code> 비교 후 결정.</p>
+                </div>
+                <div class="tip-card">
+                    <h5><i class="bi bi-aspect-ratio"></i> 5. 구도와 조명</h5>
+                    <p>프레이밍(클로즈업·와이드·탑다운), 시점, 조명/무드를 지정. 배치가 중요하면 "로고 우상단",
+                    "피사체 중앙, 좌측 여백" 같이 명시.</p>
+                </div>
+                <div class="tip-card">
+                    <h5><i class="bi bi-shield-check"></i> 6. 바꿀 것 vs 유지할 것</h5>
+                    <p>편집 시 <strong>"change only X"</strong> + <strong>"keep everything else the same"</strong>을
+                    반복. 채도·각도·레이아웃을 건드리지 말 것도 명시.</p>
+                </div>
+                <div class="tip-card">
+                    <h5><i class="bi bi-type"></i> 7. 이미지 속 텍스트</h5>
+                    <p>리터럴 텍스트는 <strong>따옴표</strong>나 ALL CAPS로. 어려운 단어는 letter-by-letter로 풀어쓰고,
+                    작은 글씨는 <code>medium/high</code>로.</p>
+                </div>
+                <div class="tip-card">
+                    <h5><i class="bi bi-arrow-repeat"></i> 8. 덧붙이지 말고 반복하라</h5>
+                    <p>깨끗한 베이스 프롬프트에서 출발해 "조명을 더 따뜻하게", "여분의 나무 제거"처럼 <strong>작은 단일
+                    변경</strong>으로 반복. 중요한 제약은 매 반복마다 다시 적어주세요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 3. Cookbook example prompts ===== -->
+    <section class="content-section" id="cookbook">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-code-slash"></i> Cookbook 예시 프롬프트 — 이렇게 쓰면 잘 나온다</h2>
+            <p>
+                OpenAI Cookbook에 실린 실전 예시 중, 한국 업무 환경에서도 그대로 응용하기 좋은 네 가지를 골라왔습니다.
+                <strong>구조(라벨) + 제약(보존/배제) + 정확한 텍스트(따옴표)</strong> 패턴이 반복되는 점에 주목하세요.
+            </p>
+
+            <div class="accordion detail-accordion" id="cookbookAcc">
+                <!-- 1. Ads -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#cook1">
+                            <i class="bi bi-megaphone me-2"></i> ① 광고 크리에이티브 — 브리프처럼 쓰기
+                        </button>
+                    </h2>
+                    <div id="cook1" class="accordion-collapse collapse" data-bs-parent="#cookbookAcc">
+                        <div class="accordion-body">
+                            <p class="text-muted" style="font-size:0.85rem;">
+                                브랜드 포지셔닝 · 타깃 · 장면 · 태그라인을 한 프롬프트에 묶어 "창작 브리프"로 제시합니다.
+                                이미지에 들어갈 텍스트는 따옴표로 정확히 한 번만.
+                            </p>
+                            <pre class="code-block"><code>Give me a cool in-culture ad / fashion shot for a brand called Thread.
+It's a hip young street brand. The ad shows a group of friends hanging out
+together with the tagline "Yours to Create."
+
+Make it feel like a polished campaign image for a youth streetwear audience:
+stylish, contemporary, energetic, and tasteful.
+Use clean composition, strong color direction, natural poses,
+and premium fashion photography cues.
+
+Render the tagline exactly once, clearly and legibly, integrated into the ad layout.
+No extra text, no watermarks, no unrelated logos.</code></pre>
+                            <p style="font-size:0.85rem;"><strong>핵심 패턴</strong> — 브랜드 톤 → 장면 → 카피(따옴표) →
+                            배제 목록("no watermark, no unrelated logos").</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Comic -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#cook2">
+                            <i class="bi bi-grid-3x3-gap"></i>&nbsp; ② 네컷 만화 — 패널 단위 비트 설계
+                        </button>
+                    </h2>
+                    <div id="cook2" class="accordion-collapse collapse" data-bs-parent="#cookbookAcc">
+                        <div class="accordion-body">
+                            <p class="text-muted" style="font-size:0.85rem;">
+                                스토리를 <strong>패널 1개당 한 비트</strong>로 분해해 구체적 동작으로 묘사합니다.
+                                아래 001~003 비교에서 이 원칙을 한국어로 옮긴 결과를 확인할 수 있습니다.
+                            </p>
+                            <pre class="code-block"><code>Create a short vertical comic-style reel with 4 equal-sized panels.
+
+Panel 1: The owner leaves through the front door. The pet is framed in the
+         window behind them, small against the glass, eyes wide.
+Panel 2: The door clicks shut. Silence breaks. The pet slowly turns toward
+         the empty house, posture shifting, eyes sharp with possibility.
+Panel 3: The house transformed. The pet sprawls across the couch like it
+         owns the place, crumbs nearby, sunlight cutting across the room.
+Panel 4: The door opens. The pet is seated perfectly by the entrance,
+         alert and composed, as if nothing happened.</code></pre>
+                            <p style="font-size:0.85rem;"><strong>핵심 패턴</strong> — 같은 캐릭터의 <strong>행동
+                            변화</strong>를 시간 순서로, 연출 지시(프레이밍·자세·시선)까지 포함.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Slide -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#cook3">
+                            <i class="bi bi-easel2"></i>&nbsp; ③ 슬라이드 · 대시보드 — "산출물 스펙"으로 쓰기
+                        </button>
+                    </h2>
+                    <div id="cook3" class="accordion-collapse collapse" data-bs-parent="#cookbookAcc">
+                        <div class="accordion-body">
+                            <p class="text-muted" style="font-size:0.85rem;">
+                                일러스트 요청이 아닌 <strong>산출물 스펙</strong>처럼. 캔버스·위계·실제 텍스트·수치를 모두
+                                프롬프트에 넣고, landscape + <code>quality="high"</code>.
+                            </p>
+                            <pre class="code-block"><code>Create one pitch-deck slide titled "Market Opportunity" that feels like a
+real Series A fundraising slide from a YC-backed startup.
+
+Clean white background, modern sans-serif typography like Inter.
+
+Include:
+- A TAM/SAM/SOM concentric-circle diagram in muted blues and grays
+- Market sizing: TAM $42B, SAM $8.7B, SOM $340M
+- A bar chart below showing market growth 2021 → 2026
+- Footnotes: "AGI Research, 2024" and "Internal analysis"
+- A company logo placeholder in the bottom-right corner
+
+Avoid clip art, stock photography, gradients, shadows, decorative elements,
+or anything that feels generic or overdesigned.</code></pre>
+                            <p style="font-size:0.85rem;"><strong>핵심 패턴</strong> — 레이아웃 · 정확한 수치 ·
+                            타이포그래피 · <strong>배제 목록</strong>이 네 기둥.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Edit -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#cook4">
+                            <i class="bi bi-magic"></i>&nbsp; ④ 편집 — "X만 바꾸고 나머지는 유지"
+                        </button>
+                    </h2>
+                    <div id="cook4" class="accordion-collapse collapse" data-bs-parent="#cookbookAcc">
+                        <div class="accordion-body">
+                            <p class="text-muted" style="font-size:0.85rem;">
+                                편집(edit) API에서 가장 자주 실수하는 지점은 "바꿀 것"만 쓰고 "유지할 것"을 안 쓰는 것.
+                                gpt-image-2는 invariants를 명시할수록 드리프트가 줄어듭니다.
+                            </p>
+                            <pre class="code-block"><code>In this room photo, replace ONLY the white chairs with chairs made of wood.
+
+Preserve camera angle, room lighting, floor shadows, and surrounding objects.
+Keep all other aspects of the image unchanged.
+Photorealistic contact shadows and fabric texture.</code></pre>
+                            <p style="font-size:0.85rem;"><strong>핵심 패턴</strong> — <code>ONLY</code>, <code>Preserve
+                            …</code>, <code>Keep all other aspects unchanged</code>의 3단 콤보.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 4. 1.5 vs 2 Comparison ===== -->
+    <section class="content-section" id="compare" style="background:#fff;">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-arrow-left-right"></i> 같은 프롬프트, 두 모델 비교</h2>
+            <p>
+                아래 세 가지는 <strong>동일 한국어 프롬프트</strong>를 두 모델에 각각 넣은 결과입니다. 특히 이미지 속
+                <strong>한글 텍스트</strong>, <strong>네컷 구분선</strong>, <strong>캐릭터 일관성</strong>이
+                gpt-image-2에서 어떻게 개선되었는지 주목해 보세요. 프롬프트 전문은 각 항목의 "프롬프트 펼쳐보기"에서 확인할
+                수 있습니다.
+            </p>
+
+            <!-- 001 -->
+            <div class="step-card" id="compare-001">
+                <div class="step-header">
+                    <span class="step-num">1</span>
+                    <h4>대학생의 "Multi-LLM 팀" — 밝은 웹툰 스타일 네컷</h4>
+                </div>
+                <p>Z세대 감성의 밝은 웹툰. 캐릭터 두 명(파란=GPT, 보라=Anthropic)과 주인공 대학생의
+                    <strong>감정 변화</strong>를 네 컷에 배치하고, 마지막 컷에는 "GPT + Anthropic = Copilot" 텍스트를
+                    넣도록 요청했습니다.</p>
+
+                <div class="compare-grid">
+                    <div class="compare-card before">
+                        <div class="compare-label">
+                            <span><i class="bi bi-clock-history"></i> Before</span>
+                            <span class="tag">gpt-image-1.5</span>
+                        </div>
+                        <img src="images/001_before_copilot_gpt_claude.png"
+                             alt="gpt-image-1.5 — 대학생 Multi-LLM 네컷 결과">
+                    </div>
+                    <div class="compare-card after">
+                        <div class="compare-label">
+                            <span><i class="bi bi-stars"></i> After</span>
+                            <span class="tag">gpt-image-2</span>
+                        </div>
+                        <img src="images/001_after_copilot_gpt_claude.png"
+                             alt="gpt-image-2 — 대학생 Multi-LLM 네컷 결과">
+                    </div>
+                </div>
+
+                <p style="font-size:0.88rem; color:#555;">
+                    <strong>차이점</strong> — 1.5는 캐릭터 디자인은 귀엽지만 말풍선 한글이 <em>"멀티 LLM"</em> 정도에서
+                    깨지고, 마지막 컷의 로고 텍스트도 뭉개집니다. 2는 캐릭터 비율·표정·배경 소품(책·포스트잇·노트북)까지
+                    일관되고, 한글 말풍선과 <code>"GPT + Anthropic = Copilot"</code> 카피가 깔끔하게 들어갑니다.
+                </p>
+
+                <div class="accordion detail-accordion mt-3">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#p001">
+                                <i class="bi bi-chevron-expand me-2"></i> 프롬프트 펼쳐보기
+                            </button>
+                        </h2>
+                        <div id="p001" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <pre class="code-block"><code>밝고 귀여운 웹툰 스타일의 네 컷 만화.
+주인공은 대학생 딸 캐릭터(20대 초반, 캐주얼 복장, 노트북과 태블릿 사용).
+전체 톤은 밝고 유머러스하며 Z세대 감성.
+
+1컷: 과제와 아이디어 정리에 지친 대학생이 노트북 앞에서 고민 중.
+     말풍선: "아이디어도 정리도 너무 복잡해…"
+2컷: 노트북 화면에서 'Copilot' 캐릭터가 등장. 화면 속에 두 개의 작은 캐릭터가 보임:
+     - 하나는 논리적이고 차분한 파란색 캐릭터(GPT 느낌)
+     - 하나는 창의적이고 감성적인 보라색 캐릭터(Anthropic 느낌)
+     말풍선: "우린 멀티 LLM 팀이야!"
+3컷: 파란 캐릭터는 구조화된 체크리스트와 깔끔한 다이어그램을 보여주고,
+     보라 캐릭터는 창의적인 문장, 비유, 아이디어 스케치를 펼쳐 보임.
+     주인공 눈이 반짝이며 감탄.
+     말풍선: "와… 정리도 되고 아이디어도 살아나네?"
+4컷: 과제를 완성하고 커피를 마시며 여유 있게 웃는 대학생.
+     노트북 화면에는 'GPT + Anthropic = Copilot' 아이콘.
+     마지막 말풍선: "둘 다 있으니까 진짜 든든하다!"
+
+컬러풀한 색감, 부드러운 선, 웹툰 느낌, SNS에 올리기 좋은 구성.</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 002 -->
+            <div class="step-card" id="compare-002">
+                <div class="step-header">
+                    <span class="step-num">2</span>
+                    <h4>Copilot WorkIQ — 비즈니스 만화로 가치 전달</h4>
+                </div>
+                <p>한국 직장인 분위기의 4컷 웹툰. 1컷(정보 과부하) → 2컷(WorkIQ 대시보드) → 3컷(팀의 이해) → 4컷(효율적
+                    업무, 태그라인 포함)이라는 <strong>문제 → 해결 → 변화</strong> 구조.</p>
+
+                <div class="compare-grid">
+                    <div class="compare-card before">
+                        <div class="compare-label">
+                            <span><i class="bi bi-clock-history"></i> Before</span>
+                            <span class="tag">gpt-image-1.5</span>
+                        </div>
+                        <img src="images/002_before_copilot_work_iq.png"
+                             alt="gpt-image-1.5 — Copilot WorkIQ 네컷 결과">
+                    </div>
+                    <div class="compare-card after">
+                        <div class="compare-label">
+                            <span><i class="bi bi-stars"></i> After</span>
+                            <span class="tag">gpt-image-2</span>
+                        </div>
+                        <img src="images/002_after_copilot_work_iq.png"
+                             alt="gpt-image-2 — Copilot WorkIQ 네컷 결과">
+                    </div>
+                </div>
+
+                <p style="font-size:0.88rem; color:#555;">
+                    <strong>차이점</strong> — 1.5는 "Copilot WorkIQ" 로고 글자가 겹치고 대시보드가 막연한 그래프 덩어리로
+                    표현됩니다. 2는 대시보드 안에 <em>"개요 · 업무 패턴 · 협업 인사이트 · 집중 시간 · 추천 액션"</em> 같은
+                    실제 메뉴가 읽히고, 4컷째 <em>"회의 최적화 −30%, 집중 시간 +3시간/주, 생산성 +28%"</em> 같은 수치도
+                    자연스럽게 들어갑니다. 이게 곧 <strong>슬라이드처럼 쓸 수 있는 이미지</strong>.
+                </p>
+
+                <div class="accordion detail-accordion mt-3">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#p002">
+                                <i class="bi bi-chevron-expand me-2"></i> 프롬프트 펼쳐보기
+                            </button>
+                        </h2>
+                        <div id="p002" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <pre class="code-block"><code>목표: Copilot WorkIQ의 장점을 설명하는 네컷 만화 스타일 일러스트를 생성한다.
+
+컨텍스트: 기업 환경에서 직원과 팀이 업무 데이터를 이해하지 못해 혼란을 겪다가,
+         Copilot WorkIQ를 통해 업무 패턴과 협업 인사이트를 시각적으로 이해하고
+         더 똑똑하게 일하게 되는 스토리.
+
+스타일:
+- 깔끔한 비즈니스 만화 스타일
+- 밝고 친근한 색감
+- 한국 직장인 분위기
+- 4컷 웹툰 레이아웃
+
+컷 구성:
+1컷: 이메일, 채팅, 문서 아이콘에 둘러싸여 혼란스러워하는 직원
+2컷: Copilot WorkIQ 대시보드가 등장하며 데이터를 정리해주는 장면
+3컷: 팀이 인사이트를 이해하고 고개를 끄덕이는 모습
+4컷: 효율적으로 일하며 만족해하는 팀.
+     "Copilot WorkIQ – 일하는 방식을 이해하다" 문구 포함
+
+출력 기대: 한 장의 이미지 안에 4컷이 명확히 구분된 만화 형태.</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 003 -->
+            <div class="step-card" id="compare-003">
+                <div class="step-header">
+                    <span class="step-num">3</span>
+                    <h4>Copilot Agent — 도구가 아니라 사고 파트너</h4>
+                </div>
+                <p>Copilot을 <strong>리서처 → 분석가 → 프롬프트 코치 → 사고 파트너</strong>로 진화시키는 4컷. 각 컷마다
+                    Copilot의 소품(돋보기·안경·체크리스트)이 역할을 시각적으로 구분하는 것이 포인트.</p>
+
+                <div class="compare-grid">
+                    <div class="compare-card before">
+                        <div class="compare-label">
+                            <span><i class="bi bi-clock-history"></i> Before</span>
+                            <span class="tag">gpt-image-1.5</span>
+                        </div>
+                        <img src="images/003_brfore_copilot_agent.png"
+                             alt="gpt-image-1.5 — Copilot Agent 네컷 결과">
+                    </div>
+                    <div class="compare-card after">
+                        <div class="compare-label">
+                            <span><i class="bi bi-stars"></i> After</span>
+                            <span class="tag">gpt-image-2</span>
+                        </div>
+                        <img src="images/003_after_copilot_agent.png"
+                             alt="gpt-image-2 — Copilot Agent 네컷 결과">
+                    </div>
+                </div>
+
+                <p style="font-size:0.88rem; color:#555;">
+                    <strong>차이점</strong> — 1.5는 패널 번호·역할 라벨이 비어 있고 체크리스트 텍스트가 비문자로 나옵니다.
+                    2는 각 컷 상단에 <em>"① 리서쳐 Copilot / ② 분석가 Copilot / ③ 프롬프트 코치 Copilot"</em> 라벨이
+                    붙고, 마지막 컷의 <em>"Better Questions → Better Results"</em> 슬로건까지 깔끔하게 타이포로 정리됩니다.
+                    네컷 전체에서 Copilot 캐릭터의 디자인이 일관된다는 점도 중요한 개선점.
+                </p>
+
+                <div class="accordion detail-accordion mt-3">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#p003">
+                                <i class="bi bi-chevron-expand me-2"></i> 프롬프트 펼쳐보기
+                            </button>
+                        </h2>
+                        <div id="p003" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <pre class="code-block"><code>목표: Copilot Agent 사용 경험(리서쳐, 분석가, 프롬프트 코치)을 표현하는
+      네컷 만화를 생성한다. Copilot을 단순한 도구가 아니라 '사고 파트너'로
+      인식하게 만드는 것이 목적이다.
+
+맥락: 지식 근로자 또는 기술 트레이너가 Copilot을 사용하며 업무를 진행하는 상황.
+     Copilot은 친근한 AI 캐릭터로 의인화되어 등장하며, 컷이 진행될수록 역할이 진화한다.
+     전체 톤은 공감되고 가볍지만, 인사이트가 느껴져야 한다.
+
+네컷 구성:
+1컷 – 리서쳐 Copilot
+      책상 앞에서 고민하는 사용자. Copilot이 돋보기와 문서 더미를 들고 등장.
+      사용자: "이 주제… 자료부터 찾아야겠네"
+      Copilot: "제가 리서치해올게요!"
+
+2컷 – 분석가 Copilot
+      화이트보드에 그래프와 포스트잇. Copilot이 안경을 쓰고 데이터를 분석.
+      사용자: "근데 이게 무슨 의미지?"
+      Copilot: "패턴을 정리해보면 이렇게 됩니다"
+
+3컷 – 프롬프트 코치 Copilot
+      사용자가 프롬프트를 쓰다 지우며 고민.
+      Copilot이 코치처럼 체크리스트(목표, 맥락, 기대결과)를 들고 조언.
+      사용자: "프롬프트가 항상 애매해…"
+      Copilot: "질문을 구조화해볼까요?"
+
+4컷 – 함께 일하는 사고 파트너
+      사용자와 Copilot이 하이파이브. 화면 문구: "Better Questions → Better Results"
+      협업과 자신감이 느껴지는 분위기.
+
+스타일: 깔끔하고 현대적인 카툰 스타일. 밝은 색감, 표정이 잘 드러나는 캐릭터.
+       말풍선이 읽기 쉬운 구성.</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5. Customer gallery ===== -->
+    <section class="content-section" id="customer">
+        <div class="container">
+            <h2 class="section-title"><i class="bi bi-people"></i> 한국 고객이 gpt-image-2로 만든 결과물</h2>
+            <p>
+                워크샵·사내 PoC에서 한국 고객이 <span class="model-badge v2">gpt-image-2</span>로 직접 만들어 본 결과물을
+                프롬프트 없이 공유합니다. 여행·마케팅·내부 캠페인처럼, 실제 업무에서 바로 쓰일 수 있는 수준의
+                <strong>사진 퀄리티·한글 타이포그래피</strong>를 확인해 보세요.
+            </p>
+
+            <div class="customer-grid">
+                <div class="customer-card">
+                    <img src="images/004_customer_seoul.png" alt="SEOUL MY SOUL — 수채화 캠페인 포스터">
+                    <div class="caption">
+                        <strong>④ SEOUL — 흐르는 시간, 피어나는 서울</strong><br>
+                        수채 일러스트 + 캘리그래피 타이틀, 브랜드 로고까지 한 장에.
+                    </div>
+                </div>
+                <div class="customer-card">
+                    <img src="images/005_customer_mega.png" alt="Mega MGC Coffee × HEART2HEARTS 캠페인 포스터">
+                    <div class="caption">
+                        <strong>⑤ MEGA Moment × HEART2HEARTS</strong><br>
+                        모델 사진 합성 + 제품 라인업 + 가격 정보까지 편집 디자인 수준.
+                    </div>
+                </div>
+                <div class="customer-card">
+                    <img src="images/006_customer_korea.png" alt="Visit Korea — KOREA Beauty in Rhythm 캠페인 가로 포스터">
+                    <div class="caption">
+                        <strong>⑥ KOREA — Beauty in Rhythm</strong><br>
+                        한복 K-pop 퍼포먼스 + 광화문 실사 합성, 와이드 캠페인 크리에이티브.
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-light border mt-3" style="font-size:0.88rem;">
+                <i class="bi bi-lightbulb text-warning"></i>
+                <strong>관전 포인트</strong> — 사진 합성(인물 + 실사 배경), 한글 캘리그래피, 영문·한글 혼합 타이포그래피,
+                제품 라인업과 가격 정보가 <em>한 장 안에서 동시에</em> 정돈됩니다. 1.5에서 여러 번 재시도해도 어려웠던
+                영역이 2에서는 첫 장에서 가능해졌다는 점이 핵심입니다.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <section class="content-section" style="background:#fff; padding-top:1rem;">
+        <div class="container">
+            <hr>
+            <p class="text-muted" style="font-size:0.82rem;">
+                이 문서는 OpenAI Developers의
+                <a href="https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide"
+                   target="_blank" rel="noopener">GPT Image Generation Models Prompting Guide</a> (2026-04-21) 내용을
+                참고해 한국 업무 맥락에 맞게 정리했습니다. 모델 사양·가격·리전 정보는 변경될 수 있으므로 최신 공식 문서를
+                반드시 확인해 주세요.
+            </p>
+        </div>
+    </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../js/site.js"></script>
+</body>
+</html>
