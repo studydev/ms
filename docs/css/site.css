@@ -636,7 +636,6 @@ body {
 /* ===== RESPONSIVE IMAGE ===== */
 .hero-comic-img {
     max-width: 1024px;
-    width: 100%;
     border-radius: var(--radius);
     box-shadow: var(--card-shadow);
 }
@@ -940,12 +939,15 @@ body {
     display: block; margin: 0 auto;
     position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius);
 }
 .researcher-carousel .carousel-caption {
-    position: absolute; left: 0; right: 0; bottom: 0;
+    position: absolute; left: 0; right: 0; top: 0; bottom: auto;
     background: var(--azure-dark); color: #fff;
     padding: 0.6rem 1rem; font-size: 0.85rem;
     border-radius: 0; text-align: left;
+    z-index: 10;
 }
 .researcher-carousel .step-pill {
     display: inline-block; background: var(--azure-primary);
@@ -959,6 +961,25 @@ body {
     border-radius: 50%; padding: 1.2rem;
     background-size: 50% 50%;
 }
+.researcher-carousel .carousel-indicators [data-bs-target] {
+    background-color: #999;
+}
+.researcher-carousel .carousel-indicators .active {
+    background-color: #555;
+}
+
+/* Pre copy button */
+pre { position: relative; }
+pre .pre-copy-btn {
+    position: absolute; top: 0.4rem; right: 0.4rem;
+    background: rgba(255,255,255,0.85); border: 1px solid #ddd;
+    border-radius: 4px; padding: 0.2rem 0.5rem;
+    font-size: 0.72rem; color: #555; cursor: pointer;
+    display: flex; align-items: center; gap: 0.25rem;
+    transition: background 0.2s, color 0.2s;
+}
+pre .pre-copy-btn:hover { background: #eee; color: #333; }
+pre .pre-copy-btn.copied { background: #d4edda; color: #155724; border-color: #a3d9b1; }
 
 /* Step 2 prompt example */
 .prompt-example {

@@ -183,6 +183,28 @@
         });
     };
 
+    // ===== Pre tag copy buttons =====
+    (function () {
+        document.querySelectorAll('pre').forEach(function (pre) {
+            if (pre.querySelector('.pre-copy-btn')) return;
+            var btn = document.createElement('button');
+            btn.className = 'pre-copy-btn';
+            btn.innerHTML = '<i class="bi bi-clipboard"></i> 복사';
+            btn.addEventListener('click', function () {
+                var text = pre.textContent.replace(/복사됨!|복사/g, '').trim();
+                navigator.clipboard.writeText(text).then(function () {
+                    btn.innerHTML = '<i class="bi bi-check-lg"></i> 복사됨!';
+                    btn.classList.add('copied');
+                    setTimeout(function () {
+                        btn.innerHTML = '<i class="bi bi-clipboard"></i> 복사';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                });
+            });
+            pre.appendChild(btn);
+        });
+    })();
+
     // ===== Carousel: fix height to tallest image (all .researcher-carousel) =====
     (function () {
         var carousels = document.querySelectorAll('.researcher-carousel');
