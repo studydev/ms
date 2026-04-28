@@ -762,7 +762,7 @@ body {
     align-items: center; gap: 1rem;
 }
 .pipeline-copilot-row .pipeline-agent { grid-column: 2; justify-self: center; margin: 0; }
-.pipeline-copilot-row .pipeline-llms-wrap { grid-column: 3; justify-self: end; }
+.pipeline-copilot-row .pipeline-llms-wrap { grid-column: 3; justify-self: start; }
 .pipeline-llms-wrap {
     display: flex; align-items: center; gap: 0.5rem;
 }
@@ -795,7 +795,7 @@ body {
 
 /* Microsoft Graph layer (사내 콘텐츠 채널 헤더) */
 .pipeline-graph {
-    max-width: 720px; margin: 0 auto; padding: 0.7rem 1.2rem;
+    padding: 0.7rem 1.2rem;
     background: #fff;
     border: 2px solid var(--azure-primary);
     border-radius: 12px; text-align: center;
@@ -909,6 +909,11 @@ body {
 
 /* flow-node에서 cowork 이미지 살짝 크게 */
 .flow-node .app-icon.icon-cowork { width: 1.8rem; height: 1.8rem; }
+/* flow-node 안 아이콘 가로 정렬 */
+.app-icon-row {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    justify-content: center; flex-wrap: nowrap;
+}
 
 /* 섹션 타이틀 안의 아이콘 (copilot.svg 등) — 폰트 크기에 비례 */
 .section-title img.bi {
