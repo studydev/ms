@@ -91,10 +91,9 @@
     <section class="hero-section" id="top">
         <div class="container">
             <div class="lab-badge"><i class="bi bi-stars"></i> 실전 가이드</div>
-            <h1 style="margin-top:0.8rem;">M365 Cowork로<br>HTML 문서 & 슬라이드 만들기<br><span style="font-weight:400;font-size:0.5em;">대화 한 번으로 시각적 결과물을, 수집부터 다듬기까지 자동으로</span></h1>
+            <h1 style="margin-top:0.8rem;">비즈니스 및 기술 문서<br>Cowork로 한 번에 HTML로 뚝딱!<br><span style="font-weight:400;font-size:0.5em;">자료 수집부터 보고서 디자인·공유까지, 한 번에 끝내는 스마트 업무 자동화</span></h1>
             <p class="lead">
-                사내에 흩어져 있는 Word · PowerPoint · Pages · Outlook · Teams 자료와 웹 검색 결과를 한번에 끌어모아, 보기 좋은 HTML 문서와 슬라이드로 자동 완성합니다.<br>
-                수집부터 다듬기까지, 대화 한 번이면 충분합니다.
+                사내에 흩어져 있는 Word · PowerPoint · Pages · Outlook · Teams 자료와 웹 검색 결과를 끌어모아, 보기 좋은 HTML 문서와 슬라이드로 자동 완성합니다.
             </p>
             <div class="hero-meta">
                 <span><i class="bi bi-clock"></i> 읽기 시간: 10분</span>
@@ -107,7 +106,7 @@
     <!-- ===== SHOWCASE ===== -->
     <section class="content-section" id="showcase">
         <div class="container">
-            <h2 class="section-title"><i class="bi bi-images"></i> 이런 결과물을 만들 수 있습니다</h2>
+            <h2 class="section-title"><img class="bi" src="../../icons/copilot.svg" alt="Microsoft Copilot">한 번에 끝내는 스마트 업무 자동화</h2>
 
             <div class="text-center my-4">
                 <img src="images/copilot_cowork_html.png" alt="흩어진 자료를 스스로 정리해서 문서로 만든다"
@@ -213,12 +212,12 @@
             <h5 style="font-weight:700; margin-top:2rem;">전체 파이프라인</h5>
             <div class="flow-diagram">
                 <div class="flow-node">
-                    <i class="bi bi-search"></i>
+                    <img class="app-icon" src="../../icons/copilot_researcher_tools.png" alt="Researcher">
                     Researcher로<br>자료 수집
                 </div>
                 <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
                 <div class="flow-node active">
-                    <i class="bi bi-chat-dots"></i>
+                    <img class="app-icon icon-cowork" src="../../icons/copilot_cowork.png" alt="Cowork">
                     Cowork에서<br>HTML 생성
                 </div>
                 <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
@@ -228,8 +227,11 @@
                 </div>
                 <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
                 <div class="flow-node">
-                    <img class="app-icon" src="../../icons/word.svg" alt="Word/PPT">
-                    Word · PPT<br>전환 편집
+                    <span class="app-icon-row">
+                        <img class="app-icon" src="../../icons/word.svg" alt="Word">
+                        <img class="app-icon" src="../../icons/powerpoint.svg" alt="PPT">
+                    </span>
+                    <br>Word · PPT<br>전환 편집
                 </div>
             </div>
 
@@ -244,66 +246,228 @@
     <section class="content-section" id="step1">
         <div class="container">
             <div class="step-card">
-                <div class="step-number">1</div>
-                <h3>Researcher Agent로 자료 수집</h3>
+                <div class="step-header">
+                    <span class="step-num">1</span>
+                    <h4><img class="app-icon-inline" src="../../icons/copilot_researcher_tools.png" alt="Copilot"> Researcher Agent로 자료 수집</h4>
+                </div>
                 <p>
-                    M365 Copilot의 <b>Researcher Agent</b>를 이용하면 사내 문서와 웹 검색 결과를 심층적으로 조사하여, 원하는 주제에 맞는 자료를 한 번에 모을 수 있습니다. 수집 결과는 <b>Markdown · Pages · Word</b> 형태로 저장되어 이후 단계에서 재사용하기 편리합니다.
+                    M365 Copilot의 <b>Researcher Agent</b>를 이용하면 사내 문서와 웹 검색 결과를 심층적으로 조사하여, 원하는 주제에 맞는 자료를 한 번에 모을 수 있습니다. 수집 결과는 <b>Word · PowerPoint · PDF · 인포그래픽 · Markdown · Pages</b> 형태로 저장되어 이후 단계에서 재사용하기 편리합니다.
                 </p>
 
                 <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-layers-half me-1"></i> 연결되는 데이터 소스</h5>
                 <p style="font-size:0.9rem; color:#555;">
-                    Researcher는 사용자의 권한 범위 내 M365 Graph를 통해 다음 소스를 자동 탐색합니다. 웹 검색도 함께 수행되어 최신 동향까지 반영됩니다.
+                    사용자가 <b>M365 Copilot</b>에 요청을 보내면, 내부의 <b>Researcher Agent</b>(또는 Cowork Agent)가 이를 처리합니다. 사내 콘텐츠는 <b>Microsoft Graph</b>를 통해 권한 범위 안에서만 조회되고, 웹 검색·플러그인 등 외부 지식은 별도의 <b>외부 도구·커넥터</b> 채널로 보강됩니다. 모든 접근은 <b>Microsoft Entra ID</b>로 인증된 사용자의 ACL 권한을 기준으로 검증됩니다.
                 </p>
 
-                <div class="row g-3 mt-1">
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="prereq-card">
-                            <img class="app-icon" src="../../icons/word.svg" alt="Microsoft Word">
-                            <h6>Word</h6>
-                            <p>기획서 · 보고서</p>
+                <!-- 아키텍처: User → Copilot → (Graph + 외부 도구), Entra ID는 인증 코너 -->
+                <div class="data-pipeline">
+                    <!-- 최상단: 사용자(가운데) + Entra ID(오른쪽 코너) -->
+                    <div class="pipeline-top-row">
+                        <div class="pipeline-user">
+                            <div class="pipeline-icon"><i class="bi bi-person-fill"></i></div>
+                            <div>
+                                <div class="pipeline-title">사용자</div>
+                                <div class="pipeline-sub">"이 주제로 자료를 모아줘"</div>
+                            </div>
+                        </div>
+                        <div class="pipeline-entra" title="Entra ID로 사용자를 인증하고, 모든 콘텐츠 접근 시 ACL 권한을 검증합니다.">
+                            <div class="pipeline-icon"><img src="../../icons/enter_id.svg" alt="Microsoft Entra ID"></div>
+                            <div>
+                                <div class="pipeline-title">Entra ID</div>
+                                <div class="pipeline-sub">인증 · ACL 권한 검증</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="prereq-card">
-                            <img class="app-icon" src="../../icons/powerpoint.svg" alt="Microsoft PowerPoint">
-                            <h6>PowerPoint</h6>
-                            <p>발표 자료</p>
+
+                    <!-- 사용자 → Copilot 요청 화살표 -->
+                    <div class="pipeline-arrows" aria-hidden="true">
+                        <i class="bi bi-arrow-down"></i>
+                    </div>
+
+                    <!-- M365 Copilot (Researcher · Cowork Agent 포함) + 우측 LLM 백엔드 -->
+                    <div class="pipeline-copilot-row">
+                        <div class="pipeline-agent">
+                            <div class="pipeline-icon"><img class="app-icon" src="../../icons/copilot.svg" alt="Microsoft Copilot"></div>
+                            <div class="pipeline-text">
+                                <div class="pipeline-title">M365 Copilot</div>
+                                <div class="pipeline-sub">사용자 요청을 해석하고, 적절한 채널로 데이터를 수집·정제·요약</div>
+                                <div class="pipeline-agent-subs">
+                                    <span class="sub-agent"><img class="app-icon-inline" src="../../icons/copilot_researcher_tools.png" alt="Researcher"> Researcher Agent</span>
+                                    <span class="sub-agent"><img class="app-icon-inline" src="../../icons/copilot_cowork.png" alt="Cowork"> Cowork Agent</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pipeline-llms-wrap">
+                            <div class="pipeline-copilot-arrow" aria-hidden="true" title="M365 Copilot이 LLM 모델을 호출">
+                                <div class="arrow-stack">
+                                    <span class="label">호출</span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </div>
+                            </div>
+                            <div class="pipeline-llms" title="Copilot이 호출하는 기반 LLM 모델">
+                                <span class="pipeline-llms-label">LLM 모델</span>
+                                <span class="pipeline-llm-item"><img src="../../icons/chatgpt.svg" alt="GPT"> GPT</span>
+                                <span class="pipeline-llm-item"><img src="../../icons/claude.svg" alt="Claude"> Claude</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="prereq-card">
-                            <img class="app-icon" src="../../icons/onenote.svg" alt="Microsoft Pages">
-                            <h6>Pages</h6>
-                            <p>협업 노트</p>
-                        </div>
+
+                    <!-- Copilot → 두 채널 분기 화살표 -->
+                    <div class="pipeline-arrows" aria-hidden="true" style="gap:8rem;">
+                        <i class="bi bi-arrow-down"></i>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="prereq-card">
-                            <img class="app-icon" src="../../icons/outlook.svg" alt="Microsoft Outlook">
-                            <h6>Outlook</h6>
-                            <p>메일 · 첨부</p>
+
+                    <!-- 두 갈래: 사내 콘텐츠(Graph) | 외부 지식(도구·커넥터) -->
+                    <div class="pipeline-branches">
+                        <!-- 좌측: 사내 콘텐츠 — Microsoft Graph -->
+                        <div class="pipeline-branch branch-internal">
+                            <div class="pipeline-branch-label">사내 콘텐츠 채널</div>
+                            <div class="pipeline-graph">
+                                <div class="pipeline-icon"><img class="app-icon" src="../../icons/msgraph.svg" alt="Microsoft Graph"></div>
+                                <div>
+                                    <span class="pipeline-title">Microsoft Graph</span><br>
+                                    <span class="pipeline-sub">권한 기반 통합 액세스 레이어</span>
+                                </div>
+                            </div>
+                            <div class="pipeline-arrows spread" aria-hidden="true">
+                                <i class="bi bi-arrow-up"></i>
+                                <i class="bi bi-arrow-up"></i>
+                                <i class="bi bi-arrow-up"></i>
+                            </div>
+                            <!-- 사내 데이터 소스: 가로 3열 그리드 -->
+                            <div class="source-group-grid">
+                                <div class="source-group">
+                                    <div class="source-group-header align-items-center">
+                                        <span class="source-group-service"><img src="../../icons/onedrive.svg" alt="OneDrive"> OneDrive</span>
+                                        <span class="source-group-service"><img src="../../icons/sharepoint.svg" alt="SharePoint"> SharePoint</span>
+                                    </div>
+                                    <div class="source-items">
+                                        <span class="source-item"><img src="../../icons/word.svg" alt="Word"> Word</span>
+                                        <span class="source-item"><img src="../../icons/excel.svg" alt="Excel"> Excel</span>
+                                        <span class="source-item"><img src="../../icons/powerpoint.svg" alt="PowerPoint"> PowerPoint</span>
+                                        <span class="source-item"><img src="../../icons/pages.svg" alt="Pages"> Pages</span>
+                                    </div>
+                                </div>
+                                <div class="source-group">
+                                    <div class="source-group-header">
+                                        <span class="source-group-service"><img src="../../icons/outlook.svg" alt="Outlook"> Outlook</span>
+                                    </div>
+                                    <div class="source-items">
+                                        <span class="source-item"><img src="../../icons/Mail.svg" alt="Mail"> 메일</span>
+                                        <span class="source-item"><img src="../../icons/Mail%20Attach.svg" alt="첨부"> 첨부</span>
+                                    </div>
+                                </div>
+                                <div class="source-group">
+                                    <div class="source-group-header">
+                                        <span class="source-group-service"><img src="../../icons/teams.svg" alt="Teams"> Teams</span>
+                                    </div>
+                                    <div class="source-items">
+                                        <span class="source-item"><img src="../../icons/Chat.svg" alt="Chat"> 채팅</span>
+                                        <span class="source-item"><img src="../../icons/Video.svg" alt="Video"> 회의</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="prereq-card">
-                            <img class="app-icon" src="../../icons/teams.svg" alt="Microsoft Teams">
-                            <h6>Teams</h6>
-                            <p>채팅 · 회의</p>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="prereq-card">
-                            <img class="app-icon" src="../../icons/Globe.svg" alt="Web">
-                            <h6>Web</h6>
-                            <p>최신 검색</p>
+
+                        <!-- 우측: 외부 지식 — 외부 도구·커넥터 -->
+                        <div class="pipeline-branch branch-external">
+                            <div class="pipeline-branch-label">외부 지식 채널</div>
+                            <div class="pipeline-tools">
+                                <div class="pipeline-icon"><i class="bi bi-plugin"></i></div>
+                                <div>
+                                    <span class="pipeline-title">외부 도구 · 커넥터</span><br>
+                                    <span class="pipeline-sub">웹 검색 · 플러그인으로 확장</span>
+                                </div>
+                            </div>
+                            <div class="pipeline-arrows spread" aria-hidden="true">
+                                <i class="bi bi-arrow-up"></i>
+                                <i class="bi bi-arrow-up"></i>
+                            </div>
+                            <!-- 외부 데이터 소스: 가로 2열 그리드 -->
+                            <div class="source-group-grid">
+                                <div class="source-group">
+                                    <div class="source-group-header">
+                                        <span class="source-group-service"><img src="../../icons/Globe.svg" alt="Bing"> Bing 웹 검색</span>
+                                    </div>
+                                    <div class="source-items">
+                                        <span class="source-item"><i class="bi bi-search"></i>뉴스</span>
+                                        <span class="source-item"><i class="bi bi-newspaper"></i>컨텐츠</span>
+                                    </div>
+                                </div>
+                                <div class="source-group">
+                                    <div class="source-group-header">
+                                        <span class="source-group-service"><i class="bi bi-puzzle-fill" style="color:#7c3aed;"></i> 플러그인</span>
+                                    </div>
+                                    <div class="source-items">
+                                        <span class="source-item"><i class="bi bi-box-arrow-in-right"></i>사용자 정의 도구</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-chat-dots me-1"></i> 프롬프트 예시</h5>
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-chat-dots me-1"></i> 프롬프트 예시 - Researcher Agent</h5>
                 <div class="callout callout-info">
-                    <strong>Researcher Agent 프롬프트</strong>
-                    "사내 Teams와 SharePoint에 저장된 <b>'파트너 온보딩'</b> 관련 문서를 찾아주고, 최근 6개월간 업계 모범 사례도 웹에서 조사해줘. 핵심 개념·사례·체크리스트 형태로 정리한 뒤 <b>Pages 문서</b>로 저장해줘."
+                    <pre class="prompt-example">"AI 시대에 내가 일하는 방식은 어떻게 바뀌고 있는가?" 에 대한 주제에 대해서 현업과 개발자 관점에서 어떻게 일하는 방식이 변화하고 있는지를 조사해줘.</pre>
+                </div>
+
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-images me-1"></i> 실제 작업 화면</h5>
+                <div id="researcherCarousel" class="carousel slide researcher-carousel" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#researcherCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#researcherCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#researcherCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#researcherCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#researcherCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#researcherCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/01_researcher_01.png" class="d-block" alt="1단계: 리서치 도구 시작 — 주제 입력 및 소스 선택">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 1</span> 리서치 도구를 열고 프롬프트 입력 · 소스(웹 / Microsoft 365) 선택
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/01_researcher_02.png" class="d-block" alt="2단계: 분석 관점 명확화 질문">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 2</span> 활용 목적 · 범위 · 관점 비중을 좁히는 후속 질문에 응답
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/01_researcher_03.png" class="d-block" alt="3단계: Researcher가 단계별 추론 진행">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 3</span> Researcher가 분석 계획을 세우고 단계별 추론을 진행
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/01_researcher_04.png" class="d-block" alt="4단계: 핵심 요약과 본문 보고서 생성">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 4</span> 핵심 요약 + 관점별 본문 보고서가 자동 생성
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/01_researcher_05.png" class="d-block" alt="5단계: 페이지로 내보내기">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 5</span> "다음으로 내보내기 → Pages"로 내보낼 형식 선택
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/01_researcher_06.png" class="d-block" alt="6단계: Pages에 보고서 저장 완료">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 6</span> Pages 문서로 저장 완료 — Cowork 단계에서 그대로 재사용
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#researcherCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">이전</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#researcherCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">다음</span>
+                    </button>
                 </div>
 
                 <div class="callout callout-tip">
@@ -322,45 +486,76 @@
     <section class="content-section" id="step2">
         <div class="container">
             <div class="step-card">
-                <div class="step-number">2</div>
-                <h3>Cowork에서 HTML 문서 생성하기</h3>
+                <div class="step-header">
+                    <span class="step-num">2</span>
+                    <h4><img class="app-icon-inline" src="../../icons/copilot_cowork.png" alt="Cowork"> Cowork에서 HTML 문서 생성하기</h4>
+                </div>
                 <p>
-                    Step 1에서 모은 자료를 기반으로, M365 Copilot <b>Cowork</b>(<a href="https://cowork.microsoft.com" target="_blank" rel="noopener">cowork.microsoft.com</a>)에 원하는 결과물을 요청합니다. Markdown으로 표현하기 어려운 <b>카드 레이아웃 · 하이라이트 박스 · 아이콘 · 코드 블록</b>까지 자동으로 구성됩니다.
+                    Step 1에서 모은 자료를 기반으로, M365 Copilot <b>Cowork</b>에 원하는 결과물을 요청합니다. Markdown으로 표현하기 어려운 <b>카드 레이아웃 · 하이라이트 박스 · 아이콘 · 코드 블록</b>까지 자동으로 구성됩니다.
                 </p>
 
-                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;">사례별 프롬프트 패턴</h5>
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-chat-dots me-1"></i> 프롬프트 예시 - Cowork Agent (기술 문서 및 슬라이드 HTML을 동시에 만들 때)</h5>
+                <div class="callout callout-info">
+                    <pre class="prompt-example"><strong><u>AI 시대 일하는 방식 변화 조사.page</u></strong>
 
-                <div class="row g-3 mt-2">
-                    <div class="col-lg-6">
-                        <div class="callout callout-info">
-                            <strong><i class="bi bi-file-earmark-richtext"></i> 기술 문서를 만들 때</strong>
-                            <p style="margin-top:0.5rem; font-size:0.85rem; margin-bottom:0.5rem;">
-                                "방금 Pages에 저장한 <b>'파트너 온보딩'</b> 문서를 바탕으로, 핵심 개념 · 모범 사례 · 체크리스트를 정리해서 <b>HTML 파일로</b> 만들어줘. 코드 블록은 구문 하이라이트 포함해서."
-                            </p>
-                            <div class="d-flex flex-wrap gap-1">
-                                <span class="pattern-badge">표로 정리</span>
-                                <span class="pattern-badge">아이콘 카드</span>
-                                <span class="pattern-badge">목차 포함</span>
+첨부된 Page에 요약된 내용을 바탕으로, 고객에게 전달하기 위한 두 가지 형태의 HTML 문서를 작성해줘.
+1. 웹 문서 형태의 HTML (한 페이지 세로로 읽는 형태)
+2. 슬라이드 형태의 HTML (페이지 넘기기 기능 포함)
+
+요구사항:
+- 전체 배경은 흰색
+- 제목, 소제목, 본문이 구조적으로 잘 보이도록 구성
+- 핵심 메시지나 고객에게 꼭 강조해야 할 부분은 Highlight 처리
+- (슬라이드 HTML의 경우) 불필요한 설명은 줄이고, 짧고 명확한 문장 위주로 요약, 슬라이드 화면 비율 고려
+- 고객이 빠르게 이해할 수 있도록 읽기 쉬운 레이아웃 유지 결과물은 바로 사용 가능한 HTML 코드 형태로 제공</pre>
+                </div>
+
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-images me-1"></i> 실제 작업 화면</h5>
+                <div id="coworkCarousel" class="carousel slide researcher-carousel" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#coworkCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#coworkCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#coworkCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#coworkCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/02_cowork_01.png" class="d-block" alt="1단계: Cowork에 프롬프트 입력">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 1</span> Cowork에 Page 첨부 후 HTML 생성 프롬프트 입력
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/02_cowork_02.png" class="d-block" alt="2단계: Cowork가 파일 읽기 및 작업 시작">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 2</span> 첨부 Page 내용을 읽고 HTML 문서 작성 시작
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/02_cowork_03.png" class="d-block" alt="3단계: 웹문서 + 슬라이드 HTML 생성 완료">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 3</span> 웹 문서형 + 슬라이드형 HTML 두 파일 생성 완료
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/02_cowork_04.png" class="d-block" alt="4단계: 산출물 확인 및 다운로드">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 4</span> 산출물 확인 — 출력 폴더에서 HTML 파일 다운로드
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="callout callout-info">
-                            <strong><i class="bi bi-easel"></i> 슬라이드를 만들 때</strong>
-                            <p style="margin-top:0.5rem; font-size:0.85rem; margin-bottom:0.5rem;">
-                                "이 내용을 10장 분량의 <b>HTML 슬라이드</b>로 만들어줘. 각 슬라이드에 제목, 핵심 포인트 3개, 관련 아이콘을 넣고 좌우 화살표로 넘길 수 있게."
-                            </p>
-                            <div class="d-flex flex-wrap gap-1">
-                                <span class="pattern-badge">슬라이드 형태</span>
-                                <span class="pattern-badge">페이지 넘김</span>
-                                <span class="pattern-badge">다크 테마</span>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#coworkCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">이전</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#coworkCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">다음</span>
+                    </button>
                 </div>
 
                 <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;">단계적 고도화 전략</h5>
-                <p style="font-size:0.9rem; color:#555;">한 번에 완벽한 결과를 기대하기보다, 대화를 이어가며 점진적으로 품질을 높이세요.</p>
+                <p style="font-size:0.9rem; color:#555;">한 번에 완벽한 결과를 기대하기보다, 대화를 이어가며 점진적으로 품질을 높이세요. 아래 내용을 함께 고려해서 프롬프트를 작성하세요.</p>
 
                 <div class="timeline">
                     <div class="timeline-item">
@@ -369,7 +564,7 @@
                     </div>
                     <div class="timeline-item">
                         <div class="tl-title">2차: 시각적 개선</div>
-                        <div class="tl-desc">"스타일을 좀 더 세련되게 해줘. 카드 레이아웃과 아이콘 추가" → 디자인 강화</div>
+                        <div class="tl-desc">"흰색 배경에 스타일을 좀 더 세련되게 해줘. 카드 레이아웃과 아이콘 및 이미지를 추가"</div>
                     </div>
                     <div class="timeline-item">
                         <div class="tl-title">3차: 기능 추가</div>
@@ -377,13 +572,8 @@
                     </div>
                     <div class="timeline-item">
                         <div class="tl-title">4차: 슬라이드 변환 (선택)</div>
-                        <div class="tl-desc">"같은 내용을 HTML 슬라이드로 재구성해줘" → 발표 자료화</div>
+                        <div class="tl-desc">"같은 내용을 일관성 있는 디자인 템플릿을 기반으로 HTML 슬라이드로 재구성해줘" → 발표 자료화</div>
                     </div>
-                </div>
-
-                <div class="callout callout-info mt-3">
-                    <strong><i class="bi bi-info-circle"></i> Cowork의 HTML 출력</strong>
-                    "HTML 파일로 만들어줘"라고 요청하면, Cowork가 독립 실행 가능한 HTML을 세션 출력 폴더에 저장합니다. 다음 단계에서 이 파일을 확인하는 방법을 설명합니다.
                 </div>
             </div>
         </div>
@@ -393,8 +583,10 @@
     <section class="content-section" id="step3">
         <div class="container">
             <div class="step-card">
-                <div class="step-number">3</div>
-                <h3>출력 파일 위치 찾기</h3>
+                <div class="step-header">
+                    <span class="step-num">3</span>
+                    <h4>출력 파일 위치 찾기</h4>
+                </div>
                 <p>Cowork가 생성한 HTML 파일은 로컬 파일 시스템에 자동 저장됩니다.</p>
 
                 <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;">파일 저장 경로 (Windows)</h5>
@@ -404,7 +596,7 @@
 C:\Users\<span class="string">&lt;사용자명&gt;</span>\Documents\Coworker\sessions\<span class="string">&lt;세션-ID&gt;</span>\output\
 
 <span class="comment"># 예시:</span>
-C:\Users\hyounsoo\Documents\Coworker\sessions\<span class="string">a1b2c3d4-e5f6-7890</span>\output\<span class="func">report.html</span>
+C:\Users\hyounsoo\Documents\Coworker\sessions\<span class="string">a1b2c3d4-e5f6-da4d</span>\output\<span class="func">AI_시대_일하는_방식_변화_웹문서.html</span>
 </div>
 
                 <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;">폴더 구조</h5>
@@ -412,15 +604,58 @@ C:\Users\hyounsoo\Documents\Coworker\sessions\<span class="string">a1b2c3d4-e5f6
 <span class="folder">📁 Documents</span>
 └── <span class="folder">📁 Coworker</span>
     └── <span class="folder">📁 sessions</span>
-        ├── <span class="folder">📁 a1b2c3d4-e5f6-7890</span>
+        ├── <span class="folder">📁 a1b2c3d4-e5f6-da4d</span>
         │   └── <span class="folder">📁 output</span>
-        │       ├── <span class="file highlight">📄 report.html</span>
-        │       ├── <span class="file">📄 slides.html</span>
-        │       └── <span class="file">📄 summary.html</span>
+        │       ├── <span class="file highlight">📄 AI_시대_일하는_방식_변화_웹문서.html</span>
+        │       └── <span class="file">📄 AI_시대_일하는_방식_변화_슬라이드.html</span>
         └── <span class="folder">📁 f9e8d7c6-b5a4-3210</span>
             └── <span class="folder">📁 output</span>
                 └── <span class="file">📄 guide.html</span>
 </div>
+
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-images me-1"></i> 실제 작업 화면</h5>
+                <div id="outputCarousel" class="carousel slide researcher-carousel" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#outputCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#outputCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#outputCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#outputCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/03_cowork_01.png" class="d-block" alt="1단계: 출력 폴더 확인">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 1</span> OneDrive 세션 폴더에서 생성된 HTML 파일 확인
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/03_cowork_02.png" class="d-block" alt="2단계: 웹 문서형 HTML 결과">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 2</span> 웹 문서형 HTML — 한 페이지 세로 스크롤 형태
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/03_cowork_03.png" class="d-block" alt="3단계: 슬라이드형 HTML 표지">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 3</span> 슬라이드형 HTML — 표지 슬라이드
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/03_cowork_04.png" class="d-block" alt="4단계: 슬라이드형 HTML 목차">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 4</span> 슬라이드형 HTML — 목차 및 내비게이션
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#outputCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">이전</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#outputCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">다음</span>
+                    </button>
+                </div>
 
                 <div class="callout callout-info mt-3">
                     <strong><i class="bi bi-info-circle"></i> 세션 ID 확인</strong>
@@ -434,60 +669,76 @@ C:\Users\hyounsoo\Documents\Coworker\sessions\<span class="string">a1b2c3d4-e5f6
     <section class="content-section" id="step4">
         <div class="container">
             <div class="step-card">
-                <div class="step-number">4</div>
-                <h3>Word · PowerPoint로 전환해서 섬세하게 편집</h3>
+                <div class="step-header">
+                    <span class="step-num">4</span>
+                    <h4>Word · PowerPoint로 전환해서 섬세하게 편집</h4>
+                </div>
                 <p>
                     HTML은 시각적으로는 강력하지만, <b>세부 문구 수정 · 순서 변경 · 이미지 교체</b> 같은 작업은 익숙한 도구가 더 편합니다. Cowork에게 같은 대화 안에서 <b>Word 또는 PowerPoint</b>로 전환해 달라고 요청하면, 편집과 소유권 관리가 한층 쉬워집니다.
                 </p>
 
                 <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-chat-dots me-1"></i> 전환 요청 예시</h5>
                 <div class="row g-3">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="callout callout-info">
-                            <strong><img class="app-icon-inline" src="../../icons/word.svg" alt="Word"> Word로 전환</strong>
+                            <strong><img class="app-icon-inline" src="../../icons/word.svg" alt="Word"> Word 및 <img class="app-icon-inline" src="../../icons/powerpoint.svg" alt="PowerPoint"> PowerPoint로 전환</strong>
                             <p style="font-size:0.86rem; margin:0.4rem 0 0;">
-                                "방금 만든 HTML 문서를 <b>Word 파일</b>로 전환해줘. 본문 스타일은 제목 1~3 계층 구조로 맞추고, 표와 이미지 캡션은 그대로 유지해줘."
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="callout callout-info">
-                            <strong><img class="app-icon-inline" src="../../icons/powerpoint.svg" alt="PowerPoint"> PowerPoint로 전환</strong>
-                            <p style="font-size:0.86rem; margin:0.4rem 0 0;">
-                                "HTML 슬라이드를 <b>PPT 파일</b>로 전환해줘. 각 슬라이드 제목·본문·아이콘 영역을 레이아웃으로 분리하고, 사내 템플릿 색상(#0078D4)을 써줘."
+                                "방금 만든 HTML 웹문서는 본문 스타일은 제목 1~3 계층 구조로 맞추고, 표와 이미지 캡션은 그대로 유지하면서 Word 파일로 전환해줘. 그리고 HTML 슬라이드는 디자인의 일관성을 유지하면서 PowerPoint
+                                파일로 전환해줘."
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;">어떤 형식을 선택해야 할까?</h5>
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <div class="prereq-card">
-                            <i class="bi bi-code-square" style="color:var(--azure-primary);"></i>
-                            <h6>HTML 유지</h6>
-                            <p>웹에서 공유 · 반응형 · 하이라이트 박스 그대로</p>
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-images me-1"></i> 실제 작업 화면</h5>
+                <div id="convertCarousel" class="carousel slide researcher-carousel" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#convertCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#convertCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#convertCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#convertCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/04_cowork_01.png" class="d-block" alt="1단계: Cowork에서 Word·PPT 전환 요청">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 1</span> Cowork에 Word · PowerPoint 전환 프롬프트 입력
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/04_cowork_02.png" class="d-block" alt="2단계: 전환된 Word 문서 — 계층 구조와 스타일 유지">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 2</span> 전환된 Word 문서 — 계층 구조와 스타일 유지
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/04_cowork_03.png" class="d-block" alt="3단계: Word·PPT 작업 완료 및 산출물 확인">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 3</span> Word · PPT 변환 완료 — 출력 폴더에 4개 파일 생성
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/04_cowork_04.png" class="d-block" alt="4단계: PowerPoint 슬라이드 전환 결과 확인">
+                            <div class="carousel-caption">
+                                <span class="step-pill">STEP 4</span> 전환된 PowerPoint — 디자인 일관성 유지
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="prereq-card">
-                            <img class="app-icon" src="../../icons/word.svg" alt="Microsoft Word">
-                            <h6>Word 변환</h6>
-                            <p>장문 편집 · 결재 문서 · PDF 변환</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="prereq-card">
-                            <img class="app-icon" src="../../icons/powerpoint.svg" alt="Microsoft PowerPoint">
-                            <h6>PPT 변환</h6>
-                            <p>대면 발표 · 애니메이션 · 고객 제안</p>
-                        </div>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#convertCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">이전</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#convertCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">다음</span>
+                    </button>
                 </div>
 
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-lightbulb"></i> 권장 작업순서</h5>
                 <div class="callout callout-tip mt-3">
-                    <strong><i class="bi bi-lightbulb"></i> 권장 워크플로</strong>
-                    <b>HTML에서 구조와 콘텐츠를 먼저 확정</b>하고, 디테일이 필요할 때만 Word/PPT로 넘기세요. 콘텐츠 작업과 디자인 마감이 분리되어 수정 비용이 크게 줄어듭니다.
+                    <p style="font-size:0.86rem; margin:0.4rem 0 0;">
+                        <b>HTML에서 구조와 콘텐츠를 먼저 확정</b>하고, 수정이 필요할 때 Word/PPT로 변환하세요. 콘텐츠 작업과 디자인 마감이 분리되어 수정 비용이 크게 줄어듭니다.
+                    </p>
                 </div>
             </div>
         </div>

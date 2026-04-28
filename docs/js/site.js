@@ -182,4 +182,67 @@
             }, 2000);
         });
     };
+
+    // ===== Carousel: fix height to tallest image (all .researcher-carousel) =====
+    (function () {
+        var carousels = document.querySelectorAll('.researcher-carousel');
+        if (!carousels.length) return;
+
+        function initCarousel(carousel) {
+            var imgs = carousel.querySelectorAll('.carousel-item img');
+            var items = carousel.querySelectorAll('.carousel-item');
+            if (!imgs.length) return;
+            var loaded = 0;
+
+            function measureAll() {
+                var saved = [];
+                items.forEach(function (item) {
+                    saved.push({ d: item.style.display, p: item.style.position, v: item.style.visibility });
+                    item.style.display = 'block';
+                    item.style.position = 'absolute';
+                    item.style.visibility = 'hidden';
+                });
+                var maxH = 0;
+                imgs.forEach(function (img) {
+                    if (img.offsetHeight > maxH) maxH = img.offsetHeight;
+                });
+                var caption = carousel.querySelector('.carousel-caption');
+                var captionH = caption ? caption.offsetHeight : 40;
+                items.forEach(function (item, i) {
+                    item.style.display = saved[i].d;
+                    item.style.position = saved[i].p;
+                    item.style.visibility = saved[i].v;
+                });
+                return { imgH: maxH, captionH: captionH };
+            }
+
+            function applyFixedHeight() {
+                var m = measureAll();
+                if (m.imgH <= 0) return;
+                var totalH = m.imgH + m.captionH;
+                items.forEach(function (item) {
+                    item.style.minHeight = totalH + 'px';
+                    item.style.paddingBottom = m.captionH + 'px';
+                });
+            }
+
+            function onAllLoaded() {
+                loaded++;
+                if (loaded < imgs.length) return;
+                applyFixedHeight();
+            }
+            imgs.forEach(function (img) {
+                if (img.complete) { onAllLoaded(); } else { img.addEventListener('load', onAllLoaded); }
+            });
+            window.addEventListener('resize', function () {
+                items.forEach(function (item) {
+                    item.style.minHeight = '';
+                    item.style.paddingBottom = '';
+                });
+                applyFixedHeight();
+            });
+        }
+
+        carousels.forEach(initCarousel);
+    })();
 })();

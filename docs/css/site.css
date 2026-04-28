@@ -511,7 +511,7 @@ body {
 /* ===== TIMELINE (content) ===== */
 .timeline { position: relative; padding-left: 2rem; }
 .timeline::before {
-    content: ''; position: absolute; left: 15px; top: 0; bottom: 0;
+    content: ''; position: absolute; left: calc(0.4rem + 5px); top: 0; bottom: 0;
     width: 2px; background: linear-gradient(to bottom, var(--azure-primary), var(--hosted-color));
 }
 .timeline-item { position: relative; margin-bottom: 1.5rem; padding-left: 1.5rem; }
@@ -682,6 +682,301 @@ body {
     padding: 2rem 2.5rem; font-size: 0.8rem;
 }
 .page-footer a { color: var(--azure-accent); text-decoration: none; }
+
+/* ===== DATA PIPELINE (User → Copilot → Graph + 외부 도구) ===== */
+.data-pipeline { margin: 1.5rem 0 0.5rem; }
+
+/* Top row: 사용자(가운데) · Entra ID(오른쪽 코너, 인증 용도) */
+.pipeline-top-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+}
+.pipeline-top-row .pipeline-user { grid-column: 2; justify-self: center; }
+.pipeline-top-row .pipeline-entra { grid-column: 3; justify-self: end; }
+.pipeline-user, .pipeline-entra {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.6rem 1rem; border-radius: 10px;
+    font-size: 0.86rem; line-height: 1.25;
+}
+.pipeline-user {
+    background: #fff; border: 2px solid var(--azure-primary); color: var(--azure-dark);
+}
+.pipeline-user .pipeline-icon {
+    width: 2rem; height: 2rem; border-radius: 50%;
+    background: var(--azure-light); color: var(--azure-primary);
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.pipeline-user .pipeline-title { font-weight: 700; }
+.pipeline-user .pipeline-sub { font-size: 0.76rem; color: #666; }
+.pipeline-entra {
+    background: #fff7ed; border: 1.5px dashed #f59e0b; color: #92400e;
+}
+.pipeline-entra .pipeline-icon {
+    width: 1.8rem; height: 1.8rem; border-radius: 50%;
+    background: #fff; color: #92400e;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; overflow: hidden;
+}
+.pipeline-entra .pipeline-icon img { width: 1.3rem; height: 1.3rem; }
+.pipeline-entra .pipeline-title { font-weight: 700; font-size: 0.85rem; }
+.pipeline-entra .pipeline-sub { font-size: 0.74rem; color: #b45309; }
+
+/* M365 Copilot agent box (Azure 그라디언트) */
+.pipeline-agent {
+    max-width: 520px; margin: 0 auto; padding: 1rem 1.4rem;
+    background: linear-gradient(135deg, var(--azure-dark) 0%, var(--azure-primary) 100%);
+    color: #fff; border-radius: 14px; text-align: center;
+    box-shadow: 0 6px 20px rgba(0,120,212,0.25);
+    display: flex; align-items: center; justify-content: center; gap: 0.9rem;
+}
+.pipeline-agent .pipeline-icon {
+    width: 2.6rem; height: 2.6rem; border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; flex-shrink: 0;
+}
+.pipeline-agent .pipeline-icon img.app-icon {
+    width: 1.7rem; height: 1.7rem; margin: 0;
+    background: #fff; border-radius: 50%; padding: 0.18rem;
+}
+.pipeline-agent .pipeline-text { text-align: left; }
+.pipeline-agent .pipeline-title { font-weight: 800; font-size: 1rem; line-height: 1.3; }
+.pipeline-agent .pipeline-sub { font-size: 0.78rem; opacity: 0.85; margin-top: 0.15rem; }
+
+/* Copilot 박스 안의 sub-agent pills */
+.pipeline-agent-subs {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.35rem;
+}
+.pipeline-agent-subs .sub-agent {
+    background: rgba(255,255,255,0.18); color: #fff;
+    border-radius: 999px; padding: 0.18rem 0.6rem;
+    font-size: 0.74rem; font-weight: 500;
+}
+
+/* Copilot row: agent 중앙 + LLM 우측 (Entra ID와 동일 패턴) */
+.pipeline-copilot-row {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center; gap: 1rem;
+}
+.pipeline-copilot-row .pipeline-agent { grid-column: 2; justify-self: center; margin: 0; }
+.pipeline-copilot-row .pipeline-llms-wrap { grid-column: 3; justify-self: end; }
+.pipeline-llms-wrap {
+    display: flex; align-items: center; gap: 0.5rem;
+}
+.pipeline-copilot-arrow {
+    display: flex; align-items: center; justify-content: center;
+    color: var(--azure-primary);
+}
+.pipeline-copilot-arrow .arrow-stack {
+    display: flex; flex-direction: column; align-items: center; gap: 0.1rem;
+}
+.pipeline-copilot-arrow .arrow-stack .label {
+    font-size: 0.7rem; color: #666; font-weight: 600;
+}
+.pipeline-copilot-arrow .arrow-stack i { font-size: 1.4rem; opacity: 0.85; }
+.pipeline-llms {
+    display: flex; flex-direction: column; gap: 0.5rem;
+    padding: 0.6rem 0.9rem; border-radius: 12px;
+    background: #fff; border: 1.5px solid #e5e7eb;
+    align-self: center; min-width: 160px;
+}
+.pipeline-llms-label {
+    font-size: 0.72rem; color: #666; text-transform: uppercase;
+    letter-spacing: 0.04em; font-weight: 600;
+}
+.pipeline-llm-item {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-size: 0.85rem; font-weight: 600; color: #1f2937;
+}
+.pipeline-llm-item img { width: 1.3rem; height: 1.3rem; }
+
+/* Microsoft Graph layer (사내 콘텐츠 채널 헤더) */
+.pipeline-graph {
+    max-width: 720px; margin: 0 auto; padding: 0.7rem 1.2rem;
+    background: #fff;
+    border: 2px solid var(--azure-primary);
+    border-radius: 12px; text-align: center;
+    display: flex; align-items: center; justify-content: center; gap: 0.7rem;
+    box-shadow: 0 2px 10px rgba(0,120,212,0.08);
+}
+.pipeline-graph .pipeline-icon {
+    width: 2rem; height: 2rem; border-radius: 50%;
+    background: var(--azure-light);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--azure-primary); font-size: 1rem; flex-shrink: 0;
+}
+.pipeline-graph .pipeline-title { font-weight: 700; color: var(--azure-dark); font-size: 0.92rem; }
+.pipeline-graph .pipeline-sub { font-size: 0.78rem; color: #666; margin-left: 0.3rem; }
+
+/* 외부 도구 박스 (보라 색상) */
+.pipeline-tools {
+    margin: 0; padding: 0.7rem 1.2rem;
+    background: #fff;
+    border: 2px solid #8b5cf6;
+    border-radius: 12px; text-align: center;
+    display: flex; align-items: center; justify-content: center; gap: 0.7rem;
+    box-shadow: 0 2px 10px rgba(139,92,246,0.10);
+}
+.pipeline-tools .pipeline-icon {
+    width: 2rem; height: 2rem; border-radius: 50%;
+    background: #ede9fe; color: #7c3aed;
+    display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
+}
+.pipeline-tools .pipeline-title { font-weight: 700; color: #5b21b6; font-size: 0.92rem; }
+.pipeline-tools .pipeline-sub { font-size: 0.78rem; color: #666; margin-left: 0.3rem; }
+
+/* 화살표 행 */
+.pipeline-arrows {
+    display: flex; justify-content: center; align-items: center;
+    gap: 1.2rem; padding: 0.4rem 0;
+    color: var(--azure-primary);
+}
+.pipeline-arrows.spread { gap: 2.4rem; }
+.pipeline-arrows i { font-size: 1.3rem; opacity: 0.8; }
+/* 분기 안 화살표를 source-group-grid 열에 맞춰 정렬 */
+.pipeline-branch .pipeline-arrows.spread {
+    display: grid; justify-items: center; gap: 0.7rem;
+}
+.pipeline-branch.branch-internal .pipeline-arrows.spread {
+    grid-template-columns: 2fr 1fr 1fr;
+}
+.pipeline-branch.branch-external .pipeline-arrows.spread {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* 두 갈래 분기: 사내(4) vs 외부(2) — 비율 2:1 */
+.pipeline-branches {
+    display: grid; grid-template-columns: 2fr 1fr;
+    gap: 1.2rem; margin-top: 0.2rem;
+}
+.pipeline-branch { display: flex; flex-direction: column; }
+.pipeline-branch-label {
+    text-align: center; font-size: 0.78rem; color: #666;
+    margin-bottom: 0.3rem; font-weight: 500;
+}
+.pipeline-branch .pipeline-arrows { padding: 0.2rem 0; }
+.pipeline-branch:first-child .pipeline-arrows i { color: var(--azure-primary); }
+.pipeline-branch.branch-external .pipeline-arrows i { color: #8b5cf6; }
+.pipeline-branch .source-group { margin-bottom: 0.6rem; }
+
+/* 사내 콘텐츠: SP/OD(2) Outlook(1) Teams(1) / 외부: Bing(1) Plugin(1) */
+.source-group-grid { display: grid; gap: 0.7rem; }
+.pipeline-branch.branch-internal .source-group-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+}
+.pipeline-branch.branch-external .source-group-grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* 2-LAYER SOURCE GROUP (서비스 → 콘텐츠) */
+.source-group {
+    background: #fff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: var(--radius);
+    padding: 0.85rem 0.95rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.source-group:hover {
+    border-color: var(--azure-primary);
+    box-shadow: 0 4px 14px rgba(0, 120, 212, 0.08);
+}
+.source-group-header {
+    display: flex; align-items: center;
+    gap: 0.5rem 0.9rem; flex-wrap: wrap;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px dashed #e5e7eb;
+    margin-bottom: 0.65rem;
+}
+.source-group-service {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-weight: 700; font-size: 0.88rem; color: #1f2937;
+}
+.source-group-service img { width: 1.4rem; height: 1.4rem; }
+.source-items { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.source-item {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    background: #f3f4f6; border-radius: 999px;
+    padding: 0.22rem 0.65rem 0.22rem 0.4rem;
+    font-size: 0.78rem; color: #374151; line-height: 1.2;
+}
+.source-item img { width: 1rem; height: 1rem; }
+
+/* flow-node에서 cowork 이미지 살짝 크게 */
+.flow-node .app-icon.icon-cowork { width: 1.8rem; height: 1.8rem; }
+
+/* 섹션 타이틀 안의 아이콘 (copilot.svg 등) — 폰트 크기에 비례 */
+.section-title img.bi {
+    width: 1.4em; height: 1.4em;
+    vertical-align: -0.25em; margin-right: 0.3rem;
+}
+/* step-header 안의 인라인 아이콘 키우기 */
+.step-header h4 .app-icon-inline {
+    width: 1.5rem; height: 1.5rem;
+    vertical-align: -0.3rem;
+}
+
+/* Researcher 캐러셀 */
+.researcher-carousel {
+    width: 100%; border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--card-shadow);
+    margin: 1rem 0; background: #fff;
+}
+.researcher-carousel .carousel-item {
+    background: #fff; position: relative;
+}
+.researcher-carousel .carousel-item img {
+    max-width: 100%; width: auto; height: auto;
+    display: block; margin: 0 auto;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+.researcher-carousel .carousel-caption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: var(--azure-dark); color: #fff;
+    padding: 0.6rem 1rem; font-size: 0.85rem;
+    border-radius: 0; text-align: left;
+}
+.researcher-carousel .step-pill {
+    display: inline-block; background: var(--azure-primary);
+    color: #fff; font-size: 0.7rem; font-weight: 700;
+    padding: 0.15rem 0.55rem; border-radius: 999px;
+    margin-right: 0.4rem; vertical-align: middle;
+}
+.researcher-carousel .carousel-control-prev-icon,
+.researcher-carousel .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%; padding: 1.2rem;
+    background-size: 50% 50%;
+}
+
+/* Step 2 prompt example */
+.prompt-example {
+    margin: 0.5rem 0; padding: 0.85rem 1rem;
+    background: #f8fafc;
+    border-radius: 6px;
+    font-family: inherit; font-size: 0.85rem; color: #333;
+    white-space: pre-wrap; word-break: break-word;
+}
+
+@media (max-width: 992px) {
+    .pipeline-branch.branch-internal .source-group-grid { grid-template-columns: 1fr; }
+    .pipeline-branch.branch-external .source-group-grid { grid-template-columns: 1fr; }
+    .pipeline-branch .pipeline-arrows.spread { display: flex; justify-content: center; gap: 1rem; }
+}
+@media (max-width: 768px) {
+    .pipeline-branches { grid-template-columns: 1fr; }
+    .pipeline-copilot-row { grid-template-columns: 1fr; justify-items: center; }
+    .pipeline-copilot-row .pipeline-agent { grid-column: 1; }
+    .pipeline-copilot-row .pipeline-llms-wrap { grid-column: 1; justify-self: center; }
+    .pipeline-agent { flex-direction: column; gap: 0.5rem; }
+    .pipeline-agent .pipeline-text { text-align: center; }
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 991px) {
