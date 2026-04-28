@@ -183,6 +183,28 @@
         });
     };
 
+    // ===== Callout-info p copy buttons =====
+    (function () {
+        document.querySelectorAll('.callout-info p').forEach(function (p) {
+            if (p.querySelector('.callout-copy-btn')) return;
+            var btn = document.createElement('button');
+            btn.className = 'callout-copy-btn';
+            btn.innerHTML = '<i class="bi bi-clipboard"></i> 복사';
+            btn.addEventListener('click', function () {
+                var text = p.textContent.replace(/복사됨!|복사/g, '').trim();
+                navigator.clipboard.writeText(text).then(function () {
+                    btn.innerHTML = '<i class="bi bi-check-lg"></i> 복사됨!';
+                    btn.classList.add('copied');
+                    setTimeout(function () {
+                        btn.innerHTML = '<i class="bi bi-clipboard"></i> 복사';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                });
+            });
+            p.appendChild(btn);
+        });
+    })();
+
     // ===== Pre tag copy buttons =====
     (function () {
         document.querySelectorAll('pre').forEach(function (pre) {

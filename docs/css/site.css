@@ -489,6 +489,17 @@ body {
 .callout-success { background: #E8F5E9; border-left: 4px solid #2E7D32; }
 .callout-tip { background: #F3E5F5; border-left: 4px solid #7B1FA2; }
 .callout > strong:first-child { display: block; margin-bottom: 0.3rem; }
+.callout-info p { position: relative; }
+.callout-info p .callout-copy-btn {
+    position: absolute; top: 0; right: 0;
+    background: rgba(255,255,255,0.75); border: 1px solid #c0d8ef;
+    border-radius: 4px; padding: 0.15rem 0.45rem;
+    font-size: 0.68rem; color: #555; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    transition: background 0.2s, color 0.2s;
+}
+.callout-info p .callout-copy-btn:hover { background: #d6e8f7; color: #333; }
+.callout-info p .callout-copy-btn.copied { background: #d4edda; color: #155724; border-color: #a3d9b1; }
 
 /* ===== PREREQ CARDS ===== */
 .prereq-card {
@@ -930,6 +941,10 @@ body {
     width: 100%; border-radius: var(--radius);
     overflow: hidden; box-shadow: var(--card-shadow);
     margin: 1rem 0; background: #fff;
+}
+.researcher-carousel .carousel-inner {
+    border: 1px solid #004578;
+    border-radius: var(--radius);
 }
 .researcher-carousel .carousel-item {
     background: #fff; position: relative;
