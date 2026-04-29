@@ -1021,6 +1021,571 @@ pre .pre-copy-btn.copied { background: #d4edda; color: #155724; border-color: #a
     .pipeline-agent .pipeline-text { text-align: center; }
 }
 
+/* =====================================================================
+   PAGE-GITHUB 변형 — github 카테고리 문서 전용 색상 테마
+   ===================================================================== */
+.page-github .hero-section {
+    background: linear-gradient(135deg, #001D3D 0%, #1a1f2e 40%, var(--github-color) 100%);
+}
+.page-github .hero-section::before {
+    background: radial-gradient(circle, rgba(110,84,148,0.18) 0%, transparent 70%);
+}
+.page-github .sidebar-toggle {
+    background: var(--github-color);
+    box-shadow: 0 4px 16px rgba(36,41,46,0.4);
+}
+.page-github .sidebar .nav-link:hover,
+.page-github .sidebar .nav-link.active {
+    color: var(--github-color); border-left-color: var(--github-color);
+    background: #f6f8fa;
+}
+.page-github .sidebar .back-link { color: var(--github-color); }
+.page-github .sidebar .back-link:hover { background: #f6f8fa; }
+.page-github .step-card::before { background: var(--github-gradient); }
+.page-github .step-card .step-number,
+.page-github .step-card .step-num { background: var(--github-gradient); }
+.page-github .section-title { color: #1a1f2e; }
+.page-github .section-title i { color: var(--github-color); }
+.page-github .lab-badge {
+    background: rgba(110,84,148,0.25);
+    border-color: rgba(110,84,148,0.5);
+}
+
+/* =====================================================================
+   AGENTIC SDLC — 7단계 순환 다이어그램 (SVG + HTML 카드)
+   ===================================================================== */
+.agentic-cycle {
+    background: linear-gradient(180deg, #fafbfc 0%, #fff 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem 1rem 1rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+.agentic-cycle-svg {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* 사이클 배경 링 */
+.agentic-cycle-svg .cycle-ring-outer {
+    fill: none;
+    stroke: var(--azure-primary);
+    stroke-width: 2.5;
+    stroke-dasharray: 10 6;
+    opacity: 0.45;
+}
+.agentic-cycle-svg .cycle-ring-inner {
+    fill: none;
+    stroke: #DEECF9;
+    stroke-width: 2;
+}
+
+/* 중앙 허브 */
+.agentic-cycle-svg .center-hub-rect {
+    fill: url(#hubGrad);
+    stroke: rgba(255,255,255,0.5);
+    stroke-width: 1;
+}
+.agentic-cycle-svg .center-hub-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    fill: #fff;
+    text-anchor: middle;
+}
+.agentic-cycle-svg .center-hub-sub {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 11px;
+    fill: rgba(255,255,255,0.85);
+    text-anchor: middle;
+}
+
+/* 페이즈 노드 (사각형 + 텍스트) */
+.agentic-cycle-svg .phase-node { cursor: pointer; }
+.agentic-cycle-svg .phase-rect {
+    fill: #fff;
+    stroke-width: 2.5;
+    transition: fill 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.06));
+}
+.agentic-cycle-svg .phase-node:hover .phase-rect,
+.agentic-cycle-svg .phase-node.is-hovered .phase-rect {
+    fill: #f8fafc;
+    stroke-width: 3.5;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.15));
+}
+.agentic-cycle-svg .phase-num-circle { stroke: #fff; stroke-width: 2; }
+.agentic-cycle-svg .phase-num {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    fill: #fff;
+    text-anchor: middle;
+}
+.agentic-cycle-svg .phase-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    text-anchor: middle;
+}
+.agentic-cycle-svg .phase-sub {
+    font-family: 'Fira Code', monospace;
+    font-size: 10.5px;
+    fill: #6b7280;
+    text-anchor: middle;
+}
+.agentic-cycle-svg .phase-tech {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 10.5px;
+    fill: #4b5563;
+    text-anchor: middle;
+}
+
+/* 사이클 화살표 (페이즈 사이) */
+.agentic-cycle-svg .cycle-arrow {
+    fill: var(--azure-primary);
+    stroke: #fff;
+    stroke-width: 1;
+}
+
+/* 페이즈별 컬러 (색상 변수) */
+.agentic-cycle-svg .phase-node[data-phase="develop"]  .phase-rect { stroke: #0078D4; }
+.agentic-cycle-svg .phase-node[data-phase="develop"]  .phase-num-circle { fill: #0078D4; }
+.agentic-cycle-svg .phase-node[data-phase="develop"]  .phase-title { fill: #004578; }
+.agentic-cycle-svg .phase-node[data-phase="source"]   .phase-rect { stroke: #24292E; }
+.agentic-cycle-svg .phase-node[data-phase="source"]   .phase-num-circle { fill: #24292E; }
+.agentic-cycle-svg .phase-node[data-phase="source"]   .phase-title { fill: #24292E; }
+.agentic-cycle-svg .phase-node[data-phase="build"]    .phase-rect { stroke: #2EA44F; }
+.agentic-cycle-svg .phase-node[data-phase="build"]    .phase-num-circle { fill: #2EA44F; }
+.agentic-cycle-svg .phase-node[data-phase="build"]    .phase-title { fill: #1a7f37; }
+.agentic-cycle-svg .phase-node[data-phase="secure"]   .phase-rect { stroke: #C9510C; }
+.agentic-cycle-svg .phase-node[data-phase="secure"]   .phase-num-circle { fill: #C9510C; }
+.agentic-cycle-svg .phase-node[data-phase="secure"]   .phase-title { fill: #983B0A; }
+.agentic-cycle-svg .phase-node[data-phase="deploy"]   .phase-rect { stroke: #0078D4; }
+.agentic-cycle-svg .phase-node[data-phase="deploy"]   .phase-num-circle { fill: #0078D4; }
+.agentic-cycle-svg .phase-node[data-phase="deploy"]   .phase-title { fill: #004578; }
+.agentic-cycle-svg .phase-node[data-phase="operate"]  .phase-rect { stroke: #6E40C9; }
+.agentic-cycle-svg .phase-node[data-phase="operate"]  .phase-num-circle { fill: #6E40C9; }
+.agentic-cycle-svg .phase-node[data-phase="operate"]  .phase-title { fill: #5328a3; }
+.agentic-cycle-svg .phase-node[data-phase="improve"]  .phase-rect { stroke: #BF3989; }
+.agentic-cycle-svg .phase-node[data-phase="improve"]  .phase-num-circle { fill: #BF3989; }
+.agentic-cycle-svg .phase-node[data-phase="improve"]  .phase-title { fill: #8c2466; }
+
+/* 사이클 다이어그램 캡션 */
+.agentic-cycle-caption {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* 다이어그램 아래 페이즈 상세 카드 그리드 */
+.phase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.phase-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid var(--azure-primary);
+    padding: 1.2rem 1.3rem 1.1rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+.phase-card:hover,
+.phase-card.is-hovered {
+    transform: translateY(-3px);
+    box-shadow: var(--card-hover-shadow);
+}
+.phase-card .phase-card-num {
+    position: absolute; top: -16px; left: 1rem;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--azure-primary); color: #fff;
+    font-size: 0.85rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border: 2px solid #fff;
+}
+.phase-card h5 {
+    font-weight: 800; font-size: 1rem; color: var(--azure-dark);
+    margin: 0.3rem 0 0.2rem; padding-left: 2.4rem;
+}
+.phase-card .phase-card-sub {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem; color: #888;
+    padding-left: 2.4rem; margin-bottom: 0.7rem;
+}
+.phase-card p {
+    font-size: 0.84rem; color: #555; margin-bottom: 0.7rem; line-height: 1.65;
+}
+.phase-card .tech-stack {
+    display: flex; flex-wrap: wrap; gap: 0.35rem;
+}
+.phase-card .tech-stack .tech-pill {
+    background: #f6f8fa; border: 1px solid #e5e7eb;
+    color: #24292E; padding: 0.22rem 0.65rem;
+    border-radius: 999px; font-size: 0.74rem; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 0.3rem;
+}
+.phase-card .tech-stack .tech-pill i { font-size: 0.85rem; }
+
+/* 페이즈별 상세 카드 색상 */
+.phase-card[data-phase="develop"]  { border-top-color: #0078D4; }
+.phase-card[data-phase="develop"]  .phase-card-num { background: #0078D4; }
+.phase-card[data-phase="develop"]  h5 { color: #004578; }
+.phase-card[data-phase="develop"]  .tech-pill i { color: #0078D4; }
+.phase-card[data-phase="source"]   { border-top-color: #24292E; }
+.phase-card[data-phase="source"]   .phase-card-num { background: #24292E; }
+.phase-card[data-phase="source"]   h5 { color: #24292E; }
+.phase-card[data-phase="source"]   .tech-pill i { color: #24292E; }
+.phase-card[data-phase="build"]    { border-top-color: #2EA44F; }
+.phase-card[data-phase="build"]    .phase-card-num { background: #2EA44F; }
+.phase-card[data-phase="build"]    h5 { color: #1a7f37; }
+.phase-card[data-phase="build"]    .tech-pill i { color: #2EA44F; }
+.phase-card[data-phase="secure"]   { border-top-color: #C9510C; }
+.phase-card[data-phase="secure"]   .phase-card-num { background: #C9510C; }
+.phase-card[data-phase="secure"]   h5 { color: #983B0A; }
+.phase-card[data-phase="secure"]   .tech-pill i { color: #C9510C; }
+.phase-card[data-phase="deploy"]   { border-top-color: #0078D4; }
+.phase-card[data-phase="deploy"]   .phase-card-num { background: #0078D4; }
+.phase-card[data-phase="deploy"]   h5 { color: #004578; }
+.phase-card[data-phase="deploy"]   .tech-pill i { color: #0078D4; }
+.phase-card[data-phase="operate"]  { border-top-color: #6E40C9; }
+.phase-card[data-phase="operate"]  .phase-card-num { background: #6E40C9; }
+.phase-card[data-phase="operate"]  h5 { color: #5328a3; }
+.phase-card[data-phase="operate"]  .tech-pill i { color: #6E40C9; }
+.phase-card[data-phase="improve"]  { border-top-color: #BF3989; }
+.phase-card[data-phase="improve"]  .phase-card-num { background: #BF3989; }
+.phase-card[data-phase="improve"]  h5 { color: #8c2466; }
+.phase-card[data-phase="improve"]  .tech-pill i { color: #BF3989; }
+
+/* Before/After 비교 그리드 (전통 SDLC vs Agentic SDLC) */
+.before-after-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin: 1rem 0 1.5rem;
+}
+.before-after-card {
+    background: #fff; border-radius: 12px;
+    padding: 1.2rem 1.4rem; box-shadow: var(--card-shadow);
+    border: 1px solid #e5e7eb;
+}
+.before-after-card.before { border-top: 4px solid #888; }
+.before-after-card.after  { border-top: 4px solid var(--azure-primary); }
+.before-after-card h5 {
+    font-weight: 800; font-size: 1rem; margin-bottom: 0.6rem;
+    display: flex; align-items: center; gap: 0.4rem;
+}
+.before-after-card.before h5 { color: #555; }
+.before-after-card.after  h5 { color: var(--azure-primary); }
+.before-after-card ul {
+    margin: 0; padding-left: 1.2rem;
+    font-size: 0.86rem; color: #444; line-height: 1.8;
+}
+.before-after-card .tag {
+    display: inline-block;
+    font-size: 0.68rem; font-weight: 700;
+    padding: 0.15rem 0.55rem; border-radius: 999px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    vertical-align: middle;
+}
+.before-after-card.before .tag { background: #e9ecef; color: #555; }
+.before-after-card.after  .tag { background: var(--azure-primary); color: #fff; }
+
+/* LLM 모델 칩 */
+.llm-chip-row {
+    display: flex; flex-wrap: wrap; gap: 0.45rem;
+    margin: 0.6rem 0 0.4rem;
+}
+.llm-chip {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: #fff; border: 1.5px solid #e5e7eb;
+    border-radius: 999px; padding: 0.3rem 0.8rem;
+    font-size: 0.82rem; font-weight: 600; color: #1f2937;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.llm-chip img { width: 1.1rem; height: 1.1rem; }
+.llm-chip.openai  { border-color: #10a37f; }
+.llm-chip.anthropic { border-color: #d97757; }
+.llm-chip.xai      { border-color: #1a1a1a; }
+
+/* Role badge — 사람 vs 에이전트 책임 매트릭스 */
+.role-matrix {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem; margin: 1rem 0 1.5rem;
+}
+.role-card {
+    background: #fff; border-radius: 12px;
+    padding: 1rem 1.2rem; border: 1px solid #e5e7eb;
+    box-shadow: var(--card-shadow);
+}
+.role-card .role-title {
+    font-weight: 800; font-size: 0.9rem;
+    color: #1f2937; margin-bottom: 0.3rem;
+    display: flex; align-items: center; gap: 0.4rem;
+}
+.role-card .role-title i { color: var(--azure-primary); }
+.role-card.human .role-title i { color: #2E7D32; }
+.role-card.agent .role-title i { color: #6E40C9; }
+.role-card ul {
+    margin: 0; padding-left: 1.1rem;
+    font-size: 0.82rem; color: #555; line-height: 1.7;
+}
+
+/* Agentic 사이클 반응형 */
+@media (max-width: 768px) {
+    .before-after-grid { grid-template-columns: 1fr; }
+    .agentic-cycle { padding: 0.8rem 0.3rem; }
+}
+
+/* =====================================================================
+   DEV ENV DIAGRAM — VS Code · Copilot · MCP · LLMs 관계도
+   ===================================================================== */
+.dev-env-diagram {
+    background: linear-gradient(180deg, #fafbfc 0%, #fff 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 1.4rem 1rem 1rem;
+    margin: 1rem 0 1.5rem;
+    overflow-x: auto;
+}
+.dev-env-svg {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* 공용 박스 / 텍스트 베이스 */
+.dev-env-svg .de-rect {
+    fill: #fff;
+    stroke-width: 2;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.06));
+}
+.dev-env-svg .de-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    text-anchor: middle;
+}
+.dev-env-svg .de-sub {
+    font-family: 'Fira Code', monospace;
+    font-size: 10.5px;
+    fill: #6b7280;
+    text-anchor: middle;
+}
+.dev-env-svg .de-desc {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 10.5px;
+    fill: #4b5563;
+    text-anchor: middle;
+}
+
+/* 개발자 */
+.dev-env-svg .de-user-rect {
+    fill: #fff;
+    stroke: var(--azure-primary);
+    stroke-width: 2;
+}
+.dev-env-svg .de-user-icon {
+    fill: var(--azure-primary);
+}
+.dev-env-svg .de-user-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    fill: var(--azure-dark);
+    text-anchor: middle;
+}
+
+/* VS Code 컨테이너 (중앙 큰 박스) */
+.dev-env-svg .de-vscode-rect {
+    fill: #f0f7ff;
+    stroke: #007ACC;
+    stroke-width: 2.5;
+    stroke-dasharray: 6 4;
+}
+.dev-env-svg .de-vscode-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    fill: #005a9e;
+    text-anchor: start;
+}
+.dev-env-svg .de-vscode-badge {
+    fill: #007ACC;
+}
+.dev-env-svg .de-vscode-badge-text {
+    font-family: 'Fira Code', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    fill: #fff;
+    text-anchor: middle;
+}
+
+/* VS Code 내부 — 코어 IDE 빌딩블럭 */
+.dev-env-svg .de-vscode-section-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    fill: #005a9e;
+    text-anchor: middle;
+    letter-spacing: 0.2px;
+}
+.dev-env-svg .de-core-block {
+    transition: transform 0.18s ease;
+}
+.dev-env-svg .de-core-block:hover {
+    transform: translateY(-2px);
+}
+.dev-env-svg .de-core-block-rect {
+    fill: #fff;
+    stroke: #007ACC;
+    stroke-width: 1.4;
+    filter: drop-shadow(0 1px 2px rgba(0, 122, 204, 0.18));
+}
+.dev-env-svg .de-core-block-strip {
+    fill: #007ACC;
+}
+.dev-env-svg .de-core-block-icon {
+    fill: none;
+    stroke: #007ACC;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.dev-env-svg .de-core-block-label {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    font-size: 9.5px;
+    fill: #005a9e;
+    text-anchor: middle;
+}
+
+/* VS Code 내부 — Copilot Agent */
+.dev-env-svg .de-copilot-rect {
+    fill: #fff;
+    stroke: var(--github-color);
+    stroke-width: 2.5;
+}
+.dev-env-svg .de-copilot-title { fill: var(--github-color); }
+
+/* VS Code 내부 — Extensions */
+.dev-env-svg .de-ext-rect {
+    fill: #fff;
+    stroke: #2EA44F;
+    stroke-width: 2;
+}
+.dev-env-svg .de-ext-title { fill: #1a7f37; }
+
+/* LLM 클러스터 (우측 상단) */
+.dev-env-svg .de-llm-rect {
+    fill: #fafaff;
+    stroke: #6E40C9;
+    stroke-width: 2;
+    stroke-dasharray: 5 4;
+}
+.dev-env-svg .de-llm-title { fill: #5328a3; text-anchor: start; }
+.dev-env-svg .de-llm-item-rect {
+    fill: #fff;
+    stroke: #c7b8eb;
+    stroke-width: 1.5;
+}
+.dev-env-svg .de-llm-item-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    font-size: 11.5px;
+    fill: #1f2937;
+    text-anchor: middle;
+}
+
+/* MCP 클러스터 (우측 하단) */
+.dev-env-svg .de-mcp-rect {
+    fill: #fff7ed;
+    stroke: #C9510C;
+    stroke-width: 2;
+    stroke-dasharray: 5 4;
+}
+.dev-env-svg .de-mcp-title { fill: #983B0A; text-anchor: start; }
+.dev-env-svg .de-mcp-item-rect {
+    fill: #fff;
+    stroke: #f0b890;
+    stroke-width: 1.5;
+}
+.dev-env-svg .de-mcp-item-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    font-size: 11.5px;
+    fill: #1f2937;
+    text-anchor: middle;
+}
+.dev-env-svg .de-mcp-item-sub {
+    font-family: 'Fira Code', monospace;
+    font-size: 9.5px;
+    fill: #6b7280;
+    text-anchor: middle;
+}
+
+/* 화살표 (선 + 라벨) */
+.dev-env-svg .de-arrow-line {
+    fill: none;
+    stroke-width: 2;
+}
+.dev-env-svg .de-arrow-line.solid { stroke-dasharray: none; }
+.dev-env-svg .de-arrow-line.dashed { stroke-dasharray: 5 4; }
+.dev-env-svg .de-arrow-line.user { stroke: var(--azure-primary); }
+.dev-env-svg .de-arrow-line.llm  { stroke: #6E40C9; }
+.dev-env-svg .de-arrow-line.mcp  { stroke: #C9510C; }
+.dev-env-svg .de-arrow-line.tool { stroke: #2EA44F; }
+.dev-env-svg .de-arrow-head.user { fill: var(--azure-primary); }
+.dev-env-svg .de-arrow-head.llm  { fill: #6E40C9; }
+.dev-env-svg .de-arrow-head.mcp  { fill: #C9510C; }
+.dev-env-svg .de-arrow-head.tool { fill: #2EA44F; }
+
+.dev-env-svg .de-arrow-label {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-anchor: middle;
+}
+.dev-env-svg .de-arrow-label.user { fill: var(--azure-dark); }
+.dev-env-svg .de-arrow-label.llm  { fill: #5328a3; }
+.dev-env-svg .de-arrow-label.mcp  { fill: #983B0A; }
+.dev-env-svg .de-arrow-label.tool { fill: #1a7f37; }
+.dev-env-svg .de-arrow-label-bg {
+    fill: #fff;
+    stroke: #e5e7eb;
+    stroke-width: 1;
+}
+
+/* 외부 시스템 아이콘 (MCP 너머) */
+.dev-env-svg .de-ext-system {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 10px;
+    fill: #6b7280;
+    text-anchor: middle;
+}
+
+/* 다이어그램 캡션 */
+.dev-env-caption {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 991px) {
     .sidebar { transform: translateX(-100%); }
@@ -1031,4 +1596,644 @@ pre .pre-copy-btn.copied { background: #d4edda; color: #155724; border-color: #a
     .flow-diagram { flex-direction: column; }
     .flow-arrow { transform: rotate(90deg); }
     .sidebar-toggle { display: flex; align-items: center; justify-content: center; }
+}
+
+/* =====================================================================
+   AI SDLC — VS Code · GitHub Copilot · Azure 순환 문서
+   ===================================================================== */
+.page-ai-sdlc .ai-sdlc-hero-title {
+    margin-top: 0.8rem;
+}
+.page-ai-sdlc .hero-section .lead {
+    max-width: 880px;
+}
+.page-ai-sdlc .agent-card .card-icon {
+    background: var(--github-gradient);
+}
+.ai-sdlc-card.ide .card-icon { background: linear-gradient(135deg, #007ACC, #005a9e); }
+.ai-sdlc-card.agent .card-icon { background: #fff; border: 2px solid #d0d7de; color: var(--github-color); }
+.ai-sdlc-card.runtime .card-icon { background: linear-gradient(135deg, var(--azure-primary), var(--azure-dark)); }
+.ai-sdlc-card.agent .badge-type { background: #f6f8fa; color: var(--github-color); }
+.ai-sdlc-card.ide .badge-type { background: #e7f3ff; color: #005a9e; }
+.ai-sdlc-card.runtime .badge-type { background: var(--azure-light); color: var(--azure-dark); }
+.ai-sdlc-card-icon-img {
+    width: 2.1rem;
+    height: 2.1rem;
+}
+
+.ai-sdlc-relationship-map {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 84px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+    background: linear-gradient(180deg, #fafbfc 0%, #fff 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+}
+.ai-sdlc-plane-dev { grid-column: 1; grid-row: 1; }
+.ai-sdlc-plane-github { grid-column: 3; grid-row: 1; }
+.ai-sdlc-plane-azure { grid-column: 1 / 4; grid-row: 3; }
+.ai-sdlc-map-arrow.dev-to-github { grid-column: 2; grid-row: 1; }
+.ai-sdlc-map-arrow.github-to-azure { grid-column: 1 / 4; grid-row: 2; }
+.ai-sdlc-map-arrow.azure-to-github { grid-column: 1 / 4; grid-row: 4; }
+.ai-sdlc-plane {
+    background: #fff;
+    border: 1.5px solid #d0d7de;
+    border-radius: 14px;
+    padding: 1rem;
+    min-height: 100%;
+    box-shadow: 0 2px 12px rgba(27, 31, 36, 0.05);
+}
+.ai-sdlc-plane-dev { border-top: 4px solid #007ACC; }
+.ai-sdlc-plane-github { border-top: 4px solid var(--github-color); }
+.ai-sdlc-plane-azure { border-top: 4px solid var(--azure-primary); }
+.ai-sdlc-plane-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-bottom: 0.9rem;
+}
+.ai-sdlc-plane-heading i {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: var(--github-gradient);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+.ai-sdlc-plane-dev .ai-sdlc-plane-heading i { background: linear-gradient(135deg, #007ACC, #005a9e); }
+.ai-sdlc-plane-azure .ai-sdlc-plane-heading i { background: linear-gradient(135deg, var(--azure-primary), var(--azure-dark)); }
+.ai-sdlc-plane-heading h3 {
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 0;
+    color: #1f2937;
+}
+.ai-sdlc-plane-heading span {
+    display: block;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem;
+    color: #6b7280;
+    margin-top: 0.15rem;
+}
+.ai-sdlc-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+}
+.ai-sdlc-mini-grid.azure-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.ai-sdlc-mini-node {
+    background: #f6f8fa;
+    border: 1px solid #d8dee4;
+    border-radius: 10px;
+    padding: 0.75rem 0.85rem;
+    min-height: 86px;
+}
+.ai-sdlc-mini-node strong {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+}
+.ai-sdlc-mini-node span {
+    display: block;
+    font-size: 0.76rem;
+    color: #57606a;
+    line-height: 1.45;
+}
+.ai-sdlc-mini-node.primary { background: #e7f3ff; border-color: #91caff; }
+.ai-sdlc-mini-node.copilot { background: #f6f8fa; border-color: #8c959f; }
+.ai-sdlc-mini-node.secure { background: #fff3e8; border-color: #ffbf8a; }
+.ai-sdlc-mini-node.data { background: #eef7ff; border-color: #91caff; }
+.ai-sdlc-mini-node.ops { background: #f4f0ff; border-color: #c7b8eb; }
+.ai-sdlc-model-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.8rem;
+}
+.ai-sdlc-model-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #fff;
+    border: 1px solid #d8dee4;
+    border-radius: 999px;
+    padding: 0.28rem 0.72rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #24292f;
+}
+.ai-sdlc-model-chip img {
+    width: 1rem;
+    height: 1rem;
+}
+.ai-sdlc-model-chip.openai { border-color: #10a37f; }
+.ai-sdlc-model-chip.anthropic { border-color: #d97757; }
+.ai-sdlc-model-chip.gemini { border-color: #4285f4; }
+.ai-sdlc-map-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    color: var(--github-color);
+    text-align: center;
+    font-size: 0.74rem;
+    font-weight: 700;
+    min-height: 58px;
+}
+.ai-sdlc-map-arrow i {
+    font-size: 1.7rem;
+    line-height: 1;
+}
+.ai-sdlc-map-arrow.github-to-azure { color: var(--azure-primary); }
+.ai-sdlc-map-arrow.azure-to-github { color: #6e5494; }
+.ai-sdlc-map-arrow span {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.68rem;
+    color: #6b7280;
+}
+
+.ai-sdlc-cycle-shell {
+    background: linear-gradient(180deg, #fafbfc 0%, #fff 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 1rem;
+    margin: 1.2rem 0;
+    overflow-x: auto;
+}
+.ai-sdlc-cycle-svg {
+    display: block;
+    width: 100%;
+    min-width: 1050px;
+    height: auto;
+    margin: 0 auto;
+}
+.ai-sdlc-cycle-ring {
+    fill: none;
+    stroke: #d8dee4;
+    stroke-width: 2.5;
+}
+.ai-sdlc-hub {
+    fill: url(#aiSdlcHubGradient);
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
+}
+.ai-sdlc-hub-title,
+.ai-sdlc-hub-sub,
+.ai-sdlc-hub-tag,
+.ai-sdlc-node-title,
+.ai-sdlc-node-tech,
+.ai-sdlc-node-num-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    text-anchor: middle;
+}
+.ai-sdlc-hub-title {
+    font-weight: 900;
+    font-size: 19px;
+    fill: #fff;
+}
+.ai-sdlc-hub-sub {
+    font-size: 12px;
+    fill: rgba(255, 255, 255, 0.86);
+}
+.ai-sdlc-hub-tag {
+    font-size: 11px;
+    fill: rgba(255, 255, 255, 0.74);
+}
+.ai-sdlc-cycle-flow-ring {
+    fill: none;
+    stroke: var(--azure-primary);
+    stroke-width: 2.8;
+    opacity: 0.72;
+}
+.ai-sdlc-phase-node {
+    cursor: pointer;
+    outline: none;
+}
+.ai-sdlc-node-rect {
+    fill: #fff;
+    stroke: #d0d7de;
+    stroke-width: 2.5;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.07));
+    transition: fill 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
+}
+.ai-sdlc-phase-node:hover .ai-sdlc-node-rect,
+.ai-sdlc-phase-node:focus .ai-sdlc-node-rect,
+.ai-sdlc-phase-node.is-hovered .ai-sdlc-node-rect {
+    fill: #f8fafc;
+    stroke-width: 4;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.16));
+}
+.ai-sdlc-node-num {
+    fill: var(--azure-primary);
+    stroke: #fff;
+    stroke-width: 4;
+    filter: drop-shadow(0 3px 7px rgba(27, 31, 36, 0.18));
+}
+.ai-sdlc-node-num-text {
+    font-weight: 900;
+    font-size: 15px;
+    fill: #fff;
+}
+.ai-sdlc-node-title {
+    font-size: 15px;
+    font-weight: 900;
+    fill: #1f2937;
+}
+.ai-sdlc-node-sub {
+    font-family: 'Fira Code', monospace;
+    font-size: 11px;
+    fill: #6b7280;
+    text-anchor: middle;
+}
+.ai-sdlc-node-tech {
+    font-size: 11px;
+    fill: #4b5563;
+}
+.ai-sdlc-phase-node[data-phase="ide"] .ai-sdlc-node-rect { stroke: #007ACC; }
+.ai-sdlc-phase-node[data-phase="ide"] .ai-sdlc-node-num { fill: #007ACC; }
+.ai-sdlc-phase-node[data-phase="source"] .ai-sdlc-node-rect { stroke: #24292e; }
+.ai-sdlc-phase-node[data-phase="source"] .ai-sdlc-node-num { fill: #24292e; }
+.ai-sdlc-phase-node[data-phase="cicd"] .ai-sdlc-node-rect { stroke: #2ea44f; }
+.ai-sdlc-phase-node[data-phase="cicd"] .ai-sdlc-node-num { fill: #2ea44f; }
+.ai-sdlc-phase-node[data-phase="secure"] .ai-sdlc-node-rect { stroke: #c9510c; }
+.ai-sdlc-phase-node[data-phase="secure"] .ai-sdlc-node-num { fill: #c9510c; }
+.ai-sdlc-phase-node[data-phase="deploy"] .ai-sdlc-node-rect { stroke: #0078d4; }
+.ai-sdlc-phase-node[data-phase="deploy"] .ai-sdlc-node-num { fill: #0078d4; }
+.ai-sdlc-phase-node[data-phase="operate"] .ai-sdlc-node-rect { stroke: #6e40c9; }
+.ai-sdlc-phase-node[data-phase="operate"] .ai-sdlc-node-num { fill: #6e40c9; }
+.ai-sdlc-phase-node[data-phase="issue"] .ai-sdlc-node-rect { stroke: #bf3989; }
+.ai-sdlc-phase-node[data-phase="issue"] .ai-sdlc-node-num { fill: #bf3989; }
+.ai-sdlc-phase-node[data-phase="pr"] .ai-sdlc-node-rect { stroke: #8250df; }
+.ai-sdlc-phase-node[data-phase="pr"] .ai-sdlc-node-num { fill: #8250df; }
+.ai-sdlc-cycle-caption {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #6b7280;
+    margin-top: 0.4rem;
+}
+
+.ai-sdlc-phase-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.ai-sdlc-phase-card.is-hovered {
+    transform: translateY(-3px);
+    box-shadow: var(--card-hover-shadow);
+    border-color: #d0d7de;
+}
+.ai-sdlc-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 1rem 0;
+}
+.ai-sdlc-pill-row span {
+    display: inline-flex;
+    align-items: center;
+    background: #f6f8fa;
+    border: 1px solid #d8dee4;
+    border-radius: 999px;
+    padding: 0.28rem 0.72rem;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #24292f;
+}
+.ai-sdlc-building-map {
+    background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+    border: 1px solid #d8dee4;
+    border-radius: 14px;
+    padding: 1rem;
+    margin: 1.1rem 0;
+    box-shadow: 0 2px 12px rgba(27, 31, 36, 0.05);
+}
+.ai-sdlc-building-map.compact {
+    margin-top: 1rem;
+}
+.ai-sdlc-block-hub {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--github-gradient);
+    color: #fff;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+}
+.ai-sdlc-block-hub i {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.16);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+.ai-sdlc-block-hub strong,
+.ai-sdlc-block-hub span {
+    display: block;
+}
+.ai-sdlc-block-hub strong {
+    font-weight: 900;
+    font-size: 1rem;
+}
+.ai-sdlc-block-hub span {
+    font-size: 0.8rem;
+    opacity: 0.86;
+    line-height: 1.5;
+}
+.ai-sdlc-block-hub.actions { background: linear-gradient(135deg, #2ea44f, #1a7f37); }
+.ai-sdlc-block-hub.azure { background: linear-gradient(135deg, var(--azure-primary), var(--azure-dark)); }
+.ai-sdlc-block-hub.security { background: linear-gradient(135deg, #c9510c, #983b0a); }
+.ai-sdlc-block-hub.ops { background: linear-gradient(135deg, #6e40c9, #5328a3); }
+.ai-sdlc-block-hub.issue { background: linear-gradient(135deg, #bf3989, #8250df); }
+.ai-sdlc-block-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.8rem;
+}
+.ai-sdlc-block-grid.five {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.ai-sdlc-block {
+    background: #fff;
+    border: 1px solid #d8dee4;
+    border-top: 4px solid #8c959f;
+    border-radius: 11px;
+    padding: 0.85rem 0.9rem;
+    min-height: 128px;
+    box-shadow: 0 2px 8px rgba(27, 31, 36, 0.04);
+}
+.ai-sdlc-block i {
+    color: #57606a;
+    font-size: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.ai-sdlc-block strong,
+.ai-sdlc-block span {
+    display: block;
+}
+.ai-sdlc-block strong {
+    font-weight: 900;
+    font-size: 0.86rem;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+}
+.ai-sdlc-block span {
+    font-size: 0.76rem;
+    color: #57606a;
+    line-height: 1.55;
+}
+.ai-sdlc-block.ide { border-top-color: #007acc; }
+.ai-sdlc-block.ide i { color: #007acc; }
+.ai-sdlc-block.github { border-top-color: #24292e; }
+.ai-sdlc-block.github i { color: #24292e; }
+.ai-sdlc-block.terminal { border-top-color: #57606a; }
+.ai-sdlc-block.terminal i { color: #57606a; }
+.ai-sdlc-block.mcp { border-top-color: #c9510c; }
+.ai-sdlc-block.mcp i { color: #c9510c; }
+.ai-sdlc-block.model { border-top-color: #6e40c9; }
+.ai-sdlc-block.model i { color: #6e40c9; }
+.ai-sdlc-block.chat { border-top-color: #bf3989; }
+.ai-sdlc-block.chat i { color: #bf3989; }
+.ai-sdlc-block.actions { border-top-color: #2ea44f; }
+.ai-sdlc-block.actions i { color: #2ea44f; }
+.ai-sdlc-block.security { border-top-color: #c9510c; }
+.ai-sdlc-block.security i { color: #c9510c; }
+.ai-sdlc-block.azure { border-top-color: var(--azure-primary); }
+.ai-sdlc-block.azure i { color: var(--azure-primary); }
+.ai-sdlc-block.ops { border-top-color: #6e40c9; }
+.ai-sdlc-block.ops i { color: #6e40c9; }
+.ai-sdlc-block.issue { border-top-color: #bf3989; }
+.ai-sdlc-block.issue i { color: #bf3989; }
+.ai-sdlc-split-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+.ai-sdlc-split-grid ul,
+.ai-sdlc-role-card ul {
+    margin-bottom: 0;
+}
+.ai-sdlc-lane {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.2rem 0 0.4rem;
+}
+.ai-sdlc-lane-item {
+    min-width: 170px;
+    flex: 1 1 170px;
+    background: #fff;
+    border: 1.5px solid #d8dee4;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    box-shadow: 0 2px 10px rgba(27, 31, 36, 0.05);
+    text-align: center;
+}
+.ai-sdlc-lane-item i {
+    display: block;
+    color: var(--azure-primary);
+    font-size: 1.4rem;
+    margin-bottom: 0.35rem;
+}
+.ai-sdlc-lane-item strong {
+    display: block;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: #1f2937;
+}
+.ai-sdlc-lane-item span {
+    display: block;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem;
+    color: #6b7280;
+    margin-top: 0.15rem;
+}
+.ai-sdlc-lane-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--azure-primary);
+    font-size: 1.4rem;
+}
+.ai-sdlc-loop-lane .ai-sdlc-lane-item i { color: #6e5494; }
+.ai-sdlc-check-card,
+.ai-sdlc-signal-grid > div,
+.ai-sdlc-azure-card,
+.ai-sdlc-role-card {
+    background: #fff;
+    border: 1px solid #d8dee4;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+.ai-sdlc-check-card {
+    height: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+.ai-sdlc-check-card i {
+    color: #c9510c;
+    font-size: 1.5rem;
+}
+.ai-sdlc-check-card strong,
+.ai-sdlc-check-card span {
+    display: block;
+}
+.ai-sdlc-check-card strong {
+    font-weight: 800;
+    margin-top: 0.4rem;
+}
+.ai-sdlc-check-card span {
+    font-size: 0.76rem;
+    color: #6b7280;
+}
+.ai-sdlc-azure-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.9rem;
+    margin: 1.2rem 0;
+}
+.ai-sdlc-azure-card {
+    padding: 1rem;
+    min-height: 145px;
+    border-top: 4px solid var(--azure-primary);
+}
+.ai-sdlc-azure-card i {
+    color: var(--azure-primary);
+    font-size: 1.45rem;
+}
+.ai-sdlc-azure-card strong,
+.ai-sdlc-azure-card span {
+    display: block;
+}
+.ai-sdlc-azure-card strong {
+    font-weight: 800;
+    margin: 0.35rem 0 0.2rem;
+    color: #1f2937;
+}
+.ai-sdlc-azure-card span {
+    font-size: 0.78rem;
+    color: #57606a;
+    line-height: 1.55;
+}
+.ai-sdlc-azure-card.iac { border-top-color: #8250df; }
+.ai-sdlc-azure-card.iac i { color: #8250df; }
+.ai-sdlc-azure-card.container { border-top-color: #2ea44f; }
+.ai-sdlc-azure-card.container i { color: #2ea44f; }
+.ai-sdlc-azure-card.data { border-top-color: #0078d4; }
+.ai-sdlc-azure-card.data i { color: #0078d4; }
+.ai-sdlc-signal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+.ai-sdlc-signal-grid > div {
+    padding: 1rem;
+    text-align: center;
+    border-top: 4px solid #6e40c9;
+}
+.ai-sdlc-signal-grid i {
+    display: block;
+    color: #6e40c9;
+    font-size: 1.35rem;
+    margin-bottom: 0.35rem;
+}
+.ai-sdlc-signal-grid strong,
+.ai-sdlc-signal-grid span {
+    display: block;
+}
+.ai-sdlc-signal-grid strong {
+    font-weight: 800;
+    color: #1f2937;
+}
+.ai-sdlc-signal-grid span {
+    font-size: 0.76rem;
+    color: #6b7280;
+}
+.ai-sdlc-role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+.ai-sdlc-role-card {
+    padding: 1.1rem 1.2rem;
+    border-top: 4px solid #2ea44f;
+}
+.ai-sdlc-role-card.agent { border-top-color: #6e40c9; }
+.ai-sdlc-role-card.guardrail { border-top-color: #c9510c; }
+.ai-sdlc-role-title {
+    font-weight: 900;
+    color: #1f2937;
+    margin-bottom: 0.55rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+.ai-sdlc-role-title i { color: #2ea44f; }
+.ai-sdlc-role-card.agent .ai-sdlc-role-title i { color: #6e40c9; }
+.ai-sdlc-role-card.guardrail .ai-sdlc-role-title i { color: #c9510c; }
+.ai-sdlc-role-card li {
+    font-size: 0.84rem;
+    color: #555;
+    margin-bottom: 0.35rem;
+}
+
+@media (max-width: 1100px) {
+    .ai-sdlc-block-grid,
+    .ai-sdlc-block-grid.five,
+    .ai-sdlc-mini-grid.azure-grid,
+    .ai-sdlc-azure-grid,
+    .ai-sdlc-signal-grid,
+    .ai-sdlc-role-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .ai-sdlc-relationship-map {
+        grid-template-columns: 1fr;
+    }
+    .ai-sdlc-plane-dev,
+    .ai-sdlc-plane-github,
+    .ai-sdlc-plane-azure,
+    .ai-sdlc-map-arrow.dev-to-github,
+    .ai-sdlc-map-arrow.github-to-azure,
+    .ai-sdlc-map-arrow.azure-to-github {
+        grid-column: 1;
+        grid-row: auto;
+    }
+    .ai-sdlc-map-arrow.dev-to-github i {
+        transform: rotate(90deg);
+    }
+    .ai-sdlc-mini-grid,
+    .ai-sdlc-mini-grid.azure-grid,
+    .ai-sdlc-block-grid,
+    .ai-sdlc-block-grid.five,
+    .ai-sdlc-split-grid,
+    .ai-sdlc-azure-grid,
+    .ai-sdlc-signal-grid,
+    .ai-sdlc-role-grid {
+        grid-template-columns: 1fr;
+    }
+    .ai-sdlc-lane-arrow {
+        flex-basis: 100%;
+        justify-content: center;
+        transform: rotate(90deg);
+    }
 }

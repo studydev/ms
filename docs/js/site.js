@@ -289,4 +289,84 @@
 
         carousels.forEach(initCarousel);
     })();
+
+    // ===== Agentic SDLC cycle — SVG 노드와 상세 카드 동시 하이라이트 =====
+    (function () {
+        var cycleSvg = document.querySelector('.agentic-cycle-svg');
+        var phaseCards = document.querySelectorAll('.phase-card[data-phase]');
+        if (!cycleSvg && !phaseCards.length) return;
+        var phaseNodes = cycleSvg ? cycleSvg.querySelectorAll('.phase-node[data-phase]') : [];
+
+        function setHover(phase, on) {
+            phaseNodes.forEach(function (n) {
+                if (n.getAttribute('data-phase') === phase) {
+                    n.classList.toggle('is-hovered', on);
+                }
+            });
+            phaseCards.forEach(function (c) {
+                if (c.getAttribute('data-phase') === phase) {
+                    c.classList.toggle('is-hovered', on);
+                }
+            });
+        }
+
+        phaseNodes.forEach(function (n) {
+            var phase = n.getAttribute('data-phase');
+            n.addEventListener('mouseenter', function () { setHover(phase, true); });
+            n.addEventListener('mouseleave', function () { setHover(phase, false); });
+            n.addEventListener('click', function () {
+                var target = document.getElementById('phase-' + phase);
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                }
+            });
+        });
+        phaseCards.forEach(function (c) {
+            var phase = c.getAttribute('data-phase');
+            c.addEventListener('mouseenter', function () { setHover(phase, true); });
+            c.addEventListener('mouseleave', function () { setHover(phase, false); });
+        });
+    })();
+
+    (function () {
+        var cycleSvg = document.querySelector('.ai-sdlc-cycle-svg');
+        var phaseCards = document.querySelectorAll('.ai-sdlc-phase-card[data-phase]');
+        if (!cycleSvg && !phaseCards.length) return;
+        var phaseNodes = cycleSvg ? cycleSvg.querySelectorAll('.ai-sdlc-phase-node[data-phase]') : [];
+
+        function togglePhase(phase, on) {
+            phaseNodes.forEach(function (node) {
+                if (node.getAttribute('data-phase') === phase) node.classList.toggle('is-hovered', on);
+            });
+            phaseCards.forEach(function (card) {
+                if (card.getAttribute('data-phase') === phase) card.classList.toggle('is-hovered', on);
+            });
+        }
+
+        function scrollToPhase(phase) {
+            var target = document.getElementById('phase-' + phase);
+            if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        }
+
+        phaseNodes.forEach(function (node) {
+            var phase = node.getAttribute('data-phase');
+            node.addEventListener('mouseenter', function () { togglePhase(phase, true); });
+            node.addEventListener('mouseleave', function () { togglePhase(phase, false); });
+            node.addEventListener('focus', function () { togglePhase(phase, true); });
+            node.addEventListener('blur', function () { togglePhase(phase, false); });
+            node.addEventListener('click', function () { scrollToPhase(phase); });
+            node.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    scrollToPhase(phase);
+                }
+            });
+        });
+
+        phaseCards.forEach(function (card) {
+            var phase = card.getAttribute('data-phase');
+            card.addEventListener('mouseenter', function () { togglePhase(phase, true); });
+            card.addEventListener('mouseleave', function () { togglePhase(phase, false); });
+        });
+    })();
 })();
