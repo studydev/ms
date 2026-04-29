@@ -46,8 +46,8 @@
             <a class="step-tl-link" href="#step2">
                 <span class="step-tl-circle">2</span>
                 <span class="step-tl-body">
-                    <span class="step-tl-label">HTML 업로드</span>
-                    <span class="step-tl-desc">드래그 &amp; 드롭</span>
+                    <span class="step-tl-label">HTML 직접 작성</span>
+                    <span class="step-tl-desc">배포 확인</span>
                 </span>
             </a>
         </li>
@@ -55,8 +55,8 @@
             <a class="step-tl-link" href="#step3">
                 <span class="step-tl-circle">3</span>
                 <span class="step-tl-body">
-                    <span class="step-tl-label">URL 공유</span>
-                    <span class="step-tl-desc">완료</span>
+                    <span class="step-tl-label">HTML 업로드</span>
+                    <span class="step-tl-desc">결과 공유</span>
                 </span>
             </a>
         </li>
@@ -80,9 +80,9 @@
     <section class="hero-section" id="top">
         <div class="container">
             <div class="lab-badge"><i class="bi bi-github"></i> 비개발자도 OK — 핵심 3단계</div>
-            <h1 style="margin-top:0.8rem;">내가 만든 HTML 결과물을<br>함께 공유하고 싶다면!<br><span style="font-weight:400;font-size:0.5em;">터미널 없이, 브라우저에서 클릭 몇 번으로</span></h1>
+            <h1 style="margin-top:0.8rem;">내가 만든 HTML 결과물을<br>인터넷으로 직접 알리고 싶다면!<br><span style="font-weight:400;font-size:0.5em;">브라우저에서 클릭 몇 번으로 OK!</span></h1>
             <p class="lead">
-                잘 다듬어진 HTML 파일 하나만 있으면 충분합니다. <b>GitHub 사이트에서 저장소 만들고 → 파일 올리고 → URL 공유</b>, 딱 이 세 단계입니다.
+                잘 다듬어진 HTML 파일이 있다고요?!<br><b>GitHub에서 저장소(Repository) 만들고 → 파일 올리고 → URL로 공유</b>할 수 있어요!
             </p>
             <div class="hero-meta">
                 <span><i class="bi bi-clock"></i> 읽기 시간: 5분</span>
@@ -97,41 +97,27 @@
         <div class="container">
             <h2 class="section-title"><i class="bi bi-diagram-3"></i> 한 눈에 보는 흐름</h2>
 
-            <svg viewBox="0 0 960 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="내 PC의 HTML 파일을 GitHub 저장소에 업로드하면 Pages가 자동 배포해 동료/고객에게 공유됩니다." style="width:100%; max-width:960px; background:#fff; border-radius:12px; box-shadow:var(--card-shadow); padding:1rem;">
-                <defs>
-                    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#0078D4"/>
-                    </marker>
-                </defs>
-                <rect x="20" y="40" width="170" height="100" rx="10" fill="#E3F2FD" stroke="#0078D4" stroke-width="2"/>
-                <text x="105" y="72" text-anchor="middle" font-size="22">📄</text>
-                <text x="105" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#004578">내 HTML 파일</text>
-                <text x="105" y="120" text-anchor="middle" font-family="Fira Code" font-size="10" fill="#666">index.html</text>
-
-                <path d="M195 90 L265 90" stroke="#0078D4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-                <text x="230" y="80" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#555">업로드</text>
-
-                <rect x="270" y="40" width="190" height="100" rx="10" fill="#F6F8FA" stroke="#24292E" stroke-width="2"/>
-                <text x="365" y="72" text-anchor="middle" font-size="22">📦</text>
-                <text x="365" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#24292E">GitHub 저장소</text>
-                <text x="365" y="120" text-anchor="middle" font-family="Fira Code" font-size="10" fill="#666">main / docs/</text>
-
-                <path d="M465 90 L535 90" stroke="#0078D4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-                <text x="500" y="80" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#555">자동 배포</text>
-
-                <rect x="540" y="40" width="190" height="100" rx="10" fill="#FFF3E0" stroke="#E65100" stroke-width="2"/>
-                <text x="635" y="72" text-anchor="middle" font-size="22">🌐</text>
-                <text x="635" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#E65100">GitHub Pages</text>
-                <text x="635" y="120" text-anchor="middle" font-family="Fira Code" font-size="10" fill="#666">*.github.io</text>
-
-                <path d="M735 90 L800 90" stroke="#0078D4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-                <text x="767" y="80" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#555">접근</text>
-
-                <rect x="805" y="40" width="140" height="100" rx="10" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
-                <text x="875" y="72" text-anchor="middle" font-size="22">👥</text>
-                <text x="875" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#2E7D32">동료</text>
-                <text x="875" y="120" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#2E7D32">고객</text>
-            </svg>
+            <div class="flow-diagram">
+                <div class="flow-node" style="border-color:#0078D4; background:#E3F2FD; color:#004578;">
+                    <i class="bi bi-file-earmark-code" style="color:#0078D4;"></i>
+                    내 HTML 파일<br><span style="font-family:'Fira Code',monospace; font-size:0.72rem; font-weight:400; color:#666;">index.html</span>
+                </div>
+                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                <div class="flow-node" style="border-color:#24292E; background:#F6F8FA; color:#24292E;">
+                    <i class="bi bi-box-seam" style="color:#24292E;"></i>
+                    GitHub 저장소<br><span style="font-family:'Fira Code',monospace; font-size:0.72rem; font-weight:400; color:#666;">main / docs/</span>
+                </div>
+                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                <div class="flow-node" style="border-color:#E65100; background:#FFF3E0; color:#E65100;">
+                    <i class="bi bi-globe2" style="color:#E65100;"></i>
+                    GitHub Pages<br><span style="font-family:'Fira Code',monospace; font-size:0.72rem; font-weight:400; color:#666;">*.github.io</span>
+                </div>
+                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                <div class="flow-node" style="border-color:#2E7D32; background:#E8F5E9; color:#2E7D32;">
+                    <i class="bi bi-people-fill" style="color:#2E7D32;"></i>
+                    동료 · 고객
+                </div>
+            </div>
 
             <div class="row g-3 mt-2">
                 <div class="col-md-4">
@@ -169,9 +155,9 @@
 
                 <ol class="step-list">
                     <li>우측 상단 <b>＋</b> → <b>New repository</b></li>
-                    <li>저장소 이름 입력 (예: <code>my-docs</code>), <b>Public</b> 선택, <b>Add a README</b> 체크, <b>Create repository</b></li>
+                    <li>저장소 이름 입력 (예: <code>home</code>), <b>Public</b> 선택, <b>Add a README</b> 체크, <b>Create repository</b></li>
                     <li>저장소 화면에서 <b>Settings → Pages</b> 이동</li>
-                    <li><b>Source: Deploy from a branch</b> → Branch는 <code>main</code>, 폴더는 <b><code>/(root)</code></b> 또는 <b><code>/docs</code></b> 선택 후 <b>Save</b></li>
+                    <li><b>Source: Deploy from a branch</b> → Branch는 <code>main</code>, 폴더는 <b><code>/(root)</code></b> 또는 <b><code>/docs</code></b> 선택 후 <b>Save</b> (실습은 /docs로 안내)</li>
                 </ol>
 
                 <div class="callout callout-success">
@@ -181,7 +167,65 @@
 
                 <div class="callout callout-tip">
                     <strong><i class="bi bi-lightbulb"></i> 폴더는 <code>/docs</code> 추천</strong>
-                    웹사이트 파일과 다른 자료를 분리할 수 있어 관리가 편합니다. Jekyll 같은 빌드 도구를 쓰지 않을 거라면, 해당 폴더에 <code>.nojekyll</code>이라는 <b>빈 파일</b>을 하나 두면 안전합니다.
+                    웹사이트 파일과 다른 자료를 분리할 수 있어 관리가 편합니다. <a href="https://namu.wiki/w/Jekyll" target="_blank" rel="noopener">Jekyll</a> 같은 Markdown을 정적 웹 소스코드로 빌드하는 도구를 쓰지 않을 거라면, 해당 폴더에 <code>.nojekyll</code>이라는 <b>빈 파일</b>을 하나 두면 안전합니다.
+                </div>
+
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-images me-1"></i> 실제 작업 화면</h5>
+                <div id="step1Carousel" class="carousel slide researcher-carousel" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#step1Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#step1Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#step1Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#step1Carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#step1Carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#step1Carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/01_repo_create.png" class="d-block" alt="우측 상단 + 버튼에서 New repository 클릭">
+                            <div class="carousel-caption">
+                                <span class="step-pill">1/6</span> 우측 상단 <b>＋</b> → <b>New repository</b> 클릭
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/02_repo_init.png" class="d-block" alt="저장소 이름 입력, Public 선택, Add README 체크">
+                            <div class="carousel-caption">
+                                <span class="step-pill">2/6</span> 저장소 이름 입력, <b>Public</b> 선택, <b>Add README</b> 체크 후 생성
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/03_repo_setting.png" class="d-block" alt="Settings → Pages 이동">
+                            <div class="carousel-caption">
+                                <span class="step-pill">3/6</span> 저장소 <b>Settings → Pages</b>로 이동
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/04_repo_setting_branch.png" class="d-block" alt="Branch를 main으로 선택">
+                            <div class="carousel-caption">
+                                <span class="step-pill">4/6</span> Branch 드롭다운에서 <b>main</b> 선택
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/05_repo_setting_folder.png" class="d-block" alt="폴더를 /docs로 선택">
+                            <div class="carousel-caption">
+                                <span class="step-pill">5/6</span> 폴더를 <b>/(root)</b> 또는 <b>/docs</b>로 선택
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/06_repo_setting_save.png" class="d-block" alt="Save 버튼 클릭 후 Pages 활성화 확인">
+                            <div class="carousel-caption">
+                                <span class="step-pill">6/6</span> <b>Save</b> 클릭 — Pages 소스 설정 완료
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#step1Carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">이전</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#step1Carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">다음</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -192,18 +236,76 @@
         <div class="container">
             <div class="step-card">
                 <div class="step-number">2</div>
-                <h3>HTML 파일 드래그 &amp; 드롭으로 업로드</h3>
-                <p>저장소 페이지(루트 또는 <code>docs/</code> 폴더 안)에서 진행합니다.</p>
+                <h3>HTML 파일 직접 작성하고 배포 확인</h3>
+                <p>저장소에서 바로 HTML 파일을 만들어 Pages가 정상 동작하는지 확인합니다.</p>
 
                 <ol class="step-list">
-                    <li>상단 <b>Add file → Upload files</b> 클릭</li>
-                    <li>HTML 파일과 필요한 리소스(<code>images/</code> 등)를 화면으로 <b>드래그 &amp; 드롭</b></li>
+                    <li>저장소 Code 탭에서 <b>Add file → Create new file</b> 클릭</li>
+                    <li>파일 경로에 <code>docs/index.html</code> 입력 후 간단한 HTML 코드 작성</li>
                     <li>하단 <b>Commit changes</b> 버튼 클릭</li>
+                    <li><b>Settings → Pages</b>에서 <b>"Your site is live"</b> 메시지 확인 → <b>Visit site</b></li>
+                    <li>브라우저에서 배포된 페이지가 정상 출력되는지 확인</li>
                 </ol>
 
                 <div class="callout callout-info">
                     <strong><i class="bi bi-info-circle"></i> 파일 이름은 <code>index.html</code></strong>
-                    폴더에 접근하면 자동으로 <code>index.html</code>이 열립니다. 여러 문서를 올릴 땐 문서별 <b>하위 폴더</b>를 만들고 각각 <code>index.html</code>을 두세요. 예: <code>docs/report/index.html</code> → URL <code>.../report/</code>.
+                    폴더에 접근하면 자동으로 <code>index.html</code>이 열립니다. Step 1에서 Pages Source를 <code>/docs</code>로 설정했다면, 파일 경로도 <code>docs/index.html</code>로 만들어야 합니다.
+                </div>
+
+                <div class="callout callout-warning">
+                    <strong><i class="bi bi-exclamation-triangle"></i> 배포 반영에 시간이 걸립니다</strong>
+                    파일을 만들거나 업로드한 뒤 실제 사이트에 반영되기까지 <b>수 초~수십 초</b>가 소요됩니다. 커밋 직후 페이지가 안 보이면 잠시 기다린 뒤 새로고침하세요.
+                </div>
+
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-images me-1"></i> 실제 작업 화면</h5>
+                <div id="step2Carousel" class="carousel slide researcher-carousel" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#step2Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#step2Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#step2Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#step2Carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#step2Carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/07_repo_code_create.png" class="d-block" alt="Add file 메뉴에서 Create new file 또는 Upload files 선택">
+                            <div class="carousel-caption">
+                                <span class="step-pill">1/5</span> 저장소 Code 탭에서 <b>Add file</b> 클릭
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/08_repo_code_index.png" class="d-block" alt="docs/index.html 파일 경로 입력 및 HTML 코드 작성">
+                            <div class="carousel-caption">
+                                <span class="step-pill">2/5</span> 파일 경로(<b>docs/index.html</b>) 입력 후 HTML 코드 작성
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/09_repo_code_commit.png" class="d-block" alt="Commit changes 다이얼로그에서 커밋 메시지 입력 후 커밋">
+                            <div class="carousel-caption">
+                                <span class="step-pill">3/5</span> 커밋 메시지 입력 → <b>Commit changes</b> 클릭
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/10_repo_pages_visit.png" class="d-block" alt="Settings → Pages에서 Your site is live 확인 및 Visit site 클릭">
+                            <div class="carousel-caption">
+                                <span class="step-pill">4/5</span> Settings → Pages에서 <b>"Your site is live"</b> 확인 → Visit site
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/11_repo_pages_verify.png" class="d-block" alt="브라우저에서 배포된 페이지 확인">
+                            <div class="carousel-caption">
+                                <span class="step-pill">5/5</span> 브라우저에서 배포된 페이지가 정상 출력되는지 확인
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#step2Carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">이전</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#step2Carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">다음</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -214,13 +316,25 @@
         <div class="container">
             <div class="step-card">
                 <div class="step-number">3</div>
-                <h3>URL 열어 확인하고 공유</h3>
-                <p>커밋 후 <b>1~2분</b>(최대 10분) 안에 배포가 끝납니다. Settings → Pages에 안내된 URL로 접속해 보세요.</p>
+                <h3>기존 HTML 파일 업로드하고 결과 공유</h3>
+                <p>이미 완성된 HTML 파일이 있다면, 드래그 &amp; 드롭으로 저장소에 올리고 바로 공유할 수 있습니다.</p>
+
+                <ol class="step-list">
+                    <li><code>docs/</code> 폴더로 이동 → <b>Add file → Upload files</b> 클릭</li>
+                    <li>HTML 파일과 필요한 리소스를 화면으로 <b>드래그 &amp; 드롭</b></li>
+                    <li>커밋 메시지 입력 후 <b>Commit changes</b> 클릭</li>
+                    <li>1~2분 후 배포된 URL로 접속해 결과 확인</li>
+                </ol>
 
                 <ul style="font-size:0.95rem;">
                     <li>잘 보이면 그 링크를 <b>Teams · Outlook · 카카오톡</b> 등에 그대로 붙여 공유하면 끝.</li>
                     <li>수정이 필요할 땐 저장소에서 파일을 열어 연필 아이콘으로 편집 후 <b>Commit</b> — 즉시 반영됩니다.</li>
                 </ul>
+
+                <div class="callout callout-warning">
+                    <strong><i class="bi bi-exclamation-triangle"></i> 배포 반영에 시간이 걸립니다</strong>
+                    파일을 업로드한 뒤 실제 사이트에 반영되기까지 <b>수 초~수십 초</b>가 소요됩니다. 커밋 직후 페이지가 안 보이면 잠시 기다린 뒤 새로고침하세요.
+                </div>
 
                 <div class="callout callout-warning">
                     <strong><i class="bi bi-exclamation-triangle"></i> 안 보일 때 체크 3가지</strong>
@@ -229,6 +343,61 @@
                         <li>파일 이름이 <code>index.html</code>인가 (대소문자 주의)</li>
                         <li>배포 완료 전일 수 있음 — 1~2분 기다린 뒤 새로고침</li>
                     </ul>
+                </div>
+
+                <h5 style="font-weight:700; font-size:1rem; margin-top:1.5rem;"><i class="bi bi-images me-1"></i> 실제 작업 화면</h5>
+                <div id="step3Carousel" class="carousel slide researcher-carousel" data-bs-ride="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#step3Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#step3Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#step3Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#step3Carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/12_repo_upload_html.png" class="d-block" alt="docs 폴더에서 Add file → Upload files로 HTML 파일 업로드">
+                            <div class="carousel-caption">
+                                <span class="step-pill">1/4</span> docs 폴더에서 <b>Add file → Upload files</b> 클릭 후 HTML 파일 업로드
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/13_repo_upload_commit.png" class="d-block" alt="드래그 & 드롭으로 파일 추가 후 Commit changes 클릭">
+                            <div class="carousel-caption">
+                                <span class="step-pill">2/4</span> 파일을 드래그 &amp; 드롭 → 커밋 메시지 입력 → <b>Commit changes</b>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/14_page_check_ai_doc.png" class="d-block" alt="배포된 웹 문서형 HTML 페이지 확인">
+                            <div class="carousel-caption">
+                                <span class="step-pill">3/4</span> 배포된 <b>웹 문서형 HTML</b> 페이지 정상 출력 확인
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/15_page_check_ai_slide.png" class="d-block" alt="배포된 슬라이드형 HTML 페이지 확인">
+                            <div class="carousel-caption">
+                                <span class="step-pill">4/4</span> 배포된 <b>슬라이드형 HTML</b> 페이지도 정상 출력 확인
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#step3Carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">이전</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#step3Carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">다음</span>
+                    </button>
+                </div>
+
+                <div class="callout callout-success mt-3">
+                    <strong><i class="bi bi-rocket-takeoff"></i> 직접 확인해 보세요</strong>
+                    위 가이드로 실제 배포된 테스트 사이트를 방문해 볼 수 있습니다:
+                    <ul>
+                        <li><b>직접 만든 HTML</b> 결과물: <a href="https://studydev.github.io/home" target="_blank" rel="noopener"><b>https://studydev.github.io/home</b></a></li>
+                        <li><b>업로드한 웹 문서형 HTML</b> 결과물: <a href="https://studydev.github.io/home/ai_doc.html" target="_blank" rel="noopener"><b>https://studydev.github.io/home/ai_doc.html</b></a></li>
+                        <li><b>업로드한 슬라이드형 HTML</b> 결과물: <a href="https://studydev.github.io/home/ai_slide.html" target="_blank" rel="noopener"><b>https://studydev.github.io/home/ai_slide.html</b></a></li>
+                    </ul>                    
+                    해당 소스 코드는 <a href="https://github.com/studydev/home" target="_blank" rel="noopener"><b>https://github.com/studydev/home</b></a> repository에서 참고할 수 있습니다.
                 </div>
             </div>
         </div>
@@ -239,16 +408,37 @@
         <div class="container">
             <h2 class="section-title"><i class="bi bi-mortarboard"></i> 실습으로 더 깊이 익히기</h2>
             <p class="section-subtitle">
-                GitHub에서 Pages를 만들고 활용하는 가이드가 필요하다면, 아래 실습을 통해서 더 자세한 사용 방법을 익힐 수 있습니다. GitHub Skills가 제공하는 한국어 공식 핸즈온 코스입니다.
+                GitHub Pages의 기본 개념을 먼저 이해하고, 실습으로 직접 따라해 보세요. <b>이론 → 실습</b> 순서로 진행하면 더 효과적입니다.
             </p>
 
-            <a class="ref-link-card" href="https://github.com/skills-kr/github-pages" target="_blank" rel="noopener" style="max-width:720px;">
-                <i class="bi bi-github"></i>
-                <div>
-                    <h6>skills-kr/github-pages — GitHub Pages 실습 (한국어)</h6>
-                    <p>내 저장소에서 단계별 이슈를 따라가며 GitHub Pages를 직접 설정하고 배포해 보는 공식 실습입니다.</p>
+            <div class="row g-3" style="max-width:720px;">
+                <div class="col-md-6">
+                    <a class="ref-link-card" href="https://github-skills.studydev.com/learn/github-pages.html#/t-intro" target="_blank" rel="noopener">
+                        <i class="bi bi-book"></i>
+                        <div>
+                            <h6><span class="badge-type" style="background:#E3F2FD;color:#0078D4;font-size:0.7rem;margin-right:0.3rem;">이론</span> GitHub Pages 기본 이론</h6>
+                            <p>Pages의 동작 원리·구조·핵심 개념을 빠르게 파악하는 이론 문서</p>
+                        </div>
+                    </a>
                 </div>
-            </a>
+                <div class="col-md-6">
+                    <a class="ref-link-card" href="https://github.com/skills-kr/github-pages" target="_blank" rel="noopener">
+                        <i class="bi bi-github"></i>
+                        <div>
+                            <h6><span class="badge-type" style="background:#E8F5E9;color:#2E7D32;font-size:0.7rem;margin-right:0.3rem;">실습</span> GitHub Pages 핸즈온 (한국어)</h6>
+                            <p>내 저장소에서 단계별 이슈를 따라가며 직접 배포해 보는 공식 실습</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="callout callout-tip mt-3" style="max-width:720px;">
+                <strong><i class="bi bi-lightbulb"></i> 추천 학습 순서</strong>
+                <ol style="font-size:0.88rem; margin-bottom:0;">
+                    <li>먼저 <b>이론 문서</b>로 Pages의 동작 방식과 개념을 파악</li>
+                    <li>이어서 <b>핸즈온 실습</b>으로 내 저장소에 직접 배포하며 체험</li>
+                </ol>
+            </div>
         </div>
     </section>
 
@@ -272,6 +462,16 @@
                                 <li>저장소 Settings → Pages → <b>Custom domain</b>에 <code>docs.example.com</code> 입력 → Save</li>
                                 <li>DNS 체크가 녹색이 되면 <b>Enforce HTTPS</b> 체크</li>
                             </ol>
+
+                            <div class="callout callout-info" style="margin-top:1rem;">
+                                <strong><i class="bi bi-lightbulb"></i> 참고: 이 사이트도 GitHub Pages입니다!</strong>
+                                지금 보고 계신 <b>ms.studydev.com</b> 역시 GitHub Pages 위에서 커스텀 도메인을 연결하여 운영 중입니다. 아래는 실제 설정 화면입니다.
+                            </div>
+
+                            <div class="text-center my-3">
+                                <img src="images/99_custom_domain_setting.png" alt="ms.studydev.com 커스텀 도메인 설정 — GitHub Pages Settings 화면" class="img-fluid" style="border:1px solid #e0e0e0; border-radius:var(--radius); max-width:100%;">
+                            </div>
+
                             <p style="font-size:0.86rem; color:#555;">
                                 루트 도메인(<code>example.com</code>)을 연결하려면 A/ALIAS/ANAME 레코드가 필요합니다. 최신 IP와 자세한 내용은 <a href="https://docs.github.com/ko/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages" target="_blank" rel="noopener">GitHub 공식 문서</a>를 참고하세요.
                             </p>
@@ -301,12 +501,114 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#advActions">
-                            <i class="bi bi-gear-wide-connected me-2"></i> GitHub Actions로 목차 · manifest 자동화
+                            <i class="bi bi-gear-wide-connected me-2"></i> HTML이 많아졌을 때 — 네비게이션 자동 생성
                         </button>
                     </h2>
                     <div id="advActions" class="accordion-collapse collapse" data-bs-parent="#advAccordion">
                         <div class="accordion-body">
-                            <p style="font-size:0.9rem;">여러 문서를 올릴 때 랜딩 페이지에서 목록을 자동으로 렌더링하려면, <code>docs/manifest.json</code>을 Actions로 생성하는 방식이 편합니다. 이 사이트의 예시는 <a href="https://github.com/studydev/ms/blob/main/scripts/generate_manifest.py" target="_blank" rel="noopener"><code>scripts/generate_manifest.py</code></a>를 참고하세요.</p>
+                            <p style="font-size:0.9rem;">
+                                HTML 파일이 하나일 땐 괜찮지만, 문서가 <b>10개, 20개</b>로 늘어나면 "어떤 문서가 있는지" 목록을 직접 관리하기 어렵습니다. 이럴 때 <b>GitHub Actions</b>를 사용하면, HTML이 추가될 때마다 <b>자동으로 네비게이션용 메타 파일을 생성</b>하고, 랜딩 페이지에서 문서 목록을 동적으로 렌더링할 수 있습니다.
+                            </p>
+
+                            <h6 style="font-weight:700; margin-top:1.2rem;"><i class="bi bi-diagram-3 me-1"></i> 동작 원리</h6>
+
+                            <div class="flow-diagram" style="padding:1rem 0;">
+                                <div class="flow-node" style="border-color:#24292E; background:#F6F8FA; color:#24292E;">
+                                    <i class="bi bi-file-earmark-code" style="color:#24292E;"></i>
+                                    HTML 문서<br>추가 · 수정
+                                </div>
+                                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                                <div class="flow-node" style="border-color:#E65100; background:#FFF3E0; color:#E65100;">
+                                    <i class="bi bi-git" style="color:#E65100;"></i>
+                                    git push<br>(main 브랜치)
+                                </div>
+                                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                                <div class="flow-node" style="border-color:#6f42c1; background:#f3e8ff; color:#6f42c1;">
+                                    <i class="bi bi-gear-wide-connected" style="color:#6f42c1;"></i>
+                                    GitHub Actions<br>트리거
+                                </div>
+                                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                                <div class="flow-node" style="border-color:#2E7D32; background:#E8F5E9; color:#2E7D32;">
+                                    <i class="bi bi-filetype-json" style="color:#2E7D32;"></i>
+                                    manifest.json<br>자동 생성
+                                </div>
+                            </div>
+
+                            <div class="flow-diagram" style="padding:0 0 1rem;">
+                                <div class="flow-node" style="border-color:#2E7D32; background:#E8F5E9; color:#2E7D32;">
+                                    <i class="bi bi-filetype-json" style="color:#2E7D32;"></i>
+                                    manifest.json
+                                </div>
+                                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                                <div class="flow-node" style="border-color:#0078D4; background:#E3F2FD; color:#004578;">
+                                    <i class="bi bi-layout-text-sidebar-reverse" style="color:#0078D4;"></i>
+                                    랜딩 페이지<br>fetch &amp; 렌더
+                                </div>
+                                <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                                <div class="flow-node" style="border-color:#0078D4; background:#E3F2FD; color:#004578;">
+                                    <i class="bi bi-card-list" style="color:#0078D4;"></i>
+                                    문서 카드<br>자동 목록
+                                </div>
+                            </div>
+
+                            <h6 style="font-weight:700; margin-top:1.2rem;"><i class="bi bi-folder2 me-1"></i> 실제 구현 예시 — ms.studydev.com</h6>
+                            <p style="font-size:0.88rem; color:#555;">
+                                지금 보고 계신 <b>ms.studydev.com</b>이 바로 이 방식으로 운영됩니다. 아래는 실제 저장소 구조입니다.
+                            </p>
+
+                            <div class="file-tree" style="white-space:pre; line-height:1.8;">
+<span class="folder">📁 studydev/ms</span>
+├── <span class="folder">📁 .github/workflows</span>
+│   └── <span class="file highlight">📄 generate-manifest.yml</span>  ← Actions 워크플로
+├── <span class="folder">📁 scripts</span>
+│   └── <span class="file highlight">📄 generate_manifest.py</span>   ← docs/ 스캔 → manifest 생성
+└── <span class="folder">📁 docs</span>                          ← GitHub Pages 루트
+    ├── <span class="file highlight">📄 manifest.json</span>            ← 자동 생성되는 메타 파일
+    ├── <span class="file">📄 index.html</span>               ← 메인 랜딩 (카드 목록)
+    ├── <span class="folder">📁 azure</span>
+    │   ├── <span class="file">📄 index.html</span>           ← 카테고리 랜딩 (manifest fetch)
+    │   ├── <span class="folder">📁 hosted_agent/</span>
+    │   └── <span class="folder">📁 llm_model_migration/</span>
+    ├── <span class="folder">📁 m365</span>
+    │   └── <span class="folder">📁 cowork_html_guide/</span>  …
+    └── <span class="folder">📁 github</span>
+        └── <span class="folder">📁 pages_publishing/</span>   …
+</div>
+
+                            <h6 style="font-weight:700; margin-top:1.2rem;"><i class="bi bi-code-slash me-1"></i> 핵심 코드 흐름</h6>
+                            <ol style="font-size:0.88rem;">
+                                <li><b>Python 스크립트</b>가 <code>docs/</code> 아래 각 카테고리 폴더를 스캔하여, <code>&lt;title&gt;</code>과 설명을 추출합니다.</li>
+                                <li>결과를 <code>docs/manifest.json</code>에 JSON 형태로 저장합니다.</li>
+                                <li>각 <b>카테고리 랜딩 페이지</b>(<code>azure/index.html</code> 등)가 <code>manifest.json</code>을 fetch해서 문서 카드 목록을 자동 렌더링합니다.</li>
+                            </ol>
+
+                            <div class="code-label json">manifest.json (자동 생성 예시)</div>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> 복사</button>
+{
+  <span class="string">"categories"</span>: {
+    <span class="string">"github"</span>: {
+      <span class="string">"label"</span>: <span class="string">"GitHub"</span>,
+      <span class="string">"docs"</span>: [
+        {
+          <span class="string">"slug"</span>: <span class="string">"pages_publishing"</span>,
+          <span class="string">"title"</span>: <span class="string">"내가 만든 HTML 결과물을 공유하고 싶다면!"</span>,
+          <span class="string">"path"</span>: <span class="string">"github/pages_publishing/"</span>
+        }
+      ]
+    }
+  }
+}
+</div>
+
+                            <div class="callout callout-info" style="margin-top:1rem;">
+                                <strong><i class="bi bi-github"></i> 직접 참고하기</strong>
+                                <ul style="font-size:0.86rem; margin-bottom:0;">
+                                    <li>워크플로: <a href="https://github.com/studydev/ms/blob/main/.github/workflows/generate-manifest.yml" target="_blank" rel="noopener"><code>.github/workflows/generate-manifest.yml</code></a></li>
+                                    <li>Python 스크립트: <a href="https://github.com/studydev/ms/blob/main/scripts/generate_manifest.py" target="_blank" rel="noopener"><code>scripts/generate_manifest.py</code></a></li>
+                                    <li>생성된 결과: <a href="https://github.com/studydev/ms/blob/main/docs/manifest.json" target="_blank" rel="noopener"><code>docs/manifest.json</code></a></li>
+                                    <li>렌더링 예시: <a href="https://ms.studydev.com/github/" target="_blank" rel="noopener"><code>ms.studydev.com/github/</code></a> (카테고리 랜딩)</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -349,6 +651,15 @@
         <div class="container">
             <h2 class="section-title"><i class="bi bi-link-45deg"></i> 참고 자료</h2>
             <div class="row g-3">
+                <div class="col-md-6">
+                    <a class="ref-link-card" href="https://github-skills.studydev.com/learn/github-pages.html#/t-intro" target="_blank" rel="noopener">
+                        <i class="bi bi-book"></i>
+                        <div>
+                            <h6>GitHub Pages 기본 이론</h6>
+                            <p>Pages 동작 원리·구조·핵심 개념 파악</p>
+                        </div>
+                    </a>
+                </div>
                 <div class="col-md-6">
                     <a class="ref-link-card" href="https://github.com/skills-kr/github-pages" target="_blank" rel="noopener">
                         <i class="bi bi-mortarboard"></i>
