@@ -128,6 +128,201 @@ body {
     color: var(--m365-color); border-left-color: var(--m365-color);
     background: #FFF3E0;
 }
+
+/* ===== Studio page variant (e-commerce product studio guide) ===== */
+.page-studio .hero-section {
+    background: linear-gradient(135deg, #18062b 0%, #4f1d8a 35%, #d6336c 100%);
+}
+.page-studio .hero-section::before {
+    background: radial-gradient(circle, rgba(255,140,180,0.18) 0%, transparent 70%);
+}
+.page-studio .sidebar-toggle {
+    background: #d6336c;
+    box-shadow: 0 4px 16px rgba(214,51,108,0.4);
+}
+.page-studio .sidebar .nav-link:hover,
+.page-studio .sidebar .nav-link.active {
+    color: #d6336c;
+    border-left-color: #d6336c;
+    background: #fff0f6;
+}
+.page-studio .step-card::before { background: linear-gradient(135deg, #4f1d8a, #d6336c); }
+.page-studio .step-card .step-number { background: linear-gradient(135deg, #4f1d8a, #d6336c); }
+.page-studio .step-card .step-num { background: linear-gradient(135deg, #4f1d8a, #d6336c); }
+.page-studio .section-title i { color: #d6336c; }
+
+/* Shot mode 4-card grid (lookbook / front / side / back) */
+.shot-mode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+}
+.shot-mode-card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-top: 4px solid var(--azure-primary);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.1rem 1.2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    display: flex; flex-direction: column; gap: 0.5rem;
+}
+.shot-mode-card[data-mode="lookbook"] { border-top-color: #d6336c; }
+.shot-mode-card[data-mode="front"]    { border-top-color: #0078D4; }
+.shot-mode-card[data-mode="side"]     { border-top-color: #2EA44F; }
+.shot-mode-card[data-mode="back"]     { border-top-color: #6E40C9; }
+.shot-mode-card .mode-tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    background: #f1f3f5;
+    color: #495057;
+}
+.shot-mode-card[data-mode="lookbook"] .mode-tag { background: #ffe0ec; color: #a61b56; }
+.shot-mode-card[data-mode="front"]    .mode-tag { background: #e3f2fd; color: #004578; }
+.shot-mode-card[data-mode="side"]     .mode-tag { background: #e6f4ea; color: #1a7f37; }
+.shot-mode-card[data-mode="back"]     .mode-tag { background: #f0e9fb; color: #4b1d97; }
+.shot-mode-card h4 {
+    font-weight: 700; font-size: 1.05rem; margin: 0; color: #1a1a1a;
+}
+.shot-mode-card p {
+    font-size: 0.85rem; color: #555; margin: 0;
+}
+.shot-mode-card ul {
+    font-size: 0.82rem; color: #555; padding-left: 1.1rem; margin: 0.2rem 0 0;
+}
+
+/* Studio pipeline: input image → analyze → review → generate */
+.studio-pipeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.8rem;
+    margin: 1rem 0 1.6rem;
+}
+.studio-pipeline .pipe-step {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 0.9rem 0.9rem 1rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+.studio-pipeline .pipe-step .pipe-icon {
+    width: 38px; height: 38px;
+    margin: 0 auto 0.5rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #4f1d8a, #d6336c);
+    color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 1.05rem;
+}
+.studio-pipeline .pipe-step h6 {
+    font-weight: 700; font-size: 0.95rem; margin: 0; color: #1a1a1a;
+}
+.studio-pipeline .pipe-step p {
+    font-size: 0.78rem; color: #6c757d; margin: 0.3rem 0 0;
+}
+.studio-pipeline .pipe-step + .pipe-step::before {
+    content: '\2192';
+    position: absolute;
+    left: -0.7rem; top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem; color: #adb5bd;
+}
+@media (max-width: 720px) {
+    .studio-pipeline .pipe-step + .pipe-step::before { display: none; }
+}
+
+/* Parameter matrix table */
+.param-matrix {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.88rem;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1rem 0 1.5rem;
+}
+.param-matrix th,
+.param-matrix td {
+    padding: 0.7rem 0.85rem;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: top;
+}
+.param-matrix thead th {
+    background: #f8f9fa;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: left;
+}
+.param-matrix tbody tr:last-child td { border-bottom: none; }
+.param-matrix .mode-cell {
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    color: #4f1d8a;
+    white-space: nowrap;
+}
+
+/* Feature observation list */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem;
+    margin: 0.8rem 0 1.4rem;
+}
+.feature-grid .feature-item {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-left: 3px solid #d6336c;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+}
+.feature-grid .feature-item h6 {
+    font-weight: 700; font-size: 0.85rem; margin: 0 0 0.2rem; color: #1a1a1a;
+}
+.feature-grid .feature-item p {
+    font-size: 0.78rem; color: #6c757d; margin: 0;
+}
+
+/* Result gallery placeholder grid */
+.studio-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.studio-gallery .gallery-tile {
+    background: #f8f9fa;
+    border: 1px dashed #ced4da;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    color: #868e96;
+    font-size: 0.85rem;
+}
+.studio-gallery .gallery-tile .tile-tag {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    color: #495057;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+}
+.studio-gallery .gallery-tile img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
 .page-m365 .step-card::before { background: var(--m365-gradient); }
 .page-m365 .step-card .step-number { background: var(--m365-gradient); }
 /* M365 page — unified card colors */

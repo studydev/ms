@@ -45,6 +45,17 @@ def parse_args() -> argparse.Namespace:
         help="Path to a UTF-8 text file containing the prompt (overrides --prompt).",
     )
     parser.add_argument(
+        "--input-image",
+        default=os.getenv("AZURE_OPENAI_IMAGE_INPUT", None),
+        help="Optional source image path. When provided, uses image editing with the prompt as guidance.",
+    )
+    parser.add_argument(
+        "--input-fidelity",
+        default=os.getenv("AZURE_OPENAI_IMAGE_INPUT_FIDELITY", "high"),
+        choices=("high", "low"),
+        help="How closely the generated image should preserve the source image.",
+    )
+    parser.add_argument(
         "--endpoint",
         default=os.getenv("AZURE_OPENAI_ENDPOINT", DEFAULT_ENDPOINT),
         help="Azure OpenAI endpoint (cognitiveservices.azure.com).",
@@ -110,7 +121,16 @@ def main() -> None:
     if args.size != "1536x1024":
         kwargs["size"] = args.size
 
-    result = client.images.generate(**kwargs)
+    if args.input_image:
+        input_path = Path(args.input_image)
+        if not input_path.exists():
+            raise FileNotFoundError(f"Input image not found: {input_path}")
+
+        kwargs["input_fidelity"] = args.input_fidelity
+        with input_path.open("rb") as image_file:
+            result = client.images.edit(image=image_file, **kwargs)
+    else:
+        result = client.images.generate(**kwargs)
 
     result_json = json.loads(result.model_dump_json())
     image_data = result_json["data"][0]

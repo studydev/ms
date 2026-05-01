@@ -19,3 +19,9 @@ ehthumbs.db
 
 # Output
 output/
+
+# Input
+input/
+
+# Dev
+/dev/analyze_image.py
