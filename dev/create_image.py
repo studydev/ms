@@ -115,11 +115,10 @@ def main() -> None:
     kwargs: dict = {
         "model": args.deployment,
         "prompt": args.prompt,
+        "size": args.size,
     }
     if args.count != 1:
         kwargs["n"] = args.count
-    if args.size != "1536x1024":
-        kwargs["size"] = args.size
 
     if args.input_image:
         input_path = Path(args.input_image)

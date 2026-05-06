@@ -319,9 +319,78 @@ body {
     margin-bottom: 0.4rem;
 }
 .studio-gallery .gallery-tile img {
-    max-width: 100%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid #e9ecef;
     border-radius: 8px;
     margin-top: 0.5rem;
+    display: block;
+}
+
+/* Split layout: left = single input, right = 2x2 result grid */
+.studio-gallery.split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+.studio-gallery.split .gallery-tile {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.studio-gallery.split .gallery-tile-input {
+    height: 100%;
+}
+.studio-gallery.split .gallery-tile-input img {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+    object-fit: cover;
+}
+.studio-gallery.split .gallery-grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.8rem;
+}
+.studio-gallery.split .gallery-grid-2x2 .gallery-tile img {
+    flex: 1;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+}
+@media (max-width: 768px) {
+    .studio-gallery.split {
+        grid-template-columns: 1fr;
+    }
+    .studio-gallery.split .gallery-tile-input img {
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+    }
+}
+@media (max-width: 480px) {
+    .studio-gallery.split .gallery-grid-2x2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+/* Bare variant: 이미지 자체에 라벨/캡션이 포함된 경우 박스 장식 제거 */
+.studio-gallery.bare .gallery-tile {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.studio-gallery.bare .gallery-tile img {
+    border: none;
+    border-radius: 12px;
+    margin-top: 0;
+    background: transparent;
 }
 .page-m365 .step-card::before { background: var(--m365-gradient); }
 .page-m365 .step-card .step-number { background: var(--m365-gradient); }
@@ -487,6 +556,15 @@ body {
 .detail-accordion .accordion-button:not(.collapsed) { background: var(--azure-light); color: var(--azure-primary); }
 .detail-accordion .accordion-body { font-size: 0.9rem; line-height: 1.8; }
 .detail-accordion .accordion-item { border: 1px solid #e8e8e8; border-radius: 12px !important; margin-bottom: 0.8rem; overflow: hidden; }
+
+/* ===== DETAILS ACCORDION (native <details>) ===== */
+details.detail-accordion { border: 1px solid #e0e4ea; border-radius: 12px; margin-bottom: 0.8rem; overflow: hidden; }
+details.detail-accordion > summary { padding: 0.8rem 1.2rem; font-weight: 700; font-size: 1rem; cursor: pointer; background: #fff; list-style: none; }
+details.detail-accordion > summary::-webkit-details-marker { display: none; }
+details.detail-accordion > summary::before { content: "▸"; margin-right: 0.5rem; color: var(--azure-primary, #0078d4); transition: transform 0.2s; display: inline-block; }
+details.detail-accordion[open] > summary::before { transform: rotate(90deg); }
+details.detail-accordion[open] > summary { background: var(--azure-light, #f0f6ff); color: var(--azure-primary, #0078d4); }
+details.detail-accordion > *:not(summary) { padding: 0 1.2rem 1rem; }
 
 /* ===== STEP CARDS (lab) ===== */
 .step-card {
@@ -696,6 +774,9 @@ body {
 .callout-info p .callout-copy-btn:hover { background: #d6e8f7; color: #333; }
 .callout-info p .callout-copy-btn.copied { background: #d4edda; color: #155724; border-color: #a3d9b1; }
 
+/* row(콜아웃 그리드) 바로 다음에 오는 단독 콜아웃의 상단 여백 보정 */
+.row + .callout { margin-top: 1.5rem; }
+
 /* ===== PREREQ CARDS ===== */
 .prereq-card {
     background: #fff; border-radius: 12px; padding: 1.2rem;
@@ -704,7 +785,8 @@ body {
 .prereq-card ul, .prereq-card ol { text-align: left; }
 .prereq-card:hover { border-color: var(--azure-primary); box-shadow: 0 4px 16px rgba(0,120,212,0.1); }
 .prereq-card i { font-size: 2rem; color: var(--azure-primary); }
-.prereq-card h6 { font-weight: 700; margin-top: 0.5rem; font-size: 0.88rem; }
+.prereq-card h6 { font-weight: 700; margin-top: 0.5rem; font-size: 1.15rem; display: flex; align-items: center; gap: 0.4rem; }
+.prereq-card h6 i { font-size: 1.25rem; color: inherit; }
 .prereq-card p { font-size: 0.78rem; color: #888; margin: 0; }
 .prereq-card a { font-size: 0.75rem; }
 
