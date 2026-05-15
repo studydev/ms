@@ -25,7 +25,12 @@ CATEGORIES = {
 }
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.IGNORECASE | re.DOTALL)
-DESC_META_RE = re.compile(r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']', re.IGNORECASE)
+# Match content="..." or content='...' — the closing quote must match the opening one
+# so values containing the other quote type aren't truncated.
+DESC_META_RE = re.compile(
+    r'<meta\s+name=["\']description["\']\s+content=(["\'])(.*?)\1',
+    re.IGNORECASE | re.DOTALL,
+)
 LEAD_RE = re.compile(r'<p[^>]*class=["\'][^"\']*\blead\b[^"\']*["\'][^>]*>(.*?)</p>', re.IGNORECASE | re.DOTALL)
 TAG_RE = re.compile(r"<[^>]+>")
 
@@ -38,7 +43,7 @@ def extract_meta(html: str) -> tuple[str, str]:
         title = TAG_RE.sub("", m.group(1)).strip()
     m = DESC_META_RE.search(html)
     if m:
-        desc = m.group(1).strip()
+        desc = m.group(2).strip()
     if not desc:
         m = LEAD_RE.search(html)
         if m:

@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-05-15T08:14:18Z",
+    "generatedAt": "2026-05-15T08:46:05Z",
     "categories": {
         "azure": {
             "label": "Azure",
@@ -44,13 +44,13 @@
                 {
                     "slug": "create_images",
                     "title": "[Image] gpt-image-2 — OpenAI의 Duct-tape 프로젝트가 만든 새 이미지 모델",
-                    "description": "OpenAI의 사내",
+                    "description": "OpenAI의 사내 'Duct-tape' 프로젝트로 시작된 gpt-image-2의 신규 기능을 소개합니다. 임의 해상도, 정확한 텍스트 렌더링, 패널 일관성 등 새 모델이 첫 장에서 무엇을 가능하게 하는지 OpenAI Cookbook 기준으로 정리했습니다.",
                     "path": "m365/create_images/"
                 },
                 {
                     "slug": "m365_integrate",
                     "title": "[Integration] M365 Copilot · ISV 데이터 통합 아키텍처",
-                    "description": "MS 통합 관점에서 M365 Copilot이 데이터를 활용하는 일반 흐름과, ISV가",
+                    "description": "MS 통합 관점에서 M365 Copilot이 데이터를 활용하는 일반 흐름과, ISV가 'Copilot 자리'에서 SoR · SoK · SoE 데이터를 가져와 가치를 결합하는 흐름을 한 페이지에서 비교합니다.",
                     "path": "m365/m365_integrate/"
                 },
                 {
