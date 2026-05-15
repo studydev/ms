@@ -312,6 +312,12 @@
     <section class="integrate-hero">
         <h1><i class="bi bi-diagram-3-fill"></i> M365 Copilot · ISV 데이터 통합 아키텍처</h1>
         <p>같은 Microsoft 365 데이터 자산을 <b>두 가지 관점</b>으로 봅니다 — ① 일반 사용자가 M365 Copilot 자리에서 데이터를 어떻게 활용하는가, ② ISV가 같은 자리에서 SoR · SoK · SoE 데이터를 어떻게 가져와 자체 가치를 결합하는가.</p>
+        <div class="mt-2" style="font-size:0.78rem; opacity:0.85;">
+            <i class="bi bi-book"></i> 공식 출처:
+            <a href="https://learn.microsoft.com/microsoft-365/copilot/extensibility/work-iq" target="_blank" rel="noopener" style="color:#cfdcff; text-decoration:underline;">Work IQ overview</a> ·
+            <a href="https://learn.microsoft.com/microsoft-365/copilot/extensibility/work-iq-api-overview" target="_blank" rel="noopener" style="color:#cfdcff; text-decoration:underline;">Work IQ APIs (Preview)</a> ·
+            <a href="https://learn.microsoft.com/microsoft-365/copilot/extensibility/overview" target="_blank" rel="noopener" style="color:#cfdcff; text-decoration:underline;">M365 Copilot Extensibility</a>
+        </div>
     </section>
 
     <!-- ============================================================== -->
@@ -342,7 +348,7 @@
             <header class="tab-header mb-2 d-flex align-items-center justify-content-between flex-wrap gap-2">
                 <div>
                     <h2>MS 통합 관점의 데이터 활용 — Copilot Agent 인사이트 맵</h2>
-                    <p>위 → 아래로 흐르는 <b>계층적 구조</b>: 사용자 → Copilot → 인터페이싱(프로토콜) → 액세스 레이어(Graph · Dataverse · 외부 커넥터) → 워크로드(M365 · D365 · MS 솔루션 · 외부 SaaS). 최하단 <b>Entra Trust Boundary</b>가 모든 호출의 권한 게이트입니다.</p>
+                    <p>사용자 → Copilot · Work IQ → 액세스 레이어(Graph · Dataverse · 외부 커넥터) → 워크로드(M365 · D365 · MS 솔루션 · 외부 SaaS). 최하단 <b>Microsoft 365 Trust Boundary · Entra</b>가 모든 호출의 권한 게이트입니다. — <b>L3 Work IQ APIs는 선택적</b>: M365 Copilot 자체와 일반 사용자 시나리오는 이 레이어를 거치지 않고 Copilot이 L4 액세스를 직접 호출하며, 외부 Agent · 앱 · IDE가 동일한 Work IQ 지능을 추상화된 API로 호출할 때만 L3를 통과합니다.</p>
                 </div>
                 <div class="small text-muted">
                     <span class="legend-dot" style="background:#ef4444;"></span>요청
@@ -434,29 +440,45 @@
                         <path class="mw-link l-llm" d="M 1400,375 L 1450,375" marker-end="url(#arrowMs)" style="color:#6E56CF;"/>
                         <path class="mw-link l-llm" d="M 1450,395 L 1400,395" marker-end="url(#arrowMs)" style="color:#6E56CF;"/>
 
-                        <path class="mw-link l-copilot l-flow" d="M 1100,470 L 1100,510" marker-end="url(#arrowMs)" style="color:#0078D4;"/>
+                        <!-- L2 → L3 (외부 호출용, Copilot 우측에서 L3 좌측으로 곱선) -->
+                        <path class="mw-link l-copilot l-flow" d="M 1400,420 C 1500,470 1200,500 1200,510" marker-end="url(#arrowMs)" style="color:#0078D4;"/>
 
-                        <!-- L3 Work IQ Gateway -->
-                        <foreignObject x="400" y="510" width="1400" height="130">
-                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-proto" style="background:linear-gradient(180deg,#f0f8ff 0%,#ffffff 100%);">
+                        <!-- L2 → L4 직접 (Copilot 내부 호출 — L3 우회, 기본 경로, 4개 컴럼 모두) -->
+                        <path class="mw-link l-copilot" style="stroke-dasharray:2 6; opacity:0.6; color:#0078D4;"
+                              d="M 850,470 C 700,560 350,650 340,750" marker-end="url(#arrowMs)"/>
+                        <path class="mw-link l-copilot" style="stroke-dasharray:2 6; opacity:0.6; color:#0078D4;"
+                              d="M 950,470 C 900,560 830,650 830,750" marker-end="url(#arrowMs)"/>
+                        <path class="mw-link l-copilot" style="stroke-dasharray:2 6; opacity:0.6; color:#0078D4;"
+                              d="M 1250,470 C 1300,560 1370,650 1370,750" marker-end="url(#arrowMs)"/>
+                        <path class="mw-link l-copilot" style="stroke-dasharray:2 6; opacity:0.6; color:#0078D4;"
+                              d="M 1350,470 C 1500,560 1900,650 1920,750" marker-end="url(#arrowMs)"/>
+                        <text x="110" y="700" style="font-family:'Noto Sans KR',sans-serif; font-size:11px; fill:#0078D4; font-weight:700;">
+                            기본 경로 — Copilot 이 L4를 직접 호출 (L3 우회)
+                        </text>
+
+                        <!-- L3 Work IQ APIs (공식 명칭 — Microsoft Learn) — Optional 레이어 (우측 절반) -->
+                        <foreignObject x="1100" y="510" width="900" height="130">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-proto" style="background:linear-gradient(180deg,#f0f8ff 0%,#ffffff 100%); border-style:dashed;">
                                 <div class="mw-head">
-                                    <i class="bi bi-hdd-network-fill" style="color:#2EA1FF;"></i> Work IQ Gateway — 인터페이싱 레이어 (Protocol Surface)
+                                    <i class="bi bi-hdd-network-fill" style="color:#2EA1FF;"></i> Work IQ APIs — 외부 Agent · 앱 · IDE용 공식 API
+                                    <span class="mw-chip chip-limit" style="margin-left:auto;"><i class="bi bi-dash-circle"></i> Optional</span>
+                                    <span class="mw-chip chip-preview"><i class="bi bi-hourglass-split"></i> Preview</span>
                                 </div>
-                                <div class="mw-sub">외부 Agent · 앱 · IDE가 Work IQ 지능을 호출하는 표준 표면 — Entra OBO 위임 인증으로 사용자 컨텍스트 실행</div>
+                                <div class="mw-sub"><b>M365 Copilot 자체는 이 레이어를 거치지 않음</b> — Copilot 내부에서 Work IQ를 직접 사용하고 L4를 바로 호출. 외부 Agent · 사용자 앱 · IDE(예: VS Code Copilot)가 동일한 Work IQ 지능을 불러올 때만 사용</div>
                                 <div class="mw-chips">
-                                    <span class="mw-chip"><i class="bi bi-diagram-2-fill"></i> A2A — Agent 간 위임</span>
-                                    <span class="mw-chip"><i class="bi bi-puzzle-fill"></i> MCP — Local · Remote</span>
-                                    <span class="mw-chip"><i class="bi bi-cloud-arrow-up-fill"></i> REST API</span>
-                                    <span class="mw-chip text-muted" style="opacity:0.85;"><i class="bi bi-hourglass-split"></i> Remote MCP · REST 곧 GA</span>
+                                    <span class="mw-chip chip-preview"><i class="bi bi-diagram-2-fill"></i> A2A</span>
+                                    <span class="mw-chip chip-preview"><i class="bi bi-puzzle-fill"></i> MCP — Local (현재) · Remote (예정)</span>
+                                    <span class="mw-chip chip-preview"><i class="bi bi-cloud-arrow-up-fill"></i> REST (예정)</span>
+                                    <span class="mw-chip chip-limit"><i class="bi bi-key"></i> M365 Copilot 라이선스</span>
                                 </div>
                             </div>
                         </foreignObject>
 
-                        <!-- L3 → L4 -->
-                        <path class="mw-link l-graph l-flow" d="M 700,640  C 700,690  340,710  340,750"  marker-end="url(#arrowMs)" style="color:#0b5cab;"/>
-                        <path class="mw-link l-dv    l-flow" d="M 950,640  C 950,690  830,710  830,750"  marker-end="url(#arrowMs)" style="color:#7B83EB;"/>
-                        <path class="mw-link l-mssvc l-flow" d="M 1250,640 C 1250,690 1370,710 1370,750" marker-end="url(#arrowMs)" style="color:#C99A24;"/>
-                        <path class="mw-link l-ext   l-flow" d="M 1500,640 C 1500,690 1920,710 1920,750" marker-end="url(#arrowMs)" style="color:#16A34A;"/>
+                        <!-- L3 → L4 (외부 Agent가 L3를 경유하는 경우) — 축소된 L3에서 분기 -->
+                        <path class="mw-link l-graph l-flow" d="M 1180,640 C 1180,690 340,710 340,750"  marker-end="url(#arrowMs)" style="color:#0b5cab;"/>
+                        <path class="mw-link l-dv    l-flow" d="M 1320,640 C 1320,690 830,710 830,750"  marker-end="url(#arrowMs)" style="color:#7B83EB;"/>
+                        <path class="mw-link l-mssvc l-flow" d="M 1550,640 C 1550,690 1370,710 1370,750" marker-end="url(#arrowMs)" style="color:#C99A24;"/>
+                        <path class="mw-link l-ext   l-flow" d="M 1900,640 C 1900,690 1920,710 1920,750" marker-end="url(#arrowMs)" style="color:#16A34A;"/>
 
                         <!-- L4 액세스 -->
                         <foreignObject x="100" y="750" width="480" height="160">
@@ -723,8 +745,8 @@
                 <div class="row g-2 mt-2 row-cols-1 row-cols-md-2 row-cols-xl-4">
                     <div class="col">
                         <div class="p-2 rounded" style="background:rgba(255,255,255,0.06);">
-                            <div class="small fw-bold mb-1" style="color:#fde68a;">1. L2 → L3 라우팅</div>
-                            <div class="small" style="color:#e2e8f0;">Copilot Agent가 Planner로 분해 → Work IQ Gateway가 적합한 프로토콜(MCP · A2A · Connector) 선택</div>
+                            <div class="small fw-bold mb-1" style="color:#fde68a;">1. L2 → L4 직접 호출 (기본 경로)</div>
+                            <div class="small" style="color:#e2e8f0;">M365 Copilot은 Work IQ를 제품 내부에서 사용하며 일반 사용자 프롬프트는 <b>L3 우회</b> — Copilot Planner가 Graph · Dataverse · Connectors를 직접 병렬 호출. 외부 Agent · IDE가 동일 지능을 호출할 때만 <b>L3 Work IQ APIs</b>를 경유</div>
                         </div>
                     </div>
                     <div class="col">
