@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Integration] M365 Copilot · ISV 데이터 통합 아키텍처</title>
+    <meta name="description" content="MS 통합 관점에서 M365 Copilot이 데이터를 활용하는 일반 흐름과, ISV가 'Copilot 자리'에서 SoR · SoK · SoE 데이터를 가져와 가치를 결합하는 흐름을 한 페이지에서 비교합니다.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/site.css">
+
+    <!-- ============================================================== -->
+    <!-- 이 페이지 전용(인라인) 스타일 — 두 다이어그램 공통 + 탭별 보강      -->
+    <!-- ============================================================== -->
+    <style>
+        /* 페이지 배경 — 두 문서를 합한 차분한 톤 */
+        .page-integrate-body {
+            background: linear-gradient(180deg, #f7f9fc 0%, #eef2f7 100%);
+            min-height: 100vh;
+        }
+
+        /* ============================================ */
+        /* 1) 줌/팬 뷰포트 — 공통                          */
+        /* ============================================ */
+        .mw-viewport {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 260px);
+            min-height: 600px;
+            overflow: hidden;
+            border: 1px solid #dde3ec;
+            border-radius: 14px;
+            background: #ffffff;
+            cursor: grab;
+            user-select: none;
+        }
+        .mw-viewport.dragging { cursor: grabbing; }
+        .mw-canvas {
+            position: absolute;
+            top: 0; left: 0;
+            transform-origin: 0 0;
+            will-change: transform;
+        }
+        /* 탭별 viewport 배경 미세 차이 */
+        .tab-pane-ms .mw-viewport {
+            background:
+                radial-gradient(circle at 50% 0%, rgba(0,120,212,0.06), transparent 60%),
+                #ffffff;
+        }
+
+        .mw-toolbar {
+            position: absolute; top: 12px; right: 12px; z-index: 10;
+            display: flex; gap: 4px; background: #fff;
+            border: 1px solid #dde3ec; border-radius: 10px; padding: 4px;
+            box-shadow: 0 4px 16px rgba(15,35,80,0.08);
+        }
+        .mw-toolbar button {
+            border: none; background: transparent;
+            width: 32px; height: 32px;
+            display: inline-flex; align-items: center; justify-content: center;
+            color: #2b3a55; border-radius: 6px; font-size: 0.95rem;
+        }
+        .mw-toolbar button:hover { background: #eef2f7; }
+        .mw-toolbar .zoom-level {
+            min-width: 48px; height: 32px;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 0.78rem; color: #5d6b86; font-weight: 600;
+        }
+        .mw-hint {
+            position: absolute; bottom: 12px; left: 12px; z-index: 10;
+            background: rgba(30,41,59,0.85); color: #fff;
+            font-size: 0.72rem; padding: 6px 10px; border-radius: 8px;
+            pointer-events: none;
+        }
+
+        /* ============================================ */
+        /* 2) 노드 카드 — 공통                              */
+        /* ============================================ */
+        .mw-node {
+            border-radius: 12px;
+            background: #ffffff;
+            box-shadow: 0 4px 16px rgba(15, 35, 80, 0.07), 0 1px 2px rgba(15, 35, 80, 0.05);
+            border: 1px solid #e3e8f0;
+            padding: 10px 12px;
+            height: 100%;
+            display: flex; flex-direction: column; gap: 6px;
+        }
+        .mw-node .mw-head {
+            display: flex; align-items: center; gap: 8px;
+            font-weight: 700; font-size: 0.85rem; color: #1a1f36;
+        }
+        .mw-node .mw-head img { width: 1.05rem; height: 1.05rem; }
+        .mw-node .mw-sub { font-size: 0.7rem; color: #5d6b86; line-height: 1.4; }
+        .mw-node .mw-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; }
+        .mw-chip {
+            display: inline-flex; align-items: center; gap: 3px;
+            font-size: 0.66rem; line-height: 1;
+            padding: 3px 6px; border-radius: 999px;
+            background: #f1f4f9; color: #2b3a55;
+            border: 1px solid #e3e8f0; white-space: nowrap;
+        }
+        .mw-chip img { width: 0.85em; height: 0.85em; }
+
+        /* ============================================ */
+        /* 3) 레이어 프레임/라벨/링크 — 공통                  */
+        /* ============================================ */
+        .layer-frame { fill: #ffffff; stroke: #e3e8f0; stroke-width: 1.2; rx: 14; }
+        /* MS 탭 전용 변형 */
+        .layer-frame.shaded         { fill: rgba(0,120,212,0.035); stroke: rgba(0,120,212,0.20); stroke-dasharray: 4 4; }
+        .layer-frame.shaded-amber   { fill: rgba(242,201,76,0.07); stroke: rgba(217,165,46,0.32); stroke-dasharray: 4 4; }
+        .layer-frame.shaded-green   { fill: rgba(22,163,74,0.05);  stroke: rgba(22,163,74,0.28);  stroke-dasharray: 4 4; }
+        /* 공통(보라/슬레이트) */
+        .layer-frame.shaded-purple  { fill: rgba(123,131,235,0.05); stroke: rgba(123,131,235,0.28); stroke-dasharray: 4 4; }
+        .layer-frame.shaded-blue    { fill: rgba(43,95,217,0.04);  stroke: rgba(43,95,217,0.22);  stroke-dasharray: 4 4; }
+        .layer-frame.shaded-slate   { fill: rgba(71,85,105,0.04);  stroke: rgba(71,85,105,0.24);  stroke-dasharray: 4 4; }
+
+        .layer-label {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2.8px;
+            fill: #94a3b8; text-transform: uppercase;
+        }
+        .layer-title {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 14px; font-weight: 700; fill: #1a1f36;
+        }
+        .layer-sub {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 11px; font-weight: 500; fill: #64748b;
+        }
+
+        .mw-link { fill: none; stroke-width: 2; stroke-linecap: round; opacity: 0.55; }
+        .mw-link.l-flow { stroke-dasharray: 4 8; animation: dash 3s linear infinite; }
+        @keyframes dash { to { stroke-dashoffset: -120; } }
+
+        /* MS 탭 라인 색 */
+        .l-user    { stroke: #ef4444; }
+        .l-copilot { stroke: #0078D4; }
+        .l-proto   { stroke: #2EA1FF; }
+        .l-graph   { stroke: #0b5cab; }
+        .l-dv      { stroke: #7B83EB; }
+        .l-mssvc   { stroke: #C99A24; }
+        .l-ext     { stroke: #16A34A; }
+        .l-llm     { stroke: #6E56CF; stroke-dasharray: 3 5; }
+        .l-entra   { stroke: #1B7AE3; stroke-dasharray: 2 4; opacity: 0.45; }
+        /* ISV 탭 라인 색 */
+        .l-sor     { stroke: #2b5fd9; }
+        .l-sok     { stroke: #0d7c66; }
+        .l-soe     { stroke: #6b46c1; }
+        .l-isv     { stroke: #1f3a93; }
+
+        /* ============================================ */
+        /* 4) accent — 두 탭에서 사용되는 모든 액센트 색      */
+        /* ============================================ */
+        /* MS 탭 */
+        .accent-user    { border-top: 3px solid #ef4444; }
+        .accent-llm     { border-top: 3px solid #6E56CF; }
+        .accent-copilot { border-top: 3px solid #0078D4; }
+        .accent-proto   { border-top: 3px solid #2EA1FF; }
+        .accent-graph   { border-top: 3px solid #0b5cab; }
+        .accent-dv      { border-top: 3px solid #7B83EB; }
+        .accent-mssvc   { border-top: 3px solid #C99A24; }
+        .accent-ext     { border-top: 3px solid #16A34A; }
+        .accent-entra   { border-top: 3px solid #1B7AE3; }
+        /* ISV 탭 */
+        .accent-sor     { border-top: 3px solid #2b5fd9; }
+        .accent-sok     { border-top: 3px solid #0d7c66; }
+        .accent-soe     { border-top: 3px solid #6b46c1; }
+        .accent-neutral { border-top: 3px solid #64748b; }
+        .accent-fabric  { border-top: 3px solid #1f3a93; }
+
+        /* 칩 색상 */
+        .chip-sor      { background:#e8efff; color:#1f3a93; border-color:#c7d4f7; }
+        .chip-sok      { background:#e1f1ec; color:#0d7c66; border-color:#bcdcd1; }
+        .chip-soe      { background:#ede7f7; color:#6b46c1; border-color:#d4c7ec; }
+        .chip-ga       { background:#e1f1ec; color:#0d7c66; border-color:#bcdcd1; }
+        .chip-preview  { background:#eef2f7; color:#475569; border-color:#cbd5e1; }
+        .chip-limit    { background:#f1f4f9; color:#475569; border-color:#cbd5e1; }
+
+        /* ============================================ */
+        /* 5) 허브 카드 — 두 탭별                            */
+        /* ============================================ */
+        .mw-hub {
+            background: linear-gradient(135deg, #0b5cab 0%, #0078D4 60%, #2EA1FF 100%);
+            color: #fff; border: none;
+            box-shadow: 0 14px 40px rgba(0, 120, 212, 0.30);
+        }
+        .mw-hub .mw-head, .mw-hub .mw-sub { color: #fff; }
+        .mw-hub .mw-sub { opacity: 0.9; }
+        .mw-hub .mw-chip { background: rgba(255,255,255,0.16); color: #fff; border-color: rgba(255,255,255,0.28); }
+
+        .mw-hub-isv {
+            background: linear-gradient(135deg, #0a2057 0%, #1f3a93 60%, #2b5fd9 100%);
+            color: #fff; border: none;
+            box-shadow: 0 14px 40px rgba(31,58,147,0.28);
+        }
+        .mw-hub-isv .mw-head, .mw-hub-isv .mw-sub { color: #fff; }
+        .mw-hub-isv .mw-sub { opacity: 0.92; }
+        .mw-hub-isv .mw-chip { background: rgba(255,255,255,0.16); color: #fff; border-color: rgba(255,255,255,0.28); }
+
+        /* ============================================ */
+        /* 6) 범례                                       */
+        /* ============================================ */
+        .legend-dot {
+            display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+            vertical-align: middle; margin-right: 4px;
+        }
+        .type-legend {
+            display: flex; flex-wrap: wrap; gap: 12px;
+            font-size: 0.78rem;
+        }
+        .type-legend .type-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 4px 10px; border-radius: 999px;
+            border: 1px solid; font-weight: 600;
+        }
+        .type-legend .type-badge .swatch {
+            width: 10px; height: 10px; border-radius: 50%;
+        }
+        .status-legend {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            font-size: 0.72rem; margin-top: 6px;
+        }
+        .status-legend .badge-status {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 3px 8px; border-radius: 999px;
+            border: 1px solid; font-weight: 600;
+        }
+
+        /* ============================================ */
+        /* 7) 인사이트 리본 — 탭별                          */
+        /* ============================================ */
+        .insight-ribbon {
+            color: #fff; border-radius: 14px; padding: 0.8rem 1.1rem;
+        }
+        .insight-ribbon code {
+            padding: 2px 6px; border-radius: 4px; font-size: 0.82em;
+        }
+        .insight-ribbon-ms {
+            background: linear-gradient(90deg, #1e293b 0%, #334155 100%);
+        }
+        .insight-ribbon-ms code { background: rgba(255,255,255,0.12); color: #fde68a; }
+        .insight-ribbon-isv {
+            background: linear-gradient(90deg, #0a2057 0%, #1f3a93 60%, #2b5fd9 100%);
+        }
+        .insight-ribbon-isv code { background: rgba(255,255,255,0.14); color: #cfdcff; }
+
+        /* ============================================ */
+        /* 8) 페이지 헤더 / 탭                              */
+        /* ============================================ */
+        .integrate-hero {
+            background: linear-gradient(135deg, #0a2057 0%, #1f3a93 60%, #2b5fd9 100%);
+            color: #fff;
+            border-radius: 14px;
+            padding: 1.4rem 1.6rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 12px 32px rgba(31,58,147,0.25);
+        }
+        .integrate-hero h1 {
+            font-size: 1.4rem; font-weight: 800; margin: 0 0 0.4rem;
+        }
+        .integrate-hero p { margin: 0; font-size: 0.9rem; opacity: 0.92; }
+
+        .tab-switcher {
+            display: inline-flex; gap: 6px;
+            background: #fff;
+            border: 1px solid #dde3ec; border-radius: 14px;
+            padding: 5px;
+            box-shadow: 0 4px 16px rgba(15,35,80,0.05);
+            margin-bottom: 0.9rem;
+        }
+        .tab-switcher .nav-link {
+            color: #475569; font-weight: 600; font-size: 0.88rem;
+            border-radius: 10px; padding: 0.5rem 1rem;
+            display: inline-flex; align-items: center; gap: 8px;
+            border: none;
+        }
+        .tab-switcher .nav-link i { font-size: 1rem; }
+        .tab-switcher .nav-link:hover { background: #f1f4f9; color: #1a1f36; }
+        .tab-switcher .nav-link.active {
+            background: linear-gradient(135deg, #0a2057 0%, #1f3a93 60%, #2b5fd9 100%);
+            color: #fff;
+        }
+
+        .tab-header h2 { font-size: 1.1rem; font-weight: 700; margin: 0 0 0.3rem; color: #1a1f36; }
+        .tab-header p  { font-size: 0.85rem; color: #5d6b86; margin: 0; }
+    </style>
+</head>
+<body class="has-sidebar page-m365 page-integrate-body">
+
+<!-- ===== NAVBAR ===== -->
+<nav class="top-nav">
+    <div class="container-fluid d-flex align-items-center justify-content-between px-3">
+        <a class="nav-brand" href="../../">
+            <i class="bi bi-microsoft"></i> MS Tech
+        </a>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../">Home</a></li>
+                <li class="breadcrumb-item"><a href="../">M365</a></li>
+                <li class="breadcrumb-item active">통합 데이터 활용</li>
+            </ol>
+        </nav>
+    </div>
+</nav>
+
+<main class="px-3 py-3">
+
+    <!-- ============================================================== -->
+    <!-- 페이지 헤더                                                      -->
+    <!-- ============================================================== -->
+    <section class="integrate-hero">
+        <h1><i class="bi bi-diagram-3-fill"></i> M365 Copilot · ISV 데이터 통합 아키텍처</h1>
+        <p>같은 Microsoft 365 데이터 자산을 <b>두 가지 관점</b>으로 봅니다 — ① 일반 사용자가 M365 Copilot 자리에서 데이터를 어떻게 활용하는가, ② ISV가 같은 자리에서 SoR · SoK · SoE 데이터를 어떻게 가져와 자체 가치를 결합하는가.</p>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 탭 전환                                                         -->
+    <!-- ============================================================== -->
+    <ul class="nav tab-switcher" id="integrateTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-ms-btn" data-bs-toggle="tab" data-bs-target="#tab-ms"
+                    type="button" role="tab" aria-controls="tab-ms" aria-selected="true">
+                <i class="bi bi-microsoft"></i> ① M365 Copilot 통합 관점
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-isv-btn" data-bs-toggle="tab" data-bs-target="#tab-isv"
+                    type="button" role="tab" aria-controls="tab-isv" aria-selected="false">
+                <i class="bi bi-box-seam"></i> ② ISV 활용 관점 (SoR · SoK · SoE)
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="integrateTabsContent">
+
+        <!-- ============================================================== -->
+        <!-- TAB 1 : M365 Copilot 통합 관점 (microsoft_world)                  -->
+        <!-- ============================================================== -->
+        <div class="tab-pane tab-pane-ms fade show active" id="tab-ms" role="tabpanel" aria-labelledby="tab-ms-btn">
+
+            <header class="tab-header mb-2 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <div>
+                    <h2>MS 통합 관점의 데이터 활용 — Copilot Agent 인사이트 맵</h2>
+                    <p>위 → 아래로 흐르는 <b>계층적 구조</b>: 사용자 → Copilot → 인터페이싱(프로토콜) → 액세스 레이어(Graph · Dataverse · 외부 커넥터) → 워크로드(M365 · D365 · MS 솔루션 · 외부 SaaS). 최하단 <b>Entra Trust Boundary</b>가 모든 호출의 권한 게이트입니다.</p>
+                </div>
+                <div class="small text-muted">
+                    <span class="legend-dot" style="background:#ef4444;"></span>요청
+                    <span class="legend-dot ms-2" style="background:#0078D4;"></span>Copilot
+                    <span class="legend-dot ms-2" style="background:#0b5cab;"></span>Graph
+                    <span class="legend-dot ms-2" style="background:#7B83EB;"></span>Dataverse
+                    <span class="legend-dot ms-2" style="background:#C99A24;"></span>MS 서비스
+                    <span class="legend-dot ms-2" style="background:#16A34A;"></span>외부
+                    <span class="legend-dot ms-2" style="background:#1B7AE3;"></span>Entra
+                </div>
+            </header>
+
+            <div class="mw-viewport" id="mwViewportMs">
+                <div class="mw-toolbar">
+                    <button type="button" data-zoom="out" title="축소 (-)"><i class="bi bi-zoom-out"></i></button>
+                    <span class="zoom-level" data-zoom="level">100%</span>
+                    <button type="button" data-zoom="in" title="확대 (+)"><i class="bi bi-zoom-in"></i></button>
+                    <button type="button" data-zoom="fit" title="화면 맞춤 (F)"><i class="bi bi-arrows-fullscreen"></i></button>
+                    <button type="button" data-zoom="reset" title="원본 100% (0)"><i class="bi bi-arrow-counterclockwise"></i></button>
+                </div>
+                <div class="mw-hint">
+                    <i class="bi bi-info-circle"></i> 드래그 = 이동 · Ctrl + 휠 = 확대/축소 · 단축키: + / − / F / 0
+                </div>
+
+                <div class="mw-canvas" data-canvas-w="2200" data-canvas-h="1500">
+                    <svg width="2200" height="1500" viewBox="0 0 2200 1500" xmlns="http://www.w3.org/2000/svg">
+
+                        <defs>
+                            <marker id="arrowMs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                            </marker>
+                            <linearGradient id="entraGradMs" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#1B7AE3" stop-opacity="0.08"/>
+                                <stop offset="50%" stop-color="#1B7AE3" stop-opacity="0.18"/>
+                                <stop offset="100%" stop-color="#1B7AE3" stop-opacity="0.08"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- 좌측 가이드 라벨 -->
+                        <text class="layer-label" x="20" y="100"  transform="rotate(-90 20 100)"  text-anchor="end">L1 · USER</text>
+                        <text class="layer-label" x="20" y="320"  transform="rotate(-90 20 320)"  text-anchor="end">L2 · COPILOT</text>
+                        <text class="layer-label" x="20" y="540"  transform="rotate(-90 20 540)"  text-anchor="end">L3 · INTERFACE</text>
+                        <text class="layer-label" x="20" y="760"  transform="rotate(-90 20 760)"  text-anchor="end">L4 · ACCESS</text>
+                        <text class="layer-label" x="20" y="990"  transform="rotate(-90 20 990)"  text-anchor="end">L5 · WORKLOADS</text>
+                        <text class="layer-label" x="20" y="1400" transform="rotate(-90 20 1400)" text-anchor="end">L6 · TRUST</text>
+
+                        <!-- L1 -->
+                        <foreignObject x="950" y="60" width="300" height="120">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-user">
+                                <div class="mw-head"><i class="bi bi-person-fill" style="color:#ef4444;"></i> 사용자 요청</div>
+                                <div class="mw-sub">자연어 한 줄 — Teams · Outlook · Web · Mobile</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-chat-dots"></i> "EMEA 매출 둔화 원인?"</span>
+                                    <span class="mw-chip"><i class="bi bi-mic"></i> 음성/텍스트</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+                        <path class="mw-link l-user l-flow" d="M 1100,180 L 1100,290" marker-end="url(#arrowMs)" style="color:#ef4444;"/>
+
+                        <!-- L2 Copilot -->
+                        <foreignObject x="800" y="290" width="600" height="180">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node mw-hub">
+                                <div class="mw-head" style="font-size:1rem;">
+                                    <img src="../../icons/copilot.svg" alt="" style="width:1.4rem;height:1.4rem;background:#fff;border-radius:6px;padding:2px;">
+                                    M365 Copilot · Copilot Agent
+                                </div>
+                                <div class="mw-sub">요청 해석 · 계획 · 도구 호출 · 결과 합성 — Work IQ 위에서 사용자 컨텍스트로 실행</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><img src="../../icons/copilot_researcher_tools.png" alt=""> Researcher</span>
+                                    <span class="mw-chip"><img src="../../icons/copilot_cowork.png" alt=""> Cowork</span>
+                                    <span class="mw-chip"><img src="../../icons/CopilotStudio_scalable.svg" alt=""> Studio Agent</span>
+                                    <span class="mw-chip"><i class="bi bi-plus-circle"></i> Custom Agent</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- LLM 사이드카 -->
+                        <foreignObject x="1450" y="300" width="300" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-llm">
+                                <div class="mw-head"><i class="bi bi-cpu" style="color:#6E56CF;"></i> Foundation Models</div>
+                                <div class="mw-sub">호출형 추론 엔진 — Copilot이 필요 시 호출</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><img src="../../icons/chatgpt.svg" alt=""> OpenAI GPT-5.x</span>
+                                    <span class="mw-chip"><img src="../../icons/claude.svg" alt=""> Anthropic Claude Sonnet/Opus 4.7</span>
+                                    <span class="mw-chip"><i class="bi bi-shuffle"></i> Multi-step Plan</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+                        <path class="mw-link l-llm" d="M 1400,375 L 1450,375" marker-end="url(#arrowMs)" style="color:#6E56CF;"/>
+                        <path class="mw-link l-llm" d="M 1450,395 L 1400,395" marker-end="url(#arrowMs)" style="color:#6E56CF;"/>
+
+                        <path class="mw-link l-copilot l-flow" d="M 1100,470 L 1100,510" marker-end="url(#arrowMs)" style="color:#0078D4;"/>
+
+                        <!-- L3 Work IQ Gateway -->
+                        <foreignObject x="400" y="510" width="1400" height="130">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-proto" style="background:linear-gradient(180deg,#f0f8ff 0%,#ffffff 100%);">
+                                <div class="mw-head">
+                                    <i class="bi bi-hdd-network-fill" style="color:#2EA1FF;"></i> Work IQ Gateway — 인터페이싱 레이어 (Protocol Surface)
+                                </div>
+                                <div class="mw-sub">외부 Agent · 앱 · IDE가 Work IQ 지능을 호출하는 표준 표면 — Entra OBO 위임 인증으로 사용자 컨텍스트 실행</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-diagram-2-fill"></i> A2A — Agent 간 위임</span>
+                                    <span class="mw-chip"><i class="bi bi-puzzle-fill"></i> MCP — Local · Remote</span>
+                                    <span class="mw-chip"><i class="bi bi-cloud-arrow-up-fill"></i> REST API</span>
+                                    <span class="mw-chip text-muted" style="opacity:0.85;"><i class="bi bi-hourglass-split"></i> Remote MCP · REST 곧 GA</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L3 → L4 -->
+                        <path class="mw-link l-graph l-flow" d="M 700,640  C 700,690  340,710  340,750"  marker-end="url(#arrowMs)" style="color:#0b5cab;"/>
+                        <path class="mw-link l-dv    l-flow" d="M 950,640  C 950,690  830,710  830,750"  marker-end="url(#arrowMs)" style="color:#7B83EB;"/>
+                        <path class="mw-link l-mssvc l-flow" d="M 1250,640 C 1250,690 1370,710 1370,750" marker-end="url(#arrowMs)" style="color:#C99A24;"/>
+                        <path class="mw-link l-ext   l-flow" d="M 1500,640 C 1500,690 1920,710 1920,750" marker-end="url(#arrowMs)" style="color:#16A34A;"/>
+
+                        <!-- L4 액세스 -->
+                        <foreignObject x="100" y="750" width="480" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-graph">
+                                <div class="mw-head"><img src="../../icons/msgraph.svg" alt=""> Microsoft Graph</div>
+                                <div class="mw-sub">사내 콘텐츠 통합 API + Semantic Index — ACL · 민감도 · DLP 자동 적용</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-shield-check"></i> ACL · Sensitivity</span>
+                                    <span class="mw-chip"><i class="bi bi-search"></i> Semantic Index</span>
+                                    <span class="mw-chip"><i class="bi bi-people"></i> People Signal</span>
+                                    <span class="mw-chip"><i class="bi bi-diagram-3"></i> Graph REST · SDK</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="600" y="750" width="460" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-dv">
+                                <div class="mw-head"><img src="../../icons/Dataverse_scalable.svg" alt=""> Microsoft Dataverse</div>
+                                <div class="mw-sub">D365 · Power Platform 공통 데이터 플랫폼 — Common Data Model · RLS/CLS</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-table"></i> Standard Tables</span>
+                                    <span class="mw-chip"><i class="bi bi-shield-lock"></i> RLS · CLS</span>
+                                    <span class="mw-chip"><i class="bi bi-arrow-left-right"></i> Dual-Write</span>
+                                    <span class="mw-chip"><i class="bi bi-link-45deg"></i> Fabric Mirror</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="1080" y="750" width="580" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-mssvc">
+                                <div class="mw-head"><i class="bi bi-microsoft" style="color:#C99A24;"></i> Microsoft 솔루션 커넥터</div>
+                                <div class="mw-sub">Azure · Fabric · Power Platform · GitHub — 분석 · 자동화 · 개발 자산 액세스</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-bar-chart-fill"></i> Fabric API</span>
+                                    <span class="mw-chip"><i class="bi bi-cloud-fill"></i> Azure SDK</span>
+                                    <span class="mw-chip"><img src="../../icons/PowerPlatform_scalable.svg" alt=""> Power Platform</span>
+                                    <span class="mw-chip"><i class="bi bi-github"></i> GitHub API · MCP</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="1680" y="750" width="480" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-ext">
+                                <div class="mw-head"><i class="bi bi-globe-asia-australia" style="color:#16A34A;"></i> 외부 솔루션 커넥터</div>
+                                <div class="mw-sub"><b>2가지 경로 병행</b> — ① Graph Connector(색인 · Grounding) ② Federated MCP / Copilot Connector(실시간 API)</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-search"></i> ① 색인 (Graph Connector)</span>
+                                    <span class="mw-chip"><i class="bi bi-lightning-charge"></i> ② 실시간 (Federated MCP)</span>
+                                    <span class="mw-chip"><i class="bi bi-shield-check"></i> 권한 매핑 · OAuth 위임</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L4 → L5 -->
+                        <path class="mw-link l-graph l-flow" d="M 340,910  L 340,940"  marker-end="url(#arrowMs)" style="color:#0b5cab;"/>
+                        <path class="mw-link l-dv    l-flow" d="M 830,910  L 830,940"  marker-end="url(#arrowMs)" style="color:#7B83EB;"/>
+                        <path class="mw-link l-mssvc l-flow" d="M 1370,910 L 1370,940" marker-end="url(#arrowMs)" style="color:#C99A24;"/>
+                        <path class="mw-link l-ext   l-flow" d="M 1920,910 L 1920,940" marker-end="url(#arrowMs)" style="color:#16A34A;"/>
+
+                        <!-- L5 — Column 1 : M365 -->
+                        <rect class="layer-frame shaded" x="80" y="940" width="500" height="380"/>
+                        <text class="layer-title" x="100" y="965">M365 워크로드 (3 파트)</text>
+
+                        <foreignObject x="100" y="980" width="220" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-graph">
+                                <div class="mw-head"><img src="../../icons/sharepoint.svg" alt=""> 파일 · 문서</div>
+                                <div class="mw-sub">OneDrive · SharePoint</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><img src="../../icons/word.svg" alt=""> Word</span>
+                                    <span class="mw-chip"><img src="../../icons/excel.svg" alt=""> Excel</span>
+                                    <span class="mw-chip"><img src="../../icons/powerpoint.svg" alt=""> PPT</span>
+                                    <span class="mw-chip"><img src="../../icons/pages.svg" alt=""> Pages</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="340" y="980" width="220" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-graph">
+                                <div class="mw-head"><img src="../../icons/outlook.svg" alt=""> 메일</div>
+                                <div class="mw-sub">Outlook — 메시지 / 첨부</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><img src="../../icons/Mail.svg" alt=""> Mail</span>
+                                    <span class="mw-chip"><img src="../../icons/Mail%20Attach.svg" alt=""> 첨부</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="220" y="1150" width="220" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-graph">
+                                <div class="mw-head"><img src="../../icons/teams.svg" alt=""> 협업 · 회의</div>
+                                <div class="mw-sub">Teams — 채팅 · 회의 · 채널</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><img src="../../icons/Chat.svg" alt=""> 채팅</span>
+                                    <span class="mw-chip"><img src="../../icons/Video.svg" alt=""> 회의</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- Column 2: D365 -->
+                        <rect class="layer-frame shaded-purple" x="600" y="940" width="460" height="380"/>
+                        <text class="layer-title" x="620" y="965">Dynamics 365 (3 파트 — CRM · ERP · Commerce)</text>
+
+                        <foreignObject x="620" y="980" width="420" height="100">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-dv">
+                                <div class="mw-head"><img src="../../icons/Dataverse_scalable.svg" alt=""> CRM <span style="font-size:0.65rem;font-weight:500;color:#5d6b86;">— Dataverse 네이티브 저장</span></div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-currency-dollar"></i> Sales</span>
+                                    <span class="mw-chip"><i class="bi bi-headset"></i> Service</span>
+                                    <span class="mw-chip"><i class="bi bi-tools"></i> Field</span>
+                                    <span class="mw-chip"><i class="bi bi-people"></i> Insights</span>
+                                    <span class="mw-chip"><i class="bi bi-graph-up-arrow"></i> Sales Insights</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="620" y="1095" width="420" height="100">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-dv">
+                                <div class="mw-head"><img src="../../icons/Dataverse_scalable.svg" alt=""> ERP <span style="font-size:0.65rem;font-weight:500;color:#5d6b86;">— 자체 SQL DB ↔ Dataverse Dual-Write</span></div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-cash-coin"></i> Finance &amp; Ops</span>
+                                    <span class="mw-chip"><i class="bi bi-truck"></i> SCM</span>
+                                    <span class="mw-chip"><i class="bi bi-person-badge"></i> HR</span>
+                                    <span class="mw-chip"><i class="bi bi-building"></i> Business Central</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="620" y="1210" width="420" height="100">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-dv">
+                                <div class="mw-head"><img src="../../icons/Dataverse_scalable.svg" alt=""> Commerce <span style="font-size:0.65rem;font-weight:500;color:#5d6b86;">— F&amp;O 기반 · Dual-Write</span></div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-shop"></i> Commerce</span>
+                                    <span class="mw-chip"><i class="bi bi-telephone"></i> Contact Center</span>
+                                    <span class="mw-chip"><i class="bi bi-kanban"></i> Project Ops</span>
+                                    <span class="mw-chip"><img src="../../icons/Agent365_scalable.svg" alt=""> Agent365</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- Column 3: Microsoft 솔루션 -->
+                        <rect class="layer-frame shaded-amber" x="1080" y="940" width="580" height="380"/>
+                        <text class="layer-title" x="1100" y="965">Microsoft 솔루션 (Fabric · Azure · Power Platform · GitHub)</text>
+
+                        <foreignObject x="1100" y="980" width="270" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-mssvc">
+                                <div class="mw-head"><i class="bi bi-bar-chart-fill" style="color:#1f3a93;"></i> Fabric · OneLake</div>
+                                <div class="mw-sub">Mirror · Lakehouse · Semantic · Data Agent</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-house-door"></i> Lakehouse</span>
+                                    <span class="mw-chip"><i class="bi bi-diagram-3"></i> Semantic</span>
+                                    <span class="mw-chip"><i class="bi bi-robot"></i> Data Agent</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="1380" y="980" width="270" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-mssvc">
+                                <div class="mw-head"><i class="bi bi-cloud-fill" style="color:#0078D4;"></i> Azure</div>
+                                <div class="mw-sub">AI Foundry · Functions · Cosmos DB</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-cpu"></i> AI Foundry</span>
+                                    <span class="mw-chip"><i class="bi bi-lightning"></i> Functions</span>
+                                    <span class="mw-chip"><i class="bi bi-hdd"></i> Cosmos DB</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="1100" y="1150" width="270" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-mssvc">
+                                <div class="mw-head"><img src="../../icons/PowerPlatform_scalable.svg" alt=""> Power Platform</div>
+                                <div class="mw-sub">Apps · Automate · BI · Pages</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><img src="../../icons/powerapps.svg" alt=""> Apps</span>
+                                    <span class="mw-chip"><img src="../../icons/powerautomate.svg" alt=""> Automate</span>
+                                    <span class="mw-chip"><i class="bi bi-bar-chart"></i> BI</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="1380" y="1150" width="270" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-mssvc">
+                                <div class="mw-head"><i class="bi bi-github"></i> GitHub</div>
+                                <div class="mw-sub">Repos · Actions · Copilot · Issues/PR</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-git"></i> Repos</span>
+                                    <span class="mw-chip"><i class="bi bi-play-circle"></i> Actions</span>
+                                    <span class="mw-chip"><i class="bi bi-bug"></i> Issues</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- Column 4: 외부 SaaS -->
+                        <rect class="layer-frame shaded-green" x="1680" y="940" width="480" height="380"/>
+                        <text class="layer-title" x="1700" y="965">외부 솔루션 (Salesforce · SAP · Atlassian · Notion · Google ...)</text>
+
+                        <foreignObject x="1700" y="980" width="220" height="100">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-ext">
+                                <div class="mw-head"><i class="bi bi-cloud-fill" style="color:#00A1E0;"></i> Salesforce</div>
+                                <div class="mw-sub">CRM · Opportunity · Account</div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="1930" y="980" width="220" height="100">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-ext">
+                                <div class="mw-head"><i class="bi bi-database-fill" style="color:#0FAAFF;"></i> SAP</div>
+                                <div class="mw-sub">S/4HANA · ERP · Finance</div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="1700" y="1095" width="220" height="100">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-ext">
+                                <div class="mw-head"><i class="bi bi-kanban-fill" style="color:#0052CC;"></i> Jira</div>
+                                <div class="mw-sub">이슈 · 스프린트 · 백로그</div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="1930" y="1095" width="220" height="100">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-ext">
+                                <div class="mw-head"><i class="bi bi-journal-text" style="color:#172B4D;"></i> Confluence</div>
+                                <div class="mw-sub">팀 위키 · 회의록</div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="1700" y="1210" width="220" height="100">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-ext">
+                                <div class="mw-head"><i class="bi bi-file-earmark-richtext-fill"></i> Notion</div>
+                                <div class="mw-sub">노트 · 데이터베이스</div>
+                            </div>
+                        </foreignObject>
+                        <foreignObject x="1930" y="1210" width="220" height="100">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-ext">
+                                <div class="mw-head"><i class="bi bi-google" style="color:#4285F4;"></i> Google Workspace</div>
+                                <div class="mw-sub">Gmail · Drive · Docs</div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L5 → L6 -->
+                        <path class="mw-link l-entra" d="M 340,1320  L 340,1380"/>
+                        <path class="mw-link l-entra" d="M 830,1320  L 830,1380"/>
+                        <path class="mw-link l-entra" d="M 1370,1320 L 1370,1380"/>
+                        <path class="mw-link l-entra" d="M 1920,1320 L 1920,1380"/>
+
+                        <!-- L6 Entra -->
+                        <rect x="80" y="1380" width="2080" height="100" rx="14" fill="url(#entraGradMs)" stroke="#1B7AE3" stroke-dasharray="6 6" stroke-width="1.2"/>
+                        <foreignObject x="600" y="1390" width="1000" height="80">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-entra" style="flex-direction:row; align-items:center; padding:8px 14px;">
+                                <i class="bi bi-shield-lock-fill" style="color:#1B7AE3; font-size:1.4rem; margin-right:8px;"></i>
+                                <div style="flex:1;">
+                                    <div class="mw-head" style="font-size:0.82rem;">Microsoft Entra — Trust Boundary <span style="font-size:0.65rem;font-weight:500;color:#5d6b86;">(L1 인증부터 L5 데이터 액세스까지 모든 호출에 적용)</span></div>
+                                    <div class="mw-sub">사용자 · Agent ID · Workload ID · OBO Flow · Verified ID · 민감도 레이블 · DLP · 감사 로그 — 토큰이 각 레이어를 통과할 때마다 권한 트리밍</div>
+                                </div>
+                                <span class="mw-chip"><i class="bi bi-robot"></i> Agent ID</span>
+                                <span class="mw-chip"><i class="bi bi-shield-check"></i> Governance</span>
+                                <span class="mw-chip"><i class="bi bi-patch-check"></i> Verified ID</span>
+                            </div>
+                        </foreignObject>
+
+                    </svg>
+                </div>
+            </div>
+
+            <!-- 하단 인사이트 — MS 탭 -->
+            <div class="insight-ribbon insight-ribbon-ms mt-3">
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                    <div class="flex-shrink-0">
+                        <i class="bi bi-lightbulb-fill text-warning" style="font-size:1.4rem;"></i>
+                    </div>
+                    <div class="flex-grow-1" style="min-width:260px;">
+                        <div class="fw-bold mb-1">사용자 요청 → 인사이트 흐름 (위 → 아래 계층 통과)</div>
+                        <div class="small" style="color:#cbd5e1;">
+                            <code>"이번 분기 EMEA 매출 둔화 원인을 분석하고, 영향받은 주요 고객 · 진행 중인 이슈 · 다음 액션을 정리해줘"</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-2 mt-2 row-cols-1 row-cols-md-2 row-cols-xl-4">
+                    <div class="col">
+                        <div class="p-2 rounded" style="background:rgba(255,255,255,0.06);">
+                            <div class="small fw-bold mb-1" style="color:#fde68a;">1. L2 → L3 라우팅</div>
+                            <div class="small" style="color:#e2e8f0;">Copilot Agent가 Planner로 분해 → Work IQ Gateway가 적합한 프로토콜(MCP · A2A · Connector) 선택</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-2 rounded" style="background:rgba(255,255,255,0.06);">
+                            <div class="small fw-bold mb-1" style="color:#fde68a;">2. L3 → L4 분기</div>
+                            <div class="small" style="color:#e2e8f0;">Graph · Dataverse · MS 솔루션 · 외부 커넥터 — 4 컬럼으로 병렬 호출</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-2 rounded" style="background:rgba(255,255,255,0.06);">
+                            <div class="small fw-bold mb-1" style="color:#fde68a;">3. L4 → L5 수집</div>
+                            <div class="small" style="color:#e2e8f0;">각 액세스 레이어가 하위 워크로드 카드(D365 CRM/ERP/Commerce · SAP/Salesforce/Jira 등)에서 실제 데이터 페치</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-2 rounded" style="background:rgba(255,255,255,0.06);">
+                            <div class="small fw-bold mb-1" style="color:#fde68a;">4. 합성 + L6 게이트</div>
+                            <div class="small" style="color:#e2e8f0;">Foundation Model이 합성 → Pages/Power BI/Teams/Outlook 결과 — 모든 단계가 Entra Trust Boundary 안에서만 수행</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- TAB 2 : ISV 활용 관점 (isv_with_microsoft)                      -->
+        <!-- ============================================================== -->
+        <div class="tab-pane tab-pane-isv fade" id="tab-isv" role="tabpanel" aria-labelledby="tab-isv-btn">
+
+            <header class="tab-header mb-2 d-flex align-items-start justify-content-between flex-wrap gap-2">
+                <div>
+                    <h2>ISV × Microsoft — Copilot 자리에서 MS 데이터를 활용하는 통합 아키텍처</h2>
+                    <p>
+                        ISV의 SaaS가 <b>Copilot 자리</b>에서 고객 테넌트의 데이터를 가져와 <b>Fabric</b> 위에서 통합·가공·가치 결합하는 구조.
+                        MS가 제공하는 데이터는 <b>SoR(운영기록) · SoK(정형지식) · SoE(경험·암묵지)</b> 세 유형으로 구분되며, ISV는 세 유형 모두에 접근할 수 있어야 진짜 경쟁력을 갖춥니다.
+                    </p>
+                    <div class="type-legend mt-2 mb-1">
+                        <span class="type-badge chip-sor"><span class="swatch" style="background:#2b5fd9;"></span> SoR · System of Record — What (운영 기록)</span>
+                        <span class="type-badge chip-sok"><span class="swatch" style="background:#0d7c66;"></span> SoK · System of Knowledge — How (정형 지식)</span>
+                        <span class="type-badge chip-soe"><span class="swatch" style="background:#6b46c1;"></span> SoE · System of Experience — Why · Judgement (경험·암묵지)</span>
+                    </div>
+                    <div class="status-legend">
+                        <span class="badge-status chip-ga"><i class="bi bi-check-circle-fill"></i> GA</span>
+                        <span class="badge-status chip-preview"><i class="bi bi-hourglass-split"></i> Preview</span>
+                        <span class="badge-status chip-limit"><i class="bi bi-info-circle"></i> 라이선스/동의 필요</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="mw-viewport" id="mwViewportIsv">
+                <div class="mw-toolbar">
+                    <button type="button" data-zoom="out" title="축소 (-)"><i class="bi bi-zoom-out"></i></button>
+                    <span class="zoom-level" data-zoom="level">100%</span>
+                    <button type="button" data-zoom="in" title="확대 (+)"><i class="bi bi-zoom-in"></i></button>
+                    <button type="button" data-zoom="fit" title="화면 맞춤 (F)"><i class="bi bi-arrows-fullscreen"></i></button>
+                    <button type="button" data-zoom="reset" title="원본 100% (0)"><i class="bi bi-arrow-counterclockwise"></i></button>
+                </div>
+                <div class="mw-hint">
+                    <i class="bi bi-info-circle"></i> 드래그 = 이동 · Ctrl + 휠 = 확대/축소 · 단축키: + / − / F / 0
+                </div>
+
+                <div class="mw-canvas" data-canvas-w="2400" data-canvas-h="1700">
+                    <svg width="2400" height="1700" viewBox="0 0 2400 1700" xmlns="http://www.w3.org/2000/svg">
+
+                        <defs>
+                            <marker id="arrowIsv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                            </marker>
+                            <linearGradient id="entraGradIsv" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%"   stop-color="#1B7AE3" stop-opacity="0.06"/>
+                                <stop offset="50%"  stop-color="#1B7AE3" stop-opacity="0.14"/>
+                                <stop offset="100%" stop-color="#1B7AE3" stop-opacity="0.06"/>
+                            </linearGradient>
+                            <linearGradient id="custBoxGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%"   stop-color="#f1f5f9" stop-opacity="0.6"/>
+                                <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0.1"/>
+                            </linearGradient>
+                            <linearGradient id="isvBoxGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%"   stop-color="#eef2f7" stop-opacity="0.7"/>
+                                <stop offset="100%" stop-color="#eef2f7" stop-opacity="0.15"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- 좌측 레이어 라벨 -->
+                        <text class="layer-label" x="10" y="90">L1 · 고객 데이터</text>
+                        <text class="layer-label" x="10" y="370">L2 · MS 액세스 API</text>
+                        <text class="layer-label" x="10" y="640">L3 · ISV 게이트웨이</text>
+                        <text class="layer-label" x="10" y="880">L4 · ISV Fabric</text>
+                        <text class="layer-label" x="10" y="1200">L5 · ISV SaaS</text>
+                        <text class="layer-label" x="10" y="1470">L6 · 사용자</text>
+                        <text class="layer-label" x="10" y="1620">CROSS · 인증</text>
+
+                        <!-- 고객 테넌트 영역 -->
+                        <rect x="200" y="50" width="2120" height="540" rx="18" fill="url(#custBoxGrad)" stroke="#64748b" stroke-dasharray="6 6" stroke-width="1.4"/>
+                        <text class="layer-title" x="230" y="80" fill="#334155">고객 테넌트 — 데이터 소유 (Microsoft 365 / Dynamics 365 / Azure)</text>
+                        <text class="layer-sub"   x="230" y="100">ISV는 고객 OAuth 동의를 받아 이 영역의 데이터를 SoR · SoK · SoE 세 유형으로 액세스합니다.</text>
+
+                        <!-- L1 SoR -->
+                        <foreignObject x="240" y="120" width="500" height="220">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-sor">
+                                <div class="mw-head">
+                                    <img src="../../icons/Dataverse_scalable.svg" alt=""> SoR — 비즈니스 운영 기록
+                                    <span class="mw-chip chip-sor" style="margin-left:auto;">What</span>
+                                </div>
+                                <div class="mw-sub"><b>Dynamics 365 · Dataverse</b> — 트랜잭션 · 마스터 데이터<br/>"무슨 일이 일어났는가" — 정형 · 자동 수집</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-currency-dollar"></i> Sales</span>
+                                    <span class="mw-chip"><i class="bi bi-headset"></i> Service</span>
+                                    <span class="mw-chip"><i class="bi bi-cash-coin"></i> Finance &amp; Ops</span>
+                                    <span class="mw-chip"><i class="bi bi-truck"></i> SCM</span>
+                                    <span class="mw-chip"><i class="bi bi-building"></i> BC</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L1 SoK -->
+                        <foreignObject x="760" y="120" width="500" height="220">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-sok">
+                                <div class="mw-head">
+                                    <img src="../../icons/sharepoint.svg" alt=""> SoK — 정형 지식 · 문서
+                                    <span class="mw-chip chip-sok" style="margin-left:auto;">How</span>
+                                </div>
+                                <div class="mw-sub"><b>SharePoint · OneDrive · Outlook 첨부</b> — SOP · 매뉴얼 · 정책 · 보고서<br/>"어떻게 대응하는가" — 비정형 문서 · 벡터화 가능</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><img src="../../icons/sharepoint.svg" alt=""> SharePoint Sites</span>
+                                    <span class="mw-chip"><img src="../../icons/onedrive.svg" alt=""> OneDrive Files</span>
+                                    <span class="mw-chip"><img src="../../icons/word.svg" alt=""> Word</span>
+                                    <span class="mw-chip"><img src="../../icons/excel.svg" alt=""> Excel</span>
+                                    <span class="mw-chip"><img src="../../icons/powerpoint.svg" alt=""> PPT</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L1 SoE -->
+                        <foreignObject x="1280" y="120" width="500" height="220">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-soe">
+                                <div class="mw-head">
+                                    <img src="../../icons/teams.svg" alt=""> SoE — 경험 · 암묵지
+                                    <span class="mw-chip chip-soe" style="margin-left:auto;">Why · Judgement</span>
+                                </div>
+                                <div class="mw-sub"><b>Teams 채팅/회의 · Outlook 메일 · M365 Copilot 컨텍스트</b><br/>"왜 그 판단을 했는가" — 토론 · 결정 로그 · Activity Signals</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><img src="../../icons/Chat.svg" alt=""> Teams 채팅</span>
+                                    <span class="mw-chip"><img src="../../icons/Video.svg" alt=""> 회의 트랜스크립트</span>
+                                    <span class="mw-chip"><img src="../../icons/Mail.svg" alt=""> 메일 스레드</span>
+                                    <span class="mw-chip"><img src="../../icons/copilot.svg" alt=""> Copilot Memory</span>
+                                    <span class="mw-chip"><i class="bi bi-search"></i> Semantic Index</span>
+                                    <span class="mw-chip"><i class="bi bi-graph-up"></i> People Signal</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L1 고객 Azure / Fabric -->
+                        <foreignObject x="1800" y="120" width="500" height="220">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-neutral">
+                                <div class="mw-head">
+                                    <i class="bi bi-cloud-fill" style="color:#0078D4;"></i> 고객 Azure · Fabric
+                                    <span class="mw-chip" style="margin-left:auto;">자체 자원</span>
+                                </div>
+                                <div class="mw-sub">고객이 직접 운영하는 Azure 리소스 · Fabric OneLake · 자체 LOB / 외부 SaaS<br/>(SoR · SoK · SoE가 혼재 — 고객이 분류·노출 정책 결정)</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-bar-chart-fill"></i> Fabric · OneLake</span>
+                                    <span class="mw-chip"><i class="bi bi-hdd"></i> Azure SQL · Storage</span>
+                                    <span class="mw-chip"><i class="bi bi-cpu"></i> Azure AI</span>
+                                    <span class="mw-chip"><i class="bi bi-globe"></i> 외부 SaaS (SAP · Salesforce …)</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L1 → L2 -->
+                        <path class="mw-link l-sor l-flow" d="M 490,340  L 490,420"  marker-end="url(#arrowIsv)" style="color:#2b5fd9;"/>
+                        <path class="mw-link l-sok l-flow" d="M 1010,340 L 1010,420" marker-end="url(#arrowIsv)" style="color:#0d7c66;"/>
+                        <path class="mw-link l-soe l-flow" d="M 1530,340 L 1530,420" marker-end="url(#arrowIsv)" style="color:#6b46c1;"/>
+                        <path class="mw-link l-isv l-flow" d="M 2050,340 L 2050,420" marker-end="url(#arrowIsv)" style="color:#1f3a93;"/>
+
+                        <!-- L2: MS 데이터 액세스 API -->
+                        <text class="layer-title" x="230" y="400">MS 데이터 액세스 API — 데이터 유형별 표준 표면</text>
+
+                        <foreignObject x="240" y="420" width="500" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-sor">
+                                <div class="mw-head"><img src="../../icons/Dataverse_scalable.svg" alt=""> Dataverse Web API · Custom Connectors
+                                    <span class="mw-chip chip-sor" style="margin-left:auto;">SoR</span>
+                                </div>
+                                <div class="mw-sub">D365 / Power Platform 비즈니스 데이터 CRUD — OData REST · OAuth 위임</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-check-circle"></i> GA · Web API (OData)</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-check-circle"></i> Custom Connectors</span>
+                                    <span class="mw-chip"><i class="bi bi-shield-lock"></i> 사용자 권한 트리밍</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="760" y="420" width="500" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-sok">
+                                <div class="mw-head"><img src="../../icons/msgraph.svg" alt=""> Microsoft Graph API — Files / Sites / Mail
+                                    <span class="mw-chip chip-sok" style="margin-left:auto;">SoK</span>
+                                </div>
+                                <div class="mw-sub">SharePoint · OneDrive · Outlook 첨부 — 문서 콘텐츠 · ACL · 민감도 레이블</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-check-circle"></i> GA · Graph REST + SDK</span>
+                                    <span class="mw-chip"><i class="bi bi-shield-check"></i> Sites.Read · Files.Read</span>
+                                    <span class="mw-chip"><i class="bi bi-person-check"></i> Delegated · App-only</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="1280" y="420" width="500" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-soe">
+                                <div class="mw-head"><img src="../../icons/copilot.svg" alt=""> Graph (Teams · Mail) + Work IQ API
+                                    <span class="mw-chip chip-soe" style="margin-left:auto;">SoE</span>
+                                </div>
+                                <div class="mw-sub">Teams 메시지/트랜스크립트 · Outlook 스레드(Graph) + Semantic Index · Memory · Skills(Work IQ)</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-check-circle"></i> Graph Teams / Mail · GA</span>
+                                    <span class="mw-chip chip-preview"><i class="bi bi-hourglass-split"></i> Work IQ API · Preview</span>
+                                    <span class="mw-chip chip-limit"><i class="bi bi-key"></i> M365 Copilot 라이선스</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="1800" y="420" width="500" height="160">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-fabric">
+                                <div class="mw-head"><i class="bi bi-bar-chart-fill" style="color:#1f3a93;"></i> Fabric Mirroring · OneLake Shortcuts
+                                    <span class="mw-chip" style="margin-left:auto;">Bulk Data</span>
+                                </div>
+                                <div class="mw-sub">고객 Dataverse / SQL / Snowflake 등을 <b>ISV Fabric</b>으로 무복제 미러링 — 대용량 SoR 인입에 최적</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-check-circle"></i> Dataverse Mirror · GA</span>
+                                    <span class="mw-chip chip-preview"><i class="bi bi-hourglass-split"></i> External Data Sharing · Preview</span>
+                                    <span class="mw-chip"><i class="bi bi-link-45deg"></i> Delta Parquet</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L2 → L3 -->
+                        <path class="mw-link l-isv l-flow" d="M 490,580  C 490,640  1200,680 1200,710" marker-end="url(#arrowIsv)" style="color:#1f3a93;"/>
+                        <path class="mw-link l-isv l-flow" d="M 1010,580 C 1010,640 1200,680 1200,710" marker-end="url(#arrowIsv)" style="color:#1f3a93;"/>
+                        <path class="mw-link l-isv l-flow" d="M 1530,580 C 1530,640 1200,680 1200,710" marker-end="url(#arrowIsv)" style="color:#1f3a93;"/>
+                        <path class="mw-link l-isv l-flow" d="M 2050,580 C 2050,640 1200,680 1200,710" marker-end="url(#arrowIsv)" style="color:#1f3a93;"/>
+
+                        <!-- ISV 영역 -->
+                        <rect x="200" y="690" width="2120" height="720" rx="18" fill="url(#isvBoxGrad)" stroke="#1f3a93" stroke-dasharray="6 6" stroke-width="1.4"/>
+                        <text class="layer-title" x="230" y="720" fill="#1f3a93">ISV SaaS Domain — 고객 데이터를 가져와 가치를 결합하는 영역</text>
+
+                        <!-- L3: ISV Gateway -->
+                        <foreignObject x="700" y="730" width="1000" height="120">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node mw-hub-isv">
+                                <div class="mw-head" style="font-size:1rem;">
+                                    <i class="bi bi-box-seam" style="font-size:1.3rem;"></i>
+                                    ISV Integration Gateway — "Copilot 자리"
+                                </div>
+                                <div class="mw-sub">ISV 멀티테넌트 앱이 고객 OAuth 동의 토큰으로 SoR · SoK · SoE 데이터를 위임 호출 → 가공 → ISV Fabric에 수집</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-check-circle"></i> Entra Multi-tenant App</span>
+                                    <span class="mw-chip"><i class="bi bi-shield-check"></i> OAuth 2.0 / OBO</span>
+                                    <span class="mw-chip"><i class="bi bi-cpu"></i> Ingestion · Transform · ML</span>
+                                    <span class="mw-chip"><i class="bi bi-bell"></i> Change Notifications · Webhooks</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L3 → L4 -->
+                        <path class="mw-link l-isv l-flow" d="M 1200,850 L 1200,910" marker-end="url(#arrowIsv)" style="color:#1f3a93;"/>
+
+                        <!-- L4: ISV Fabric -->
+                        <rect class="layer-frame shaded-blue" x="240" y="910" width="2060" height="270"/>
+                        <text class="layer-title" x="265" y="938">ISV Fabric — 데이터 수집 · 통합 · 분석 허브 (OneLake · Lakehouse)</text>
+                        <text class="layer-sub"   x="265" y="958">SoR / SoK / SoE 별로 인입 방식이 다르나 동일 OneLake에 통합 — Medallion(Bronze/Silver/Gold) · Semantic Model · Data Agent</text>
+
+                        <!-- SoR 인입 -->
+                        <foreignObject x="260" y="975" width="490" height="195">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-sor">
+                                <div class="mw-head"><i class="bi bi-database"></i> SoR 인입 — 대용량 정형
+                                    <span class="mw-chip chip-sor" style="margin-left:auto;">What</span>
+                                </div>
+                                <div class="mw-sub">Dataverse Mirror로 무복제 미러링 + Pipeline ETL</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-arrow-left-right"></i> Mirror</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-diagram-2"></i> Data Factory</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-funnel"></i> Pipeline</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-house-door"></i> Lakehouse · Delta</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- SoK 인입 -->
+                        <foreignObject x="770" y="975" width="490" height="195">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-sok">
+                                <div class="mw-head"><i class="bi bi-file-earmark-text"></i> SoK 인입 — 문서 · 벡터화
+                                    <span class="mw-chip chip-sok" style="margin-left:auto;">How</span>
+                                </div>
+                                <div class="mw-sub">Graph API로 파일 fetch → 파싱 → Embedding → Vector Index</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-arrow-repeat"></i> Dataflow Gen2</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-journal-code"></i> Notebook (Parsing)</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-cpu"></i> Azure OpenAI Embeddings</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-search"></i> AI Search · Vector Index</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- SoE 인입 -->
+                        <foreignObject x="1280" y="975" width="490" height="195">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-soe">
+                                <div class="mw-head"><i class="bi bi-chat-quote"></i> SoE 인입 — 대화 · 컨텍스트
+                                    <span class="mw-chip chip-soe" style="margin-left:auto;">Why</span>
+                                </div>
+                                <div class="mw-sub">Teams/Mail 스트림 → 요약 · 결정 추출 + Work IQ 호출</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-broadcast"></i> Eventstream</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-cpu"></i> Summarize · Extract</span>
+                                    <span class="mw-chip chip-preview"><i class="bi bi-puzzle"></i> Work IQ MCP Call</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-clock-history"></i> KQL Time-series</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- 모델/소비 -->
+                        <foreignObject x="1790" y="975" width="490" height="195">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-fabric">
+                                <div class="mw-head"><i class="bi bi-stars"></i> 통합 모델 · 소비
+                                    <span class="mw-chip" style="margin-left:auto;">SoR + SoK + SoE</span>
+                                </div>
+                                <div class="mw-sub">세 유형을 결합한 Semantic Model · Data Agent · Embedded</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-diagram-3"></i> Semantic Model</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-robot"></i> Data Agent</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-bar-chart"></i> Power BI Embed</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-puzzle"></i> ISV MCP 서버</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L4 → L5 -->
+                        <path class="mw-link l-isv l-flow" d="M 1200,1180 L 1200,1230" marker-end="url(#arrowIsv)" style="color:#1f3a93;"/>
+
+                        <!-- L5: ISV SaaS -->
+                        <rect class="layer-frame shaded-slate" x="240" y="1230" width="2060" height="200"/>
+                        <text class="layer-title" x="265" y="1258">ISV SaaS Application — 새 비즈니스 모델 / 가치 제안</text>
+
+                        <foreignObject x="265" y="1275" width="500" height="145">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-neutral">
+                                <div class="mw-head"><i class="bi bi-window"></i> ISV 자체 웹 · 모바일 앱</div>
+                                <div class="mw-sub">ISV 도메인 특화 UI · 워크플로우 — Fabric 데이터 백엔드</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-check-circle"></i> 완전 자유</span>
+                                    <span class="mw-chip"><i class="bi bi-graph-up"></i> Power BI Embed</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="785" y="1275" width="500" height="145">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-neutral">
+                                <div class="mw-head"><i class="bi bi-robot"></i> ISV AI Agent · 챗봇</div>
+                                <div class="mw-sub">ISV 자체 LLM + Fabric Grounding (SoR + SoK + SoE)</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-check-circle"></i> Azure OpenAI · Foundry</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-puzzle"></i> MCP 도구 노출</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="1305" y="1275" width="500" height="145">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-neutral">
+                                <div class="mw-head"><img src="../../icons/CopilotStudio_scalable.svg" alt=""> Copilot Studio · Declarative Agent</div>
+                                <div class="mw-sub">ISV Agent를 <b>고객 M365 Copilot 안</b>에 게시 (Teams Store / AppSource)</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-check-circle"></i> Agent 빌드 · 게시</span>
+                                    <span class="mw-chip chip-limit"><i class="bi bi-key"></i> 고객 Copilot 라이선스 필요</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <foreignObject x="1825" y="1275" width="455" height="145">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-neutral">
+                                <div class="mw-head"><i class="bi bi-currency-exchange"></i> 새 BIZ 모델</div>
+                                <div class="mw-sub">AppSource 마켓플레이스 · Co-sell · 구독 / 종량</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip chip-ga"><i class="bi bi-shop"></i> Microsoft AppSource</span>
+                                    <span class="mw-chip chip-ga"><i class="bi bi-cash-stack"></i> Marketplace Transact</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- L5 → L6 -->
+                        <path class="mw-link l-isv l-flow" d="M 1200,1430 L 1200,1480" marker-end="url(#arrowIsv)" style="color:#1f3a93;"/>
+
+                        <!-- L6: 사용자 -->
+                        <foreignObject x="850" y="1480" width="700" height="100">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-neutral">
+                                <div class="mw-head"><i class="bi bi-people-fill"></i> ISV 최종 사용자 (고객 조직의 업무 사용자)</div>
+                                <div class="mw-sub">ISV SaaS UI 또는 M365 Copilot 안의 ISV Agent로 가치 소비</div>
+                                <div class="mw-chips">
+                                    <span class="mw-chip"><i class="bi bi-window"></i> ISV Web/App</span>
+                                    <span class="mw-chip"><i class="bi bi-microsoft"></i> M365 Copilot 안의 ISV Agent</span>
+                                    <span class="mw-chip"><i class="bi bi-phone"></i> Mobile</span>
+                                </div>
+                            </div>
+                        </foreignObject>
+
+                        <!-- Cross: 인증/거버넌스 -->
+                        <rect x="240" y="1600" width="2060" height="80" rx="14" fill="url(#entraGradIsv)" stroke="#1B7AE3" stroke-dasharray="6 6" stroke-width="1.2"/>
+                        <foreignObject x="260" y="1608" width="2020" height="68">
+                            <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-entra" style="flex-direction:row;align-items:center;padding:8px 14px;">
+                                <i class="bi bi-shield-lock-fill" style="color:#1B7AE3; font-size:1.4rem; margin-right:8px;"></i>
+                                <div style="flex:1;">
+                                    <div class="mw-head" style="font-size:0.82rem;">Cross-Tenant 인증 · 거버넌스 — ISV 멀티테넌트 앱과 고객 Entra 사이</div>
+                                    <div class="mw-sub">ISV 앱 등록 → 고객 관리자/사용자 동의 → Delegated/App-only 토큰 → API 권한 트리밍 → 고객 Conditional Access · DLP · Purview 자동 적용</div>
+                                </div>
+                                <span class="mw-chip chip-ga"><i class="bi bi-shield-check"></i> Multi-tenant App</span>
+                                <span class="mw-chip chip-ga"><i class="bi bi-person-check"></i> Admin Consent</span>
+                                <span class="mw-chip chip-preview"><i class="bi bi-robot"></i> Agent ID</span>
+                            </div>
+                        </foreignObject>
+
+                    </svg>
+                </div>
+            </div>
+
+            <!-- 하단 인사이트 — ISV 탭 -->
+            <div class="insight-ribbon insight-ribbon-isv mt-3">
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                    <div class="flex-shrink-0">
+                        <i class="bi bi-lightbulb-fill" style="color:#cfdcff;font-size:1.4rem;"></i>
+                    </div>
+                    <div class="flex-grow-1" style="min-width:260px;">
+                        <div class="fw-bold mb-1">데이터 유형별 ISV 차별화 — SoR + SoK + SoE</div>
+                        <div class="small" style="color:#cfdcff;">
+                            <code>"SoR만으로는 모니터링·리포팅까지. 진짜 엔지니어/도메인 수준 판단은 SoK + SoE 결합이 필수"</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-2 mt-2 row-cols-1 row-cols-md-3">
+                    <div class="col">
+                        <div class="p-2 rounded" style="background:rgba(255,255,255,0.10);">
+                            <div class="small fw-bold mb-1" style="color:#c7d4f7;">SoR · System of Record</div>
+                            <div class="small" style="color:#dde6f7;">Dataverse · D365 운영 데이터. <b>Fabric Mirror</b>로 가장 잘 다룰 수 있음 — 누구나 비슷한 수준에 도달 가능 (Commodity). 가치의 약 70%.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-2 rounded" style="background:rgba(255,255,255,0.10);">
+                            <div class="small fw-bold mb-1" style="color:#bce0d6;">SoK · System of Knowledge</div>
+                            <div class="small" style="color:#dde6f7;">SharePoint/OneDrive 문서. <b>Graph API + Embedding</b>으로 인입 → 정형 대응·컴플라이언스 가이드. 회사별 규정 반영 가능.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-2 rounded" style="background:rgba(255,255,255,0.10);">
+                            <div class="small fw-bold mb-1" style="color:#d4c7ec;">SoE · System of Experience</div>
+                            <div class="small" style="color:#dde6f7;">Teams 대화 · 메일 · Copilot Memory. <b>Work IQ API + Graph Teams/Mail</b>로 일부 흡수 가능. 차별화 30% — 진짜 경쟁 영역.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- ============================================================== -->
+<!-- 인라인 JS — 두 탭에서 각각 줌/팬 컨트롤러를 초기화                 -->
+<!-- ============================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    (function () {
+        const MIN_SCALE = 0.2, MAX_SCALE = 3;
+
+        function createController(viewport) {
+            const canvas      = viewport.querySelector('.mw-canvas');
+            const zoomLevelEl = viewport.querySelector('[data-zoom="level"]');
+            const btnIn       = viewport.querySelector('[data-zoom="in"]');
+            const btnOut      = viewport.querySelector('[data-zoom="out"]');
+            const btnFit      = viewport.querySelector('[data-zoom="fit"]');
+            const btnReset    = viewport.querySelector('[data-zoom="reset"]');
+            const CANVAS_W    = parseInt(canvas.dataset.canvasW, 10) || 2200;
+            const CANVAS_H    = parseInt(canvas.dataset.canvasH, 10) || 1500;
+
+            let scale = 1, tx = 0, ty = 0;
+
+            function apply() {
+                canvas.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+                zoomLevelEl.textContent = Math.round(scale * 100) + '%';
+            }
+            function clampPan() {
+                const w = viewport.clientWidth, h = viewport.clientHeight;
+                const sW = CANVAS_W * scale, sH = CANVAS_H * scale;
+                const minX = Math.min(0, w - sW - 100);
+                const maxX = Math.max(w - 100, 100);
+                const minY = Math.min(0, h - sH - 100);
+                const maxY = Math.max(h - 100, 100);
+                tx = Math.min(maxX, Math.max(minX, tx));
+                ty = Math.min(maxY, Math.max(minY, ty));
+            }
+            function zoomAt(newScale, cx, cy) {
+                newScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, newScale));
+                const rect = viewport.getBoundingClientRect();
+                const px = (cx ?? rect.left + rect.width / 2) - rect.left;
+                const py = (cy ?? rect.top  + rect.height / 2) - rect.top;
+                tx = px - (px - tx) * (newScale / scale);
+                ty = py - (py - ty) * (newScale / scale);
+                scale = newScale;
+                clampPan();
+                apply();
+            }
+            function fit() {
+                const w = viewport.clientWidth - 24, h = viewport.clientHeight - 24;
+                if (w <= 0 || h <= 0) { apply(); return; }
+                scale = Math.max(MIN_SCALE, Math.min(w / CANVAS_W, h / CANVAS_H));
+                tx = (viewport.clientWidth - CANVAS_W * scale) / 2;
+                ty = 12;
+                apply();
+            }
+            function reset() { scale = 1; tx = 0; ty = 0; apply(); }
+
+            btnIn.addEventListener('click',    () => zoomAt(scale * 1.2));
+            btnOut.addEventListener('click',   () => zoomAt(scale / 1.2));
+            btnFit.addEventListener('click',   fit);
+            btnReset.addEventListener('click', reset);
+
+            viewport.addEventListener('wheel', (e) => {
+                if (e.ctrlKey || e.metaKey) {
+                    e.preventDefault();
+                    zoomAt(scale * (e.deltaY < 0 ? 1.1 : 1 / 1.1), e.clientX, e.clientY);
+                } else {
+                    e.preventDefault();
+                    tx -= e.deltaX;
+                    ty -= e.deltaY;
+                    clampPan(); apply();
+                }
+            }, { passive: false });
+
+            let dragging = false, lastX = 0, lastY = 0;
+            viewport.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.mw-toolbar')) return;
+                dragging = true;
+                viewport.classList.add('dragging');
+                lastX = e.clientX; lastY = e.clientY;
+            });
+            window.addEventListener('mousemove', (e) => {
+                if (!dragging) return;
+                tx += e.clientX - lastX;
+                ty += e.clientY - lastY;
+                lastX = e.clientX; lastY = e.clientY;
+                clampPan(); apply();
+            });
+            window.addEventListener('mouseup', () => {
+                dragging = false;
+                viewport.classList.remove('dragging');
+            });
+
+            return {
+                fit, reset, zoomAt,
+                getScale: () => scale,
+                isVisible: () => viewport.offsetParent !== null
+            };
+        }
+
+        const controllers = new Map();
+        document.querySelectorAll('.mw-viewport').forEach((vp) => {
+            controllers.set(vp.id, createController(vp));
+        });
+
+        // 활성 탭의 컨트롤러를 keyboard target으로
+        function activeController() {
+            const activePane = document.querySelector('.tab-pane.active.show');
+            if (!activePane) return null;
+            const vp = activePane.querySelector('.mw-viewport');
+            return vp ? controllers.get(vp.id) : null;
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            const c = activeController();
+            if (!c) return;
+            if (e.key === '+' || e.key === '=') c.zoomAt(c.getScale() * 1.2);
+            else if (e.key === '-' || e.key === '_') c.zoomAt(c.getScale() / 1.2);
+            else if (e.key === '0') c.reset();
+            else if (e.key === 'f' || e.key === 'F') c.fit();
+        });
+
+        // 탭 전환 시 활성 탭 fit
+        document.querySelectorAll('button[data-bs-toggle="tab"]').forEach((btn) => {
+            btn.addEventListener('shown.bs.tab', (e) => {
+                const targetSel = e.target.getAttribute('data-bs-target');
+                const pane = document.querySelector(targetSel);
+                if (!pane) return;
+                const vp = pane.querySelector('.mw-viewport');
+                if (!vp) return;
+                const c = controllers.get(vp.id);
+                if (c) c.fit();
+            });
+        });
+
+        window.addEventListener('load', () => {
+            const c = activeController();
+            if (c) c.fit();
+        });
+        window.addEventListener('resize', () => {
+            const c = activeController();
+            if (c) c.fit();
+        });
+    })();
+</script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-05-06T06:03:13Z",
+    "generatedAt": "2026-05-15T08:14:18Z",
     "categories": {
         "azure": {
             "label": "Azure",
@@ -19,7 +19,7 @@
                 },
                 {
                     "slug": "llm_model_migration",
-                    "title": "[Azure OpenAI] LLM 모델 마이그레이션 가이드 — GPT-4o mini → GPT-5.4 mini / nano",
+                    "title": "[AOAI] LLM 모델 마이그레이션 가이드 — GPT-4o mini → GPT-5.4 mini / nano",
                     "description": "모델 전환 문제는 \"모델 이름만 바꾸기\"가 아니라 프롬프트 · 도구 호출 · 출력 형식 · 비용 · 지연이 함께 흔들리는 엔지니어링 문제입니다. 이 가이드는 모델 위에 전환 계층을 두고, 스키마 · 가드레일 · 평가를 표준화해 안정적으로 전환하는 플랫폼 설계도를 제시합니다.",
                     "path": "azure/llm_model_migration/"
                 }
@@ -46,6 +46,12 @@
                     "title": "[Image] gpt-image-2 — OpenAI의 Duct-tape 프로젝트가 만든 새 이미지 모델",
                     "description": "OpenAI의 사내",
                     "path": "m365/create_images/"
+                },
+                {
+                    "slug": "m365_integrate",
+                    "title": "[Integration] M365 Copilot · ISV 데이터 통합 아키텍처",
+                    "description": "MS 통합 관점에서 M365 Copilot이 데이터를 활용하는 일반 흐름과, ISV가",
+                    "path": "m365/m365_integrate/"
                 },
                 {
                     "slug": "meeting_in_30min",
