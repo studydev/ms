@@ -483,13 +483,13 @@
                         <!-- L4 액세스 -->
                         <foreignObject x="100" y="750" width="480" height="160">
                             <div xmlns="http://www.w3.org/1999/xhtml" class="mw-node accent-graph">
-                                <div class="mw-head"><img src="../../icons/msgraph.svg" alt=""> Microsoft Graph</div>
-                                <div class="mw-sub">사내 콘텐츠 통합 API + Semantic Index — ACL · 민감도 · DLP 자동 적용</div>
+                                <div class="mw-head"><img src="../../icons/msgraph.svg" alt=""> Microsoft Graph <span style="font-size:0.65rem;font-weight:500;color:#5d6b86;">— Search API + CRUD</span></div>
+                                <div class="mw-sub"><b>하나의 통합 검색 표면</b> — <code>POST /search/query</code> + <code>entityTypes</code>로 SharePoint · OneDrive(<code>driveItem</code>) · Outlook 메일(<code>message</code>) · 캘린더(<code>event</code>) · Teams 메시지(<code>chatMessage</code>) 가 동일 API로. 단건 CRUD는 일반 Graph endpoint. <b>Semantic Index</b>는 이 Microsoft Search 인덱스의 superset</div>
                                 <div class="mw-chips">
-                                    <span class="mw-chip"><i class="bi bi-shield-check"></i> ACL · Sensitivity</span>
-                                    <span class="mw-chip"><i class="bi bi-search"></i> Semantic Index</span>
+                                    <span class="mw-chip"><i class="bi bi-search"></i> /search/query</span>
+                                    <span class="mw-chip"><i class="bi bi-stars"></i> Semantic Index</span>
+                                    <span class="mw-chip"><i class="bi bi-shield-check"></i> ACL · Sensitivity · DLP</span>
                                     <span class="mw-chip"><i class="bi bi-people"></i> People Signal</span>
-                                    <span class="mw-chip"><i class="bi bi-diagram-3"></i> Graph REST · SDK</span>
                                 </div>
                             </div>
                         </foreignObject>
@@ -752,7 +752,7 @@
                     <div class="col">
                         <div class="p-2 rounded" style="background:rgba(255,255,255,0.06);">
                             <div class="small fw-bold mb-1" style="color:#fde68a;">2. L3 → L4 분기</div>
-                            <div class="small" style="color:#e2e8f0;">Graph · Dataverse · MS 솔루션 · 외부 커넥터 — 4 컬럼으로 병렬 호출</div>
+                            <div class="small" style="color:#e2e8f0;">Graph(Search + CRUD) · Dataverse · MS 솔루션 · 외부 커넥터 — 4 컬럼 병렬 호출. <b>Microsoft Search API가 SharePoint · OneDrive · Outlook · Teams를 단일 통합 검색 표면</b>으로 제공</div>
                         </div>
                     </div>
                     <div class="col">
