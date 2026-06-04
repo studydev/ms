@@ -13,6 +13,19 @@
         y.parentNode.insertBefore(t, y);
     })(window, document, 'clarity', 'script', 'x1tts8cy03');
 
+    // ===== Google Analytics (gtag.js) =====
+    (function (id) {
+        var s = document.createElement('script');
+        s.async = 1;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+        var f = document.getElementsByTagName('script')[0];
+        f.parentNode.insertBefore(s, f);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', id);
+    })('G-7Q890X7C6L');
+
     // ===== Sidebar toggle (mobile) =====
     var sidebar = document.getElementById('sidebar');
     var sidebarToggle = document.getElementById('sidebarToggle');
