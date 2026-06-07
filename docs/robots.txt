@@ -1,0 +1,5 @@
+# https://ms.studydev.com robots policy
+User-agent: *
+Allow: /
+
+Sitemap: https://ms.studydev.com/sitemap.xml

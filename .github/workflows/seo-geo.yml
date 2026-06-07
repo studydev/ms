@@ -1,0 +1,54 @@
+name: Generate SEO/GEO files (sitemap, robots, llms)
+
+# docs/ 가 바뀌면 다음을 재생성해서 커밋한다.
+#   - docs/sitemap.xml · docs/robots.txt · docs/llms.txt (파생 파일)
+#   - 각 *.html <head> 안의 SEO 블록(canonical · OG · Twitter · JSON-LD) 주입
+# 이들은 전부 스크립트가 자동 생성/주입하는 내용이라 자동 커밋해도 안전하다.
+# - manifest.json 은 저장소 정책상 수동 커밋 대상이므로 여기서는 커밋하지 않는다.
+#   (스크립트가 manifest 도 다시 쓰지만, 커밋 단계에서 SEO 산출물만 add 한다.)
+# - HTML 주입은 멱등이라(마커 블록 기반) 같은 내용이면 재커밋되지 않는다.
+
+on:
+    push:
+        branches: [main]
+        paths-ignore:
+            - 'docs/sitemap.xml'
+            - 'docs/robots.txt'
+            - 'docs/llms.txt'
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+concurrency:
+    group: seo-geo-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    build-seo-geo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: '3.12'
+
+            - name: Generate sitemap / robots / llms + inject SEO into HTML
+              run: |
+                  python3 scripts/generate_manifest.py
+
+            - name: Commit generated SEO/GEO output
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  # manifest.json 은 수동 커밋 정책이므로 의도적으로 제외한다.
+                  git add docs/sitemap.xml docs/robots.txt docs/llms.txt 'docs/**/*.html'
+                  if git diff --cached --quiet; then
+                      echo "No SEO/GEO changes to commit."
+                      exit 0
+                  fi
+                  git commit -m "chore: regenerate sitemap/robots/llms + SEO head [skip ci]"
+                  git push
