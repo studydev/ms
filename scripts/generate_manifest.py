@@ -16,6 +16,7 @@ Title/description are extracted from the <title> tag and first <p class="lead"> 
 from __future__ import annotations
 
 import json
+import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -31,6 +32,7 @@ LLMS = DOCS / "llms.txt"
 SITE_URL = "https://ms.studydev.com"
 SITE_TITLE = "MS Tech"
 SITE_TAGLINE = "Microsoft 기술(Azure · Microsoft 365 · GitHub) 한국어 학습 자료 모음."
+SITE_AUTHOR = "Hyounsoo Kim"
 
 CATEGORIES = {
     "azure":  {"label": "Azure",         "description": "Azure Foundry, AI Agent, Cosmos DB, App Service 등 Azure 전반."},
@@ -133,6 +135,56 @@ SEO_BLOCK_RE = re.compile(
 HEAD_CLOSE_RE = re.compile(r"</head>", re.IGNORECASE)
 IMG_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".gif"}
 
+# HowTo is opt-in: a page declares it in <head> with author-controlled meta tags.
+#   <meta name="seo:howto" content="HowTo 이름">
+#   <meta name="seo:howto-step" content="단계 이름">   (2개 이상, 문서 순서대로)
+# Optional "이름 :: 설명" splits into HowToStep name/text.
+HOWTO_NAME_RE = re.compile(
+    r'<meta\s+name=["\']seo:howto["\']\s+content=(["\'])(.*?)\1', re.IGNORECASE | re.DOTALL
+)
+HOWTO_STEP_RE = re.compile(
+    r'<meta\s+name=["\']seo:howto-step["\']\s+content=(["\'])(.*?)\1', re.IGNORECASE | re.DOTALL
+)
+
+
+def _person_author() -> dict:
+    return {"@type": "Person", "name": SITE_AUTHOR}
+
+
+def _publisher() -> dict:
+    return {"@type": "Organization", "name": SITE_TITLE, "url": SITE_URL + "/"}
+
+
+def build_howto(base_html: str, abs_url: str, desc: str, date: str) -> dict | None:
+    """Build an opt-in HowTo node from author-provided meta tags, else None."""
+    name_m = HOWTO_NAME_RE.search(base_html)
+    if not name_m:
+        return None
+    steps_raw = [m.group(2).strip() for m in HOWTO_STEP_RE.finditer(base_html)]
+    steps_raw = [s for s in steps_raw if s]
+    if len(steps_raw) < 2:
+        return None
+    steps = []
+    for i, raw in enumerate(steps_raw, start=1):
+        name, _, text = raw.partition("::")
+        step = {"@type": "HowToStep", "position": i, "name": name.strip()}
+        if text.strip():
+            step["text"] = text.strip()
+        steps.append(step)
+    howto = {
+        "@type": "HowTo",
+        "name": name_m.group(2).strip(),
+        "description": desc,
+        "url": abs_url,
+        "inLanguage": "ko-KR",
+        "author": _person_author(),
+        "publisher": _publisher(),
+        "datePublished": date,
+        "dateModified": date,
+        "step": steps,
+    }
+    return howto
+
 
 def _attr_escape(text: str) -> str:
     return (
@@ -179,7 +231,7 @@ def _page_meta(html_path: Path, html: str) -> dict:
     }
 
 
-def build_seo_block(html_path: Path, html: str) -> str:
+def build_seo_block(html_path: Path, html: str, date: str) -> str:
     """Build the canonical + Open Graph + Twitter + JSON-LD block for one page."""
     meta = _page_meta(html_path, html)
     title, desc, kind, cat = meta["title"], meta["desc"], meta["kind"], meta["cat"]
@@ -221,18 +273,21 @@ def build_seo_block(html_path: Path, html: str) -> str:
         })
 
     if kind == "home":
-        graph = [{**website, "description": desc, "inLanguage": "ko-KR"}]
+        graph = [{**website, "description": desc, "inLanguage": "ko-KR",
+                  "author": _person_author(), "dateModified": date}]
     elif kind == "category":
         graph = [
             {"@type": "CollectionPage", "name": title, "description": desc,
-             "url": abs_url, "inLanguage": "ko-KR", "isPartOf": website},
+             "url": abs_url, "inLanguage": "ko-KR", "isPartOf": website,
+             "author": _person_author(), "dateModified": date},
             {"@type": "BreadcrumbList", "itemListElement": crumbs},
         ]
     else:  # doc
         article = {
             "@type": "TechArticle", "headline": title, "description": desc,
             "url": abs_url, "inLanguage": "ko-KR", "isPartOf": website,
-            "publisher": {"@type": "Organization", "name": SITE_TITLE, "url": SITE_URL + "/"},
+            "author": _person_author(), "publisher": _publisher(),
+            "datePublished": date, "dateModified": date,
         }
         if og_image:
             article["image"] = og_image
@@ -242,6 +297,10 @@ def build_seo_block(html_path: Path, html: str) -> str:
         })
         graph = [article, {"@type": "BreadcrumbList", "itemListElement": crumbs}]
 
+    howto = build_howto(html, abs_url, desc, date)
+    if howto:
+        graph.append(howto)
+
     lines.append('    <script type="application/ld+json">')
     lines.append(_jsonld({"@context": "https://schema.org", "@graph": graph}))
     lines.append("    </script>")
@@ -250,19 +309,27 @@ def build_seo_block(html_path: Path, html: str) -> str:
 
 
 def inject_seo(pages: list[Path]) -> int:
-    """Insert/replace the SEO block before </head> in each page. Returns #changed."""
+    """Insert/replace the SEO block before </head> in each page. Returns #changed.
+
+    The page's mtime is preserved across injection so that sitemap <lastmod> and
+    the JSON-LD datePublished/dateModified stay pinned to the real content date
+    (a genuine author edit still bumps mtime and thus the date).
+    """
     changed = 0
     for page in pages:
+        st = page.stat()
+        date = datetime.fromtimestamp(st.st_mtime, tz=timezone.utc).strftime("%Y-%m-%d")
         html = page.read_text(encoding="utf-8", errors="ignore")
         # Recompute from the page with any previous block removed (idempotent).
         base = SEO_BLOCK_RE.sub("", html)
-        block = build_seo_block(page, base)
+        block = build_seo_block(page, base, date)
         if not HEAD_CLOSE_RE.search(base):
             print(f"  ! no </head> in {page.relative_to(ROOT)}, skipped")
             continue
         new = HEAD_CLOSE_RE.sub(block + "\n</head>", base, count=1)
         if new != html:
             page.write_text(new, encoding="utf-8")
+            os.utime(page, (st.st_atime, st.st_mtime))  # preserve content date
             changed += 1
     return changed
 
