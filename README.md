@@ -1,6 +1,6 @@
 # ms.studydev.com
 
-> **Microsoft 기술 문서 허브** — Azure · Microsoft 365 · GitHub 관련 한국어 학습 자료를 한곳에서.
+> **Microsoft 기술 관련 문서 모음** — Azure · Microsoft 365 · GitHub 관련 한국어 학습 자료를 한곳에서 by StudyDev.
 
 [![Live Site](https://img.shields.io/badge/site-ms.studydev.com-0078D4?logo=microsoft-azure&logoColor=white)](https://ms.studydev.com)
 [![GitHub Pages](https://img.shields.io/badge/hosting-GitHub%20Pages-24292E?logo=github&logoColor=white)](https://pages.github.com)
