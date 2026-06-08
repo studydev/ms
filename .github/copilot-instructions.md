@@ -214,7 +214,48 @@ docs/                          # GitHub Pages 루트
 
 ---
 
-## 4. Git & 배포
+## 4. SEO / GEO 자동화
+
+검색엔진(SEO) + 생성형 AI(GEO) 대응을 위해 `scripts/generate_manifest.py`가 **manifest.json 외에 다음도 함께 생성·주입**합니다. 새 문서를 추가하거나 제목/설명이 바뀌면 이 스크립트 한 번 실행으로 전부 갱신됩니다.
+
+### 스크립트가 생성하는 산출물
+
+| 산출물 | 용도 |
+|--------|------|
+| `docs/sitemap.xml` | 전체 공개 페이지 URL + `lastmod` (파일 mtime 기준) |
+| `docs/robots.txt` | 전체 허용 + Sitemap 포인터 |
+| `docs/llms.txt` | GEO용 — LLM이 사이트 구조를 읽도록 카테고리·문서 목록 제공 |
+| 각 HTML `<head>` SEO 블록 | canonical · Open Graph · Twitter Card · JSON-LD (TechArticle/CollectionPage/WebSite + BreadcrumbList + 옵트인 HowTo) |
+
+### 주입 블록 규칙 (멱등성)
+
+- 각 페이지 `<head>`에 `<!-- SEO:AUTO START ... -->` ~ `<!-- SEO:AUTO END -->` 마커로 SEO 블록이 자동 주입됩니다.
+- **이 마커 사이 내용은 절대 수동 편집하지 말 것** — 다음 실행에서 덮어써집니다. 메타를 바꾸려면 `<title>`/`<meta name="description">` 원본을 고치고 스크립트를 재실행합니다.
+- 스크립트는 mtime을 보존(`os.utime`)하므로 재실행해도 sitemap·JSON-LD 날짜가 밀리지 않습니다. **2차 실행 시 "0 page(s) updated"가 정상**입니다.
+
+### author · 날짜
+
+- 모든 JSON-LD의 author는 `SITE_AUTHOR = "Hyounsoo Kim"` (Person)로 고정됩니다.
+- `datePublished`/`dateModified`는 파일 mtime 기준이며 sitemap `lastmod`와 동일합니다. 날짜는 실제 콘텐츠 수정 시점에만 변합니다.
+
+### HowTo 구조화 데이터 (옵트인)
+
+- **절차형 가이드 페이지에만** HowTo JSON-LD를 추가합니다. 개념·사이클 설명 페이지에는 넣지 않습니다.
+- 적용 방법: 해당 페이지 `<head>`의 **SEO:AUTO 블록 밖**(저자 관리 영역)에 아래 meta를 추가하고 스크립트를 실행합니다.
+    ```html
+    <meta name="seo:howto" content="HowTo 제목">
+    <meta name="seo:howto-step" content="단계이름 :: 단계 설명">
+    <meta name="seo:howto-step" content="다음단계 :: 설명">
+    ```
+- `seo:howto-step`은 본문 단계 순서대로, **최소 2개** 이상. `이름 :: 설명` 형식(`::` 구분)이며 `::`가 없으면 전체가 설명이 됩니다.
+
+### 배포 워크플로
+
+- `.github/workflows/seo-geo.yml`이 `main` push 시 스크립트를 실행해 `sitemap.xml`·`robots.txt`·`llms.txt` + `docs/**/*.html`을 커밋합니다 (`manifest.json`은 제외 — 수동 커밋 유지).
+
+---
+
+## 5. Git & 배포
 
 - 기본 브랜치: `main` (= GitHub Pages 소스).
 - Pages 서빙 경로: `/docs`.
@@ -225,7 +266,7 @@ docs/                          # GitHub Pages 루트
 
 ---
 
-## 5. 요청 대응 가이드
+## 6. 요청 대응 가이드
 
 ### 사용자가 "○○에 대한 글/가이드 만들어줘" 라고 하면
 
@@ -234,7 +275,8 @@ docs/                          # GitHub Pages 루트
 3. **폴더 생성**: `docs/<category>/<slug>/index.html`.
 4. **공용 CSS/JS 링크**만 사용 (상대 경로 `../../css/site.css`).
 5. **카테고리 상단 링크**: 각 페이지 사이드바 또는 breadcrumb에 "← ○○ 카테고리로" 제공.
-6. **manifest.json 업데이트**: 해당 카테고리 `docs` 배열에 새 엔트리 추가.
+6. **(절차형 문서면) HowTo 옵트인**: `<head>`의 SEO:AUTO 블록 밖에 `<meta name="seo:howto">` + 순서대로 `<meta name="seo:howto-step" content="이름 :: 설명">`(최소 2개) 추가 (§4 참고).
+7. **`scripts/generate_manifest.py` 실행**: manifest.json + sitemap/robots/llms + 각 페이지 SEO `<head>` 블록을 한 번에 갱신하고 같은 커밋에 포함.
 
 ### 사용자가 "스타일 바꿔줘" 라고 하면
 
@@ -249,7 +291,7 @@ docs/                          # GitHub Pages 루트
 
 ---
 
-## 6. 보안 & 품질
+## 7. 보안 & 품질
 
 - OWASP Top 10 준수. 사용자 입력 처리 시 이스케이프 필수.
 - 외부 리소스는 신뢰 가능한 CDN만 사용 (jsdelivr / Google Fonts / MS Learn).
