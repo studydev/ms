@@ -58,8 +58,8 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 # ms.studydev.com/docs Copilot Guidelines
 
-이 저장소(`studydev/ms`)는 **Microsoft 기술 전반(Azure · M365 · GitHub)**에 대한 한국어 학습 자료를 정적 웹사이트로 공개하는 프로젝트입니다.
-사이트는 `docs/` 디렉토리를 루트로 하여 **https://ms.studydev.com** 으로 서비스됩니다 (GitHub Pages + CNAME + HTTPS).
+이 저장소(`studydev/ms`)는 StudyDev가 관리하는 개인 블로그입니다. **Microsoft 기술 전반(Azure · M365 · GitHub)**에 대한 한국어 학습 자료를 정적 웹사이트로 공개하는 프로젝트입니다.
+사이트는 `docs/` 디렉토리를 루트로 하여 **https://ms.studydev.com** 으로 서비스 됩니다 (GitHub Pages + CNAME + HTTPS).
 
 Copilot이 콘텐츠를 생성하거나 편집할 때 아래 규칙을 **반드시** 따릅니다.
 
@@ -134,7 +134,7 @@ docs/                          # GitHub Pages 루트
 - **메인 랜딩(카테고리 카드형)**에는 사이드바 없음 → `.has-sidebar` 붙이지 않음.
 - **상단 네비**는 `top-nav` + `nav-brand` + `breadcrumb` 동일 구조 유지.
 - **`nav-brand` (좌측 상단 브랜드)는 모든 페이지에서 고정 규칙을 따른다 — UX 일관성을 위해 절대 변경하지 않는다:**
-    - 텍스트: **`MS Tech`** (다른 값 금지 — 제품명/서비스명으로 바꾸지 말 것)
+    - 텍스트: **`SD Tech`** (다른 값 금지 — 제품명/서비스명으로 바꾸지 말 것)
     - 아이콘: `<i class="bi bi-microsoft"></i>`
     - 링크: **항상 사이트 루트(Home)**. 파일 깊이에 맞춘 상대 경로만 사용.
         - `docs/index.html` → `href="./"`

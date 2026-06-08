@@ -30,7 +30,7 @@ LLMS = DOCS / "llms.txt"
 
 # Canonical site origin (matches docs/CNAME). No trailing slash.
 SITE_URL = "https://ms.studydev.com"
-SITE_TITLE = "MS Tech"
+SITE_TITLE = "SD Tech"
 SITE_TAGLINE = "Microsoft 기술(Azure · Microsoft 365 · GitHub) 한국어 학습 자료 모음."
 SITE_AUTHOR = "Hyounsoo Kim"
 

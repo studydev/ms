@@ -1,4 +1,4 @@
-# MS Tech
+# SD Tech
 
 > Microsoft 기술(Azure · Microsoft 365 · GitHub) 한국어 학습 자료 모음.
 
