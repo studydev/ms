@@ -18,6 +18,8 @@
     --m365-gradient: linear-gradient(135deg, #EB8317, #D83B01);
     --github-color: #24292E;
     --github-gradient: linear-gradient(135deg, #6e5494, #24292E);
+    --models-color: #5B3DF5;
+    --models-gradient: linear-gradient(135deg, #8E7BFF, #4B2FD6);
 }
 
 * { box-sizing: border-box; }
@@ -128,6 +130,14 @@ body {
     color: var(--m365-color); border-left-color: var(--m365-color);
     background: #FFF3E0;
 }
+/* Models page variant */
+.page-models .hero-section {
+    background: linear-gradient(135deg, #12002E 0%, #2E1065 40%, var(--models-color) 100%);
+}
+.page-models .hero-section::before {
+    background: radial-gradient(circle, rgba(142,123,255,0.20) 0%, transparent 70%);
+}
+.page-models .section-title i { color: var(--models-color); }
 
 /* ===== Studio page variant (e-commerce product studio guide) ===== */
 .page-studio .hero-section {
@@ -471,6 +481,7 @@ body {
 .category-card.azure .card-icon { background: linear-gradient(135deg, var(--azure-primary), var(--azure-dark)); }
 .category-card.m365 .card-icon { background: var(--m365-gradient); }
 .category-card.github .card-icon { background: var(--github-gradient); }
+.category-card.models .card-icon { background: var(--models-gradient); }
 
 .agent-card h3, .category-card h3 { font-weight: 700; font-size: 1.3rem; margin-bottom: 0.3rem; }
 .agent-card .badge-type {

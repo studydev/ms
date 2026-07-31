@@ -31,13 +31,14 @@ LLMS = DOCS / "llms.txt"
 # Canonical site origin (matches docs/CNAME). No trailing slash.
 SITE_URL = "https://ms.studydev.com"
 SITE_TITLE = "SD Tech"
-SITE_TAGLINE = "Microsoft 기술(Azure · Microsoft 365 · GitHub) 한국어 학습 자료 모음."
+SITE_TAGLINE = "Microsoft 기술(Azure · Microsoft 365 · GitHub)과 최신 LLM 모델(Models) 한국어 학습 자료 모음."
 SITE_AUTHOR = "Hyounsoo Kim"
 
 CATEGORIES = {
     "azure":  {"label": "Azure",         "description": "Azure Foundry, AI Agent, Cosmos DB, App Service 등 Azure 전반."},
     "m365":   {"label": "Microsoft 365", "description": "Copilot, Graph API, Teams, SharePoint 등."},
     "github": {"label": "GitHub",        "description": "GitHub Actions, Copilot, Codespaces 등."},
+    "models": {"label": "Models",        "description": "Claude · GPT 등 최신 LLM 모델의 릴리스, 벤치마크, 활용 인사이트."},
 }
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.IGNORECASE | re.DOTALL)
@@ -116,9 +117,12 @@ def _xml_escape(text: str) -> str:
 
 
 def list_pages() -> list[Path]:
-    """Every public *.html under docs/ (excludes 404.html), sorted by URL."""
+    """Every public *.html under docs/ (excludes 404.html and _-prefixed templates)."""
     return sorted(
-        (p for p in DOCS.rglob("*.html") if p.name != "404.html"),
+        (
+            p for p in DOCS.rglob("*.html")
+            if p.name != "404.html" and not p.name.startswith("_")
+        ),
         key=_url_for,
     )
 
@@ -134,6 +138,7 @@ SEO_BLOCK_RE = re.compile(
 )
 HEAD_CLOSE_RE = re.compile(r"</head>", re.IGNORECASE)
 IMG_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".gif"}
+OG_IMAGE_NAMES = {"og", "cover", "thumbnail", "hero"}
 
 # HowTo is opt-in: a page declares it in <head> with author-controlled meta tags.
 #   <meta name="seo:howto" content="HowTo 이름">
@@ -202,11 +207,14 @@ def _jsonld(obj: dict) -> str:
 
 def _find_og_image(html_path: Path) -> str | None:
     img_dir = html_path.parent / "images"
-    if img_dir.is_dir():
-        for img in sorted(img_dir.iterdir()):
-            if img.is_file() and img.suffix.lower() in IMG_EXTS:
-                return SITE_URL + "/" + img.relative_to(DOCS).as_posix()
-    return None
+    if not img_dir.is_dir():
+        return None
+    imgs = [p for p in sorted(img_dir.iterdir()) if p.is_file() and p.suffix.lower() in IMG_EXTS]
+    if not imgs:
+        return None
+    # A social-card image wins over whatever happens to sort first.
+    preferred = next((p for p in imgs if p.stem.lower() in OG_IMAGE_NAMES), imgs[0])
+    return SITE_URL + "/" + preferred.relative_to(DOCS).as_posix()
 
 
 def _page_meta(html_path: Path, html: str) -> dict:
@@ -373,7 +381,7 @@ def write_llms(manifest: dict) -> None:
         "",
         (
             "모든 문서는 한국어로 작성되며, 기술 용어는 영문을 그대로 사용합니다. "
-            "각 항목은 Azure · Microsoft 365 · GitHub 세 카테고리로 분류됩니다."
+            "각 항목은 Azure · Microsoft 365 · GitHub · Models 네 카테고리로 분류됩니다."
         ),
         "",
     ]

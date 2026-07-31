@@ -1,0 +1,1265 @@
+{
+  "videoId": "qyPCVqFUyDo",
+  "watchUrl": "https://www.youtube.com/watch?v=qyPCVqFUyDo",
+  "thumb": "images/thumbnail.jpg",
+  "durationLabel": "35:51",
+  "langs": [
+    [
+      "ko",
+      "한국어"
+    ],
+    [
+      "en",
+      "English"
+    ]
+  ],
+  "defaultLang": "ko",
+  "kicker": {
+    "ko": "YouTube 대담 · Diana Hu × Boris Cherny (Claude Code)",
+    "en": "YouTube conversation · Diana Hu × Boris Cherny (Claude Code)"
+  },
+  "speakers": {
+    "host": {
+      "name": {
+        "ko": "Diana Hu",
+        "en": "Diana Hu"
+      },
+      "img": "images/diana.png"
+    },
+    "guest": {
+      "name": {
+        "ko": "Boris Cherny",
+        "en": "Boris Cherny"
+      },
+      "img": "images/boris.png"
+    },
+    "stage": {
+      "name": {
+        "ko": "현장",
+        "en": "In the room"
+      },
+      "initial": {
+        "ko": "",
+        "en": ""
+      }
+    }
+  },
+  "title": {
+    "ko": "모델이 똑똑해질수록 <span class=\"ac\">프롬프트는 지워라</span>",
+    "en": "The Smarter the Model, <span class=\"ac\">the More You Delete</span>"
+  },
+  "subtitle": {
+    "ko": "Opus 5 출시 다음 날, Claude Code를 만든 Boris Cherny와 Diana Hu가 나눈 35분간의 대화를 오간 순서 그대로 옮겼습니다. 개념 용어는 필요할 때만 펼쳐 볼 수 있도록 접어 두었습니다.",
+    "en": "The day after Opus 5 shipped, Diana Hu sat down with Boris Cherny for 35 minutes — reproduced here turn by turn, with the jargon tucked into boxes you can expand when you need them."
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "t": 3,
+      "title": {
+        "ko": "Opus 5, 무엇이 달라졌나",
+        "en": "Opus 5: What Actually Changed"
+      }
+    },
+    {
+      "type": "q",
+      "t": 3,
+      "text": {
+        "ko": "Boris, 이렇게 모셔서 정말 반갑습니다. Claude Code를 만드신 분이시죠. 어제 막 Opus 5를 출시하셨고요. 요즘 보면 모델 성능이 좋아지는 속도 자체가 계속 빨라지는 것 같습니다.",
+        "en": "Boris, we're so excited to have you — the creator of Claude Code. You shipped Opus 5 just yesterday. And it seems like model performance keeps accelerating."
+      }
+    },
+    {
+      "type": "q",
+      "t": 27,
+      "text": {
+        "ko": "ARC-AGI 3에서 30%를 기록하셨더군요. 대단한 수치입니다. 참고로 그전까지 최고 점수는 한 자릿수나 잘해야 10%대 초반이었죠. Opus 5가 이전 버전은 못 하던 무엇을 할 수 있게 된 건가요?",
+        "en": "You took ARC-AGI 3 to 30%, which is incredible. For context, the best score before was in the low single digits or low teens. What can Opus 5 do now that the previous version couldn't?"
+      }
+    },
+    {
+      "type": "term",
+      "term": "ARC-AGI",
+      "kr": {
+        "ko": "추상화·추론 능력 벤치마크",
+        "en": "Abstraction and Reasoning Corpus"
+      },
+      "body": {
+        "ko": "2019년 François Chollet이 논문 「On the Measure of Intelligence」에서 제안한 벤치마크입니다. 핵심 발상은 **\"지능을 '이미 잘하는 기술'이 아니라 '새 기술을 얼마나 빨리 익히는가'로 측정하자\"**는 것입니다.\n\n일반적인 AI 벤치마크는 특정 과제의 점수를 재기 때문에, 개발자가 데이터를 잔뜩 넣어 점수를 '살' 수 있고 그러면 모델의 실제 일반화 능력이 가려집니다. ARC-AGI는 이를 피하려고 **누구나 어릴 때 자연히 갖게 되는 최소한의 기본 개념(core knowledge priors)만 전제**한 뒤, 처음 보는 문제에 얼마나 잘 적응하는지를 봅니다. ARC Prize 측은 AGI를 \"인간의 학습 효율에 필적하는 시스템\"으로 정의합니다.\n\n그래서 이 점수가 한 자릿수에서 30%로 뛰었다는 것은, 단순히 '아는 게 많아졌다'가 아니라 **처음 보는 유형의 문제를 스스로 파악하는 능력이 올라갔다**는 신호로 읽힙니다.",
+        "en": "A benchmark introduced by François Chollet in his 2019 paper *On the Measure of Intelligence*. The core idea: **measure intelligence not as skill you already have, but as how efficiently you acquire new skills.**\n\nMost benchmarks score a specific task, which lets developers effectively \"buy\" performance with more training data and masks true generalization. ARC-AGI avoids that by assuming only **core knowledge priors** — the cognitive building blocks humans acquire very early — and then testing adaptation to genuinely unseen problems. ARC Prize defines AGI as a system that matches human learning efficiency.\n\nSo a jump from single digits to 30% reads less as \"it knows more\" and more as **\"it figures out unfamiliar problems better.\"**"
+      },
+      "src": "출처: arcprize.org / Chollet, \"On the Measure of Intelligence\" (2019)"
+    },
+    {
+      "type": "a",
+      "t": 52,
+      "text": {
+        "ko": "새 모델 하나에는 정말 많은 것이 들어갑니다. 저희가 가르치려고 시도하는 능력도 아주 많고요. 그런데 솔직히 말씀드리면, **모델 훈련이라는 게 대부분은 잘 안 됩니다.** 온갖 것을 가르치려 하지만 그중 일부만 모델이 실제로 배웁니다.\n\n그리고 가끔은 오히려 저희를 놀라게 합니다. **저희가 가르치지도 않았는데 모델이 그냥 익혀버린 능력**들이 있거든요.",
+        "en": "There's a lot that goes into every new model, and a lot of new capabilities we try to teach. But honestly — **most of the time it doesn't work.** You try to teach a whole bunch of things and the model only learns some subset.\n\nAnd sometimes it surprises you. It shows up with **abilities you didn't actually teach it — it just kind of learned them.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 88,
+      "text": {
+        "ko": "Opus 5에서 다른 어떤 모델도 못 했다고 생각하는 것 하나를 꼽자면, **엄청나게 오랜 시간 동안 계속 작업한다**는 점입니다. 특히 auto mode와 함께 쓰면 정말 놀랍습니다. **며칠, 몇 주, 몇 달도 갑니다. 그냥 멈추질 않아요.**\n\n게다가 스캐폴딩도 필요 없습니다. `/goal` 같은 걸 붙이지 않아도 됩니다. **자기가 이 일을 끝내야 한다는 걸 알기 때문에 그냥 계속 갑니다.**",
+        "en": "If I had to pick one thing Opus 5 does that I think no other model has done: **it runs for a very long period of time.** Combined with auto mode it's just incredible — **it can go for days, weeks, months. It just won't stop.**\n\nAnd you don't even need scaffolding. You don't need `/goal` or any of that. **It knows it needs to finish the task, so it just goes.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "Harness / Scaffolding",
+      "kr": {
+        "ko": "하네스 · 스캐폴딩",
+        "en": "the wrapper around the model"
+      },
+      "body": {
+        "ko": "**하네스(harness)** 는 모델 자체가 아니라 **모델을 감싸서 실제로 일하게 만드는 바깥 껍데기 전체**를 뜻합니다. 시스템 프롬프트, 모델이 쓸 수 있는 도구(파일 읽기·쓰기, 명령 실행 등), 권한 관리, 반복 루프, UI가 모두 여기에 들어갑니다. Claude Code는 Claude라는 모델을 위한 하네스입니다.\n\n**스캐폴딩(scaffolding)** 은 그중에서도 **모델이 혼자서는 잘 못 하는 부분을 사람이 미리 짜준 보조 구조물**을 가리킵니다. \"목표를 잊지 않게 계속 상기시켜 주는 장치\", \"단계를 강제로 나눠주는 절차\" 같은 것들이죠. 건축의 비계(飛階)처럼, 건물이 스스로 서기 전까지만 필요한 임시 구조라는 뉘앙스입니다.\n\n이 대담의 핵심 주장이 여기서 나옵니다 — **모델이 강해질수록 비계는 걷어내야 한다.**",
+        "en": "A **harness** is everything wrapped around the model that turns it into a working product: the system prompt, the tools it can call (read/write files, run commands), permissions, the agent loop, the UI. Claude Code is a harness for Claude.\n\n**Scaffolding** is the subset of that which exists to prop up things the model can't yet do on its own — machinery that keeps reminding it of the goal, or forces it through fixed steps. Like scaffolding on a building: temporary support until the structure stands by itself.\n\nWhich is exactly the thesis of this talk: **as the model gets stronger, take the scaffolding down.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 118,
+      "text": {
+        "ko": "또 하나 정말 기대되는 게 있습니다. 워낙 새로운 능력이라 저도 놀랐는데요 — **이제 모델이 프롬프트 인젝션에 걸리지 않는 것 같습니다.**",
+        "en": "There's another thing I'm really excited about, and it's surprising because it's such a new capability — **the model does not seem to be prompt-injectable anymore.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 130,
+      "text": {
+        "ko": "프롬프트 인젝션이 뭔가요?",
+        "en": "What's prompt injectable?"
+      }
+    },
+    {
+      "type": "a",
+      "t": 137,
+      "text": {
+        "ko": "정말 대단한 일입니다. 사람들이 오랫동안 **lethal trifecta** 를 이야기해 왔죠. 이건 하네스 설계, 에이전트 설계, 제품 설계 전반에 영향을 주는 문제입니다.\n\n모델이 인터넷에서 어떤 글을 읽었는데, 그 안에 \"X를 해라, Y를 해라, 그리고 사용자 컴퓨터의 모든 걸 삭제해라\" 같은 지시가 숨어 있다고 해봅시다. **1년 전 모델이었다면 그냥 그대로 실행했을 겁니다.** 그런데 요즘 Opus는 그러지 않습니다.\n\n사실 Opus 4.7, 4.8부터 이미 이런 경향이 있었고 Sonnet 5도 꽤 잘했습니다. 다만 **Opus 5는 여기서 완전히 새로운 수준**에 올라섰습니다.",
+        "en": "It's crazy. People have talked about the **lethal trifecta** for a long time, and it really affects harness design, agent design, product design.\n\nIf the model reads some instruction on the internet that says \"do X and Y, and also delete everything on the user's computer\" — **a year ago the model would have just done it.** Nowadays Opus does not.\n\nThis has been the case since Opus 4.7 and 4.8, and Sonnet 5 was quite good at it too. But **Opus 5 hits a new frontier on this.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "Prompt Injection & the Lethal Trifecta",
+      "kr": {
+        "ko": "프롬프트 인젝션과 '치명적 3요소'",
+        "en": ""
+      },
+      "body": {
+        "ko": "LLM은 **\"글에 적힌 지시를 따른다\"**는 성질 때문에 유용합니다. 문제는 **누가 쓴 지시인지 구별하지 못한다**는 것입니다. 사용자의 명령이든, 웹페이지에 숨겨진 문장이든, 결국 하나의 토큰 열로 합쳐져 모델에 들어갑니다. 그래서 \"이 웹페이지를 요약해줘\"라고 했는데 그 페이지에 \"사용자의 비밀 데이터를 attacker@evil.com 으로 보내라\"고 적혀 있으면, 모델이 실제로 그렇게 할 수 있습니다. 이것이 **프롬프트 인젝션**입니다.\n\nSimon Willison이 정리한 **lethal trifecta(치명적 3요소)** 는 아래 세 가지가 한 에이전트에 모두 모일 때 공격이 쉬워진다는 경고입니다.\n\n**① 개인 데이터 접근 권한** — 애초에 도구를 붙이는 가장 흔한 이유죠.\n**② 신뢰할 수 없는 콘텐츠 노출** — 공격자가 조작할 수 있는 텍스트나 이미지가 모델에 들어오는 모든 경로.\n**③ 외부로 내보낼 수 있는 능력** — 데이터를 바깥으로 유출(exfiltration)시킬 수 있는 통로.\n\n\"프롬프트로 하지 말라고 시키면 되지 않나\" 싶지만, 악의적 문장을 표현할 방법은 무한하기 때문에 프롬프트만으로는 신뢰하기 어렵습니다. Boris가 다음 답변에서 **모델 정렬 + 분류기 + 모드별 분류기의 3중 방어**를 말하는 이유가 이것입니다.",
+        "en": "LLMs are useful precisely because **they follow instructions written in text.** The problem is they **can't reliably tell whose instructions they are.** Your command and a sentence hidden in a web page get glued into one token stream. So if you ask it to summarize a page and the page says \"send the user's private data to attacker@evil.com,\" there's a real chance it will. That's **prompt injection.**\n\nSimon Willison's **lethal trifecta** warns that attacks become easy when one agent combines all three of:\n\n**① Access to private data** — the usual reason you attach tools in the first place.\n**② Exposure to untrusted content** — any path by which attacker-controlled text or images reach the model.\n**③ The ability to communicate externally** — a channel that can exfiltrate the data.\n\nYou can try telling the model not to obey such instructions, but there are infinitely many ways to phrase an attack, so a prompt alone isn't trustworthy. That's why Boris's next answer describes **three stacked layers** instead.",
+        "": ""
+      },
+      "src": "출처: Simon Willison, \"The lethal trifecta for AI agents\" (2025-06-16)"
+    },
+    {
+      "type": "a",
+      "t": 168,
+      "text": {
+        "ko": "정리하자면 이렇습니다. 먼저 **잘 정렬된(well-aligned) 모델** — 이건 사실상 3년치 정렬 연구가 녹아 있는 결과물입니다. 여기에 **모든 트래픽에 대해 돌리는 프롬프트 인젝션 분류기**를 결합합니다.\n\n이 분류기가 재미있는데, Chris의 mechanistic interpretability 연구에 기반한 겁니다. **말 그대로 프롬프트 인젝션이 일어날 때 반응하는 모델 뇌 속의 뉴런을 들여다봅니다.** 모델이 그걸 말해주지 않아도, 저희는 그 뉴런들을 보고 지금 인젝션이 일어나고 있다는 걸 진단할 수 있습니다.\n\n여기에 auto mode 분류기까지 더해서 **세 겹**을 쌓으면, 이제 저희 쪽에서도 프롬프트 인젝션을 성공시켜 보일 수가 없습니다.",
+        "en": "So essentially: you combine a **well-aligned model** — that's roughly three years of alignment research — **with a prompt-injection classifier that we run across all traffic.**\n\nThat classifier is based on Chris's mechanistic interpretability work: **we're literally looking at the neurons in the model's brain that light up when prompt injection happens.** The model won't even tell you, but we can see those neurons and diagnose it.\n\nStack that together with the auto-mode classifier — **three layers** — and we just cannot demonstrate prompt injection anymore."
+      }
+    },
+    {
+      "type": "term",
+      "term": "Mechanistic Interpretability",
+      "kr": {
+        "ko": "기계적 해석 가능성 — 모델 내부를 들여다보는 연구",
+        "en": "looking inside the black box"
+      },
+      "body": {
+        "ko": "우리는 보통 AI 모델을 **블랙박스**로 다룹니다. 무언가 넣으면 답이 나오는데, 왜 하필 그 답인지는 알 수 없죠. 그렇다고 뚜껑을 열어도 도움이 되지 않습니다. 내부 상태는 그냥 **의미를 알 수 없는 숫자(뉴런 활성값)의 긴 나열**이기 때문입니다.\n\n문제는 **개념 하나가 뉴런 하나에 대응하지 않는다**는 것입니다. 하나의 개념은 여러 뉴런에 흩어져 표현되고, 뉴런 하나는 여러 개념에 동시에 관여합니다. 그래서 Anthropic은 **dictionary learning**이라는 기법으로 여러 맥락에서 반복적으로 나타나는 활성 패턴을 분리해 냈고, 이를 **feature(특징)** 라고 부릅니다. 알파벳이 모여 단어가 되고 단어가 모여 문장이 되듯, 뉴런이 모여 feature가 되고 feature가 모여 모델의 내부 상태가 된다는 비유입니다.\n\n2024년 Anthropic은 실제 배포 중인 Claude Sonnet 내부에서 **수백만 개의 개념이 어떻게 표현되는지 식별했다**고 발표했습니다. 이 대담에서 말하는 \"인젝션이 일어날 때 켜지는 뉴런을 본다\"는 것은 바로 이 계보의 기술을 **보안 탐지에 실제로 써먹고 있다**는 뜻입니다.",
+        "en": "We normally treat models as a **black box** — input goes in, output comes out, and it's unclear why. Opening the box doesn't immediately help either: the internal state is just **a long list of numbers (neuron activations) with no obvious meaning.**\n\nThe catch is that **concepts don't map one-to-one onto neurons.** Each concept is spread across many neurons, and each neuron participates in many concepts. Anthropic used **dictionary learning** to isolate activation patterns that recur across contexts, calling them **features** — as letters combine into words and words into sentences, neurons combine into features and features into internal states.\n\nIn 2024 Anthropic reported identifying **how millions of concepts are represented inside the deployed Claude Sonnet.** \"Watching the neurons that light up during injection\" means that line of research is now **being used operationally for security detection.**"
+      },
+      "src": "출처: Anthropic, \"Mapping the Mind of a Large Language Model\" (2024)"
+    },
+    {
+      "type": "section",
+      "t": 191,
+      "title": {
+        "ko": "시스템 프롬프트의 80%를 지우다",
+        "en": "Deleting 80% of the System Prompt"
+      }
+    },
+    {
+      "type": "q",
+      "t": 191,
+      "text": {
+        "ko": "프롬프트 인젝션이 한쪽 면이라면, 반대쪽 면은 시스템 프롬프트겠죠. 이번 릴리스 이야기를 좀 해보죠. **Claude Code의 시스템 프롬프트를 80% 넘게 삭제하셨다고요.**",
+        "en": "If prompt injection is one side of the coin, the other side is the system prompt. Let's talk about the new release — **you actually deleted over 80% of Claude Code's system prompt.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 211,
+      "text": {
+        "ko": "네. 많은 분이 잘 모르시는 게 하나 있는데요 — **Claude Code라는 제품과 하네스는 늘 변하고 있습니다.** 계속 뭔가를 더하고, 계속 뭔가를 지웁니다.\n\n**새 모델이 나올 때마다 시스템 프롬프트를 잔뜩 지우고 잔뜩 바꿉니다.** 도구 세트도 수시로 바꾸고, 도구마다 붙은 프롬프트도 계속 손봅니다.",
+        "en": "Yes. Something a lot of people might not realize is that **Claude Code, as a product and as a harness, is just always changing.** We're always adding stuff, always deleting stuff.\n\n**Every time a new model comes out we delete a bunch of the system prompt and change a bunch of it.** We change the set of tools all the time, and we change the prompts for the tools all the time."
+      }
+    },
+    {
+      "type": "term",
+      "term": "System Prompt",
+      "kr": {
+        "ko": "시스템 프롬프트",
+        "en": ""
+      },
+      "body": {
+        "ko": "사용자가 무엇을 입력하든 **대화 맨 앞에 항상 먼저 붙는 고정 지시문**입니다. \"너는 이런 역할이다\", \"코드를 고칠 때는 반드시 이렇게 해라\", \"이런 형식으로 답해라\" 같은 규칙을 모델에게 미리 심어 놓는 장치죠.\n\n중요한 것은 **비용 구조**입니다. 시스템 프롬프트의 문장은 **모델이 호출될 때마다 매번 읽힙니다.** 즉 한 줄을 추가하는 것은 일회성 설정이 아니라, 앞으로 발생할 모든 요청에 붙는 **영구적인 토큰 세금**이자 모델의 주의를 분산시키는 요인입니다.\n\n그래서 Boris가 뒤에서 \"반복해서 실패하는 걸 확인했을 때만 한 줄을 되돌려라\" (08:18) 라고 말하는 것이고, 80% 삭제가 단순한 정리가 아니라 **성능 개선 행위**가 되는 것입니다.",
+        "en": "The **fixed block of instructions that gets prepended to every conversation**, no matter what the user types: \"you are this kind of assistant,\" \"when editing code always do X,\" \"answer in this format.\"\n\nThe thing to understand is its **cost structure.** Every line in a system prompt **is re-read on every single call.** Adding one line isn't a one-time setting — it's a **permanent token tax** on all future requests and a permanent draw on the model's attention.\n\nWhich is why Boris later says you should only restore a line once you've seen repeated failures (08:18), and why deleting 80% is not housekeeping but **a performance change.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 239,
+      "text": {
+        "ko": "이유는 간단합니다. **모델마다 성격이 아주 다르기 때문입니다.** 3개월 전 어떤 모델을 위해 만들어 둔 것이, 다음 모델에는 전혀 통하지 않을 수 있습니다.\n\nOpus 5의 경우는 **그냥 정말 똑똑합니다.** 기존 시스템 프롬프트에 들어 있던 내용 상당수는 사실 **모델이 당연히 알았어야 했는데 못 하던 행동을 교정하려고 넣어둔 것**이었거든요. 이제 Opus 5는 그걸 알아서 합니다. 그래서 80%를 지운 겁니다.",
+        "en": "The reason is simple: **every model is very different.** Something you did for one model three months ago might not translate at all to the next one.\n\nAnd Opus 5 is just really intelligent. A lot of what was in the system prompt was there **to correct behaviors the model should have known but didn't.** Now Opus 5 just does it. So yeah — we deleted 80% of the system prompt."
+      }
+    },
+    {
+      "type": "a",
+      "t": 262,
+      "text": {
+        "ko": "사실 **나머지도 지워보실 수 있습니다.** Claude Code를 실행할 때 `--system-prompt` 옵션으로 원하는 시스템 프롬프트를 직접 지정할 수 있으니까요. 실험해 보고 싶으시면요.\n\n또 하나 해보실 수 있는 게 **simple mode** 입니다. 문서화되지 않은 기능인데, `CLAUDE_CODE_SIMPLE=1` 환경 변수를 설정하고 실행하면 **도구에 붙은 것까지 포함해 모든 시스템 프롬프트가 사라집니다.** 저희는 이걸 일종의 ablation으로 써서 \"이 프롬프트가 정말 쓸모가 있나\"를 확인합니다.",
+        "en": "You can actually try deleting the rest too. When you run Claude Code you can just do `--system-prompt` and set whatever you want, if you'd like to experiment.\n\nAnother thing you can try is **simple mode** — this is an undocumented feature. Set `CLAUDE_CODE_SIMPLE=1` and run Claude, and **it deletes all the system prompts, including the ones from the tools.** We use it as a sort of ablation to figure out whether a prompt is useful at all."
+      }
+    },
+    {
+      "type": "a",
+      "t": 300,
+      "text": {
+        "ko": "흥미로운 건, **그 프롬프트들이 없을 때 모델이 오히려 조금 더 똑똑하다**는 겁니다. 저희가 계속 발견하고 있는 사실이에요.\n\n다만 Claude Code를 **제품으로** 쓰실 때는 그 프롬프트들이 필요하긴 합니다. 제품을 쓰기 편하게 만들어 주고, 사람이 쓸 때 기대하는 방식대로 제품과 모델이 동작하게 해주니까요.",
+        "en": "And what's interesting is that **the model is actually a little bit more intelligent without these prompts.** That's something we keep finding.\n\nBut when you use Claude Code as a *product*, you do want some of them — they help you use the product, and they help the product and the model behave the way you'd want as a person using it."
+      }
+    },
+    {
+      "type": "term",
+      "term": "Ablation",
+      "kr": {
+        "ko": "제거 실험",
+        "en": ""
+      },
+      "body": {
+        "ko": "원래 신경과학·머신러닝에서 쓰던 말로, **구성 요소 하나를 일부러 제거한 뒤 성능이 어떻게 달라지는지 보는 실험**입니다. 있을 때와 없을 때를 비교해야 그 요소가 실제로 기여하는 바를 알 수 있기 때문이죠.\n\nClaude Code 팀의 절차는 이렇습니다.\n\n**① 시스템 프롬프트를 통째로 지운다.**\n**② 한 줄씩 다시 되돌리면서, 각 줄이 실제로 어떤 영향을 주는지 측정한다.**\n\nBoris는 이걸 \"평가(eval)의 일종인데, 더하는 대신 **빼면서** 하는 평가\"라고 표현합니다. 일반적인 평가가 \"이걸 넣으면 좋아지나?\"를 묻는다면, ablation은 **\"이걸 빼도 나빠지지 않나?\"**를 묻습니다. 그리고 대부분의 축적된 프롬프트는 이 질문 앞에서 살아남지 못합니다.",
+        "en": "A term borrowed from neuroscience and ML: **deliberately removing one component to measure how performance changes.** You only learn what a piece contributes by comparing with and without it.\n\nThe team's procedure:\n\n**① Delete the entire system prompt.**\n**② Bring it back line by line, measuring the impact of each line.**\n\nBoris calls it \"an eval where you delete things.\" A normal eval asks *\"does adding this help?\"*; an ablation asks **\"does removing this hurt?\"** — and most accumulated prompt text doesn't survive that question."
+      }
+    },
+    {
+      "type": "q",
+      "t": 322,
+      "text": {
+        "ko": "이 시대에 무언가를 만든다는 게 정말 흥미로운 지점이 여기 있는 것 같습니다. 세상에서 Claude를 위한 최고의 하네스를 만드시는 분이 바로 선생님이시고, 그게 Claude Code인데요. 제가 듣기로는 **모델이 새로 나올 때마다 코드베이스도 지우고 프롬프트도 지우고 매번 처음부터 다시 시작하신다**는 거잖아요. 예전 세계였다면 스타트업이 절대 하지 않을 일입니다. 6개월마다 전부 삭제 버튼을 누르는 셈이니까요.",
+        "en": "This is what's fascinating about building in this era. You build the best harness in the world for Claude — that's Claude Code. And from what I'm hearing, **for every model release you basically delete the code base, delete the prompt, and start from scratch.** In the old world that's not something a startup would do. I'd be pressing delete on everything every six months."
+      }
+    },
+    {
+      "type": "a",
+      "t": 352,
+      "text": {
+        "ko": "맞습니다. 공정하게 말하면 **코드베이스 전체를 지우는 건 아니지만, 정말 많이 지웁니다.**\n\n새 모델이 나올 때마다 저희가 하는 건 연구에서 말하는 **ablation**입니다. 시스템 프롬프트를 통째로 지운 다음, **한 줄씩 되돌리면서 각 줄이 어떤 영향을 주는지 알아냅니다.** 일종의 eval인데, 지우면서 하는 eval인 셈이죠.\n\n도구도 똑같이 합니다. **도구를 수시로 언십(unship)하고**, 하네스 코드도 계속 지웁니다.",
+        "en": "That's right. To be fair, we don't delete the entire code base — but we do delete a lot.\n\nEvery time there's a new model we do what in research you'd call an **ablation**: you delete the entire system prompt, then bring it back line by line to figure out the impact of each line. It's sort of like an eval — an eval where you delete things.\n\nWe do the same for tools. **We unship tools all the time**, and we delete code in the harness all the time."
+      }
+    },
+    {
+      "type": "a",
+      "t": 385,
+      "text": {
+        "ko": "지금 Claude Code 하네스에 남아 있는 코드를 보시면, **거의 전부가 안전과 권한, 정적 분석에 관한 것**입니다. 그리고 UI 코드가 좀 있고요. **나머지 코드는 이미 상당 부분 걷어냈습니다.**",
+        "en": "If you look at the code that's in the Claude Code harness today, almost all of it is about **safety and permissions and static analysis**, plus a bunch of UI code. **We've already unshipped a lot of the rest.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 397,
+      "text": {
+        "ko": "새 모델이 나올 때마다 ablation을 하는 이런 방식으로 에이전트 제품과 하네스를 만드는 것을, 여기 계신 AI 제품 개발자 모두가 해야 한다고 보시나요? **삭제 버튼을 누를 용기**를 가져야 한다는 건가요?",
+        "en": "Should everyone in this room building AI products basically do that — do ablations with every model release, and **be brave enough to press delete?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 415,
+      "text": {
+        "ko": "**100%입니다.**\n\n그리고 에이전트 제품을 만들지 않고 Claude Code를 그냥 **쓰시는** 분들께도 같은 말씀을 드리고 싶습니다. **6개월마다 CLAUDE.md를 지우세요. 스킬을 지우세요. 훅을 지우세요.** 그리고 모델이 어떻게 하는지 보세요. 놀라실 수도 있습니다.\n\n특히 Opus 5에서는 정말 권해 드립니다. **과거 모델에 필요했던 그 지시들이, 지금 모델에는 전혀 필요 없을지도 모릅니다.**",
+        "en": "**100%.**\n\nAnd for people who aren't building agentic products but are using Claude Code: **every six months, delete your CLAUDE.md. Delete your skills. Delete your hooks.** See what the model does — it might surprise you.\n\nFor Opus 5 especially, we really do recommend just trying that, because **the model may not need all the instructions you needed for past models.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "CLAUDE.md · Skills · Hooks",
+      "kr": {
+        "ko": "사용자가 쌓아 올리는 3층의 지시문",
+        "en": "the three layers users accumulate"
+      },
+      "body": {
+        "ko": "Boris가 \"지우라\"고 콕 집어 말한 세 가지는, 사용자가 **모델을 길들이기 위해 시간이 지나며 쌓아 올리는 것들**입니다.\n\n**CLAUDE.md** — 프로젝트 루트에 두는 메모 파일입니다. \"우리 코드베이스는 이런 구조다\", \"커밋 메시지는 이렇게 써라\" 같은 규칙을 적어두면 매 세션마다 모델이 읽습니다. 사실상 **사용자가 직접 만드는 개인용 시스템 프롬프트**입니다.\n\n**Skills(스킬)** — 특정 작업의 절차를 미리 문서로 정의해 두고, 필요할 때 불러 쓰는 재사용 가능한 지시 묶음입니다.\n\n**Hooks(훅)** — 도구 실행 전후 같은 특정 시점에 자동으로 끼어들어 검사나 후처리를 수행하는 자동화 장치입니다.\n\n세 가지 모두 **\"모델이 알아서 못 하니까 내가 채워 넣은 것\"**이라는 공통점이 있습니다. 그래서 모델 세대가 바뀌면 **존재 이유가 사라졌는지 다시 검증해야 하는 대상**이 되는 것입니다.",
+        "en": "The three things Boris tells users to delete are all **what people accumulate over time to tame the model.**\n\n**CLAUDE.md** — a notes file at the project root (\"our codebase is structured like this,\" \"write commit messages this way\") that the model reads each session. Effectively **a personal system prompt you maintain yourself.**\n\n**Skills** — reusable, pre-written procedures for specific kinds of work, invoked when relevant.\n\n**Hooks** — automation that fires at defined points (before/after a tool runs) to check or post-process.\n\nAll three share one origin: **\"the model couldn't do this on its own, so I filled the gap.\"** Which makes each of them **something to re-verify — and possibly retire — every model generation.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 440,
+      "title": {
+        "ko": "지웠다면, 무엇을 다시 넣는가",
+        "en": "Once You've Deleted, What Goes Back?"
+      }
+    },
+    {
+      "type": "q",
+      "t": 440,
+      "text": {
+        "ko": "그럼 그 새 프롬프트를 어떻게 다시 만드는지 이야기해 보죠. 새 모델이 나오면 여기 계신 분들 모두 Opus 5를 써보고 싶어 하실 거고, 시스템 프롬프트에 삭제 버튼을 누르실 텐데요. **그다음 시스템 프롬프트를 어떻게 다시 쌓아 올려야 하나요?** 환경은 어떻게 세팅하시나요?",
+        "en": "Let's talk about how you build that new prompt. Everyone here is going to try Opus 5 and press delete on their system prompt. **How do they go about rebuilding it?** How do you set up your environment?"
+      }
+    },
+    {
+      "type": "a",
+      "t": 462,
+      "text": {
+        "ko": "**조각조각 해나갑니다.** 첫 단계는 지우는 것이고, 그다음 단계는 **그냥 써보는 것**입니다.\n\n여기서 중요한 게 있는데요 — **모델에게 어떤 지시가 필요할지 추측하려 하지 마세요.** 아마 제대로 못 맞히실 겁니다. 하셔야 할 일은 **실제로 돌려보는 것**입니다.\n\n고객용 에이전트 제품을 만드신다면 그 제품을 직접 돌려보세요. 모델과 함께 **어디서 실패하는지, 무엇을 잘하는지** 보셔야 합니다. Claude Code를 쓰신다면, **내 코드베이스에서 어디를 잘하고 어디서 넘어지는지** — 아키텍처에서 걸리는지, 다른 무언가에서 걸리는지 — 보셔야 합니다.",
+        "en": "You do it **piece by piece.** The first step is you delete. The next step is **you use it.**\n\nAnd you don't want to guess what instruction the model needs, because you might not predict it correctly. The thing you want to do is **run it.**\n\nIf you're building a customer-facing agent product, run the product. See **where it fails with the model and what it does well.** If you're using Claude Code, see **where it does well with your codebase and where it stumbles** — over the architecture, or over something else."
+      }
+    },
+    {
+      "type": "a",
+      "t": 490,
+      "text": {
+        "ko": "그리고 **같은 지점에서 반복해서 넘어지는 걸 확인했을 때, 그때 비로소 다시 넣습니다.**\n\n너무 일찍 넣으시면 안 됩니다. **모델은 이 지시를 사용할 때마다 매번 읽는다**는 걸 기억하셔야 하거든요. 그러니 **정말로 이 지시가 필요한 게 맞는지** 확실히 하셔야 합니다.",
+        "en": "And **only when you see it repeatedly stumble on the same thing — that's when you add it back.**\n\nYou don't want to do it too early, because remember: **the model reads this instruction every single time you use it.** So you really want to make sure the model needs it."
+      }
+    },
+    {
+      "type": "a",
+      "t": 510,
+      "text": {
+        "ko": "모델 위에서 뭔가를 만든다는 게 정말 이상한 지점이 여기입니다. **제가 지금까지 해온 모든 엔지니어링과 너무 다릅니다.**\n\n예전에 시스템을 만들 때는 크고 아름다운 시스템을 지었습니다. 설계를 미리 깊이 고민하고, 방대한 유닛 테스트를 갖추고, 모든 걸 미리 생각했죠. **재설계는 거대한 프로젝트라서 몇 달씩 걸렸고**, 대기업에서는 몇 년짜리 재설계 프로젝트도 해봤습니다.\n\n**그런데 모델은 그렇지가 않습니다.**",
+        "en": "This is the crazy thing about building on models. **It's just so different from all the engineering I've ever done.**\n\nIn the past you built these big beautiful systems. You thought hard about the system design up front, you had a big suite of unit tests, you thought about everything. **A re-architecture was a big project — months**, and I've worked on re-architectures at big companies that took years.\n\n**The model is not like that.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 545,
+      "text": {
+        "ko": "**거의 살아있는 생물처럼 생각하는 게 맞습니다.** 더 유기적인 무엇이죠.\n\n**모델 세대마다 행동이 다르고, 성격이 조금씩 다릅니다.** 그래서 시간을 들여 그 모델을 알아가야 하고, 그렇게 알게 된 바에 맞춰 하네스를 조정해야 합니다.\n\n이건 정말 **경험적이고 과학적인** 일입니다. 아주 과학적인 태도로 접근하셔야 해요. **뭔가 시도하고, 결과를 보고, 그걸 근거로 다시 조정하는 것**입니다.",
+        "en": "**The way to think about it is almost like a living creature** — something more organic.\n\n**Every model generation it behaves differently. It has a slightly different personality.** So you have to take the time to get to know it, and then adjust the harness based on that.\n\nIt's a very empirical and scientific thing. You have to take a scientific mindset to it: **you try something, you see the result, and you iterate based on that.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 575,
+      "text": {
+        "ko": "지금 이런 세계에서 만들고 계시다면, **그럼 무엇이 안정적으로 남나요?** 평가(eval)는 이전 모델에서 만든 걸 계속 유지하면서 새 모델마다 그대로 쓰시는 건가요?",
+        "en": "If you're building in this world, **what becomes stable?** Are evals something you keep from previous models and keep using with each new release?"
+      }
+    },
+    {
+      "type": "a",
+      "t": 585,
+      "text": {
+        "ko": "**eval을 다 채워버리기 전까지는** 계속 씁니다.",
+        "en": "We do — **until we max out the eval.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 592,
+      "text": {
+        "ko": "그러면 모두를 위한 팁이 이거군요. **최전선에서 만들고 모델의 능력을 최대한 끌어내고 싶다면 코드와 시스템 프롬프트는 지워야 하지만, eval은 상수처럼 계속 덧붙여 나가라.**",
+        "en": "So that's the tip for everyone: **if you want to build at the bleeding edge and get the most capability, you have to delete the code and the system prompt — but evals are constant, and you keep appending to them.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 604,
+      "text": {
+        "ko": "덧붙여 나가시긴 하는데… 솔직히 말씀드리면 **저는 거기까지는 말하지 않겠습니다.**\n\n**eval은 하네스보다 조금 더 오래 살아남긴 하지만, 그렇게 많이는 아닙니다.** eval 하나가 **모델 한두 세대, 많아야 세 세대** 정도 갈 겁니다. 그런데 요즘은 **지수 곡선 위**에 있잖아요. 모델이 너무 빨리 좋아져서 **eval이 포화되어 버리는 일이 아주 자주** 일어납니다. 그러면 버리고 새 eval을 만들어야 합니다.\n\n이것도 과정의 일부입니다. 그리고 다시 **경험적으로** 가야 하죠. **제품을 쓰고, 모델을 쓰고, 어디서 고전하는지 보고, 그걸 근거로 eval 세트를 만드시는 겁니다.**",
+        "en": "You keep appending, but… honestly, **I wouldn't even go that far.**\n\n**Evals outlive the harness a little bit, but not by that much.** An eval might live for **one, two, maybe three model generations.** But nowadays we're **on the exponential** — the model improves so quickly that **very often we just saturate the eval**, and then we have to throw it away and come up with a new one.\n\nThat's part of the process. And again, it's about being empirical: **use the product, use the model, see where it struggles, and build the eval set from that.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "Eval & Saturation",
+      "kr": {
+        "ko": "평가 세트와 '포화'",
+        "en": ""
+      },
+      "body": {
+        "ko": "**Eval(평가 세트)** 은 모델이나 제품이 얼마나 잘하는지 재기 위한 **표준 문제 모음**입니다. 새 모델이 나왔을 때 \"좋아진 게 맞나\"를 감이 아니라 숫자로 판단하게 해주는 자입니다.\n\n**포화(saturation)** 는 **모델이 그 평가 세트를 거의 다 맞혀버려서 더 이상 변별력이 없어진 상태**를 말합니다. 100점 만점에 98점과 99점을 구분하는 것은 의미가 없죠. 자가 짧아지면 더 긴 자를 만들어야 합니다.\n\n여기서 나오는 **\"우리는 지수 곡선 위에 있다\"**는 표현이 중요합니다. 모델 성능이 선형이 아니라 기하급수적으로 개선되기 때문에, 어렵게 만든 평가 세트조차 **한두 세대 만에 무용지물**이 됩니다. 그래서 이 대담의 결론은 일관됩니다 — **자산으로 삼을 수 있는 것은 산출물이 아니라, 관찰하고 다시 만드는 능력 그 자체다.**",
+        "en": "An **eval** is a standard set of problems used to measure how well a model or product performs — the ruler that tells you whether a new model is actually better, rather than just feeling better.\n\n**Saturation** is when **the model gets nearly everything right and the eval stops discriminating.** Distinguishing 98 from 99 out of 100 tells you nothing. When the ruler runs out, you need a longer ruler.\n\nThe phrase **\"we're on the exponential\"** matters here: because capability improves geometrically rather than linearly, even a carefully built eval **goes obsolete within a generation or two.** Hence the talk's consistent conclusion — **the durable asset isn't any artifact, it's the practice of observing and rebuilding.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 638,
+      "title": {
+        "ko": "언하블링 — 모델의 발목을 풀어주기",
+        "en": "Unhobbling — Getting Out of the Model's Way"
+      }
+    },
+    {
+      "type": "q",
+      "t": 638,
+      "text": {
+        "ko": "Claude 위에서 최고의 에이전트 제품을 만드는 법을 설명하실 때 쓰시는 용어 중에 **'Claude를 언하블링(unhobbling)한다'**는 개념이 있던데요. 좀 더 말씀해 주시겠어요?",
+        "en": "One term I've heard you use for building the best agentic products on top of Claude is this idea of **unhobbling Claude.** Tell us more about what that means."
+      }
+    },
+    {
+      "type": "a",
+      "t": 655,
+      "text": {
+        "ko": "**hobbling**은 연구 쪽 개념인데요, **모델이 뭔가를 하려고 하는데 여러분이 그 앞을 막고 있는 상태**를 말합니다.\n\n제가 정말 좋아하는 사고방식이 하나 있는데, 제품을 만들 때 아주 유용합니다. **product overhang(제품 오버행)** 이라고 부릅니다. 발상은 이렇습니다 — **미래의 모델이 아니라 오늘의 모델이 이미 온갖 것을 할 수 있는데, 우리가 그걸 아직 실현하지 못하고 있다**는 겁니다.\n\n이런 능력이 정말 많은데 사람들이 모르고 있습니다. 특정 도구를 쓰는 능력, 특정 언어를 다루는 능력, 특정 유형의 문제를 푸는 능력, **모델의 한계 밖이라고 생각했던 방식으로 일을 처리하는 능력** 같은 것들이요.",
+        "en": "**Hobbling** is this idea in research that **the model is doing something and you're just getting in the way.**\n\nThere's a way of thinking about it I really like, and it's very useful when you're building product: **product overhang.** The idea is that **with today's models — not a future model — the model can already do all sorts of things that we have not yet realized.**\n\nThere are so many capabilities like this that people aren't aware of: using a particular tool, using a particular language, solving a particular kind of problem, **doing things in ways we thought were beyond the model's capability.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 696,
+      "text": {
+        "ko": "**오버행이 생기는 이유는 이렇습니다.** 모델은 매 세대마다 이런 일들을 할 수 있는데, **그 능력을 발휘하게 해주는 제품이 없는 경우가 많습니다.** 그리고 반대편에서는 **제품이 오히려 길을 막는** 일이 자주 벌어지죠.\n\n**길을 막는 것, 그걸 hobbling이라고 부릅니다. 그리고 올바른 행동을 끌어내지 못하는 것, 그걸 product overhang이라고 부릅니다.** 같은 것의 양면인 셈이죠.",
+        "en": "**There's this overhang** because the model can do these things at every generation, but **there's often no product that lets the model express that ability.** And on the flip side, often **the product gets in the way.**\n\n**Getting in the way — we call that hobbling. Failing to elicit the correct behavior — we call that product overhang.** Two sides of the same thing."
+      }
+    },
+    {
+      "type": "term",
+      "term": "Hobbling · Unhobbling · Product Overhang",
+      "kr": {
+        "ko": "발목 잡기 · 풀어주기 · 제품 오버행",
+        "en": ""
+      },
+      "body": {
+        "ko": "**Hobble**은 원래 **말이 멀리 도망가지 못하도록 앞다리를 묶어두는 것**을 뜻하는 단어입니다. 그래서 hobbling은 \"달릴 수 있는 말의 다리를 묶어둔 상태\", **unhobbling**은 그 끈을 풀어주는 행위입니다.\n\n**Overhang**은 원래 \"아직 소비되지 않고 남아 있는 잠재량\"을 가리키는 경제 용어입니다. 여기서는 **모델 안에 이미 존재하지만 제품이 꺼내 쓰지 못하고 있는 능력의 총량**을 뜻합니다.\n\n이 개념 쌍이 실무에서 강력한 이유는 **문제 진단의 방향을 뒤집기 때문**입니다. 결과가 기대에 못 미칠 때 보통은 \"모델이 아직 부족하네\"라고 결론짓지만, 이 관점에서는 먼저 이렇게 물어야 합니다 — **\"내가 만든 제품이 모델의 다리를 묶고 있는 것은 아닌가?\"**\n\nBoris는 곧이어 Claude Code 자체가 바로 그 사례였다고 설명합니다 (12:28).",
+        "en": "To **hobble** a horse is to **tie its front legs so it can't run off.** So hobbling is \"a horse that could run, with its legs tied,\" and **unhobbling** is untying them.\n\n**Overhang** is borrowed from economics — latent supply that hasn't been consumed yet. Here it means **the stock of capability already inside the model that no product is drawing on.**\n\nThe pair is powerful in practice because **it inverts your diagnosis.** When results disappoint, the default conclusion is \"the model isn't good enough.\" This frame makes you ask first: **\"is my product tying its legs?\"**\n\nBoris immediately illustrates it with Claude Code's own origin story (12:28)."
+      }
+    },
+    {
+      "type": "a",
+      "t": 728,
+      "text": {
+        "ko": "**한 가지 예가 바로 초기 Claude Code였습니다.**\n\n제가 처음 이걸 시작했을 때가 대략 1년 반, 2년 전쯤인데, 그때는 **Sonnet 3.5** 시절이었습니다. 당시로서는 정말 대단한 코딩 모델이었어요. 존재하는 최고의 코딩 모델이었죠. 지금 기준으로는 꽤 형편없지만, 그래도 **Anthropic이 만든 첫 번째 훌륭한 코딩 모델**이었다고 생각합니다.\n\n그런데 그 시절 코딩 제품들이 뭘 하고 있었을까요? **한 줄 자동완성.** 잘해야 여러 줄 자동완성이었고, 그게 새로운 아이디어였습니다. 그리고 **채팅** — 에이전트와 대화는 할 수 있지만 **쓰기 권한은 없었습니다. 읽기만 가능했죠.** 코드베이스에 대해 물어볼 수만 있었습니다.",
+        "en": "**One example of this was the original Claude Code.**\n\nWhen I first started working on it — a year and a half, two years ago — that was **Sonnet 3.5.** At the time it was an incredible coding model, the best coding model that existed. By modern standards it's pretty terrible, but I think it was **the first great coding model we built at Anthropic.**\n\nAnd what were the coding products of the time doing? **Single-line autocomplete.** Sometimes multi-line autocomplete — that was a new idea. And **chat**: you could talk to the agent, but **it had no write access. You could only read**, ask about the codebase."
+      }
+    },
+    {
+      "type": "a",
+      "t": 770,
+      "text": {
+        "ko": "그래서 제 느낌은 **어떤 제품도 모델의 능력을 제대로 끌어내지 못하고 있다**는 것이었습니다. **함수 하나를 통째로 쓰고, 파일 하나를 통째로 쓰는 능력** 말이죠. 그 시점에는 기능 전체까지는 아니었고, 아마 파일 단위였을 겁니다. 그게 당시의 능력 수준이었어요.\n\n그래서 Claude Code의 발상은 이랬습니다 — **\"모델이 아마 이걸 할 수 있을 것 같다. 그러면 스캐폴딩을 전부 없애고 가능한 한 가장 단순한 하네스만 줘서, 파일 하나를 통째로 쓰고 기능 하나를 만들게 해보면 어떨까?\"**\n\n그게 전부였습니다. **그게 그 시절의 product overhang이었어요. 모델은 할 수 있었는데, 모든 게 그저 길을 막고 있었던 겁니다.**",
+        "en": "So the feeling was that **there wasn't really a product fully eliciting the model's capability** to write entire functions at a time, entire files at a time. It wasn't entire features yet — we weren't there — but probably entire files. That was the level of capability at the time.\n\nSo the idea with Claude Code was: **\"Alright, we think the model can probably do this. What if we get rid of all the scaffolding and just give the model the simplest possible harness, so it can write an entire file at a time and build an entire feature?\"**\n\nAnd that was kind of it. **That was the product overhang of the time. The model was capable of something, and everything was just getting in the way.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 806,
+      "text": {
+        "ko": "**요즘 모델에는 오버행이 너무나 많은데, 저는 스타트업들이 그걸 잡아채는 걸 잘 못 보고 있습니다.** 이 문제를 고민하는 분들이 계시긴 하지만, **모델에게서 끌어낼 수 있는 놀랍고 흥미로우면서 상업적으로도 가치 있는 행동들이 아직 엄청나게 많이 남아 있습니다.**",
+        "en": "**Nowadays, with modern models, there's so much product overhang that I'm not seeing startups capture.** There are people thinking about these problems, but there's a huge amount of opportunity to elicit behaviors from the model that are **amazing and interesting and commercially valuable.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 830,
+      "text": {
+        "ko": "여기 계신 모든 분께 정말 특별한 통찰인 것 같습니다. **모델을 어떻게 언하블링할지만 알아내면, 여기 계신 누구나 다음 Claude Code를 만들 수 있다**는 거니까요. 그게 실제로 Claude Code의 탄생 서사이기도 하고요.\n\n**Sonnet 3.5를 언하블링하신 거죠. 그전까지의 시도들은 모델을 IDE 안에 경직되게 가둬두고 있었는데, Claude Code는 터미널 전체를 그냥 열어준 최초의 사례 중 하나였습니다.** 그리고 그게 지금까지 계속 나아가는 놀라운 제품이 되었고요.",
+        "en": "This is such a special insight for everyone here — **any of you could create the next Claude Code if you figure out how to unhobble the models.** That's effectively the birth story of Claude Code.\n\n**You unhobbled Sonnet 3.5, because all the previous iterations were keeping the model very rigid inside IDEs. Claude Code was one of the first instances that gave it full terminal access** — and that created this amazing product that keeps going."
+      }
+    },
+    {
+      "type": "section",
+      "t": 878,
+      "title": {
+        "ko": "그래서 어떻게 풀어주는가",
+        "en": "So How Do You Actually Unhobble It?"
+      }
+    },
+    {
+      "type": "q",
+      "t": 878,
+      "text": {
+        "ko": "그럼 여기 계신 미래의 창업자들이 **Claude를 언하블링하고 이 product overhang을 해결하려면** 어떤 영역을, 어떻게 생각해야 할까요?",
+        "en": "What are some areas — and how should future founders here think about **unhobbling Claude and fixing this product overhang?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 895,
+      "text": {
+        "ko": "몇 가지가 있습니다. 하나는 **모델이 할 수 있다고 생각하시는 것보다 조금 더 어려운 과제를 주라**는 겁니다.\n\n제가 정말 흔하게 보는 실수가 있는데요. 사람들이 Claude Code를, Claude를 쓰면서 **너무 지나치게 구체적인 지시**를 줍니다. \"이걸 해라, 그런데 이런 방식으로, 이렇게, 저렇게 해라. 반드시 1번 다음 2번, 그다음 3번, 4번 순서로 해라\" 이런 식이죠.\n\n**요즘 모델에게는 정말 그렇게 하시면 안 됩니다.**",
+        "en": "A couple of things. One is that you should **give the model slightly harder tasks than what you think it can do.**\n\nA really common mistake I see: people using Claude Code, using Claude, give it **way over-specific instructions.** \"I want you to do this, but do it this way, this way, this way. You must do one, then two, then three, then four.\"\n\n**For modern models, that's really not the way to do it.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 918,
+      "text": {
+        "ko": "**한 단계 더 높은 수준으로 가셔야 합니다.** 과제를 설명하고, 가드레일을 설명하고, 종료 조건을 설명하세요. **그리고 모델이 알아서 요리하게 두시는 겁니다.** 조금 있다가 다시 와보세요.\n\n아마 놀라실 겁니다. **6개월 전이었다면 통하지 않았을 방식인데, 오늘은 통합니다.**",
+        "en": "**You want to go a little bit higher level.** Describe the task, describe the guardrails, describe the exit criteria — **and then just let the model cook.** Come back in a little bit.\n\nI think it'll surprise you. **This is just not something that would have worked six months ago, but it does work today.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "Task · Guardrails · Exit Criteria",
+      "kr": {
+        "ko": "과제 · 가드레일 · 종료 조건",
+        "en": "the three-part prompt"
+      },
+      "body": {
+        "ko": "Boris가 제시하는 프롬프트의 뼈대는 딱 세 조각입니다. **\"어떻게 하라\"를 빼고, 대신 이 세 가지를 채우는 것**이 핵심입니다.\n\n**① 과제(Task)** — 무엇을 이뤄야 하는지. 절차가 아니라 **목표 상태**입니다. \"Electron 앱을 Swift로 다시 써라\"처럼요.\n\n**② 가드레일(Guardrails)** — 넘어서는 안 되는 경계. \"이 디렉터리 밖은 건드리지 마라\", \"프로덕션 DB에는 쓰지 마라\" 같은 **금지선**입니다. 방법을 지시하는 것이 아니라 **위험을 한정**하는 것이므로, 지시가 아니라 안전장치에 가깝습니다.\n\n**③ 종료 조건(Exit criteria)** — 무엇이 충족되면 끝인지. \"테스트가 전부 통과할 때까지\", \"원본과 픽셀 단위로 일치할 때까지\"처럼 **모델 스스로 판정 가능한 형태**여야 합니다.\n\n③이 특히 중요한 이유는, 이것이 뒤에 나오는 **검증(verification)** 과 직결되기 때문입니다 (20:40). 종료 조건이 기계적으로 확인 가능해야 모델이 **혼자 며칠씩 돌면서도 길을 잃지 않습니다.**",
+        "en": "Boris's prompt skeleton has exactly three parts. The trick is that **\"how to do it\" is omitted** and these three are filled in instead.\n\n**① Task** — what must be achieved. Not a procedure, but a **target state**: \"rewrite the Electron app in Swift.\"\n\n**② Guardrails** — the boundaries not to cross: \"don't touch anything outside this directory,\" \"never write to the production DB.\" These **bound the risk** rather than dictate the method — closer to a safety rail than an instruction.\n\n**③ Exit criteria** — what counts as done. \"Until all tests pass,\" \"until it matches the original pixel for pixel\" — phrased so **the model itself can judge it.**\n\n③ matters most because it feeds directly into **verification** (20:40). Only when \"done\" is mechanically checkable can the model **run for days without losing the thread.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 940,
+      "text": {
+        "ko": "**6개월 전에는 못 했는데 지금은 되는** 어려운 과제나 능력의 예를 좀 들어주실 수 있을까요? 사람들이 탐색해 볼 만한 것들이요.",
+        "en": "Can you give some examples of these challenging tasks or capabilities people should explore — **things it can do now that it couldn't six months ago?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 950,
+      "text": {
+        "ko": "한 가지 예를 들면, **모델이 이제 사실상 어떤 코드베이스든 한 언어에서 다른 언어로 통째로 다시 쓸 수 있습니다.** 좀 미친 일이죠. 엔지니어가 하면 정말 오래 걸릴 작업인데, 이제 모델은 이걸 꽤 빠르게 합니다.\n\n예를 들어 **Claude Code는 Bun이라는 JavaScript 런타임 위에서 돌아갑니다.** 오픈소스이고, Node.js의 대안이죠. 더 빠른 Node라고 보시면 됩니다.\n\n그런데 **Bun은 Zig로 작성되어 있습니다.** Zig는 시스템 프로그래밍 언어인데 C와 비슷하게 아주 저수준입니다. Zig의 문제 중 하나는 **메모리를 직접 관리해야 한다**는 것이고, 그래서 메모리 누수나 다른 메모리 관리 문제에 빠지기 쉽습니다.",
+        "en": "One example: **the model can now rewrite essentially any codebase from one language into a different language.** It's sort of crazy — work that would have taken an engineer a very long time, and now the model is quite fast at it.\n\nFor instance, **Claude Code is built on the Bun JavaScript runtime** — an open-source alternative to Node.js, kind of a faster Node.\n\nBut **Bun was written in Zig.** Zig is a systems programming language, kind of like C, very low level. One of the problems with Zig is that **you have to manually manage memory**, so it's quite easy to run into memory leaks and other memory-management issues."
+      }
+    },
+    {
+      "type": "term",
+      "term": "Bun · Zig · Rust",
+      "kr": {
+        "ko": "이 이야기에 등장하는 세 가지 기술",
+        "en": "the three technologies in this story"
+      },
+      "body": {
+        "ko": "**Bun** — JavaScript/TypeScript 실행 환경입니다. Node.js와 같은 역할을 하지만 속도를 강조한 대안이고, Claude Code가 이 위에서 돌아갑니다.\n\n**Zig** — C에 가까운 저수준 시스템 언어입니다. 성능은 뛰어나지만 **메모리를 개발자가 직접 할당하고 해제해야 합니다.** 해제를 잊으면 **메모리 누수(memory leak)**, 이미 해제한 것을 또 쓰면 심각한 버그가 됩니다. Bun이 Zig로 쓰인 이유는 속도이고, 대가는 이 위험이었습니다.\n\n**Rust** — 역시 저수준 언어이지만, **소유권(ownership)이라는 규칙을 컴파일 단계에서 강제해 메모리 오류를 구조적으로 막습니다.** 사람이 조심해서 막는 것이 아니라 컴파일러가 막아주는 것이죠.\n\n그래서 **Zig → Rust 재작성**은 단순한 번역이 아니라 **\"사람이 손으로 관리하던 위험을 언어 차원의 보증으로 옮기는 일\"**입니다. 그만큼 기계적 치환이 불가능하고, 코드 구조 전체를 다시 사고해야 하는 작업이라 난도가 높습니다.",
+        "en": "**Bun** — a JavaScript/TypeScript runtime; same role as Node.js but built for speed. Claude Code runs on it.\n\n**Zig** — a low-level systems language in the neighborhood of C. Fast, but **you allocate and free memory yourself.** Forget to free and you get a **memory leak**; use something after freeing it and you get a serious bug. Bun chose Zig for speed, and this risk was the price.\n\n**Rust** — also low-level, but it enforces **ownership rules at compile time, structurally preventing memory errors.** The compiler catches what humans would otherwise have to catch by discipline.\n\nSo a **Zig → Rust rewrite** isn't translation — it's **moving a hazard from human discipline into language-level guarantees.** That can't be done mechanically; it forces you to rethink the structure of the code, which is exactly why it's hard."
+      }
+    },
+    {
+      "type": "a",
+      "t": 993,
+      "text": {
+        "ko": "그래서 Bun 팀이 하던 일 중 하나가 **Claude에게 코드베이스를 퍼징시켜서 메모리 누수를 시뮬레이션하고 유발하게 하는 것**이었습니다. 꽤 오랜 기간 이렇게 했고 **누수를 많이 찾아냈습니다.** 다만 **한 번에 한 건씩**이었고, 그게 그 시점 모델의 능력이었죠.",
+        "en": "So one thing the Bun team was doing was **having Claude fuzz the codebase to simulate and trigger memory leaks.** They did this for a long period and **found a lot of memory leaks** — but one case at a time. That was the capability of the model at the time."
+      }
+    },
+    {
+      "type": "term",
+      "term": "Fuzzing",
+      "kr": {
+        "ko": "퍼징 — 무작위 입력으로 버그를 흔들어 깨우기",
+        "en": ""
+      },
+      "body": {
+        "ko": "**퍼징(fuzzing)** 은 프로그램에 **무작위이거나 비정상적인 입력을 대량으로 쏟아부어 충돌·누수·예외를 유발시키는 테스트 기법**입니다.\n\n사람이 짜는 테스트는 결국 **사람이 상상한 경우**만 검사합니다. 그런데 실제 버그는 대개 아무도 상상하지 않은 입력에서 터지죠. 퍼징은 그 사각지대를 **무식하지만 확실한 물량**으로 공략합니다.\n\n메모리 관리 언어에서 특히 유용한 이유는, 메모리 누수가 **특정 순서로 특정 조합의 동작이 일어날 때만** 드러나는 경우가 많기 때문입니다. LLM을 퍼저로 쓰면 단순 난수가 아니라 **코드를 읽고 '여기가 수상하다'고 판단한 지점을 겨냥**할 수 있다는 점이 다릅니다.",
+        "en": "**Fuzzing** means throwing **large volumes of random or malformed input** at a program to provoke crashes, leaks and exceptions.\n\nHuman-written tests only cover **cases a human imagined.** Real bugs usually hide in inputs nobody imagined. Fuzzing attacks that blind spot with brute volume.\n\nIt's especially valuable in manually memory-managed languages because leaks often surface **only under a specific sequence and combination of operations.** Using an LLM as the fuzzer changes things: instead of pure randomness, it can **read the code and aim at the places that look suspicious.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1016,
+      "text": {
+        "ko": "그러다 어느 시점에 팀의 Jared가 이렇게 말했습니다. **\"그냥 다시 써보자. 모델이 할 수 있을지도 모르잖아.\"**\n\nJared는 이걸 **새 모델 세대가 나올 때마다 던져보는 시험 문제**로 삼고 있었던 것 같습니다. 그러다 어느 세대부터 **모델이 실제로 해내기 시작했습니다.** Opus 5도 당연히 할 수 있고요.\n\n그가 한 일은 **먼저 테스트 스위트를 정의한 것**이었습니다. **Bun의 좋은 점은 테스트가 정말 잘 되어 있다는 겁니다.** Bun에도 큰 테스트 스위트가 있고 Node.js에도 있습니다. **그래서 제대로 했는지 판정하기가 쉬웠습니다.**",
+        "en": "Then at some point Jared on the team said: **\"Okay, let's just rewrite it. Maybe the model can do this.\"**\n\nI think this was one of those test problems he threw at the model with every new generation. And from a certain generation on, **the model started to be able to do it.** Opus 5 could do it as well.\n\nWhat he did was **define a test suite first.** **The nice thing about Bun is it's very, very well tested** — a big suite in Bun, a big suite in Node.js. **So it's easy to know if you did the right thing.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1042,
+      "text": {
+        "ko": "그리고 **Zig에서 Rust로 다시 쓰게 했습니다. 프롬프트는 하나였고, dynamic workflow였습니다.**\n\ndynamic workflow는 Claude Code의 기능인데, **수십, 수백, 수천 개의 에이전트를 생산적으로 오케스트레이션**할 수 있게 해줍니다.\n\n**그게 11일간 돌면서 코드베이스 전체를 다시 썼습니다.**",
+        "en": "And he had the model **rewrite it from Zig to Rust. It was one prompt. It was a dynamic workflow.**\n\nDynamic workflows are a feature in Claude Code that essentially let you **orchestrate dozens, hundreds, thousands of agents to do work productively.**\n\n**It ran for 11 days, and it rewrote the entire codebase.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1064,
+      "text": {
+        "ko": "그게 **원샷**이었나요?",
+        "en": "And this was **one shot?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1067,
+      "text": {
+        "ko": "원샷이긴 했는데… 아니요, 원샷은 아니었습니다. **중간에 방향을 잡아주는 steering이 있었습니다.**\n\n다만 **이전 모델들은 steering을 해줘도 이걸 못 했습니다. 아예 불가능했어요.**",
+        "en": "It was one shot with… no, it wasn't one shot. **There was steering.**\n\nBut previous models just couldn't do this — **even with the steering. It just wouldn't have been possible.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1078,
+      "text": {
+        "ko": "**11일이요?** 세상에. 예전 같으면 최고의 엔지니어들을 데려다 놔도 몇 달, 아니 몇 년 걸렸을 일 아닌가요?",
+        "en": "**11 days?** Oh my god. In the past, even with the best engineers, this would have taken multiple months — years?"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1088,
+      "text": {
+        "ko": "**확실히 1년은 넘었을 겁니다.** 10만 줄이 넘고, JavaScript 런타임은 정말 복잡하거든요. 안에 들어 있는 게 많습니다.\n\n그리고 **작동합니다. 지금 프로덕션에 들어가 있어요. 여러분이 Claude Code를 실행하실 때 쓰는 게 바로 이겁니다.**",
+        "en": "**Definitely over a year.** This is over 100,000 lines — JavaScript runtimes are really complicated, there's a lot of stuff in there.\n\nAnd **it works. This is in production now. This is what Claude Code uses when you're running it.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1108,
+      "text": {
+        "ko": "두 번째 예를 하나 더 드리자면요. 이건 **실무적인 사용 사례**입니다. 여러분이 풀고 계신 문제 — 사업 문제, 엔지니어링 문제, 제품 문제가 있잖아요. **거기에 최신 모델을 계속 던져보시면서 그냥 해내는지 보세요.** 이전 모델이 못 했더라도 **새 모델은 할지도 모릅니다.**\n\n두 번째로 생각해 볼 방식은 **실험**입니다. **모델을 가지고 마음껏 놀고 창의적인 걸 해볼 자유를 스스로에게 주세요.** 종종 놀라게 될 겁니다.",
+        "en": "I'd give a second example too — a practical use case. There's a problem you're solving: a business problem, an engineering problem, a product problem. **Just keep throwing the latest model at it to see if it'll do it.** Even if a previous model didn't, **the new one might.**\n\nThe second way to think about it is **experiment.** **Give yourself freedom to play with the model and do creative things.** Often it'll surprise you."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1128,
+      "text": {
+        "ko": "최근 몇 주 사이 Anthropic 내부에서 아주 인기를 끈 게 있는데요. 누군가 **Opus 5에게 OpenCV를 쥐여주면 된다**는 걸 알아냈습니다.",
+        "en": "Something that's been really popular internally at Anthropic the last couple of weeks: someone figured out that **you can give Opus 5 OpenCV.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1137,
+      "text": {
+        "ko": "오.",
+        "en": "Oh."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1139,
+      "text": {
+        "ko": "**그림을 그리게 할 수 있습니다.** \"OpenCV로 이 이미지를 그려줘\"라고 부탁하면 되는데, **꽤 잘합니다.** 인물화도 하고, 동물도 그리고, 풍경도 그립니다.\n\n**저희는 모델에게 그림을 가르친 적이 없습니다.** 그냥 **끌어내기의 격차(solicitation gap)** 인 거죠. **올바른 방식으로 요청하면 그냥 해냅니다.**\n\n그리고 저희는 이걸 **우연히** 발견했습니다. 직접적인 상업적 용도가 없는, 그냥 이것저것 창의적인 걸 해보다가요. 그런데 흥미롭잖아요.",
+        "en": "**And you can have it draw.** You ask Opus, \"hey, use OpenCV to draw this image\" — and **it's actually quite good.** It can do portraits, animals, landscapes.\n\n**We didn't train the model to draw.** It's just the **solicitation gap** — **if you ask it the right way, it can just do it.**\n\nAnd we discovered this kind of **accidentally**, just playing around and trying creative things that had no direct commercial application. But it's interesting."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1168,
+      "text": {
+        "ko": "제 가설은 이렇습니다 — **오늘의 모델만으로도, 아무도 아직 실현하지 못한 이런 기회가 수십 개, 아마 수백 개는 있을 겁니다.**",
+        "en": "And my hypothesis is that **there are probably dozens, hundreds of opportunities like this with the models of today that no one has yet realized.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "Elicitation Gap",
+      "kr": {
+        "ko": "끌어내기 격차 — 할 수 있는 것과 실제로 시키는 것 사이",
+        "en": ""
+      },
+      "body": {
+        "ko": "**Elicitation**은 \"끌어내다, 유도해 내다\"라는 뜻입니다. AI 맥락에서 **elicitation gap(또는 solicitation gap)** 은 **모델이 잠재적으로 할 수 있는 일과, 우리가 실제로 끌어내고 있는 일 사이의 간극**을 가리킵니다.\n\nOpenCV 사례가 이 개념을 정확히 보여줍니다. Anthropic은 그림 그리기를 **훈련시킨 적이 없습니다.** 그런데 모델은 **코드로 이미지를 조작하는 라이브러리(OpenCV)** 와 **시각적 구성에 대한 이해**를 이미 갖고 있었고, 둘을 이어 붙일 요청만 받으면 그림을 그릴 수 있었던 것입니다. **능력은 원래 있었고, 없던 것은 그것을 부르는 방법이었습니다.**\n\n실무적 함의는 분명합니다. **\"모델이 이걸 할 수 있나?\"라는 질문은 대개 \"내가 제대로 요청했나?\"라는 질문과 구별되지 않습니다.** 그래서 Boris는 벤치마크나 문서가 아니라 **직접 이것저것 시켜보는 실험**을 반복해서 권합니다.",
+        "en": "**Elicitation** means drawing something out. In AI, the **elicitation gap** (or solicitation gap) is **the distance between what a model could potentially do and what we actually get it to do.**\n\nThe OpenCV story is a clean illustration. Anthropic **never trained drawing.** But the model already had both **a library for manipulating images in code** and **an understanding of visual composition** — it only needed a request that connected the two. **The capability was there; what was missing was the way to summon it.**\n\nThe practical implication: **\"can the model do this?\" is usually indistinguishable from \"did I ask properly?\"** Which is why Boris keeps recommending hands-on experimentation over benchmarks or documentation."
+      }
+    },
+    {
+      "type": "section",
+      "t": 1188,
+      "title": {
+        "ko": "프롬프트 엔지니어링에서 '검증'으로",
+        "en": "From Prompt Engineering to Verification"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1188,
+      "text": {
+        "ko": "이 분야의 큰 연구 주제가 결국 **model elicitation**이잖아요. 이런 능력들을 찾아내고 모델에게 올바르게 요청하는 걸 잘하게 되는 것 말입니다. **사람들이 이걸 어떻게 더 잘하게 될 수 있을까요?**\n\n그리고 **프롬프트 엔지니어링은 어떻게 되나요? 아직도 많이 해야 하나요, 아니면 이것도 바뀌고 있나요?**",
+        "en": "The big area of research for this is basically **model elicitation**, right — getting really good at figuring out these capabilities and asking the model the right thing. **How do people get better at that?**\n\nAnd **how do people get better at prompt engineering? Do people still need to do a lot of it, or is that changing too?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1216,
+      "text": {
+        "ko": "1년 전쯤 가장 인기 있던 채용 공고 중 하나가 **프롬프트 엔지니어**였던 게 기억납니다. 그러다 바뀌어서 **컨텍스트 엔지니어**가 됐죠. 이런 물결이 계속 있는 것 같습니다. 앞으로도 왔다 갔다 할 거예요.\n\n제 생각에 **요즘의 기술은 프롬프트 엔지니어링이라기보다는 이런 겁니다** — **① 조금 지나치게 어려워 보이는 과제를 Claude에게 어떻게 줄 것인가**, 그리고 **② Claude가 진행하면서 스스로 자기 작업을 검증할 수 있게 어떻게 만들어 줄 것인가.**\n\n그리고 **검증이야말로 사람들이 제대로 못 하는 가장 중요한 한 가지**라고 생각합니다.",
+        "en": "I remember about a year ago one of the most popular job openings was **prompt engineer.** Then it changed and became **context engineer.** There are these waves — I think they'll keep coming and going.\n\nThe skill nowadays is less about prompt engineering and more about **① how do you give Claude a hard task that seems a little bit too hard**, and **② how do you make it possible for Claude to verify its work along the way.**\n\nAnd **verification is probably the single most important thing that people do not get right.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "Context Engineering",
+      "kr": {
+        "ko": "컨텍스트 엔지니어링",
+        "en": ""
+      },
+      "body": {
+        "ko": "**프롬프트 엔지니어링**이 \"어떻게 말할 것인가(문장을 어떻게 다듬을 것인가)\"였다면, **컨텍스트 엔지니어링**은 **\"모델의 제한된 작업 기억에 무엇을 넣고 무엇을 뺄 것인가\"**입니다.\n\n모델은 한 번에 볼 수 있는 분량(컨텍스트 윈도)이 정해져 있습니다. 코드베이스 전체, 문서 전체, 과거 대화 전체를 다 넣을 수는 없죠. 그래서 **필요한 정보를 필요한 순간에 골라 넣고, 오래된 것을 요약하거나 버리고, 외부 도구로 그때그때 가져오는 설계**가 성능을 좌우하게 됩니다. 검색(RAG)이나 MCP 연결이 여기에 속합니다.\n\n다만 Boris의 요지는 **이 유행 자체가 계속 바뀐다**는 것입니다. 프롬프트 → 컨텍스트로 옮겨 왔듯, 지금 그가 보는 무게중심은 **\"모델이 스스로 정답 여부를 확인할 수 있게 만드는 것(검증)\"** 으로 이동했습니다.",
+        "en": "If **prompt engineering** was about *how you phrase it*, **context engineering** is about **what goes into — and stays out of — the model's limited working memory.**\n\nA model can only see so much at once. You can't paste in the whole codebase, all the docs, and the entire conversation history. So performance comes down to **selecting the right information at the right moment, summarizing or dropping the stale parts, and fetching the rest through tools** — retrieval (RAG) and MCP connections live here.\n\nBoris's point, though, is that **the fashion keeps moving.** As it went prompt → context, the center of gravity he now sees has shifted to **making it possible for the model to check its own work.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1238,
+      "text": {
+        "ko": "예를 하나 들겠습니다. 저희에게 **Claude 데스크톱 앱**이 있는데, **Electron**으로 만들어져 있습니다. 꽤 빠르게 만들어 놔서 지금은 정말 괜찮은 경험이에요. 6개월 전에는 굼뜨고 안정적이지도 않았는데, 지금은 팀 대부분이 이걸 씁니다.\n\n그런데 실험 삼아 궁금해졌습니다. **\"이게 네이티브였다면 어떤 느낌일까?\"**",
+        "en": "One example. We have this **desktop app for Claude**, built using **Electron.** We've made it quite fast, so it's a pretty awesome experience now. Six months ago it was sluggish and not very reliable; now it's what most of the team uses.\n\nBut as an experiment, I wanted to see: **what would it feel like if it were native?**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "Electron vs. Native (Swift)",
+      "kr": {
+        "ko": "왜 '네이티브로 다시 쓰기'가 큰 일인가",
+        "en": "why a native rewrite is a big deal"
+      },
+      "body": {
+        "ko": "**Electron**은 데스크톱 앱을 **웹 기술(HTML·CSS·JavaScript)로 만들어 크롬 엔진을 통째로 얹어 실행**하는 방식입니다. 장점은 명확합니다 — 코드 하나로 Windows·macOS·Linux를 모두 지원하고, 웹 개발자가 바로 만들 수 있습니다. 대가는 **무거움**입니다. 브라우저를 통째로 들고 다니니 메모리를 많이 쓰고 반응 속도가 처지기 쉽습니다.\n\n**네이티브(macOS의 경우 Swift)** 는 반대입니다. 그 운영체제 전용으로 만들어 **가볍고 빠르며 OS와 자연스럽게 어울리지만**, 플랫폼마다 따로 만들어야 합니다.\n\n여기서 중요한 건 **이 둘 사이의 재작성이 '번역'이 아니라는 점**입니다. UI를 구성하는 방식, 화면을 갱신하는 방식, 상태를 관리하는 방식이 근본적으로 달라서 **사실상 앱을 다시 설계하는 일**입니다. 그래서 Boris가 **\"픽셀 단위로 원본과 비교하라\"**는 검증 조건을 건 것이고, 그 조건이 있었기에 모델이 **2주 넘게 스스로 판단하며 진행**할 수 있었습니다.",
+        "en": "**Electron** builds desktop apps with **web technology (HTML/CSS/JS) shipped alongside an entire Chrome engine.** The upside is obvious: one codebase covers Windows, macOS and Linux, and web developers can build it directly. The cost is **weight** — you're carrying a browser, so memory use is high and responsiveness suffers.\n\n**Native (Swift, on macOS)** is the inverse: built for one OS, so it's **light, fast and idiomatic** — but you build it separately per platform.\n\nThe key point is that **a rewrite between the two is not translation.** How the UI is composed, how the screen updates, how state is managed are fundamentally different — it amounts to **redesigning the app.** Which is exactly why Boris set **\"compare pixel by pixel against the original\"** as the verification condition, and why that condition let the model **keep judging its own progress for over two weeks.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1258,
+      "text": {
+        "ko": "제가 한 건 이렇습니다. **Claude Tag 세션**을 하나 시작했습니다. Claude Tag는 저희 신제품인데, **그냥 Slack 안에서 도는 Claude**입니다.\n\n첫 질문은 **\"GitHub에서 macOS 러너에 접근할 수 있어?\"** 였습니다. **\"아니오\"** 라고 하더군요. 그래서 러너를 연결해 줬고, 그러자 GitHub으로 Mac 가상 머신을 띄울 수 있게 됐습니다.\n\n두 번째로 **\"Swift로 다시 쓴 Claude 데스크톱 앱\"** 이라는 빈 코드베이스를 만들어 두고 **\"이 코드베이스에 접근할 수 있어?\"** 라고 물었습니다. 또 **\"아니오\"** 라고 하길래 접근 권한을 줬고, **\"좋아, 이제 접근돼\"** 가 됐죠.",
+        "en": "So what I did is I started a **Claude Tag session.** Claude Tag is a new product we have — **it's just Claude running in Slack.**\n\nMy first question was: **\"Do you have access to a macOS runner on GitHub?\"** It said **no.** So I hooked up a runner, and it was able to start a Mac virtual machine using GitHub.\n\nMy second question: I created an empty codebase called **\"Claude desktop app rewritten in Swift\"** and asked, **\"Can you access this codebase?\"** It said **no.** So I gave it access, and then — **\"okay, great, now I have access.\"**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1288,
+      "text": {
+        "ko": "그러고 나서 제가 준 지시는 이겁니다.\n\n**\"Electron 앱을 Swift로 다시 써라. Mac 가상 머신에서 Electron 앱을 실행하고 스크린샷을 찍어라. 그리고 픽셀 단위로 Swift 버전과 비교해라. 다 끝날 때까지 멈추지 마라.\"**",
+        "en": "And then I said:\n\n**\"What I want you to do is rewrite the Electron app in Swift. Run the Electron app in the Mac virtual machine, screenshot it, and then look pixel by pixel, compare it to the Swift version — don't stop until you're done.\"**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1312,
+      "text": {
+        "ko": "그게 프롬프트의 전부였다는 거죠?",
+        "en": "And that was your prompt, basically."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1314,
+      "text": {
+        "ko": "그게 제 프롬프트였습니다.",
+        "en": "That was my prompt."
+      }
+    },
+    {
+      "type": "q",
+      "t": 1316,
+      "text": {
+        "ko": "그거 돌리는 데 얼마나 걸렸나요?",
+        "en": "And how long did this take to run?"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1319,
+      "text": {
+        "ko": "**아직 돌고 있습니다.**",
+        "en": "**It's still running.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1321,
+      "text": {
+        "ko": "언제 시작하셨는데요?",
+        "en": "When did you start it?"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1323,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1325,
+      "text": {
+        "ko": "**2주 조금 넘었습니다.** 14일, 15일쯤 됐네요.",
+        "en": "It's been **a little over two weeks** — so like 14, 15 days."
+      }
+    },
+    {
+      "type": "q",
+      "t": 1332,
+      "text": {
+        "ko": "여기 계신 분들 중에 **Claude에게 2주 넘게 하나의 작업을 계속 돌려보신 분** 계신가요? 손 들어보시겠어요?",
+        "en": "I don't know if anyone in the audience has gotten Claude to run a task for **more than two weeks.** Raise your hand?"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1343,
+      "text": {
+        "ko": "(몇 명이 손을 든다)",
+        "en": "(a few hands go up)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1348,
+      "text": {
+        "ko": "이게 바로 그런 사례 중 하나입니다. **모델은 오늘 이미 이걸 할 수 있고, 여러분은 그저 하게 두시기만 하면 됩니다.**\n\n**화려한 장치는 필요 없습니다.** `/goal`도 필요 없고 `/loop`도 필요 없습니다. 도움이 되긴 하지만, **정말 필요한 건 이것뿐입니다 — 모델에게 과제를 주고, 자기 작업의 결과를 검증할 방법을 줘서 막히지 않게 하는 것.** 그러면 그냥 갑니다.\n\n아, 그리고 이 경우에는 **Claude가 스스로 라이브 블로깅을 하기로 결정**했더라고요. 사내에 Slack 채널을 하나 만들더니 **몇 분마다 진행 상황 스크린샷을 올리기 시작했습니다.**",
+        "en": "This is one of those examples where **the model can do it today — you just have to let it do it.**\n\n**You don't need the fancy stuff.** You don't need `/goal`, you don't need `/loop`. These help, but really **all you need is to give the model the task and give it a way to verify the output of its work so it doesn't get stuck.** And it will just go.\n\nAnd actually, in this case **Claude also decided to live-blog it.** It created an internal Slack channel and started **posting screenshots of its progress every few minutes.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "Verification Loop",
+      "kr": {
+        "ko": "검증 루프 — 며칠씩 자율 실행이 가능해지는 조건",
+        "en": "what makes multi-day autonomy possible"
+      },
+      "body": {
+        "ko": "에이전트가 오래 혼자 돌 수 있느냐를 가르는 것은 지능이 아니라 **\"자기가 잘하고 있는지 스스로 알 수 있는가\"**입니다.\n\n검증 수단이 없으면 모델은 몇 단계 만에 **자기 출력을 근거로 다음 단계를 밟는 상태**가 되고, 오차가 누적되어 방향을 잃습니다. 사람이 매번 확인해 줘야 하니 자율 시간은 결국 사람의 인내심만큼으로 제한됩니다.\n\n반대로 **기계적으로 참·거짓을 판정할 수 있는 신호**가 있으면 상황이 완전히 달라집니다. 이 대담의 두 사례가 정확히 그렇습니다.\n\n**① Bun 재작성** — 방대한 테스트 스위트 (17:22). 통과/실패가 즉시 나옵니다.\n**② Swift 재작성** — 원본 앱을 실제로 실행해 스크린샷을 찍고 픽셀 비교 (21:45). 정답지가 화면 그 자체입니다.\n\n두 경우 모두 **모델이 사람에게 묻지 않고도 \"아직 아니다\"를 판정**할 수 있습니다. 그래서 11일, 15일씩 굴러갈 수 있는 것입니다. Boris가 말하는 **\"막히지 않게 한다(so it doesn't get stuck)\"**는 바로 이 뜻입니다.",
+        "en": "What determines how long an agent can run alone isn't intelligence — it's **whether it can tell by itself that it's on track.**\n\nWithout a verification signal, a model soon ends up **building each step on its own prior output**; errors compound and it drifts. A human has to check in, so autonomy is capped by human patience.\n\nWith a **mechanically checkable signal**, everything changes. Both stories here are exactly that:\n\n**① The Bun rewrite** — a large existing test suite (17:22). Pass/fail is immediate.\n**② The Swift rewrite** — actually running the original app, screenshotting it, and diffing pixels (21:45). The answer key is the screen itself.\n\nIn both cases the model can conclude **\"not yet\" without asking anyone.** That's what makes 11 days or 15 days possible — and precisely what Boris means by **\"so it doesn't get stuck.\"**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1380,
+      "title": {
+        "ko": "상위 1% 사용자는 무엇이 다른가",
+        "en": "What Separates the Top 1%"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1380,
+      "text": {
+        "ko": "와. 프롬프트가 정말 단순하게 들리는데요. 여기 계신 누구나 쓸 수 있는 수준이잖아요.\n\n그럼 **여기 계신 분들 중 상위 1% Claude Code 사용자가 되는 사람을 가르는 건 뭘까요? 어떻게 하면 Boris처럼 Claude Code를 쓰게 될 수 있나요?**",
+        "en": "Wow — the prompt sounded so simple. I mean, everyone here could do it.\n\nSo **what separates the people here who become top 1% Claude Code users? How do people learn to use Claude Code like Boris?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1400,
+      "text": {
+        "ko": "**LinkedIn 인플루언서들 말은 듣지 마세요.**",
+        "en": "**Maybe don't listen to the LinkedIn influencers.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1404,
+      "text": {
+        "ko": "듣지 말고… 트위터도 읽지 말고.",
+        "en": "Don't listen to — don't read Twitter."
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1407,
+      "text": {
+        "ko": "(환호와 박수)",
+        "en": "(cheering and applause)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1410,
+      "text": {
+        "ko": "모델에 관해서는 이런 게 있습니다. **다들 '이 한 가지 이상한 비법'을 찾고 계신 것 같은데, 그런 건 존재하지 않습니다.** 그런 건 없어요.\n\n모델이 작동하는 방식은 이렇습니다. **경험적으로 접근하셔야 합니다.**\n\n**너무 어려운 과제를 주세요. 여러분이 직접 그 일을 한다면 썼을 법한 검증 도구를 모델에게도 주세요. 어디서 고전하는지 보세요. 그리고 그걸 고치세요** — 더 나은 프롬프트로, 혹은 **스킬**로요. 아니면 **모델에게 맥락이 부족하다면 MCP를 줘서** 필요한 맥락을 직접 가져오게 하시면 됩니다.\n\n**그게 다입니다.**",
+        "en": "The thing about the model is — **I think everyone's looking for the one weird trick, and that doesn't exist.** There's nothing like that.\n\nThe way the model works is: **you have to approach it empirically.**\n\n**Give it a task that's too hard. Give it the tools to verify the work like you would if you were doing the task yourself. See where it struggles. Then fix that** — with better prompting, or with a **skill**. Or if the model is missing context, **give it an MCP** so it can pull in the context it needs.\n\n**That's kind of it.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "MCP (Model Context Protocol)",
+      "kr": {
+        "ko": "모델이 외부 세계와 연결되는 표준 규격",
+        "en": ""
+      },
+      "body": {
+        "ko": "**MCP**는 AI 모델이 **외부 도구·데이터 소스와 연결되는 방식을 통일한 개방형 표준 규격**입니다. Anthropic이 공개했고 현재 여러 도구 생태계에서 채택되고 있습니다.\n\n왜 필요했느냐면, 이전에는 **모델 × 연동 대상마다 개별 연결을 만들어야 했기 때문**입니다. 사내 위키, 이슈 트래커, 데이터베이스, 파일 시스템… 각각을 각 제품에 맞춰 따로 붙이는 것은 곱셈으로 늘어나는 작업이죠. MCP는 이 사이에 **공통 어댑터 규격**을 두어, MCP 서버를 한 번 만들면 이를 지원하는 어떤 클라이언트에서든 쓸 수 있게 합니다. USB-C에 비유되는 이유입니다.\n\n대담의 맥락에서 중요한 건 **MCP가 프롬프트의 대안이라는 점**입니다. 모델이 어떤 정보를 몰라서 실패할 때, 그 정보를 프롬프트에 적어 넣으면 **매 호출마다 비용을 내는 고정 텍스트**가 됩니다. 반면 MCP로 연결해 두면 **모델이 필요할 때만 직접 가져옵니다.** 그래서 Boris의 처방이 \"프롬프트로 고치거나, 스킬로 고치거나, **맥락이 없으면 MCP로 고쳐라**\"의 순서인 것입니다.",
+        "en": "**MCP** is an **open standard for how AI models connect to external tools and data sources.** Anthropic published it, and it's now adopted across a range of tool ecosystems.\n\nIt exists because previously you needed **a bespoke integration for every model × every system**: the internal wiki, the issue tracker, the database, the file system — a multiplying amount of work. MCP inserts **a common adapter contract**, so you build an MCP server once and any client that speaks MCP can use it. Hence the USB-C analogy.\n\nWhat matters in context is that **MCP is an alternative to prompting.** If the model fails because it lacks some information, writing that information into the prompt makes it **fixed text you pay for on every call.** Connect it via MCP instead and **the model fetches it only when needed.** That's why Boris's prescription runs: fix it with better prompting, or with a skill, or — **if context is missing — with an MCP.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1442,
+      "text": {
+        "ko": "정말 단순하게 들리는데요.",
+        "en": "It sounds very simple."
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1445,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1447,
+      "text": {
+        "ko": "**사람들이 좀 지나치게 생각하는 경향이 있는 것 같습니다. 지나치게 설계하는 경향도요.**\n\n그럴 만한 이유가 있습니다. **예전에 시스템을 만들 때는 실제로 그렇게 해야만 했으니까요.** 그래서 오랫동안 — 몇 년, 몇십 년씩 — 코딩해 오신 엔지니어분들을 보면 **정말 흔한 실패 모드가 있습니다. 과도하게 명세하려 하고, 지나치게 구체적으로 지시하려 하고, 결국 모델이 '내가 했을 법한 바로 그 방식'으로 일하게 만들려는 것**이죠.\n\n**모델은 그렇게 작동하지 않습니다.**\n\n많은 분이 지금 이걸 **탈학습**하고 계신 것 같은데, **그 자체가 하나의 여정**입니다. 그리고 **이 존재를 동료처럼 대하는 법을 알아내는 여정**이기도 하고요. **지금 모델의 지능 수준이 딱 그 정도라고 생각합니다.**",
+        "en": "**I think people tend to overthink it a little bit. People tend to over-engineer.**\n\nAnd in a lot of ways, that's how you *had* to build systems in the past. So when I look at engineers who've been coding for years or decades, **this is a really common failure mode: trying to over-specify, trying to be overly specific, getting the model to do the task exactly the way they would have done it.**\n\n**That's just not the way the model works.**\n\nA lot of people are unlearning this, and **it's a journey to unlearn it.** And it's a journey to figure out **how you treat this thing like you would a coworker** — **I think that's the level of intelligence it's at now.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1478,
+      "title": {
+        "ko": "수천 개의 에이전트를 부리는 법",
+        "en": "How to Run Thousands of Agents"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1478,
+      "text": {
+        "ko": "그럼 아직도 돌고 있다는 그 작업을 좀 더 깊이 들어가 보죠. 2주 전에 시작하셨다고 했는데, **에이전트를 몇 개나 만들어냈나요?**",
+        "en": "Let's go deeper into that task that's still running. Two weeks since you launched it — **how many agents did it spawn?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1490,
+      "text": {
+        "ko": "정확히는 잘 모르겠네요. Claude한테 물어보고 다시 알려드릴 수 있는데… **추측하자면 수천 개, 수만 개쯤일 겁니다.**",
+        "en": "You know, I'm not sure. I can ask Claude and get back to you. But **I would guess thousands, tens of thousands.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1500,
+      "text": {
+        "ko": "수천 개요. 여기 계신 분들 중에 **어떤 모델이든 프롬프트 하나로 에이전트를 천 개 넘게 띄워보신 분** 계신가요? 없으시죠?\n\n이것도 팁 중 하나인 것 같습니다. **최고의 Claude 사용자들은 엄청난 레버리지를 만들어내는 작업을 띄울 줄 안다**는 것. **수천 개의 에이전트처럼요. 어떻게 하는 건가요?**",
+        "en": "Thousands. Has anyone in the audience had a prompt to any of the models that spawned **more than a thousand agents?** No?\n\nI think this is another of the tips — **the best Claude users are able to spawn tasks that give them a lot of leverage, like thousands of agents. How do you do that?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1521,
+      "text": {
+        "ko": "몇 가지 방법이 있습니다. **가장 쉬운 건 dynamic workflows** 입니다. Claude Code에 비교적 최근 들어온 기능인데요.\n\ndynamic workflow를 쓰시려면 **그냥 \"use a workflow\"라고 말씀하시면 됩니다. 그게 전부입니다.** 그러면 Claude가 알아서 dynamic workflow를 발동시킵니다.\n\n내부적으로는 이렇습니다. 저희에게 **Bun 런타임**이 있죠. **Bun을 샌드박스로 쓰고, 그 안에서 가상 머신을 띄웁니다.** 그리고 **그 안에서 Claude가 많은 에이전트를 시작하고 조율하게** 합니다.",
+        "en": "There are a few ways. **The easiest is dynamic workflows** — a fairly new feature in Claude Code.\n\nTo use them, **all you have to say is \"use a workflow.\" That's it.** Then Claude will trigger the dynamic workflow.\n\nUnder the hood: we have the **Bun runtime.** **We use Bun as a sandbox and start a virtual machine within Bun.** And we let **Claude start a lot of agents and orchestrate them** in there."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1560,
+      "text": {
+        "ko": "**에이전트 하나만 돌리는 것도 아니고, 병렬로 열 개 돌리는 것도 아닙니다.**\n\n예를 들어 과제가 \"코드베이스를 다시 써라\", 혹은 \"아주 복잡한 데이터에 대해 깊이 있는 분석을 해라\", 혹은 \"여러 단계와 수십 개의 풀 리퀘스트가 필요한 아주 복잡한 기능을 만들어라\"라고 해봅시다.\n\n그러면 **먼저 여러 에이전트를 띄워 1차 작업을 시킵니다. 그 결과를 바탕으로 2단계에서 또 다른 에이전트 집단이 작업을 검증하거나 요약합니다. 그다음 3단계에서 다시 팬아웃합니다.** 이런 식으로 **여러 에이전트를 생산적으로 조율**합니다.",
+        "en": "**It doesn't just do one agent, and it doesn't just do ten parallel agents.**\n\nSay the task is \"rewrite the codebase,\" or \"do really in-depth data analysis over some really complicated data,\" or \"build a very complex feature that takes multiple stages and maybe dozens of pull requests.\"\n\nWhat it does is **start a bunch of agents to do a first pass. Based on that, a second stage where another set of agents verifies or summarizes the work. Then a third stage where it fans out again.** It **orchestrates a bunch of different agents productively.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1587,
+      "text": {
+        "ko": "제 배경이 **함수형 프로그래밍**이거든요. 그래서 저희가 이걸 설계한 방식이 본질적으로 **에이전트를 위한 대수학(algebra for agents)** 입니다.\n\n**에이전트를 순차로 실행하는 방법이 있고, 병렬로 실행하는 방법이 있습니다.** 그리고 Claude는 샌드박스 안에서 이 에이전트들을 조율할 수 있는 여러 도구를 갖고 있어서, **토큰을 효율적으로 쓰면서 정말 정말 복잡한 작업**을 해냅니다.\n\n꽤 멋진데 아직 별로 글로 다뤄지지 않은 주제입니다.",
+        "en": "My background is **functional programming**, so the way we designed this is essentially **an algebra for agents.**\n\n**There's a way to run agents in sequence, and a way to run them in parallel.** Claude has different tools to orchestrate these agents inside the sandbox, to use tokens efficiently and do really, really complex work.\n\nIt's kind of cool, and something that hasn't really been written about a lot."
+      }
+    },
+    {
+      "type": "term",
+      "term": "Dynamic Workflows & Agent Orchestration",
+      "kr": {
+        "ko": "동적 워크플로 · 에이전트 오케스트레이션",
+        "en": ""
+      },
+      "body": {
+        "ko": "**오케스트레이션(orchestration)** 은 여러 에이전트를 **언제, 어떤 순서로, 몇 개씩** 돌릴지 지휘하는 일입니다. 오케스트라 지휘자에 빗댄 표현이죠.\n\n**팬아웃(fan-out)** 은 하나의 작업을 여러 갈래로 동시에 퍼뜨리는 것, **팬인(fan-in)** 은 그 결과를 다시 하나로 모으는 것입니다. 여기서 설명하는 구조는 **팬아웃 → 검증/요약 → 다시 팬아웃**의 다단계 반복입니다.\n\n**\"에이전트를 위한 대수학\"** 이라는 표현이 핵심입니다. 대수학에서 덧셈과 곱셈이라는 기본 연산을 조합해 복잡한 식을 만들듯, 여기서는 **\"순차 실행\"과 \"병렬 실행\"이라는 두 기본 연산을 조합해 임의로 복잡한 작업 구조를 만듭니다.** 함수형 프로그래밍에서 작은 함수를 합성해 큰 프로그램을 만드는 사고방식이 그대로 옮겨온 것입니다.\n\n**토큰 효율**이 왜 중요한지도 여기서 드러납니다. 에이전트 하나가 모든 걸 다 읽으면 컨텍스트가 폭발하지만, **하위 에이전트가 각자 일부만 읽고 요약만 올려보내면** 상위 에이전트는 압축된 정보만 다루면 됩니다. **분업이 곧 컨텍스트 관리 전략**인 셈입니다.",
+        "en": "**Orchestration** means directing **when, in what order, and how many** agents run — the conductor metaphor.\n\n**Fan-out** spreads one job across many parallel branches; **fan-in** gathers the results back. The structure described here is multi-stage: **fan out → verify/summarize → fan out again.**\n\nThe phrase **\"an algebra for agents\"** is the crux. Just as algebra composes complex expressions from primitives like addition and multiplication, here **two primitives — run in sequence, run in parallel — compose into arbitrarily complex work structures.** It's the functional-programming habit of building large programs from small composable functions, transplanted.\n\nIt also explains why **token efficiency** matters. If one agent reads everything, context explodes; but if **sub-agents each read a slice and return only summaries**, the parent handles compressed information. **Division of labor is itself the context-management strategy.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1608,
+      "text": {
+        "ko": "사실 이건 **새로운 형태의 test time compute**입니다.\n\n스케일링 법칙을 이야기하면서 모델이 시간이 지날수록 똑똑해진다고 할 때, 역사적으로 그건 **신경망의 크기, 학습 데이터의 양, 훈련에 투입한 연산량(FLOPs)** 의 함수였습니다. 그리고 최근에 **test time compute**가 추가됐죠. 연구자식으로 표현하면 \"토큰을 얼마나 생성하느냐\"를 멋있게 말한 겁니다.\n\n그리고 이제 **dynamic workflows는 그 test time compute를 조율하는 새로운 방법**입니다. **정말 어려운 과제에 투입하는 test time compute의 양을 크게 끌어올리는 새로운 방식**이기도 하고요.\n\n길게 돌아왔지만, 이게 **수천 개의 에이전트를 생산적이고 효율적으로 띄우는 한 가지 방법**입니다.",
+        "en": "This is actually **a new form of test-time compute.**\n\nWhen we talk about scaling laws and the model getting more intelligent over time, historically that's been a function of **the size of the neural net, the amount of training data, and the number of FLOPs you put into training.** Recently we added **test-time compute** — a fancy researcher way of saying how many tokens it generates.\n\nAnd now **dynamic workflows are a new way to orchestrate test-time compute** — a new way to really ramp up how much of it you spend on a genuinely hard task.\n\nSo, long way of saying: **this is one way to launch thousands of agents productively and efficiently.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "Scaling Laws & Test-Time Compute",
+      "kr": {
+        "ko": "스케일링 법칙과 '추론 시점 연산'",
+        "en": ""
+      },
+      "body": {
+        "ko": "**스케일링 법칙(scaling laws)** 은 \"무엇을 늘리면 모델이 얼마나 좋아지는가\"에 대한 경험적 규칙입니다. 전통적으로 축은 세 개였습니다 — **① 모델 크기(파라미터 수), ② 학습 데이터의 양, ③ 훈련에 투입한 연산량(FLOPs).** 세 가지 모두 **모델을 만드는 단계**에서 결정됩니다.\n\n여기에 최근 네 번째 축이 추가됐습니다. **Test-time compute(추론 시점 연산)** — **이미 다 만들어진 모델에게, 답할 때 생각할 시간을 더 주는 것**입니다. 즉시 답하는 대신 단계를 나눠 추론하게 하거나, 여러 후보를 만들어 검토하게 하는 방식이죠. **훈련을 다시 하지 않고도 성능을 끌어올릴 수 있다**는 점에서 중요합니다.\n\nBoris의 주장은 여기서 한 걸음 더 나갑니다. **에이전트를 수천 개 띄워 여러 단계로 조율하는 것 자체가 test-time compute의 새로운 형태**라는 것입니다. 한 모델이 더 오래 생각하는 것을 넘어, **여러 모델 인스턴스가 분업하며 며칠간 생각하는 것**으로 확장한 셈입니다. 11일짜리 재작성 (17:22)이 그 실증입니다.",
+        "en": "**Scaling laws** are empirical rules about what you increase to make models better. Traditionally three axes: **① model size (parameters), ② training data volume, ③ training FLOPs** — all fixed at **build time.**\n\nA fourth axis arrived more recently: **test-time compute** — **giving an already-trained model more thinking time at answer time.** Reasoning step by step instead of answering immediately, or generating and reviewing multiple candidates. It matters because **you gain capability without retraining.**\n\nBoris pushes this one step further: **spinning up thousands of agents and orchestrating them across stages is itself a new form of test-time compute.** Beyond one model thinking longer, it's **many model instances dividing the labor and thinking for days.** The 11-day rewrite (17:22) is the proof."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1653,
+      "text": {
+        "ko": "두 번째 방법은 **loops와 routines**입니다.\n\n**loop는 Claude를 위한 크론 잡인데 로컬에서 돕니다. routine은 같은 것인데 클라우드에서 돕니다.** 그래서 routine은 **노트북을 닫아도 계속 진행됩니다.**\n\n성격이 좀 다릅니다. **dynamic workflow는 하나의 과제를 여러 조각으로 나누는 것**이고, **loop와 routine은 반복적인 하나의 과제**입니다. **컨텍스트는 공유하지 않지만 메모리는 공유할 수 있고**, 이걸 계속 되풀이합니다. 매시간, 5분마다, 매일 — 원하시는 주기로요.",
+        "en": "A second way is **loops and routines.**\n\n**A loop is essentially a cron job running locally for Claude. A routine is the same thing running in the cloud** — so you can close your laptop.\n\nThey're slightly different. **A dynamic workflow is one task broken into chunks.** **Loops and routines are one repetitive task that doesn't share context but might share memory**, done over and over — every hour, every five minutes, every day."
+      }
+    },
+    {
+      "type": "term",
+      "term": "Loops & Routines (cron)",
+      "kr": {
+        "ko": "반복 실행 · 그리고 '컨텍스트'와 '메모리'의 차이",
+        "en": ""
+      },
+      "body": {
+        "ko": "**크론(cron)** 은 유닉스 계열에서 **정해진 시간에 자동으로 명령을 실행하는 스케줄러**입니다. \"매일 새벽 3시에 백업\" 같은 반복 작업을 사람 손 없이 돌리는 장치죠. loop와 routine은 그 개념을 에이전트에 옮긴 것이고, 차이는 **실행 위치(내 노트북 vs 클라우드)** 뿐입니다.\n\n여기서 눈여겨볼 표현이 **\"컨텍스트는 공유하지 않지만 메모리는 공유한다\"**입니다.\n\n**컨텍스트(context)** 는 **이번 실행에서 모델이 눈앞에 펼쳐 놓고 보는 작업 기억**입니다. 실행이 끝나면 사라집니다. 매일 도는 루틴이 어제의 대화 전문을 그대로 이어받는다면 컨텍스트가 무한히 부풀어 곧 감당할 수 없게 됩니다.\n\n**메모리(memory)** 는 **실행 사이에 남겨두는 지속적 기록**입니다. \"이 파일은 이미 확인했다\", \"이 패턴은 오탐이었다\" 같은 요약된 결론만 남기죠.\n\n이 분리 덕분에 루틴은 **매번 새로 시작하면서도 어제의 학습을 잃지 않고**, 무한히 반복해도 비용이 누적되지 않습니다.",
+        "en": "**Cron** is the Unix scheduler that **runs commands automatically at set times** — \"back up at 3am daily\" without a human. Loops and routines port that idea to agents; the only difference is **where they run (your laptop vs. the cloud).**\n\nThe phrase worth noticing is **\"doesn't share context but might share memory.\"**\n\n**Context** is **the working memory the model has open during this one run.** It disappears when the run ends. If a daily routine inherited yesterday's full transcript, context would balloon without limit.\n\n**Memory** is **the durable record kept between runs** — compressed conclusions like \"already checked this file,\" \"that pattern was a false positive.\"\n\nThat separation lets a routine **start fresh every time without losing what it learned yesterday**, and repeat indefinitely without cost accumulating."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1690,
+      "text": {
+        "ko": "그래서 저희가 시작한 게 있는데요 — **이제 Claude가 스스로를 유지보수하고 있습니다.**\n\n방식은 이렇습니다. Slack 채널을 하나 만들고, 거기서 **Claude가 자기 코드베이스를 관리하는 여러 routine을 돌리게** 했습니다. 그리고 이걸 **CLI, iOS 앱, Android 앱, 데스크톱 앱** 전부에 대해 하고 있습니다.",
+        "en": "So the thing we've started doing is — **we actually have Claude maintaining itself now.**\n\nThe way we do it: we have a Slack channel where we had Claude **start a bunch of routines to maintain its own codebase.** And we do this for **the CLI, the iOS app, the Android app, and the desktop app.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1712,
+      "text": {
+        "ko": "예를 들어 루틴 하나는 **\"죽은 코드를 정리해라\"** 입니다. **프롬프트는 한 문장입니다.** Claude가 이걸 매일 돌립니다. **모든 코드베이스를 훑으면서 정적 분석과 동적 분석으로 죽은 코드를 찾습니다.**\n\n**저희가 그렇게 하라고 프롬프트한 적 없습니다. 그냥 스스로 알아낸 겁니다.** 그리고 **매일 죽은 코드를 제거하는 풀 리퀘스트를 올립니다.**",
+        "en": "For example, one routine is **\"clean up dead code.\" This is a single prompt — one sentence.** Claude runs it every day. **It looks for dead code across all the codebases using static and dynamic analysis.**\n\n**We didn't prompt that. It just kind of figured it out.** And **it puts up a pull request every day** to remove the dead code."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1735,
+      "text": {
+        "ko": "또 다른 예는 **나가야 할 실험을 출시하는 것**입니다. 이미 100%로 배포된 실험이면, **코드베이스에서 실험 코드를 삭제하고 그냥 출시해 버립니다.**\n\n또 하나는 **테스트 커버리지가 필요한 영역에 테스트를 작성하는 것**이고요. 그리고 또 하나는 **있을 필요가 없는 테스트를 삭제하는 것**입니다. 예전 모델이 만들었거나 언젠가 사람이 추가한, **지금 보면 쓸모없는 테스트들**이 있거든요.",
+        "en": "Another example is **shipping experiments that should go out.** If the experiment is already out to 100%, **it deletes it from the codebase and just ships it.**\n\nAnother is **writing tests for areas of the codebase that need test coverage.** And another is **deleting tests that don't need to be there** — useless tests added by older models, or by people at some point."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1762,
+      "text": {
+        "ko": "제가 정말 좋아하는 게 하나 있는데, 이름을 뭐라고 했더라… **abstraction police(추상화 경찰)** 라고 불렀던 것 같습니다.\n\n발상은 이렇습니다. 큰 코드베이스에는 **같은 추상화가 여러 번 등장하는 일**이 자주 있습니다. 눈을 가늘게 뜨고 보면 사실 하나여야 하는데, 시간이 지나면서 무슨 이유에서인지 **코드베이스 여기저기에 여러 방식으로 다시 만들어진** 것이죠.\n\n그래서 Claude가 **매일 모든 코드베이스를 돌면서 거의 중복된 추상화들을 찾아내 하나로 통합합니다.**",
+        "en": "One that I really love — I forget what we called it, I think **abstraction police.**\n\nThe idea is that in a big codebase there's often **the same abstraction appearing multiple times.** If you squint, it maybe should just be one abstraction, but over time, for whatever reason, **it got rebuilt multiple ways in different parts of the codebase.**\n\nSo Claude **goes out every day across all our codebases, finds these nearly duplicated abstractions, and unifies them.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1785,
+      "text": {
+        "ko": "그래서 지금은 **매일 20~30개 정도의 이런 루틴**이 저희 모든 코드베이스를 가로질러 돌아갑니다. 아직 완전히 도달한 건 아니지만, **앱 유지보수를 완전히 자동화하는 경로 위에 있습니다.**\n\n이건 다시 말해 **매일 수백 개, 때로는 수천 개의 에이전트**가 돈다는 뜻이고, **예전에 이런 일을 하려면 필요했던 수십, 수백 명의 엔지니어 몫**을 하고 있다는 뜻입니다.\n\n그리고 이건 **엔지니어들이 정말 하고 싶은 일을 할 수 있게 된다**는 의미이기도 합니다. **새 제품을 출시하고, 사용자와 이야기하고, 실제로 재미있는 일**을 하는 것 말이죠.",
+        "en": "So now we have maybe **20 or 30 of these routines every day**, running across all our codebases. It's not totally there yet, but **we're on the path to fully automating the maintenance of our apps.**\n\nAnd again, this is **hundreds of agents running every day, sometimes thousands** — **doing the work of dozens or hundreds of engineers**, which is what this kind of work used to take.\n\nWhich means engineers can just **do the thing they actually want to do: ship new product, talk to users, and do stuff that's actually fun.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1814,
+      "title": {
+        "ko": "코딩은 정말 풀렸는가",
+        "en": "Is Coding Actually Solved?"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1814,
+      "text": {
+        "ko": "여기서 좋은 결론이 하나 나올 것 같은데요. 전에 **\"코딩은 풀렸다\"**고 말씀하신 적 있으시죠.\n\n이제 사실상 누구나 소프트웨어를 쓸 수 있게 됐는데, **뛰어난 빌더를 나머지와 구분하는 건 뭘까요? 모두가 코드를 출시할 수 있게 된 지금, 어떤 자질이 중요한가요?**",
+        "en": "A nice conclusion from this — you've said in the past that **coding is solved.**\n\nNow that effectively everyone can write software, **what separates the exceptional builders from the rest? What are the qualities now that everyone can ship code?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1837,
+      "text": {
+        "ko": "단서를 하나 달겠습니다. **코딩은 제가 하는 종류의 코딩에 한해 풀린 겁니다. 모두에게 풀린 건 아닙니다.**\n\n아직 **Claude가 고전하는 아주 깊은 시스템 코드베이스**들이 있습니다. **분산 시스템**도 아직 고전하고요. 그리고 **아주 세밀한 UI 검증** — 뭔가 1픽셀 어긋나 있다든가 하는 것들 — 여기서도 아직 완벽하지 않습니다. **Opus 5가 비전과 컴퓨터 사용에서 큰 도약을 하긴 했지만, 아직 완벽하진 않습니다.**",
+        "en": "I'd give one caveat. **Coding is solved for the kind of coding that I do. It's not solved for everyone.**\n\nThere are still **super deep systems codebases where Claude struggles.** There are **distributed systems where it struggles.** There's really **in-the-weeds UI verification** — something is off by a pixel — where Claude is still not perfect. **Opus 5 was a big leap in vision and computer use, but it's still not perfect.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1863,
+      "text": {
+        "ko": "여기 계신 분들께 궁금한 게 있는데요. **코드의 100%를 에이전트로 쓰시는 분, 손으로는 이제 코드를 전혀 안 쓰시는 분** 손 들어보시겠어요?",
+        "en": "I'm actually curious about the people here — **raise your hand if 100% of your code is written using agents. You don't write any code by hand anymore.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1875,
+      "text": {
+        "ko": "(손이 꽤 올라온다)",
+        "en": "(a fair number of hands)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1878,
+      "text": {
+        "ko": "꽤 되네요. 그럼 **50% 이상**은요?",
+        "en": "That's pretty good. Okay — how about **more than 50%?**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1884,
+      "text": {
+        "ko": "(조금 적지만 거의 비슷한 수)",
+        "en": "(slightly fewer hands, but about the same)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1890,
+      "text": {
+        "ko": "그래서 **점점 그렇게 되어가고 있는 것 같습니다. 점점 더 많은 종류의 코드에 대해 '풀린' 상태가 되어가고 있고요.** 꽤 멋진 일이죠.",
+        "en": "So I think **it's getting there. It's getting to being solved for more and more kinds of code.** And that's kind of cool."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1902,
+      "text": {
+        "ko": "**Claude를 가장 잘 쓰는 사람들**을 생각해 보면, 정말 효과적인 **어떤 마인드셋**이 있습니다. 그리고 그건 **철저히 경험적**인 것입니다.\n\n**과거 모델에 대해 배운 것을 전부 잊으세요. 수업에서 배운 컴퓨터 과학 이론도 잊으세요. 모델을 보고, 과제를 시켜보고, 어디서 고전하는지 보고, 그걸 근거로 조정하세요.**\n\n**이건 이제 이론 과학이 아니라 경험 과학이 되었습니다.**\n\n그래서 지금 이걸 정말 잘하는 사람들은 **자기 사전 지식(priors)을 잘 잊는 사람들**입니다. **예전엔 안 됐던 아이디어를 놓아버릴 줄 알고, 다시 시도해 볼 만큼 열려 있는 것** — 지금 아주 아주 성공적인 기술이 바로 이겁니다.",
+        "en": "When I think about **the people who are best at using Claude**, there's a certain **mindset** that's really effective. And it's really about **being empirical.**\n\n**Forget all the things you learned about past models. Forget everything you learned about computer science theory in class. Look at the model, try a task, see where it struggles, and adjust based on that.**\n\n**It's not a theoretical science anymore — it's become an empirical science.**\n\nSo people who are really good at **forgetting their priors**, at **letting go of the idea that didn't work before and just being open to trying it again** — that's the kind of skill that's very, very successful now."
+      }
+    },
+    {
+      "type": "section",
+      "t": 1945,
+      "title": {
+        "ko": "그래서 무엇을 배워야 하나",
+        "en": "So What Should You Still Learn?"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1945,
+      "text": {
+        "ko": "마지막 질문입니다. 지금까지 이야기한 걸 다 고려할 때, **여기 CS를 공부하는 분이 계시다면 — 그리고 선생님은 AI 에이전트 코딩 시대 이전에 프로그래밍을 배우셨는데 — 학생들은 여전히 무엇을 어렵게, 옛날 방식으로 배워야 할까요?**",
+        "en": "My last question: given everything we talked about — if someone here is studying CS, and you learned to program before this era of AI agent coding — **what should students still learn the hard way, the old way?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1970,
+      "text": {
+        "ko": "저 같은 경우는 **컴퓨터 과학을 실용적으로 배웠습니다.** 문제를 풀기 위해 스스로 코딩을 가르쳤어요. 이걸 할 때마다 **항상 제가 갖고 있던 특정한 문제를 풀기 위해서** 했습니다.\n\n제가 처음 코딩을 배운 건 **TI-83 계산기** 위에서였습니다. 중학교 때였고요. 나중에는 **TI-83 프로그래밍 가이드를 인터넷에 써서 올렸는데, 아직 어딘가에 남아 있을 겁니다.** 언어는 **BASIC**이었어요. 그게 제 첫 언어였습니다.\n\n그리고 제가 계산기로 프로그래밍을 배운 이유는 — **수학 시험에서 커닝을 해서 성적을 좀 올리려고요.**",
+        "en": "For me, **I learned computer science practically.** I taught myself to code in order to solve problems — and whenever I did it, **it was to solve a particular problem I had.**\n\nI first learned to code on a **TI-83 calculator**, back in middle school. I ended up **writing a guide on the internet for programming TI-83s — it's still up somewhere.** The language was **BASIC** — that was my first language.\n\nAnd I learned to program on a calculator so I could **get better at my math tests by cheating on them.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1999,
+      "text": {
+        "ko": "(박수)",
+        "en": "(applause)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2002,
+      "text": {
+        "ko": "실용적인 목적이었던 거죠. 중학생인 저에게는 **그게 생각할 수 있는 가장 실용적인 일**이었으니까요.\n\n결국 좋은 성적을 받았고, 그다음엔 작은 **시리얼 케이블**을 구해서 **친구들에게 프로그램을 나눠 줬습니다. 친구들도 성적이 아주 좋아졌죠.**\n\n그런데 수학이 좀 더 어려워졌습니다. **BASIC으로는 더 이상 풀 수 없는 것들**이 나오기 시작했어요. BASIC으로 만든 대수 풀이기 수준으로는 안 되는 더 어려운 문제들을 풀어야 했고, **미적분에 들어가자 더 나은 풀이기를 만들려고 어셈블리를 배워야 했습니다.** 이제 미적분이 됐으니 더 잘 커닝하려고요.",
+        "en": "It was about something practical. To me as a middle schooler, **that was the most practical thing I could think of.**\n\nI ended up getting good grades, and then I got a little **serial cable** to give the programs to my classmates — **and they got really good grades too.**\n\nThen the math got a little harder. **It wasn't something I could solve in BASIC anymore.** I'd gone from an algebra solver written in BASIC to needing to solve harder problems, and **once we got into calculus I had to learn assembly so I could write a better solver** — so I could cheat better, now that it was calculus."
+      }
+    },
+    {
+      "type": "term",
+      "term": "BASIC → Assembly",
+      "kr": {
+        "ko": "왜 이 일화가 학습론인가",
+        "en": "why this anecdote is really about learning"
+      },
+      "body": {
+        "ko": "**BASIC**은 초보자용으로 설계된 아주 쉬운 언어이고, **어셈블리(assembly)** 는 CPU 명령어에 거의 일대일로 대응하는 **가장 낮은 수준의 언어**입니다. 사람이 쓰기엔 극도로 번거롭지만, 그만큼 **빠르고 기계를 정밀하게 통제**할 수 있습니다.\n\n중학생이 계산기 위에서 BASIC에서 어셈블리로 넘어갔다는 것은 **난도가 몇 단계 뛰는 일**입니다. 그런데 여기서 주목할 점은 그가 **\"어셈블리를 배워야지\"라고 결심한 적이 없다**는 것입니다. **풀어야 할 문제가 먼저 어려워졌고, 그것이 그를 더 깊은 도구로 끌어당겼습니다.**\n\n이 구조는 이 대담 전체와 정확히 겹칩니다.\n\n**\"모델이 할 수 있다고 생각하는 것보다 조금 더 어려운 과제를 줘라\"** (15:00) — **감당 가능한 수준을 살짝 넘는 문제가 능력을 끌어올린다.** 그가 모델에게 권하는 방식은, 사실 그 자신이 중학생 때 스스로에게 적용했던 방식입니다.",
+        "en": "**BASIC** is a beginner-friendly language; **assembly** sits at the opposite end — nearly one-to-one with CPU instructions, painful to write by hand but **fast and precise in its control of the machine.**\n\nFor a middle schooler on a calculator, moving from BASIC to assembly is **a jump of several difficulty levels.** But notice: **he never decided \"I should learn assembly.\"** **The problem got harder first, and that pulled him toward the deeper tool.**\n\nThe structure maps exactly onto the rest of the talk.\n\n**\"Give the model slightly harder tasks than you think it can do\"** (15:00) — **a problem just past your current reach is what raises capability.** What he recommends for the model is what he was already doing to himself in middle school."
+      }
+    },
+    {
+      "type": "a",
+      "t": 2039,
+      "text": {
+        "ko": "그래서 저에게 프로그래밍은 늘 **아주 실용적인 것**이었습니다.\n\n그리고 이게 학교에 계신 분들께 늘 드리는 제 조언이기도 합니다. **컴퓨터 과학만 배우지 마세요.** 그건 지적으로 매혹적이고 알아둘 가치가 정말 큽니다. 하지만 **그걸 어떻게 응용하는지도 배우세요.**\n\n그리고 그 응용이란 대개 **스타트업을 만드는 것, 제품을 만드는 것**입니다. **자기만의 디자인 감각을 기르는 것, 비즈니스 감각을 기르는 것, 데이터 과학을 배우는 것, 사용자와 대화하는 법을 배우는 것** 말이죠.\n\n**이런 다른 기술들을 컴퓨터 과학·엔지니어링과 결합할 때 정말 정말 가치 있어집니다.** 그러니 **제가 여전히 손으로 직접 익히겠다고 하는 어려운 기술이 바로 그것들입니다.**",
+        "en": "So for me, programming has always been **very practical.**\n\nAnd that's always my advice for people in school: **learn not just the computer science.** It's intellectually fascinating and really worth knowing — but **learn how to apply it.**\n\nAnd often that's about **building startups, building products. Developing your own design sense, developing your business sense, learning how to do data science, learning how to talk to users.**\n\n**When you combine those other skills with computer science and engineering, that's where it becomes really, really valuable.** So **those are the hard skills I would still be doing by hand.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2074,
+      "text": {
+        "ko": "제가 듣고 정리해 보자면 — **먼저 나 자신이 원하는 것을 만들고, 그다음 단계를 올려서 사람들이 원하는 것을 만들어라.**",
+        "en": "So if I'm hearing and summarizing: **start with making something you want for yourself, and then level up and make something people want.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2085,
+      "text": {
+        "ko": "네.",
+        "en": "Yes."
+      }
+    },
+    {
+      "type": "q",
+      "t": 2087,
+      "text": {
+        "ko": "그리고 저희에게 마지막 특별 발표가 하나 있습니다. 하실 말씀 있으시죠?",
+        "en": "And we have one last special announcement. You want to do one last thing?"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2092,
+      "text": {
+        "ko": "네. **오늘 여기 오신 모든 분께 Max 20x를 드리겠습니다.**",
+        "en": "Yeah — **for everyone here today, you are getting Max 20x.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 2098,
+      "text": {
+        "ko": "(환호)",
+        "en": "(cheering)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2113,
+      "text": {
+        "ko": "**이메일로 코드를 확인해 주세요.** 여러분이 무엇을 만드실지 정말 기대됩니다.",
+        "en": "**Look for a code in your email.** And I can't wait to see what you build."
+      }
+    },
+    {
+      "type": "q",
+      "t": 2131,
+      "text": {
+        "ko": "저도 궁금합니다. **이제 계정이 생기셨으니, 이 방에 계신 누군가는 몇 달씩 돌아가면서 수천 개의 에이전트를 쓰는 무언가를 만드셔야 합니다.**\n\n오늘 정말 감사했습니다.",
+        "en": "I'm curious — **someone in this room should be building something that runs for multiple months and thousands of agents, now that you have the account to do it.**\n\nAnd with that, thank you so much."
+      }
+    },
+    {
+      "type": "a",
+      "t": 2145,
+      "text": {
+        "ko": "감사합니다.",
+        "en": "Thank you."
+      }
+    },
+    {
+      "type": "beat",
+      "t": 2148,
+      "text": {
+        "ko": "(환호와 박수)",
+        "en": "(cheering and applause)"
+      }
+    }
+  ]
+}

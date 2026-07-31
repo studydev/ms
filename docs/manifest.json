@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-06-08T06:16:35Z",
+    "generatedAt": "2026-07-31T10:59:47Z",
     "categories": {
         "azure": {
             "label": "Azure",
@@ -88,6 +88,18 @@
                     "title": "[GitHub] Vibe Coding 확산이 만드는 두 개의 그림자: Slop 현상과 토큰 과소비",
                     "description": "Vibe Coding 확산은 단기 생산성 향상(GitHub Copilot RCT 기준 55.8%)과 장기 품질 저하(Faros 2026: 버그 54% 증가, 검토 시간 5배 증가)를 동시에 발생시키며, Cowork(분산 협업) 환경은 구조적으로 Slop과 토큰 낭비를 증폭시키는 '…",
                     "path": "github/vibe_coding_slop/"
+                }
+            ]
+        },
+        "models": {
+            "label": "Models",
+            "description": "Claude · GPT 등 최신 LLM 모델의 릴리스, 벤치마크, 활용 인사이트.",
+            "docs": [
+                {
+                    "slug": "claude_opus5",
+                    "title": "모델이 똑똑해질수록 프롬프트는 지워라 — Boris Cherny x Diana Hu",
+                    "description": "Opus 5 출시 다음 날, Claude Code를 만든 Boris Cherny와 Diana Hu가 나눈 35분간의 대화. 시스템 프롬프트 80% 삭제, 언하블링, 검증 루프, 수천 개의 에이전트 오케스트레이션까지 한국어로 정리했습니다.",
+                    "path": "models/claude_opus5/"
                 }
             ]
         }

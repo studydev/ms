@@ -1,8 +1,8 @@
 # SD Tech
 
-> Microsoft 기술(Azure · Microsoft 365 · GitHub) 한국어 학습 자료 모음.
+> Microsoft 기술(Azure · Microsoft 365 · GitHub)과 최신 LLM 모델(Models) 한국어 학습 자료 모음.
 
-모든 문서는 한국어로 작성되며, 기술 용어는 영문을 그대로 사용합니다. 각 항목은 Azure · Microsoft 365 · GitHub 세 카테고리로 분류됩니다.
+모든 문서는 한국어로 작성되며, 기술 용어는 영문을 그대로 사용합니다. 각 항목은 Azure · Microsoft 365 · GitHub · Models 네 카테고리로 분류됩니다.
 
 ## Azure
 
@@ -24,3 +24,7 @@
 - [[AI SDLC] VS Code + GitHub Copilot + Azure로 구현하는 Agentic SDLC](https://ms.studydev.com/github/ai_sdlc/): VS Code, GitHub Copilot, GitHub, Azure를 연결해 개발, 검증, 배포, 운영, 개선이 순환하는 Agentic SDLC 구조를 설명합니다.
 - [[Pages] 내가 만든 HTML 결과물을 함께 공유하고 싶다면!](https://ms.studydev.com/github/pages_publishing/): 잘 다듬어진 HTML 파일이 있다고요?!GitHub에서 저장소(Repository) 만들고 → 파일 올리고 → URL로 공유할 수 있어요!
 - [[GitHub] Vibe Coding 확산이 만드는 두 개의 그림자: Slop 현상과 토큰 과소비](https://ms.studydev.com/github/vibe_coding_slop/): Vibe Coding 확산은 단기 생산성 향상(GitHub Copilot RCT 기준 55.8%)과 장기 품질 저하(Faros 2026: 버그 54% 증가, 검토 시간 5배 증가)를 동시에 발생시키며, Cowork(분산 협업) 환경은 구조적으로 Slop과 토큰 낭비를 증폭시키는 '…
+
+## Models
+
+- [모델이 똑똑해질수록 프롬프트는 지워라 — Boris Cherny x Diana Hu](https://ms.studydev.com/models/claude_opus5/): Opus 5 출시 다음 날, Claude Code를 만든 Boris Cherny와 Diana Hu가 나눈 35분간의 대화. 시스템 프롬프트 80% 삭제, 언하블링, 검증 루프, 수천 개의 에이전트 오케스트레이션까지 한국어로 정리했습니다.
