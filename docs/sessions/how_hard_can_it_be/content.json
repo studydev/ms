@@ -1,0 +1,1189 @@
+{
+  "videoId": "I4B37S1dyQQ",
+  "watchUrl": "https://www.youtube.com/watch?v=I4B37S1dyQQ",
+  "thumb": "images/thumbnail.jpg",
+  "durationLabel": "49:00",
+  "langs": [
+    [
+      "ko",
+      "한국어"
+    ],
+    [
+      "en",
+      "English"
+    ]
+  ],
+  "defaultLang": "ko",
+  "kicker": {
+    "ko": "YouTube 대담 · Garry Tan × Jensen Huang · Startup School 2026",
+    "en": "YouTube conversation · Garry Tan × Jensen Huang · Startup School 2026"
+  },
+  "speakers": {
+    "host": {
+      "name": {
+        "ko": "Garry Tan",
+        "en": "Garry Tan"
+      },
+      "img": "images/garry.png"
+    },
+    "guest": {
+      "name": {
+        "ko": "Jensen Huang",
+        "en": "Jensen Huang"
+      },
+      "img": "images/jensen.png"
+    },
+    "stage": {
+      "name": {
+        "ko": "현장",
+        "en": "In the room"
+      },
+      "initial": {
+        "ko": "",
+        "en": ""
+      }
+    }
+  },
+  "title": {
+    "ko": "\"<span class=\"ac\">그게 얼마나 어렵겠어?</span>\"",
+    "en": "\"<span class=\"ac\">How Hard Can It Be?</span>\""
+  },
+  "subtitle": {
+    "ko": "Startup School 2026 무대에서 Y Combinator의 Garry Tan과 NVIDIA 창업자 Jensen Huang이 나눈 49분간의 대담을, 오간 순서 그대로 옮겼습니다. 창업 기술이 완전히 틀렸다는 것을 깨닫고 교과서를 사러 갔던 1995년부터, 에이전트 시대의 시스템 사고와 물리 AI까지 — 개념 용어는 필요할 때만 펼쳐 볼 수 있도록 접어 두었습니다.",
+    "en": "Garry Tan (YC) and Jensen Huang (founder & CEO, NVIDIA) on the Startup School 2026 stage — 49 minutes, turn by turn. From discovering in 1995 that the technology the company was founded on was flatly wrong, to systems thinking in the agent era and physical AI. Jargon is tucked into boxes you can expand when you need them."
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "t": 7,
+      "title": {
+        "ko": "창업의 기술이 완전히 틀렸다는 것",
+        "en": "The Technology They Founded On Was Wrong"
+      }
+    },
+    {
+      "type": "q",
+      "t": 7,
+      "text": {
+        "ko": "**Startup School 2026**에 오신 것을 환영합니다. 시작하겠습니다. **NVIDIA의 창업자이자 CEO, Jensen Huang**을 무대로 모시겠습니다.",
+        "en": "Welcome to **Startup School 2026.** Let's get started — please join me in welcoming to the stage the founder and CEO of NVIDIA, **Jensen Huang.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 34,
+      "text": {
+        "ko": "(음악과 환호)",
+        "en": "(music and cheering)"
+      }
+    },
+    {
+      "type": "q",
+      "t": 40,
+      "text": {
+        "ko": "저에게는 정말 **비현실적인 순간**입니다. 와주셔서 감사합니다.",
+        "en": "**This is a surreal moment for me.** Thank you for being here."
+      }
+    },
+    {
+      "type": "a",
+      "t": 45,
+      "text": {
+        "ko": "기꺼이 왔습니다. 여기 있어서 좋네요. **듣자 하니 여기 계신 분들은 다 성공하신다던데, 저도 여기 있어서 다행입니다.**",
+        "en": "I'm delighted to do it. It's great to be here. **Apparently if you're here, you are going to make it — so I'm happy I'm here.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 57,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "q",
+      "t": 62,
+      "text": {
+        "ko": "**NVIDIA를 AI의 중심에 있는 회사로만 아는 학생들**에게, **초창기 NVIDIA 이야기 중 가장 알아야 할 부분**은 무엇일까요?",
+        "en": "For the students who only know NVIDIA as **a company at the center of AI** — **what part of the early NVIDIA story do they most need to understand?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 74,
+      "text": {
+        "ko": "**대부분의 사람들이 믿지 않는 사실이 있습니다. 저희가 회사를 시작할 때 선택한 기술이 완전히 틀렸다는 것입니다.**\n\n저희는 **3D 그래픽스를 재발명하겠다**는 생각으로 시작했습니다. 회사의 철학과 관점은 이랬습니다 — **범용 컴퓨터, 즉 CPU는 정말 유용하지만, 여기에 가속기(accelerator)를 덧붙일 수 있다면 그렇지 않고서는 너무 어려운 문제들을 풀 수 있다.** 그리고 저희가 처음 고른 문제 중 하나가 3D 그래픽스였습니다.",
+        "en": "**The thing that most people don't believe is that the choice of technology we started the company with was absolutely wrong.**\n\nWe started with the idea that **we would reinvent 3D graphics.** The company's philosophy was that **general-purpose computers — CPUs — were really useful, but if we could augment them with accelerators, we could solve problems that were otherwise too hard to solve.** And one of the first problems we chose was 3D graphics."
+      }
+    },
+    {
+      "type": "a",
+      "t": 105,
+      "text": {
+        "ko": "때는 **1993년**, PC가 나온다는 소문이 막 돌던 시기였습니다. 저희의 큰 아이디어는 **모든 개인용 컴퓨터를 게임 콘솔로 바꾸겠다**는 것이었습니다. **저희가 게임 콘솔 시대에 자랐기 때문**이죠.\n\n그래서 **거대한 슈퍼컴퓨터가 필요하던 알고리즘을 재발명해서 PC 안에 집어넣겠다**고 생각했습니다. 새로운 알고리즘을 몇 개 만들어냈고, 흥분했고, 믿었고, **사려 깊게 논증까지 했습니다.** 그리고 회사를 세워 그걸 만들러 갔습니다.\n\n**그런데 알고 보니 그 알고리즘이 정확히 틀렸습니다. 회사를 세운 근거가 된 기술이 정확히 틀렸던 겁니다.**",
+        "en": "This was **1993**, when the PC was just rumored to be coming. Our big idea was that **we would turn every single personal computer into a game console** — **because we grew up in the era of game consoles.**\n\nSo we thought **we'd reinvent the algorithm that required large supercomputers and fit it into the PC.** We came up with new algorithms. We were excited about it, we believed in it, **we reasoned about it in a thoughtful way.** And we started the company to go build it.\n\n**Well, it turns out the algorithm was exactly wrong. The technology that founded the company turns out to be exactly wrong.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 155,
+      "text": {
+        "ko": "그래서 **1995년에 그 사실을 깨달았는데, 거의 너무 늦은 시점이었습니다.** 그때는 이미 **PC용 3D 그래픽스를 만드는 회사가 35~40개**나 있었거든요.\n\n회사로 돌아가서 물었습니다. **\"이게 안 되는데, 우리 어떻게 하지?\"** 다들 이야기를 나눴고 제가 말했습니다. **\"이게 작동하지 않는다는 사실을 정면으로 마주하고 올바른 알고리즘을 향해 일하기 시작하지 않으면, 우리는 회사를 잃게 될 겁니다.\"**\n\n그런데 그때 누군가가 말해주더군요 — **알고 보니 우리 중 누구도 올바른 방법을 알지 못했습니다.** **틀린 기술을 골랐을 뿐 아니라, 제대로 하는 법도 몰랐던 거죠.**",
+        "en": "**In 1995 we realized that, and it was almost too late** — by then there were **some 35 or 40 other companies building 3D graphics for PCs.**\n\nI went back to the company and asked, **\"what are we going to do? It doesn't work.\"** We all talked about it and I said: **\"we won't have a company if we don't confront the fact that this doesn't work and start working toward the right algorithm.\"**\n\nAnd then somebody told me — **it turns out none of us knew how to do it the right way.** **Not only did we choose the wrong technology, we didn't know how to do it right.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 200,
+      "text": {
+        "ko": "**그날은 저에게 큰 날이었습니다.** 주머니에 **몇백 달러** 정도가 있었는데, **Fry's에 가서 교과서 세 권을 샀습니다.**\n\n**OpenGL과 파이프라인 설계**에 관한 책들이었죠. **그걸 회사로 가져와 엔지니어들에게 줬습니다. 그리고 지금 우리가 여기 있습니다.**\n\n저희는 **컴퓨터 그래픽스를 재발명했고, 현대 컴퓨터 그래픽스의 세계 선두이며, 지난 25년간의 주요 돌파구 대부분을 만들어냈습니다.**",
+        "en": "**That was a big day for me.** I had **a couple hundred dollars** in my pocket, and **I went down to Fry's and bought three textbooks.**\n\nThe textbooks were about **OpenGL and how to design pipelines.** **I brought them back to the company and gave them to the engineers. And here we are.**\n\nWe **reinvented computer graphics, we're the world leader in modern computer graphics, and we invented most of the major breakthroughs of the last 25 years.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 250,
+      "text": {
+        "ko": "**다들 NVIDIA가 처음부터 3D 그래픽스의 세계 선두로 출발했다고 생각하겠지만, 저희는 그걸 교과서로 배웠습니다.** 생각해 보면 **저희는 회사를 세우고, 돈을 모으고, 교과서를 샀던 겁니다.**\n\n**그래서 제가 얻은 큰 교훈은 이겁니다 — 기술은 늘 변합니다. 그러니 현실을 정면으로 마주할 수 있고 배울 수 있는 한, 기술 그 자체는 사실 중요하지 않습니다.**",
+        "en": "**Everybody would have thought NVIDIA started out as world leaders in 3D graphics — and we learned it from a textbook.** When you think about it, **we started the company, raised money, and bought textbooks.**\n\n**So the big lesson for me is that technology is changing all the time. And so long as you're able to confront reality, so long as you're able to learn, the technology itself actually doesn't matter.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 273,
+      "text": {
+        "ko": "그 이후로 NVIDIA는 **한 번도 해본 적 없는 온갖 기술을 계속 발명해 왔습니다.** 그리고 **모든 것을 같은 태도로 접근합니다 — 할 만한 가치가 있는 일이라면 가서 배운다. 그리고 \"그게 얼마나 어렵겠어?\"**\n\n**그리고 늘 예상보다 훨씬, 훨씬 더 어렵습니다.** 하지만 **\"그게 얼마나 어렵겠어?\"라는 태도로 뛰어드는 겁니다.**",
+        "en": "Since then NVIDIA has been **inventing all kinds of technology we'd never really done before.** And **we approach everything with the same attitude: if it's important to do, we're going to go learn it. And — how hard can it be?**\n\n**It always turns out to be much, much harder than we expect.** But **you go into it with the attitude: how hard can it be?**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "가속 컴퓨팅 (Accelerated Computing)",
+      "kr": {
+        "ko": "NVIDIA를 만든 하나의 관점",
+        "en": "the one perspective that built NVIDIA"
+      },
+      "body": {
+        "ko": "**CPU(중앙처리장치)** 는 **범용(general-purpose)** 프로세서입니다. 무슨 일이든 할 수 있지만, 대신 **한 번에 소수의 작업을 순차적으로 아주 빠르게** 처리하도록 설계돼 있습니다.\n\n**가속기(accelerator)** 는 그 반대입니다. **특정 종류의 연산만 하되, 그것을 극단적으로 병렬로** 처리합니다. **GPU**가 대표적이죠. 화면의 수백만 픽셀을 동시에 계산해야 하는 그래픽 작업에서 출발했지만, **\"같은 연산을 엄청나게 많은 데이터에 동시에 적용한다\"는 구조**가 핵심입니다.\n\n그리고 바로 이 구조가 **딥러닝의 행렬 연산과 정확히 일치**했습니다. 신경망 학습은 결국 **거대한 행렬 곱셈의 반복**이기 때문입니다. NVIDIA가 그래픽 회사에서 AI 회사가 된 것이 우연이 아닌 이유입니다.\n\nJensen이 강조하는 지점은 더 중요합니다. **\"칩을 만드는 것이 아니라 알고리즘 영역을 가속하는 것\"** — 즉 **하드웨어가 아니라 \"어떤 종류의 계산 문제를 풀어줄 것인가\"가 사업의 정의**라는 관점입니다. 그래서 3D 그래픽스, 분자동역학, 이미지 처리, 딥러닝이 모두 **같은 회사의 같은 전략** 아래 놓이게 됩니다.",
+        "en": "A **CPU** is a **general-purpose** processor: it can do anything, but it's designed to handle **a few tasks sequentially, very fast.**\n\nAn **accelerator** is the opposite — it does **only certain kinds of operations, but massively in parallel.** The **GPU** is the canonical example. It began with graphics, where millions of pixels must be computed simultaneously, but the essential structure is **applying the same operation across enormous amounts of data at once.**\n\nThat structure happens to match **the matrix math of deep learning exactly**, since training a neural network is fundamentally **repeated large matrix multiplication.** It's why NVIDIA's move from graphics to AI wasn't coincidence.\n\nJensen's framing matters more, though: **\"it's not about building a great chip, it's about accelerating an algorithm domain.\"** The business is defined **not by hardware but by which class of computational problem you solve.** That's how 3D graphics, molecular dynamics, image processing and deep learning all sit under **one company's single strategy.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 292,
+      "text": {
+        "ko": "무대 뒤에서 **YC 최고 기업들 몇 곳**과 이야기하면서 하신 말씀이 있는데요. **그 회사들이 각자 가진 전문성이, 당신과 NVIDIA가 전문성을 가진 어떤 영역과 겹친다**는 것이었죠. 일종의 **알고리즘 영역**이라고 하셨던 것 같습니다. 그러니까 **3D 그래픽스는 그저 첫 번째 알고리즘 영역이었을 뿐**이라는 거네요.",
+        "en": "Backstage we were talking with some of the top YC companies, and you were saying that **each one has an expertise in a domain that you and NVIDIA also have expertise in** — you called it **an algorithmic domain.** So it sounds like **3D graphics was merely the first algorithmic domain.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 318,
+      "text": {
+        "ko": "맞습니다. **입자 물리학, 유체 역학**, 그런 것들이죠.",
+        "en": "That's right. **Particle physics, fluid dynamics** — yes."
+      }
+    },
+    {
+      "type": "q",
+      "t": 325,
+      "text": {
+        "ko": "그런데 **교과서는 누구나 읽을 수 있었잖아요.** 당신은 **사람들이 큰돈을 내고 싶어 하는 최종 제품**을 만들어냈습니다.",
+        "en": "But **anyone could have read that textbook.** You created **the end product that people want to pay a lot of money for.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 341,
+      "text": {
+        "ko": "**회사의 큰 아이디어 중 정확히 맞았던 것은 이겁니다 — CPU를 증강하면, 그렇지 않고서는 너무 어려운 문제들을 풀 수 있다.**\n\n**분자동역학**이 그중 하나이고, **이미지 처리**도 하나이고, **역물리학(inverse physics)** 도 하나입니다. 온갖 종류의 알고리즘이 있고, 물론 **딥러닝이 그중 가장 중요한 것 중 하나**죠.\n\n그리고 **오늘의 회사를 만들기 위해 저희가 일찍 깨달은 것은, 이것이 훌륭한 칩을 만드는 일이 아니라 알고리즘 영역을 가속하는 일이라는 점**이었습니다.",
+        "en": "**The big idea of the company that was spot-on is that it is possible to augment the CPU to solve problems that are otherwise too difficult to solve.**\n\n**Molecular dynamics** is one of them, **image processing** is one, **inverse physics** is another. All kinds of different algorithms — and of course **deep learning is one of the major ones.**\n\nAnd to create the company we have today, **we realized early on that it's not about building a great chip — it's about accelerating an algorithm domain.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 372,
+      "text": {
+        "ko": "제가 늘 믿어온 것 중 하나는 **위대한 회사를 만드는 것은, 깊이 믿는 세상에 대한 독특한 관점**이라는 겁니다.\n\n**기술도 아니고, 심지어 시장도 아닙니다.** 물론 그것들도 다 중요하고, **올바른 시장에 올바른 타이밍으로 올바른 기술을 갖고 있다면 인생이 훨씬 수월해집니다.**\n\n하지만 **중요한 무언가의 미래에 대한 높은 수준의 비전, 어딘가 독특하면서 깊이 믿는 관점, 그리고 이상적으로는 그 비전을 추구하는 것이 어려운 일일 것** — 그런 조합이 좋은 조합입니다.\n\n저희 경우엔 **가속 컴퓨팅이 중요해질 것**이라는 깨달음이었고, **그것이 칩이 아니라 알고리즘에 관한 것**이라는 인식이 **정확히 맞았습니다.**",
+        "en": "One of the things I've always believed is that **what makes great companies is a unique perspective about the world that you deeply believe in.**\n\n**It's not so much the technology, not so much even the market.** Those all matter, and **if you have the right technology for the right market at the right time, your life is going to be a lot easier.**\n\nBut **a high-level vision about the future of some important thing, a perspective that's somehow unique, that you deeply believe in — and ideally where pursuing that vision is hard to do.** Those are good combinations.\n\nIn our case we realized **accelerated computing was going to be important**, and our realization that **it's everything to do with algorithms, not the chip, turns out to be exactly right.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 434,
+      "title": {
+        "ko": "Sega 이야기 — \"못 하겠지만 돈은 다 주세요\"",
+        "en": "The Sega Story — \"I Can't Do It, But I Still Need the Money\""
+      }
+    },
+    {
+      "type": "q",
+      "t": 434,
+      "text": {
+        "ko": "**창업자의 고난**에 대해 많이 말씀하셨는데요, **정말 기억에 남는 이야기**가 있을까요?\n\n이 방에 계신 분들은 회사를 시작하고 싶어 하지만, **유리를 씹어 먹는 것 같은 일, 회사를 접어야 할 수도 있는 상황, 일이 잘못되는 것**에 정말 준비가 되어 있을까요? **최근에 일본에 다녀오시면서 Sega를 기리셨다고** 들었는데, 그게 정말 강력한 이야기 같았습니다.",
+        "en": "You've said a lot about **the hardships of a founder** — **are there a few stories that really jump out at you?**\n\nPeople in this room would love to start a company, but **are they really prepared for eating glass, possibly having to shut down the company, things going wrong?** I think **you were just in Japan honoring Sega** — that felt like a really powerful story."
+      }
+    },
+    {
+      "type": "a",
+      "t": 458,
+      "text": {
+        "ko": "**저희가 고른 알고리즘이 틀렸다는 걸 깨닫게 만든 프로젝트가 바로 Sega와의 협업**이었습니다.\n\nSega는 저희에게 **Saturn 다음 게임 콘솔**을 만들어 달라고 계약했는데, **그게 결국 Dreamcast**가 됐습니다. **Dreamcast 아시는 분?**\n\n**저희는 Dreamcast를 만들지 않았습니다. 원래는 저희가 만들기로 되어 있었죠.**",
+        "en": "**The project that led us to realize the algorithm we chose was wrong was a partnership with Sega.**\n\nSega had contracted us to build **the game console after Saturn** — which turned out to be **Dreamcast.** **Does anybody know what Dreamcast is?**\n\n**We did not build Dreamcast. We were originally supposed to.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 488,
+      "text": {
+        "ko": "**저희 알고리즘과 기술에 근본적인 결함이 있었기 때문에**, 저는 일본으로 가서 당시 CEO였던 **Irimajiri-san**에게 말했습니다. **그들이 준 약 1,200만 달러짜리 계약을, 기술이 작동하지 않기 때문에 이행할 수 없다**고요.\n\n그리고 그 이유를 설명했습니다. **다른 회사를 골라서 진행하시라고 조언했습니다.**\n\n**그런데 그러고 나서, 불행히도 저는 여전히 그 돈이 필요하다고 말했습니다.**",
+        "en": "**Because our algorithm and technology were fundamentally flawed**, I went to Japan and told **Irimajiri-san**, the CEO at the time, that **the roughly $12 million contract they gave us — we would not be able to fulfill, because the technology doesn't work.**\n\nI told him the reasons why. **I advised that they choose somebody else to do it.**\n\n**But then I told him that unfortunately I still needed the money.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 520,
+      "text": {
+        "ko": "그가 저에게 물었습니다. 대화가 어떻게 흘러갔을지 상상이 가시죠. **\"그러니까 당신 말은, 내가 계약한 일을 당신은 할 수 없다는 거고, 그런데 계약금은 전부 받고 싶다는 거군요.\"**\n\n제가 말했습니다. **\"바로 그겁니다. 정확합니다.\"**",
+        "en": "He asked me — you can just imagine the conversation — **\"so what you're telling me is, what I contracted you to do, you can't do. But you would like all the money on the contract.\"**\n\nAnd I said: **\"You got it. That's exactly right.\"**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 538,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 542,
+      "text": {
+        "ko": "물론 **저는 정중했고, 겸손했습니다.** 그리고 **그는 제가 정직하다는 것을 알아봤고, 모든 것이 앞뒤가 맞았습니다.** **그가 그 돈을 주지 않았다면 저희는 문을 닫았을 겁니다.**\n\n그리고 **이건 이 방에서도 일어나는 일**입니다. **여러분은 회사에 투자하는 게 아니라 사람에게 투자합니다.**\n\n**Irimajiri가 알아본 것은, 애초에 계약을 맡길 만큼 신뢰했던 사람과 회사가 여기 있고, 그가 믿었던 그 회사가 다음 날까지 살아남는 것을 보고 싶다는 것**이었습니다.\n\n**그 500만 달러가 저희를 살렸고, 무엇을 해야 할지 알아낼 시간을 줬습니다.**",
+        "en": "Obviously **I was polite, I was humble.** And **he realized I was honest, and everything made sense.** **If he hadn't given us the money, we'd have been out of business.**\n\nAnd **this happens in this room too — you don't invest in companies, you invest in people.**\n\n**What Irimajiri recognized was that here was somebody and a company he had trusted with the contract in the first place, that he believed in, and that he would love to see make it to the next day.**\n\n**That $5 million kept us alive and gave me enough time to discover what to do.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 577,
+      "text": {
+        "ko": "그리고 **그들이 나중에 1,500만 달러에 팔았다**고 들었는데요.",
+        "en": "And then I heard **they sold it for 15 million.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 583,
+      "text": {
+        "ko": "**저희가 상장하는 순간 팔았습니다.** **NVIDIA가 상장했을 때 기업가치가 3억 달러**였습니다. **1999년의 3억 달러면 진짜 큰돈이었죠.**",
+        "en": "**They sold it the moment we went public.** **When NVIDIA went public, our valuation was $300 million.** **$300 million in 1999 — that was real money.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 594,
+      "text": {
+        "ko": "지금은 **1조 달러를 훌쩍 넘겼죠.**",
+        "en": "It's **north of a trillion dollars now.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 597,
+      "text": {
+        "ko": "**1조 달러 이상이죠.**",
+        "en": "**It's more than a trillion, yeah.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 610,
+      "title": {
+        "ko": "AlexNet에서 본 것 — 보편 함수 근사기",
+        "en": "What He Saw in AlexNet — a Universal Function Approximator"
+      }
+    },
+    {
+      "type": "q",
+      "t": 610,
+      "text": {
+        "ko": "그 전에는 **GPU와 당신이 만든 기술이 이 AI 혁명에 얼마나 중요해질지 누구도 예측할 수 없었을 것** 같은데요. **무엇을 보셨나요?** 가속기와 **적시적소**의 문제였나요, 아니면 **이 위치를 확보하게 만든 여러 가지가 쌓여 있었나요?**",
+        "en": "Before that, **I don't think anyone could have predicted how important GPUs and the technology you built would be for this AI revolution.** **What did you see?** Was it the accelerator and being in the right place at the right time, or were there a lot of things that led up to it?"
+      }
+    },
+    {
+      "type": "a",
+      "t": 632,
+      "text": {
+        "ko": "**저도 다른 모두와 마찬가지로 AlexNet을 봤습니다.**\n\n하지만 기억하셔야 할 것은, **제 세상을 보는 렌즈는 늘 알고리즘을 찾고 있었다**는 겁니다. 그 알고리즘은 **NAMD**일 수도, **VASP**일 수도, **OpenGL**일 수도, **SQL**일 수도, 어떤 도메인 특화 언어일 수도 있었습니다.\n\n**그래서 제 렌즈는 늘 우리가 해결을 도울 수 있을 만한 문제를 찾고 있었습니다.** **AlexNet이 나왔을 때, 그 알고리즘은 딥러닝이었습니다.**",
+        "en": "**I saw AlexNet just like everybody else saw AlexNet.**\n\nBut remember, **our lens of the world — my view of the world — was always looking for algorithms.** That algorithm could be **NAMD**, could be **VASP**, could be **OpenGL**, could be **SQL**, some domain-specific language.\n\n**So my lens was always looking for a problem we might be able to help solve.** **When AlexNet came along, the algorithm was deep learning.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 668,
+      "text": {
+        "ko": "질문은 이겁니다. **이 알고리즘은 무엇이고 왜 중요한가? 왜 이렇게 효과적이었나? 또 무엇을 할 수 있나? 그리고 알고리즘을 그 이상으로 확장한다면, 오늘 풀 수 없는 무엇을 풀 수 있게 되나?**\n\n그리고 **저희의 돌파구는 AlexNet이 AlexNet이 아니라는 것을 깨달은 것**이었습니다.\n\n**AlexNet은 어떤 함수든 학습할 수 있게 해주는 딥러닝이라는 접근법**이었습니다. 그래서 **15년 전에 저는 모두에게 이렇게 말하고 다녔습니다 — \"그거 아세요? 우리는 방금 보편 함수 근사기(universal function approximator)를 배웠습니다.\"**",
+        "en": "The question is: **what is this algorithm and why does it matter? Why was it so effective, and what else can it do? And if you scaled it beyond that, what could it solve that you can't solve today?**\n\nAnd **the breakthrough for us was realizing that AlexNet was not AlexNet.**\n\n**AlexNet was an approach — deep learning — that allows you to learn any function.** So **15 years ago I was telling everybody: \"guess what? We just discovered the universal function approximator.\"**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 700,
+      "text": {
+        "ko": "**거의 모든 함수에 대해 답을 주면, 그 함수가 무엇인지 학습할 수 있습니다.** 그리고 **많은 함수에 대해서는 정밀할 필요가 없습니다. 사실 정밀한 것이 불가능합니다.** **그리고 흥미로운 문제들 대부분이 바로 이런 식으로 비정밀합니다.**\n\n**보편 함수 근사기를 갖게 됐다는 걸 깨달은 날, 다음 질문은 이것이었습니다 — 이게 컴퓨팅 스택에 무엇을 하는가? 소프트웨어에는 무슨 일이 일어나는가? 어떤 산업들이 영향을 받는가?**",
+        "en": "**You can give it the answer for almost any function and it can learn what the function is.** And **for a lot of functions you don't have to be precise — in fact it's impossible to be precise.** **And most of the interesting problems are imprecise in this way.**\n\n**The day we realized we have a universal function approximator, the question became: what does that do to the computing stack? What happens to software? What are the industries this could impact?**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "AlexNet · 보편 함수 근사기",
+      "kr": {
+        "ko": "\"AlexNet은 AlexNet이 아니었다\"의 의미",
+        "en": "why AlexNet wasn't AlexNet"
+      },
+      "body": {
+        "ko": "**AlexNet**은 2012년 ImageNet 이미지 인식 대회에서 압도적 1위를 차지한 신경망입니다. 기존 방식과의 성능 차이가 워낙 커서, **딥러닝 시대의 시작을 알린 사건**으로 꼽힙니다. GPU를 써서 학습했다는 점도 NVIDIA에게는 결정적이었죠.\n\n**보편 함수 근사기(universal function approximator)** 는 신경망 이론의 핵심 개념입니다. **충분한 크기의 신경망은 어떤 연속 함수든 원하는 정확도로 근사할 수 있다**는 정리(universal approximation theorem)에서 나왔습니다.\n\n여기서 **함수**란 수학 기호가 아니라 **\"입력 → 출력\"의 대응 관계 전부**를 뜻합니다. 사진을 넣으면 \"고양이\"가 나오는 것도 함수이고, 문장을 넣으면 번역문이 나오는 것도 함수입니다.\n\nJensen이 **\"AlexNet은 AlexNet이 아니었다\"**고 말한 것의 의미가 여기 있습니다. **대부분의 사람은 \"이미지 인식이 잘 되는 모델\"을 봤지만, 그는 \"입력-출력 관계라면 무엇이든 학습할 수 있는 범용 기계\"를 봤습니다.**\n\n그리고 **\"정밀할 필요가 없다\"**는 단서가 실전적으로 중요합니다. 전통적 소프트웨어는 **정확한 규칙을 사람이 다 적어야** 했습니다. 그런데 \"이 사진이 고양이인가\"처럼 **규칙을 적을 수 없는 문제들**이 세상에는 훨씬 많습니다. **딥러닝은 바로 그 영역을 열었습니다.**",
+        "en": "**AlexNet** was the neural network that decisively won the 2012 ImageNet competition. The margin over prior methods was so large that it's generally marked as **the start of the deep learning era.** That it trained on GPUs was decisive for NVIDIA.\n\nA **universal function approximator** comes from the universal approximation theorem: **a sufficiently large neural network can approximate any continuous function to arbitrary accuracy.**\n\nHere a **function** doesn't mean a mathematical symbol but **any input-to-output mapping.** Photo in, \"cat\" out is a function. Sentence in, translation out is a function.\n\nThat's the meaning of **\"AlexNet was not AlexNet.\"** **Most people saw a model that was good at image recognition; he saw a general-purpose machine that could learn any input-output relationship.**\n\nAnd the caveat that **\"you don't have to be precise\"** matters practically. Traditional software required **humans to write out exact rules.** But the world is full of problems — *is this photo a cat?* — **where no rule can be written down.** **Deep learning opened exactly that territory.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 738,
+      "text": {
+        "ko": "**거의 곧바로 컴퓨터 비전 작업을 시작했고, 거의 곧바로 로보틱스와 자율주행차 작업을 시작했습니다.** 그 근본적 능력이 있으면 **컴퓨터 비전과 로보틱스 영역의 중요한 문제들을 풀 수 있겠다**고 상상할 수 있었으니까요.\n\n**그래서 큰 돌파구는 그저 이것이 AlexNet보다 훨씬 더 근본적이라는 것 — 이것은 소프트웨어를 만드는 하나의 방식이라는 것**이었습니다.\n\n그리고 **프로세서, 미들웨어, 알고리즘, 애플리케이션 — 제가 지금 5계층 케이크라고 부르는 그 산업 스택 전체를, 15년쯤 전에 통째로 재발명하는 것을 상상했습니다.**",
+        "en": "**Almost right away we started working on computer vision, and almost right away on robotics and self-driving cars** — because with that fundamental capability, **you could imagine solving important problems in computer vision and robotics.**\n\n**So the big breakthrough was simply that this is much more foundational than AlexNet. This is a way of doing software.**\n\nAnd the implications to **the processor, the middleware, the algorithms, the applications — what I now describe as the five-layer cake, that entire industrial stack — I imagined reinventing all together about 15 years ago.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 800,
+      "text": {
+        "ko": "**그리고 이건 단순히 질문을 던지는 일입니다. 1차 원리로 사고하고, \"이렇다면 그다음은 무엇인가?\"를 묻는 것입니다. \"이게 더 좋아진다면, 그래서 무엇이 달라지는가?\"** 관찰한 것 중 정말 영향력 있는 것에 대해 **기본적인 질문들을 전부 던지는 겁니다.**",
+        "en": "**And this is simply about asking questions, reasoning to first principles, asking \"if this, then what?\" If this can get better, then so what?** **Asking all the basic questions about something you observe that's really impactful.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 830,
+      "title": {
+        "ko": "잡초 속으로 들어가는 CEO",
+        "en": "A CEO Who Goes Into the Weeds"
+      }
+    },
+    {
+      "type": "q",
+      "t": 830,
+      "text": {
+        "ko": "정말 인상적인 것 중 하나가 **당신이 얼마나 깊이 잡초 속까지 들어가느냐**입니다. **논문을 읽고, 이런 것들을 만들어내는 주 저자 과학자들과 직접 이야기하시죠.** 그건 진짜 **파운더 모드**인데요.\n\n동시에 당신에겐 **조직이 있고 임원들이 있고, \"여기 그래프가 있습니다, 이 그래프대로 가고 싶습니다\"라고 말하는 사람들**이 있습니다. **때로는 심기를 건드리기도 하고요.**\n\n**1차 원리로 사고할 수 있는 조직을 어떻게 만드나요?** Fortune 500이 그렇게 했다면 **지금보다 훨씬 NVIDIA처럼 보였을 텐데, 그렇지 않거든요.**",
+        "en": "One of the things that really jumps out is **how far you go into the weeds** — **you read papers, you talk directly to the principal scientists coming up with these things.** That's **true founder mode.**\n\nAt the same time **you have an organization, executives, people who say \"here's the graph, we want to stay on this graph.\"** **Sometimes it ruffles feathers.**\n\n**How do you build an org that allows you to think in first principles?** If the Fortune 500 did that, **they'd look a lot more like NVIDIA than they do.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 858,
+      "text": {
+        "ko": "**제 마음 상태는 늘 호기심에서 출발합니다.** 저 자신에게 질문이 잔뜩 있습니다.\n\n물론 저도 남들처럼 **답으로 가는 가장 짧은 길을 찾습니다.** 그런데 **가까이 있는 사람들에게서 나오는 답이 만족스럽지 않을 때가 많고**, 저에게는 다른 질문들이 있는데 **그들은 바쁘게 다른 것을 좇고 있을 수도 있습니다.**\n\n**그래서 제 첫 번째 성향은, 제 호기심에 대한 답을 제가 직접 찾으러 가는 것**입니다.",
+        "en": "**My state of mind always starts with curiosity.** I have a whole bunch of questions myself.\n\nAnd of course, like anybody else, **I'll seek the shortest path to the answer.** But **often the answers from the people near me might not be satisfying**, and I might have other questions, and **maybe they're busy pursuing something else.**\n\n**So my first inclination is to go discover the answers to my own curiosity myself.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 884,
+      "text": {
+        "ko": "**두 번째 성향은 이겁니다.** 그 정보 영역이 **누군가에게, 그리고 우리 회사에 정말 중요할 수 있겠다는 판단이 들면**, 그다음 성향은 **\"어떻게 하면 최대한 많이 배워서 회사에 도움이 되고 모두와 나눌 수 있을까\"**입니다.\n\n**이건 당신이 지식을 나누는 것과 다르지 않습니다.** 저도 **당신의 팟캐스트와 영상을 보고 정말 즐깁니다.** 당신은 **모두와 아이디어를 나누고 있죠.**\n\n**여러 면에서 CEO는 회사를 위해 봉사하는 자리, 거기서 일하는 모든 사람을 위해 봉사하는 자리**라고 생각합니다. **그리고 어떤 통찰로 그들에게 힘을 실어주고 싶은 겁니다.**\n\n**그래서 이건 관리 기법이라기보다 성격 기법에 가깝습니다.**",
+        "en": "**My second inclination:** if I find that a domain of information **could be really important to somebody and to our company**, then it becomes **\"how can I learn as much as possible so I can be of service to the company and share it with everybody else?\"**\n\n**This is no different from you sharing knowledge.** **I watch your podcasts and videos and really enjoy them** — **you're sharing ideas with everybody else.**\n\nIn a lot of ways **a CEO is in service of the company, in service of all the people working there.** **And you want to empower them with some insight.**\n\n**So it's not so much a management technique as a personality technique.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 940,
+      "text": {
+        "ko": "그리고 **땅에 가까이 있고 잡초 속에 있어야 하는 이유**는, **기술이 복잡하거나 아주 빠르게 변하기 때문**입니다.\n\n특히 **우리 세계처럼 빠르게 변할 때, 실제로 무슨 일이 일어나는지에 대한 촉각적 감각이 없으면 그저 너무 빨라서 이해할 수 없다고 느껴집니다.**\n\n**하지만 1차 원리를 이해하면, 시간이 지나면서 모든 것이 말이 되기 시작합니다.**",
+        "en": "And **part of having to be near the ground, in the weeds, is because the technology is complicated or changing really fast.**\n\nEspecially when it's changing fast like our world — **unless you have a tactile sensation of what is actually happening, it can feel like it's moving way too fast to understand.**\n\n**But if you understand the first principles of it, over time everything kind of makes sense.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 972,
+      "text": {
+        "ko": "**서핑과 비슷할 것 같습니다.** 저는 서핑을 할 줄 모르지만 상상은 됩니다.\n\n**파도 위에 나가면, 저에게는 그냥 혼돈으로 보입니다. 그런데 서퍼에게는 어떻게든 파도가 읽히고, 그 위에 계속 서 있는 법을 압니다.**\n\n**CEO도 그와 아주 비슷하다고 생각합니다. 서핑을 배워야 하고, 서핑을 배우려면 파도를 이해해야 합니다. 바람을 읽을 줄 알아야 하고 타이밍이 좋아야 하는데, 실제로 해보지 않고서는 그 어느 것도 가질 수 없습니다.**",
+        "en": "**It's kind of like surfing, I would imagine** — I don't know how to surf, but I can imagine.\n\n**You get out on the wave. To me it looks like chaos. But to a surfer, somehow they can read the waves and know how to stay on top of it.**\n\n**Being CEO is very similar. You have to learn how to surf, and to learn how to surf you have to understand the waves. You have to read the wind and have good timing — and you can't have any of that unless you actually do it.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1000,
+      "text": {
+        "ko": "**그러니 일부는 저 자신에게 알려주기 위함이고, 일부는 회사가 무언가 할 수 있는 방식으로 문제를 분해해서 배울 수 있게 하기 위함이고, 일부는 다른 사람들에게 영감을 주기 위함입니다.**\n\n그리고 **이 방에 계신 모든 분이 가진 기본적인 특성들입니다.**\n\n**CEO가 된다고 해서 성격이나 행동을 바꿀 필요는 없습니다. 계속 자기 자신으로 있는 것이 가능합니다.**",
+        "en": "**So partly it's to inform myself, partly to break down the problem so the company can learn it in a way they can do something about, and partly it's about inspiring other people.**\n\nAnd **it's all those basic traits of all the people in this room.**\n\n**You don't have to change your personality or your behavior when you become CEO. It is possible for you to continue to be yourself.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "파운더 모드 (Founder Mode)",
+      "kr": {
+        "ko": "위임과 세부 개입 사이의 논쟁",
+        "en": "the delegation debate"
+      },
+      "body": {
+        "ko": "**파운더 모드**는 2024년 Paul Graham의 에세이로 널리 퍼진 용어입니다. 대비되는 개념은 **매니저 모드(manager mode)** 입니다.\n\n**매니저 모드** — 유능한 사람을 뽑아 **권한을 위임하고 세부에는 개입하지 않는다.** 전통적인 경영학이 가르치는 방식이고, 조직이 커질수록 필연적이라고 여겨집니다.\n\n**파운더 모드** — 창업자가 **조직도를 건너뛰어 실무 층위까지 직접 파고든다.** 세부를 알아야 판단할 수 있다는 전제입니다.\n\n논쟁적인 이유는 명확합니다. **파운더 모드는 마이크로매니징과 구분하기 어렵고, 잘못 쓰면 조직의 자율성을 파괴**합니다.\n\nJensen의 답변이 흥미로운 것은 이 대립을 **다른 축으로 옮겨놓기 때문**입니다. 그는 세부에 들어가는 이유를 **통제가 아니라 두 가지로 설명합니다 — ① 자신의 호기심을 해소하기 위해, ② 배운 것을 회사에 나눠 힘을 실어주기 위해.** 그래서 **\"관리 기법이 아니라 성격 기법\"**이라고 표현합니다.\n\n그리고 결정적인 근거가 **속도**입니다. **기술이 빠르게 변할 때는 요약 보고만으로는 판단할 수 없고, 촉각적 감각(tactile sensation)이 있어야 1차 원리로 사고할 수 있다**는 것입니다. 서핑 비유가 이 지점을 정확히 겨냥합니다.",
+        "en": "**Founder mode** entered wide circulation through Paul Graham's 2024 essay. Its foil is **manager mode.**\n\n**Manager mode** — hire capable people, **delegate authority, and stay out of the details.** It's what conventional management teaches, and it's treated as inevitable as an organization scales.\n\n**Founder mode** — the founder **skips levels and digs into the working layer directly**, on the premise that you can't judge what you don't understand in detail.\n\nIt's contentious for an obvious reason: **founder mode is hard to distinguish from micromanagement, and applied badly it destroys organizational autonomy.**\n\nWhat's interesting about Jensen's answer is that **he moves the debate onto a different axis.** He explains going deep **not as control but as two things: ① satisfying his own curiosity, and ② sharing what he learns to empower the company.** Hence **\"not a management technique, a personality technique.\"**\n\nHis decisive justification is **speed**: **when technology changes fast, summary reports aren't enough to judge by — you need tactile sensation to reason from first principles.** The surfing metaphor targets exactly that."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1023,
+      "text": {
+        "ko": "오래전에 배운 것이 하나 있는데, **어디서 봤는지는 전혀 모르겠습니다.**\n\n**CEO나 창업자인 당신은, 자신이 직접 몰 차를 만들고 있는 겁니다. F1 레이서를 만들되, 자신이 운전할 수 있는 방식으로 만드는 거죠. 차를 자신에게 맞춰야 합니다.**",
+        "en": "One thing I learned a long time ago — **and I have no idea where I saw this.**\n\n**As the CEO or the founder, you're building a car that you are going to race. You're going to build an F1 racer, but you're going to build it in a way that you can drive. You should adapt the car to you.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1046,
+      "text": {
+        "ko": "누군가 저에게 물은 적이 있습니다. **\"Jensen, 당신이 관습적인 경영 기법과 조직 기법을 쓰지 않는다면, 당신이 회사를 떠날 때 무슨 일이 일어납니까?\"**\n\n**\"언젠가 제가 일하다 죽으면, 다음 CEO를 위해 회사를 다시 만들면 됩니다\"**라고 답했습니다.\n\n**그게 지혜인 이유는 이겁니다 — 우리는 F1 드라이버입니다. 우리는 레이서입니다. 세상은 정말 경쟁적이고, 우리는 이겨야 하고, 우리의 사명을 달성해야 합니다.**\n\n**그러니 차를 당신에게 맞추기 위해, 조직을 당신에게 맞추기 위해 무엇이 필요하든 그렇게 해야 합니다. 그리고 다음 CEO는 어떤 성격이든, 그들이 알아서 하면 됩니다.**",
+        "en": "Somebody asked me: **\"Jensen, if you don't use conventional management and organizational techniques, what's going to happen when you leave the company?\"**\n\nI told them: **\"when I die on the job someday, they'll just have to reshape the company for the next CEO.\"**\n\n**And the reason that's wisdom is because we're the F1 drivers. We're the racers. The world is really competitive, we've got to win, and we've got to achieve our mission.**\n\n**So whatever it takes to fit the car to you, whatever it takes to fit the organization to you — that's what you've got to do. And the next CEO, whatever their personality is, they can figure it out.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1114,
+      "text": {
+        "ko": "**당신에게 맞지 않는 방향으로 차를 바꾸면, 속도만 느려지고 레이스를 잃게 되겠네요.**",
+        "en": "**Any change you make to the car that isn't fit to you will just slow you down and lose you races.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1120,
+      "text": {
+        "ko": "네, **저희는 필요에 맞춰 차를 끊임없이 손봅니다.** 그리고 **그게 제가 항상 하고 있는 일**입니다. **회사를 끊임없이 조정하고, 비즈니스 프로세스와 일하는 방식을 계속 재구성해서, 제가 회사를 위해 더 효과적으로 일할 수 있게 만듭니다.**",
+        "en": "Yeah — **we're constantly tweaking the car to our needs.** And **that's really what I'm doing all the time.** **I'm constantly tweaking the company, constantly reshaping business processes and the way things work, so that I can be more effective for the company.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1136,
+      "text": {
+        "ko": "**진짜 파운더 모드네요.**",
+        "en": "**True founder mode.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1138,
+      "text": {
+        "ko": "네, **파운더 모드. 파운더 모드는 34년 동안 확장될 수 있습니다.**",
+        "en": "Yeah — **founder mode. Founder mode could scale for 34 years.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1142,
+      "text": {
+        "ko": "**0에서 5조 달러까지요.**",
+        "en": "**From zero to five trillion.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1148,
+      "text": {
+        "ko": "(박수)",
+        "en": "(applause)"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1160,
+      "title": {
+        "ko": "시스템 사고 — 미래의 가장 유용한 기술",
+        "en": "Systems Thinking — the Most Useful Skill Ahead"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1160,
+      "text": {
+        "ko": "화제를 바꿔서, **지금 가장 관심 있는 프론티어 알고리즘**은 무엇인가요?\n\n당신은 **재료 과학 밑바닥까지, 그리고 앱 층위까지** 다 들어가시잖아요. **무대에서 OpenClaw를 처음 언급하신 분**이기도 하고, 이제는 Hermes 에이전트도요.\n\n**재료에서 칩으로, 데이터센터로, 심지어 사람들이 일하는 방식인 앱 층위까지** — 이 여러 단계를 어떻게 생각하시는지 하루 일과처럼 짚어주실 수 있을까요? 일종의 **풀스택 AI 팩토리**라는 개념 말입니다.",
+        "en": "Switching gears — **what are the frontier algorithms you're most interested in now?**\n\nYou go **all the way down into material science and all the way up into the app level.** **You were the first to speak on stage about OpenClaw**, and now Hermes agent.\n\nCan you walk us through a day in the life of how you think about these stages — **from materials to chips to data centers to the app level, how people are going to work?** There's this idea of **a full-stack AI factory.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1188,
+      "text": {
+        "ko": "**이건 아마 미래에 가장 유용할 기술일 겁니다.**\n\n당신이 기술을 이야기하고 그것을 사용하는 방식을 듣기만 해도 알 수 있는데, **가장 중요한 것 중 하나가 시스템 이해입니다. 시스템 인식, 시스템 설계, 시스템 조직 — 시스템 사고 말입니다.**\n\n**그 이유는, 해야 하는 저수준 작업 대부분이 어차피 에이전트적으로 처리될 것이기 때문입니다. 어차피 자동화될 겁니다.**",
+        "en": "**This is probably going to be the most useful skill in the future.**\n\nJust listening to you talk about technology and your use of it — **one of the most important things is systems understanding. Systems awareness, system design, system organization. Systems thinking.**\n\n**The reason is that most of the low-level things that have to be done are going to be done agentically anyway. They're going to be automated anyhow.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1215,
+      "text": {
+        "ko": "**제 세대에서는 칩을 컴파일하고 트랜지스터와 게이트와 기능 블록을 합성하는 일이었는데, 그건 이제 전부 합성됩니다.** 그래서 **저희 설계자 대부분은 시스템 설계자입니다.**\n\n**소프트웨어의 경우도 마찬가지로, 대부분의 소프트웨어는 어차피 에이전트적으로 작성될 겁니다. 그러니 시스템에 대해 훨씬 더 추상적으로 사고할 수 있어야 합니다.**\n\n**풀려는 문제가 무엇인가? 제약 조건이 무엇인가? 입력은 어디이고 출력은 어디인가? 정보는 어디서 오는가? 시스템 안팎으로 정보가 흐르는 속도는 어떻게 되는가? 제약은 무엇인가 — 프로세서인가, 메모리인가, 네트워킹인가?**\n\n**충분히 기술적인 수준에서 이런 시스템 문제들을 다루는 능력이 이 방의 모든 분께 아주 유용할 겁니다.**",
+        "en": "**In my generation it was about compiling chips and synthesizing transistors and gates and functional blocks — all of that is now synthesized.** So **most of our designers are systems designers.**\n\n**In software, most software is going to be done agentically anyway. So you have to be much more able to think abstractly about systems.**\n\n**What are the problems you're trying to solve? What are the constraints? Where's the input, where's the output? Where is information coming from? What is the rate of information flowing in and out of the system? What are the constraints — is it processor, memory, networking?**\n\n**Handling these systems problems at a sufficiently technical level is going to be very helpful to everyone in this room.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1277,
+      "text": {
+        "ko": "**그리고 저는 그런 근본 지식이 쓸모없어질 일은 절대 없다고 생각합니다. 오히려 점점 더 유용해질 겁니다.** 그래서 **저는 시스템을 최대한 이해하려고 노력합니다.**",
+        "en": "**And I don't think that fundamental knowledge is ever going to be useless. I think it's going to be more and more useful.** So **I try to understand systems the best I can.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "시스템 사고 · 병목 · Amdahl의 법칙",
+      "kr": {
+        "ko": "왜 '저수준'이 자동화되면 '구조'가 중요해지는가",
+        "en": "why structure matters when the low level automates"
+      },
+      "body": {
+        "ko": "**시스템 사고**는 **부품 하나하나가 아니라, 부품들이 연결된 전체 구조와 그 안의 흐름을 보는 사고방식**입니다.\n\nJensen이 나열한 질문들이 그 실체를 보여줍니다 — **입력은 어디서 오는가, 출력은 어디로 가는가, 정보가 흐르는 속도는 얼마인가, 그리고 무엇이 병목인가.**\n\n**병목(bottleneck)** 은 **전체 성능을 결정하는 가장 느린 지점**입니다. 병목이 아닌 부분을 아무리 개선해도 전체는 빨라지지 않습니다. 그가 **\"프로세서인가, 메모리인가, 네트워킹인가\"**를 묻는 이유죠.\n\n**Amdahl의 법칙(Amdahl's law)** 은 이를 수식화한 것입니다. **어떤 작업에서 병렬화할 수 없는 부분의 비율이 전체 속도 향상의 상한을 정한다**는 내용입니다. 예를 들어 작업의 10%가 순차 처리를 피할 수 없다면, **프로세서를 무한히 늘려도 최대 10배 이상 빨라질 수 없습니다.** 에이전트를 수천 개 띄워도 **어딘가 한 줄로 줄 서야 하는 구간이 있으면 거기서 막힌다**는 뜻입니다.\n\n이것이 **\"저수준이 자동화될수록 시스템 사고가 중요해진다\"는 논리의 핵심**입니다. **코드를 손으로 짜는 능력이 자동화되어도, 무엇이 병목인지 판단하는 능력은 자동화되지 않습니다.** 오히려 **에이전트를 수천 개 돌릴 수 있게 될수록 구조 설계의 실수가 더 크게 증폭됩니다.**",
+        "en": "**Systems thinking** means **looking at how components connect and how flow moves through the whole, rather than at any single part.**\n\nJensen's list of questions shows what that means concretely — **where does input come from, where does output go, at what rate does information flow, and what is the bottleneck?**\n\nA **bottleneck** is **the slowest point that determines overall performance.** Improving anything that isn't the bottleneck doesn't make the system faster. Hence his question: **processor, memory, or networking?**\n\n**Amdahl's law** formalizes this: **the fraction of a task that cannot be parallelized sets a hard ceiling on total speedup.** If 10% of a job must run sequentially, **you cannot exceed a 10x speedup no matter how many processors you add.** Spin up thousands of agents and **you'll still stall wherever the work must queue single-file.**\n\nThis is the core of **why systems thinking grows more important as the low level automates.** **Automating hand-written code doesn't automate judging where the bottleneck is** — and **the more agents you can run, the more a structural mistake gets amplified.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1295,
+      "title": {
+        "ko": "에이전트의 최대 과제 — 제어 가능성",
+        "en": "The Biggest Breakthrough Agents Need: Controllability"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1295,
+      "text": {
+        "ko": "에이전트 이야기가 나와서 말인데, **사실 우리는 이미 거친 수준의 재귀적 자기 개선(recursive self-improvement)을 갖고 있습니다.**\n\n**쓸 때마다 마크다운 파일이 개선되고, 쓸 때마다 장기 기억이 갱신됩니다.** 그리고 **그 장기 기억은 압축되거나 지식 그래프로 변환되면서, 비동기적으로 계속 개선되고 있습니다.** **그래서 에이전트는 쓸 때마다 점점 똑똑해집니다.**",
+        "en": "Speaking of agents — **the fact of the matter is we kind of have coarse-level recursive self-improvement already.**\n\n**Every time you use it, it improves the markdown files. Every time you use it, it updates its long-term memory.** And **that long-term memory is being compacted or turned into knowledge graphs — improved all the time, asynchronously.** **So the agent's getting smarter every time.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1322,
+      "text": {
+        "ko": "**그런데 문제가 있고, 저는 이것이 모두가 함께 풀면 좋을 문제라고 생각합니다 — 어떻게 아주 세밀한(fine-grained) 제어를 가질 것인가.**\n\n**RAG가 아니라면, 조건부 입력이 아니라면, 우리의 프롬프트가 아니라면 — 입력에서 출력으로 곧장 가는 방식은 너무 거칠었습니다.**",
+        "en": "**But the problem — and this is one I think it'd be helpful for everybody to solve — is how can we have very, very specific, fine-grained control?**\n\n**If not for RAG, if not for conditional inputs, if not for our prompts — going directly into output was too coarse.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1345,
+      "text": {
+        "ko": "**그래서 우리가 조건을 걸 수 있다는 것, 에이전트를 제어할 수 있다는 것 — 궁극적으로는 에이전트가 계획을 내놓았을 때, 제가 계획 파일에서 단어 하나를 바꾸면 그 한 단어가 델타 차이를 만들어내는 것.** 완전한 차이가 아니라 **구체적인 차이** 말입니다.\n\n**어쩌면 픽셀 하나, 어쩌면 삼각형 하나, 어쩌면 CAD 파일의 부품 하나, 레이어 하나, 비아 하나, 연결 하나. 그리고 나머지는 전부 다시 생성되는 것.**\n\n**그 수준의 제어, 그 수준의 에이전트와의 협업이 게임 체인저가 될 것**이라고 생각합니다.",
+        "en": "**The fact that we can condition, that we can control the agents — ultimately, when it comes up with a plan, I change one word in a plan file, and that one word makes a delta difference.** Not a complete difference, **a specific difference.**\n\n**Maybe it's one pixel, maybe one triangle, maybe one component in a CAD file, one layer, one via, one connection. And then it regenerates everything else.**\n\n**I think that level of control and that level of collaboration with agents will be game-changing.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1381,
+      "text": {
+        "ko": "**우리가 에이전트를 쓰기 위해 그것이 100% 정확하고 100% 고품질일 필요는 없습니다.**\n\n**말 그대로 80%여도 되고 나머지는 우리가 도와주면 됩니다. 99%여도 나머지는 우리가 도와주면 됩니다.**\n\n**그래서 저는 제어 가능성(controllability)이야말로 모든 층위의 에이전트에게 필요한 단 하나의 가장 큰 돌파구**라고 생각합니다.",
+        "en": "**We don't need the agents to be 100% accurate, 100% high quality in order for us to use them.**\n\n**It could literally be 80% and then we help it the rest of the way. Or 99%, and we help it the rest of the way.**\n\n**So I think controllability is probably the single biggest breakthrough we need for agents at every single level.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "제어 가능성 · 재귀적 자기 개선 · RAG",
+      "kr": {
+        "ko": "\"80%면 충분하다\"가 성립하는 조건",
+        "en": "what makes \"80% is enough\" true"
+      },
+      "body": {
+        "ko": "**재귀적 자기 개선(recursive self-improvement)** 은 원래 **AI가 스스로를 개선하고, 개선된 AI가 다시 자신을 더 잘 개선하는 순환**을 뜻합니다. 오랫동안 이론적 개념이었는데, Jensen은 **이미 \"거친 수준\"으로는 일어나고 있다**고 말합니다. 모델 가중치가 바뀌는 것이 아니라 **마크다운 파일, 장기 기억, 지식 그래프가 사용할수록 축적되면서** 실질적으로 같은 효과가 난다는 것이죠.\n\n**RAG(Retrieval-Augmented Generation)** 는 **모델이 답하기 전에 외부 문서를 검색해 참고 자료로 끼워 넣는 방식**입니다. 모델을 재학습시키지 않고도 최신 정보나 사내 문서를 반영할 수 있게 해줍니다.\n\n그런데 Jensen의 지적은 **RAG나 프롬프트로는 제어의 해상도가 부족하다**는 것입니다. **\"입력을 바꿔서 출력 전체가 달라지는\" 방식은 너무 거칠다**는 뜻이죠. 프롬프트 한 줄을 고치면 결과물 전체가 예측 불가능하게 바뀌어 버립니다.\n\n**그가 원하는 것은 국소적 수정(local edit)입니다.** 계획 파일에서 **단어 하나를 바꾸면 그 부분만 정확히 달라지고 나머지는 유지되는 것.** CAD 파일의 부품 하나, 회로의 비아 하나 수준으로요.\n\n**이것이 \"80%면 충분하다\"는 주장의 전제입니다.** 정확도가 낮아도 괜찮은 이유는 **사람이 나머지를 정확히 겨냥해 고칠 수 있을 때뿐**입니다. 제어가 거칠면 80%짜리 결과물은 **고치는 것보다 다시 만드는 게 빠른 애물단지**가 됩니다.",
+        "en": "**Recursive self-improvement** classically means **an AI improving itself, and the improved version improving itself better still.** Long a theoretical idea — but Jensen says it's **already happening at a coarse level.** Not through changing model weights, but because **markdown files, long-term memory and knowledge graphs accumulate with use**, producing much the same effect.\n\n**RAG (Retrieval-Augmented Generation)** means **retrieving external documents and injecting them as reference material before the model answers.** It lets you incorporate fresh or internal information without retraining.\n\nJensen's point is that **RAG and prompts don't give enough resolution of control.** **Changing the input to change the entire output is too coarse** — edit one line of a prompt and the whole result shifts unpredictably.\n\n**What he wants is a local edit:** change **one word in a plan file and have exactly that part change while the rest holds.** At the granularity of one component in a CAD file, one via in a circuit.\n\n**This is the precondition for \"80% is enough.\"** Low accuracy is acceptable **only when a human can aim precisely at the remainder and fix it.** With coarse control, an 80% result becomes **something faster to redo than to repair.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1418,
+      "text": {
+        "ko": "**Hermes나 OpenClaw를 보면, 이게 사실 실존적인 문제처럼 느껴집니다.** **사람들은 자기만의 개인 AGI를 통제해야 하지 않을까요?** 그 앱을 외주 주고, 클라우드에 있는 남의 에이전트가 이래라저래라 하게 두면 안 되고, **자기 것이길 원하지 않을까요?** **그게 NVIDIA가 여기에 깊이 관여하는 이유의 일부인가요?**",
+        "en": "With Hermes or OpenClaw, **it feels like this might actually be somewhat existential.** **People should control their own personal AGI** — they shouldn't outsource that app and have it be someone else's agent in the cloud telling them what to do. **You'd want it to be your own.** **Is that part of the thrust behind NVIDIA being so involved?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1440,
+      "text": {
+        "ko": "우선 **저는 에이전트를 이해해야 합니다. 에이전트가 새로운 소프트웨어이기 때문입니다.** 그리고 **이 새로운 소프트웨어가 어떻게 처리되는가는 컴퓨터 아키텍처에 아주 중요합니다.**\n\n**에이전트의 본질에 대해, 그리고 그것이 챗봇과 어떻게 다른지, 초기의 추론과 또 어떻게 다른지에 대해 우리가 친밀해질수록 — 처리의 본질에 친밀해질수록 시스템을 더 잘 설계할 수 있습니다.**",
+        "en": "First of all, **I need to understand agents, because agents are the new software.** And **how this new software is processed matters a lot to computer architecture.**\n\n**The more intimate we are with the nature of agents — how they differ from chatbots, how those differ from inference in the very beginning — the more intimate we are with the nature of the processing, the better we can design systems.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1464,
+      "text": {
+        "ko": "**저희는 5년에서 10년 뒤의 미래에 살아야 합니다.**\n\n**시스템 하나를 만드는 데만 3년쯤 걸리고, 양산에 올리는 데 2년이 걸리고, 그리고 고객이 그 컴퓨터를 그 후 10년 동안 쓸 수 있기를 바라기 때문입니다. 그러니 한동안은 미래에 살아야 합니다.**\n\n그래서 **에이전틱 시스템에 대한 저희의 1차 원리 질문은 이렇습니다 — 워크로드가 무엇인가? 알고리즘이 무엇인가? 어떻게 진화할 것인가? 병목은 어디인가? Amdahl의 법칙 문제는 어디에 있는가? 어떻게 확장되는가? 동시성에는 무슨 일이 일어나는가? 샌드박스는 어떻게 다루는가? MCP는 어떻게 다루는가? 작업 기억과 장기 기억은 어떻게 다루는가? 이 모든 자율 시스템, 비동기 시스템이 항상 돌아가게 하려면 어떻게 해야 하는가?**\n\n**그리고 그것에 완벽하게 맞는 설계 아키텍처는 무엇인가? 저희는 그걸 발견하러 가야 합니다.**",
+        "en": "**We kind of have to live in the future, five to ten years out.**\n\n**It takes three or so years just to build a system, a couple of years to ramp it, and you'd like customers to be able to use that computer for 10 years after.** So **you have to live in the future for a while.**\n\nSo **agentic systems, at first principles, are just: what is the workload? What's the algorithm? How is it going to evolve? Where are the bottlenecks? Where are the Amdahl's law problems? How does it scale? What happens to concurrency? How do you deal with sandboxes? How do you deal with MCP? How do you deal with working memory, long-term memory? How do you have all these autonomous, asynchronous systems working all the time?**\n\n**And what design architecture makes perfect sense for that? We have to go discover that.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1510,
+      "text": {
+        "ko": "**두 번째로, 저는 NVIDIA를 더 빠르게 만들기 위해 에이전트를 직접 쓰고 싶습니다.**\n\n**NVIDIA 곳곳의 샌드박스에서 Claude Code가 자율적으로 돌아가고 있고, 정말 환상적입니다.** **어떤 사람은 Codex를 쓰고, 어떤 사람은 Claude Code를, 어떤 사람은 Cursor를, 어떤 사람은 Cognition을 씁니다.**\n\n**저희는 백 가지 꽃이 피게 두고, 사람들이 원하는 도구를 고르게 하고, 거기서 배웁니다.**\n\n**그러니 두 번째는 그저 회사가 더 빨리 움직이도록 돕는 것입니다. 도구를 쓰세요. 많이 쓸수록 앞으로 그것을 더 잘 작동하게 만드는 법을 더 많이 배우게 됩니다.**",
+        "en": "**Second, I want to use agents ourselves to make NVIDIA go faster.**\n\n**We've got Claude Code autonomously running in sandboxes all over NVIDIA, and that's really fantastic.** **Some people use Codex, some use Claude Code, some use Cursor, some use Cognition.**\n\n**We let a thousand flowers bloom — let people select the tools they want, and then we learn from all of it.**\n\n**So the second part is just helping the company move faster. Use the tools — and the more they use them, the more you learn about how to make it work better in the future.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1550,
+      "title": {
+        "ko": "사고의 연쇄에서 생각하는 자율주행차로",
+        "en": "From Chain of Thought to a Thinking Self-Driving Car"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1550,
+      "text": {
+        "ko": "**세 번째는 미래의 솔루션 기술을 발견하는 것입니다.**\n\n**스탠퍼드에서 사고의 연쇄(chain of thought)의 초기 버전이 나왔을 때 — 아마 10년쯤, 어쩌면 8년쯤 전인데** — 질문은 이랬습니다. **이것이 추론에 얼마나 효과적일 것인가? 얼마나 확장 가능한가? 그리고 예를 들어, 사전 지식으로부터 추론할 수 있다면 컴퓨터 비전에는 어떤 함의가 있는가?**",
+        "en": "**The last part is discovering the future of solutions technology.**\n\n**When we saw the early versions of chain of thought come out of Stanford — probably a decade ago, maybe eight years** — the question was: **how effective is that going to be in reasoning? How scalable? And what's the implication, for example, in computer vision, if we can reason from prior knowledge?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1590,
+      "text": {
+        "ko": "**그리고 큰 돌파구는, 그 작은 영역을 곰곰이 생각하다 보니 자율주행차를 학습시키는 데 그렇게 많은 데이터가 필요하지 않을 수도 있겠다는 깨달음이었습니다.**\n\n**그것이 저희가 세계 최초의 '생각하는 자율주행차'인 Alpamayo를 만들게 된 계기입니다.** **불과 100만 마일, 200만 마일 정도로 믿을 수 없이 훌륭한 자율주행차가 됩니다.**",
+        "en": "**And the big breakthrough was that, just thinking through that small domain, you come to realize that maybe we don't need as much data to train a self-driving car.**\n\n**Which led us to creating Alpamayo — the world's first thinking self-driving car.** **With just a million or a couple million miles, it's an incredibly great self-driving car.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1620,
+      "text": {
+        "ko": "**그 이유는 우리 인간과 비슷하기 때문입니다.** **우리는 평생 꽤 잘 운전하기까지 그렇게 많은 주행거리가 필요하지 않습니다.**\n\n**왜냐하면 우리에게는 언어 모델에서 오는 사전 지식이 있고, 한 번도 본 적 없는 상황을 분해해서, 우리가 이해하고 잘 아는 것들로부터 다시 쌓아 올릴 수 있기 때문입니다.**\n\n**이것이 무언가를 보고 나서 한참 뒤에 그 영향을 깨닫게 되는 사례입니다.**",
+        "en": "**The reason is it's kind of like us.** **We don't need that many miles before we can drive fairly well for the rest of our lives.**\n\n**Because we have prior knowledge from our language model, and we can decompose a situation we've never seen before and build it up out of things we understood and know very well.**\n\n**That's an example of seeing something and then realizing the impacts sometime later.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1650,
+      "text": {
+        "ko": "**에이전틱 시스템이 등장했을 때도, 대규모 언어 모델이 기억을 필요로 하고, 사전 지식을 필요로 하고, 도구를 필요로 하고, 다른 에이전트와 네트워킹할 방법을 필요로 한다는 것이 아주 분명했습니다.**\n\n**그러니까 초기 신호를 보고 미래에 대해 추론할 수 있게 되면, 미래로 도약하는 데 도움이 됩니다.**",
+        "en": "**When agentic systems came along, it was very clear that large language models need memory, need prior knowledge, need tools, need ways to network with other agents.**\n\n**So once you see some early indicators and you're able to reason about the future, it helps you get a leap into the future.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "사고의 연쇄 (Chain of Thought) · 사전 지식",
+      "kr": {
+        "ko": "\"200만 마일이면 충분하다\"의 논리",
+        "en": "why two million miles is enough"
+      },
+      "body": {
+        "ko": "**사고의 연쇄(chain of thought)** 는 모델이 **답을 바로 내놓지 않고, 중간 추론 단계를 하나씩 밟아가며 결론에 이르게 하는 방식**입니다. \"답만 말해\" 대신 \"단계적으로 생각해봐\"라고 했을 때 정답률이 크게 오르는 현상에서 출발했습니다.\n\n**사전 지식(prior knowledge)** 은 **그 문제를 배우기 전에 이미 갖고 있던 세상에 대한 이해**입니다. 여기서 두 개념이 만나 자율주행의 접근법을 뒤집습니다.\n\n**기존 방식** — 자율주행은 **데이터 문제**로 취급됐습니다. 도로에서 마주칠 수 있는 온갖 상황을 최대한 많이 수집해 학습시키는 것이죠. 그래서 업계는 **누적 주행거리 수천만~수억 마일**을 경쟁했습니다. 문제는 **드문 상황(long tail)** 입니다. 눈길에 넘어진 자전거, 도로 위의 소파 같은 것은 아무리 달려도 충분히 모이지 않습니다.\n\n**새로운 방식** — 사람은 **운전을 배우기 전에 이미 세상을 이해**하고 있습니다. \"소파는 단단하고 무겁다\", \"넘어진 사람은 다시 일어날 수 있다\" 같은 지식이죠. 그래서 **처음 보는 상황도 아는 것들로 분해해 추론**합니다.\n\n**언어 모델이 그 사전 지식을 제공할 수 있다면, 자율주행은 데이터 문제에서 추론 문제로 바뀝니다.** Jensen이 **\"200만 마일이면 충분하다\"**고 말할 수 있는 근거이고, **8년 전의 논문 하나가 몇 년 뒤 전혀 다른 산업의 접근법을 바꾼 사례**이기도 합니다.",
+        "en": "**Chain of thought** means having a model **work through intermediate reasoning steps rather than jumping straight to an answer.** It emerged from the finding that saying \"think step by step\" markedly improves accuracy.\n\n**Prior knowledge** is **the understanding of the world you already hold before learning a specific task.** Together, the two ideas invert the standard approach to self-driving.\n\n**The old framing** — autonomy was treated as **a data problem**: collect as many road situations as possible and train on them. The industry competed on **tens or hundreds of millions of cumulative miles.** The trouble is **the long tail** — a fallen bicycle in snow, a sofa in the roadway. No amount of driving collects enough of those.\n\n**The new framing** — humans **understand the world before they learn to drive.** We know a sofa is rigid and heavy, that a fallen person may stand up. So **we decompose novel situations into things we already know.**\n\n**If a language model can supply that prior knowledge, self-driving shifts from a data problem to a reasoning problem.** That's the basis for **\"a couple million miles is enough\"** — and an example of **one paper from eight years earlier changing the approach of an entirely different industry.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1672,
+      "title": {
+        "ko": "오픈소스, 그리고 모두가 자기 AI를 만드는 세상",
+        "en": "Open Source, and Everyone Building Their Own AI"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1672,
+      "text": {
+        "ko": "**NVIDIA에서 어떤 패턴이 보이기 시작합니다.** **문제를 보고, 새로운 알고리즘이 있고, 새로운 무언가가 일어나면 — 오픈소스와 함께 바로 그 자리에 계시더군요.**\n\n**OpenCL이 나왔을 때 사람들이 안전하지 않다고 했는데, 여러분이 어떤 하네스든 감싸서 안전하게 만드는 샌드박싱 툴킷을 내놓으셨죠.**",
+        "en": "**There's a pattern I'm starting to see around NVIDIA.** **You see a problem, there's a new algorithm, something new happening — and you're right there with open source.**\n\n**When OpenCL came out people said it was unsafe, and you came out with a sandboxing toolkit that surrounds any harness and makes it safe.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1694,
+      "text": {
+        "ko": "**제가 그것을 봤을 때 첫 생각은 — 우선 배웠고, 그다음엔 별다른 상상력 없이도 우리가 방금 현대 컴퓨터를 설계했다는 걸 깨달았습니다.**\n\n**이것은 대규모 언어 모델을 담을 운영체제입니다.** 그리고 여러 면에서 **저에게는 아주 리눅스적인 순간이었습니다.**",
+        "en": "**When I saw it, my first thought was — first I learned about it, and then, without much imagination, you just realize we just designed the modern computer.**\n\n**This is the operating system that's going to hold a large language model.** And in a lot of ways **it was a very Linux moment to me.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1717,
+      "text": {
+        "ko": "**그리고 이제 누구나 자기만의 AI를 만들 수 있습니다. 저는 그 점이 정말 신났습니다.**\n\n그래서 **Peter에게 연락해서 이렇게 말했습니다 — \"NVIDIA의 모든 엔지니어가 당신의 엔지니어입니다.\"** **\"당신 집 앞에 이 전함이 있으니, 원하는 대로 문제를 분해하시면 저희가 원하시는 만큼 기여하겠습니다.\"**\n\n**Hermes 팀에게도 같은 이야기를 했습니다. 그들이 하는 일에 정말 신이 납니다.**",
+        "en": "**And now everybody can build their own AI. I was so excited about that.**\n\nSo **we contacted Peter and said: \"all of NVIDIA's engineers are your engineers.\"** **\"You've got this battleship outside your house — break down the problem as you desire, and we'll contribute as you wish.\"**\n\n**Same thing with the Hermes team. I'm so excited about the work they're doing.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1745,
+      "text": {
+        "ko": "**저는 세상에 모두가 자기 AI를 만들 수 있는 능력이 필요하다고 생각합니다.**\n\n물론 **클라우드 서비스도 최대한 쓰시라고 권합니다. 모두가 ChatGPT와 Claude를 써야 합니다.**\n\n**하지만 회사라서 자기만의 도메인 특화 AI를 만들어야 한다면 — 이제 Hermes가 있고, OpenClaw가 있고, LangChain, Deep Agent, 온갖 방법이 있습니다.**\n\n**그리고 솔직히 상대적으로 쉽습니다. 소프트웨어가 똑똑하기 때문입니다.** **AI가 똑똑하니까 AI는 쉽게 적응시킬 수 있을 만큼 똑똑해야 마땅합니다.**\n\n**그래서 저희는 모든 사람과 모든 회사가 자기 AI를 만들도록 장려하고 싶습니다. 그리고 그것이 오픈소스라는 사실에서 어떤 혁신이 나올지 누가 알겠습니까.**",
+        "en": "**I do think the world needs the ability for everybody to build their own AI.**\n\nOf course **I encourage everybody to use cloud services as much as possible. Everybody should use ChatGPT and Claude.**\n\n**But if you need to build your own AI because you're a company and you need domain-specific AIs — now you have Hermes, you have OpenClaw, you've got LangChain, Deep Agent, all these different ways.**\n\n**And quite frankly it's relatively easy, because the software is smart.** **AI is smart, and therefore AI must be smart enough that you could adapt it easily.**\n\n**So we want to encourage everybody and every company to build their own AIs. And who knows what innovation will come from the fact that it's open source.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1810,
+      "text": {
+        "ko": "**모든 알파가 자기 AI를 만드는 데 있는 것 같습니다.** 남들은 기성품을 쓰는데 **당신에게는 재귀적으로 자기를 개선하는 무언가가 있다면요.**\n\n**기술자들은 마크다운 파일에 대해 아주 가볍게 말합니다. \"하하, 그거 그냥 텍스트잖아\"라고요. 그런데 텍스트가 곧 지능입니다.**",
+        "en": "**I feel like all the alpha is in building your own AI.** Someone else is using whatever's off the shelf, but **you have a thing that can recursively self-improve.**\n\n**The tech people are very flippant about markdown files — \"haha, it's just text.\" But text is intelligence.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1822,
+      "text": {
+        "ko": "**말이 곧 생각입니다.**",
+        "en": "**Words are thoughts.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1826,
+      "text": {
+        "ko": "네, 말이 곧 생각이죠.",
+        "en": "Yeah — words are thoughts."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1829,
+      "text": {
+        "ko": "**말 없이 생각해 보려고 해보세요.**",
+        "en": "**Try to think without words.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1832,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1838,
+      "title": {
+        "ko": "AI가 일자리를 없앤다는 서사는 정확히 거꾸로다",
+        "en": "The Narrative About AI Destroying Jobs Is Exactly Backwards"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1838,
+      "text": {
+        "ko": "**누군가의 치즈를 건드리면 사람들은 늘 조금 불안해합니다.** **지능이 수도꼭지처럼 공급된다는 건 정말 멋진 일이고, 이 방의 모두에게 좋은 징조**라고 생각합니다.\n\n**경제에는 무엇이 달라진다고 보시나요?**",
+        "en": "**Anytime you move the cheese, people get a little worried.** **Intelligence is going to be on tap, which is awesome — I think it bodes well for everyone in this room.**\n\n**What do you think changes about the economy?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1856,
+      "text": {
+        "ko": "물론 제가 할 말은 **고르지 않게 일어날 것**이라는 겁니다.\n\n**우리는 작업(task)을 자동화할 것이고, 인지적 작업을 자동화할 것입니다.** **누군가 전화를 걸어 말을 잔뜩 보내고, 당신의 일이 그에 대한 답을 제공하는 것이고, 필요한 정보가 전부 손끝에 있어서 그 질문에 완전히 답할 수 있어야 한다면 — 그 작업은 자동화될 것입니다.**\n\n**많은 작업이 자동화될 것이고, 모든 직업이 바뀔 것이며, 완전히 새로운 직업들이 잔뜩 생길 겁니다. 그건 우리가 아는 사실입니다.**",
+        "en": "Obviously what I'm going to say is **uneven.**\n\n**We're going to automate tasks — cognitive tasks.** **If somebody makes a phone call and sends a bunch of words across to you, and your job is to provide a response, and all the information is at your fingertips so you should be able to answer completely — that task will be automated away.**\n\n**Many tasks will be automated. Every single job will change, and there'll be a whole bunch of new jobs. That I think we know.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1902,
+      "text": {
+        "ko": "**핵심은 이겁니다. 증거가 보여주는 바는 — 그리고 이건 완벽하게 말이 되는데 — AI와 자동화는 도처에서 일자리를 만들어내고 있다는 것입니다.**\n\n**AI가 일자리를 파괴한다는 서사는 정확히 거꾸로입니다. AI는 작업을 없앱니다. AI는 작업을 자동화합니다. 하지만 그것이 반드시 직업을 없애지는 않습니다.**\n\n**그 이유는, 한 사람의 직업에는 목적이 있고, 그 목적에는 여러 작업이 딸려 있기 때문입니다. 그중 일부는 자동화될 수 있지만, 많은 부분은 자동화될 수 없습니다.**",
+        "en": "**The bottom line is this. The evidence would show — and it makes perfect sense — that AI and automation is creating jobs everywhere.**\n\n**The narrative about AI destroying jobs is exactly backwards. AI eliminates tasks. AI automates tasks away. But it doesn't necessarily eliminate jobs.**\n\n**The reason is that a person's job has a purpose, and that purpose has many tasks. Some of those tasks can be automated away — many cannot.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1935,
+      "text": {
+        "ko": "**증거를 보면, 우리는 코딩이라는 작업을 자동화했는데 소프트웨어 엔지니어라는 직업은 오히려 성장하고 있습니다. 소프트웨어 엔지니어 일자리 수가 전년 대비 10% 늘었습니다.**\n\n**영상의학 스캔을 읽는 작업도 자동화됐습니다. 그런데 AI가 그 분야 전체를 가져갔음에도 지난 몇 년간 영상의학 일자리 수는 20%가량 늘었습니다.**\n\n**그 이유는 대기 중인 환자의 적체가 믿을 수 없이 많기 때문입니다. 이제 의사와 병원이 훨씬 더 많은 환자를 받을 수 있고, 그러려면 더 많은 간호사와 영상의학 전문의가 필요합니다.**",
+        "en": "**The evidence: we've automated coding, which is a task — but the job of a software engineer appears to be growing. The number of software engineering jobs has increased 10% year over year.**\n\n**The task of reading radiology scans has been automated — yet the number of radiology jobs has increased some 20% in the last several years, even though AI has taken over the whole field.**\n\n**The reason is that the backlog of patients is incredibly high. Now doctors and hospitals can admit a lot more patients — and to do that you need more nurses, more radiologists.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1970,
+      "text": {
+        "ko": "**소프트웨어도 똑같습니다. 우리는 아이디어의 적체, 야심과 열망의 적체에 부딪혀 있습니다. 그게 워낙 높아서, 프로그래밍이라는 작업을 자동화할 수 있다면 우리는 더 많은 소프트웨어 엔지니어를 고용해 더 많은 일을 할 수 있습니다. 더 야심 찰 수 있습니다.**\n\n**Harvey가 모든 법률 보조원 일자리를 없애고 변호사 수가 줄어들 거라고들 했습니다. 그런데 법률 보조원은 미친 듯이 늘고 있습니다. 소송의 적체가 워낙 많아서 이제 로펌들이 훨씬 많은 사건을 처리할 수 있게 됐고, 그러려면 사람을 더 뽑아야 하기 때문입니다.**\n\n**이것이 생산성이 성장을 키우는 고전적인 사례입니다. 성장의 증가가 더 많은 고용을 이끕니다. 제가 학교를 막 졸업했을 때보다 오늘날 고용이 더 많은 이유가 바로 이것입니다.**",
+        "en": "**Same thing with software. We hit the backlog of ideas, the backlog of ambition and aspiration — it's so high that if we can automate away the task of programming, we can hire more software engineers to do more things. We can be more ambitious.**\n\n**They said Harvey would eliminate all the paralegal jobs and the number of lawyers would be reduced. Turns out paralegals are growing like crazy — because the backlog of lawsuits is really high, and now law firms can get a lot more cases through. And to do so, you've got to hire more people.**\n\n**This is a classic example of productivity increasing growth. Increasing growth drives more employment. This is the reason there's more employment today than when I first came out of school.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "작업(Task) vs. 직업(Job) · 적체 · 제번스의 역설",
+      "kr": {
+        "ko": "자동화가 고용을 늘리는 메커니즘",
+        "en": "how automation grows employment"
+      },
+      "body": {
+        "ko": "Jensen의 논증은 **작업과 직업을 분리하는 것**에서 출발합니다.\n\n**작업(task)** 은 **구체적인 활동 단위**입니다 — 코드 작성, 스캔 판독, 문서 검토.\n**직업(job)** 은 **목적을 가진 역할**이고, **여러 작업의 묶음**입니다.\n\n**AI는 작업을 없애지만, 직업은 목적이 사라져야 없어집니다.** 소프트웨어 엔지니어의 목적은 코드를 치는 것이 아니라 **작동하는 시스템을 만드는 것**이므로, 코딩이 자동화되어도 목적은 남습니다.\n\n**적체(backlog)** 가 두 번째 축입니다. 그가 든 세 사례의 공통 구조는 이렇습니다 — **수요가 이미 공급을 크게 초과해 밀려 있었다.** 영상의학은 대기 환자, 법률은 미처리 소송, 소프트웨어는 만들지 못한 아이디어가 쌓여 있었습니다. **작업이 자동화되면 그 적체가 풀리기 시작하고, 처리량이 늘어나면 오히려 사람이 더 필요해집니다.**\n\n이 현상에는 이름이 있습니다. **제번스의 역설(Jevons paradox)** — 19세기 경제학자 William Jevons가 **석탄을 더 효율적으로 쓰는 증기기관이 나오자 석탄 소비가 줄기는커녕 늘었다**는 것을 관찰한 데서 나왔습니다. **효율이 오르면 단가가 떨어지고, 단가가 떨어지면 쓰임새가 폭증하기 때문**입니다.\n\n**다만 중요한 단서가 있습니다.** 이 논리는 **적체가 존재할 때만 성립합니다.** 수요가 이미 충족된 영역에서는 자동화가 그대로 감소로 이어집니다. Jensen이 답변을 **\"고르지 않게 일어날 것\"**이라는 말로 시작한 것도 그 때문입니다.",
+        "en": "Jensen's argument begins by **separating tasks from jobs.**\n\nA **task** is **a concrete unit of activity** — writing code, reading a scan, reviewing a document.\nA **job** is **a role with a purpose**, and a **bundle of many tasks.**\n\n**AI eliminates tasks; a job only disappears when its purpose does.** A software engineer's purpose isn't typing code but **producing working systems**, so automating the typing leaves the purpose intact.\n\n**Backlog** is the second axis. All three of his examples share one structure: **demand already vastly exceeded supply and was queued up.** Radiology had waiting patients, law had unprocessed cases, software had unbuilt ideas. **Automating the task starts draining that backlog — and higher throughput requires more people, not fewer.**\n\nThis effect has a name: **the Jevons paradox**, from the 19th-century economist William Jevons, who observed that **more efficient steam engines increased coal consumption rather than reducing it.** **Efficiency lowers unit cost, and lower cost explodes the range of uses.**\n\n**One caveat matters, though.** The logic **holds only where a backlog exists.** In domains where demand is already satisfied, automation translates directly into reduction. That's why Jensen opens his answer with **\"obviously, uneven.\"**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 2040,
+      "title": {
+        "ko": "물리 AI — 로봇의 ChatGPT 순간은 이미 지났다",
+        "en": "Physical AI — the Robot ChatGPT Moment Already Happened"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2040,
+      "text": {
+        "ko": "소프트웨어와 에이전트 이야기를 많이 했는데요. **NVIDIA가 정말 최전선에 있는 또 하나가 실제 물리 로봇**입니다. **얼마나 남았나요?** 과거에는 **올해 안에**라고까지 말씀하셨던 것 같은데, **실용적인 로보틱스는 언제쯤 기대할 수 있을까요?**",
+        "en": "We've talked a lot about software and agents. **Another really exciting thing NVIDIA is out on the edge of is physical robots.** **How far out?** I think in the past you might have even said **as soon as this year.** **When can we expect practical robotics?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2063,
+      "text": {
+        "ko": "**AI가 비디오를 생성하는 것을 본 순간, 저에게는 대단한 순간이었습니다.**\n\n저희는 원래 **progressive GAN**과 **conditional GAN** 작업을 했었습니다. **바깥에서 사람들이 처음 생성 영상을 보기 훨씬 전, 몇 년 앞서 저희 연구실에서는 완전히 신경망으로 생성된 시뮬레이터를 돌리고 있었습니다.**",
+        "en": "**The moment I saw AI generating video, that was a great moment for me.**\n\nWe did the original work on **progressive GANs** and **conditional GANs.** **Long before the first generated videos were seen outside — a couple of years earlier inside our labs — we were driving a simulator completely generated by neural networks.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2087,
+      "text": {
+        "ko": "**그래서 관절 운동(articulation)이 생성되는 것을 본 순간 이렇게 생각했습니다 — 손가락이 움직이는 영상을 생성할 수 있다면, 손이 유리잔을 집는 영상을 생성할 수 있다면, 왜 로봇이 똑같이 하게 만들 수 없겠는가?**\n\n**그 생성형 AI가 일어나는 것을 본 순간, 저는 로보틱스의 관절 운동이 코앞에 왔다는 것을 깨달았습니다.**",
+        "en": "**So the moment I saw us generating articulation: if I can generate video of a finger moving, if I can generate video of a hand picking up a glass — why can't I cause a robot to do the same?**\n\n**The moment I saw that generative AI happening, I realized robotics articulation was around the corner.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2110,
+      "text": {
+        "ko": "그러면 다음 질문은 이겁니다. **로봇이 물리 법칙을 따르는 동작을 생성하려면 무엇을 이해해야 하는가? 인과관계는 어떻게 이해하는가? 마찰과 장력은? 물리 법칙은 어떻게 이해하는가?**\n\n**그것이 저희를 지금 물리 AI(physical AI)라고 부르는 것을 만드는 여정으로 이끌었습니다.** 이제 모두가 물리 AI라고 부르죠.\n\n**물리 AI를 위해 저희는 월드 파운데이션 모델(world foundation model) 작업을 시작했습니다. 물리 법칙과 세상이 작동하는 방식을 이해하는 AI 말입니다.**",
+        "en": "Then the question is: **how is the robot going to generate motions that obey the laws of physics? How does it understand causality? Friction, tension? How does it understand the laws of physics?**\n\n**That started us down the journey of creating what we now call physical AI.** Everybody calls it that now.\n\n**For physical AI we started working on a world foundation model — an AI that understands the laws of physics and how the world works.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2148,
+      "text": {
+        "ko": "**로봇의 ChatGPT 순간은 이미 몇 년 전에 일어났다고 봅니다.**",
+        "en": "**I would say the ChatGPT moment of robots happened a couple of years ago already.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2156,
+      "text": {
+        "ko": "와.",
+        "en": "Wow."
+      }
+    },
+    {
+      "type": "a",
+      "t": 2158,
+      "text": {
+        "ko": "**그 이유는, ChatGPT가 처음 나왔을 때를 떠올려 보면 생산적인 일은 아무것도 하지 못했습니다. 유용한 일을 하지 못했죠. 하지만 무엇이 가능한지에 대한 우리의 상상력을 열어줬습니다.**\n\n**그리고 몇 년 전에, 강화학습으로 미세조정하고 물리에 접지시킬 수 있는 로봇들이 걸어 다니는 일이 실제로 일어났습니다.**",
+        "en": "**Because remember when ChatGPT first came out — it didn't do anything productive, it didn't do anything useful. But it opened our imagination about what's possible.**\n\n**And a couple of years ago, robots walking around that we could do reinforcement learning on, fine-tune and ground in physics — that really happened.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2182,
+      "text": {
+        "ko": "**그럼 이제 무엇을 해야 할까요? 에이전틱 시스템에서 지금 하고 있는 것과 똑같은 일을 전부 해야 합니다.**\n\n**학습하고 평가할 환경을 만들어야 합니다.** 그래서 **real to sim**을 해서 환경을 만들고, **물리에 접지된 시뮬레이션과 생성형 물리 시뮬레이션을 만들어야 합니다.** **Isaac Sim, Cosmos 등 저희가 그 영역에서 하는 일이 전부 시뮬레이션과 관련되어 있습니다.**\n\n**그리고 마지막 부분이 sim to real입니다.** 그 부분은 **강화학습, 물리에의 접지, 로봇이 필요로 하는 모든 전기기계 시스템에의 접지**와 관련됩니다.\n\n**이 세 가지 기본 시스템이 로보틱스의 평가, 말하자면 사후 학습(post-training)을 구성합니다. 그리고 저는 코앞에 왔다고 봅니다.**",
+        "en": "**So what do we need to do? All the same things we're doing now for agentic systems.**\n\n**We have to create environments for them to learn in and eval against.** So **real to sim** to create environments, and **grounded physics simulation as well as generative physics simulation.** **Isaac Sim, Cosmos — all the work we do in that area relates to simulation.**\n\n**And the last part is sim to real**, which has to do with **reinforcement learning, grounding it on physics, grounding it on all the electromechanical systems robots require.**\n\n**These three basic systems build up the eval — the post-training, if you will — of robotics. And I think we're going to see it right around the corner.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "물리 AI · Sim-to-Real · 월드 파운데이션 모델",
+      "kr": {
+        "ko": "로봇이 언어 모델처럼 학습할 수 없는 이유",
+        "en": "why robots can't learn like language models"
+      },
+      "body": {
+        "ko": "**물리 AI(physical AI)** 는 **화면 안이 아니라 실제 물리 세계에서 작동하는 AI**를 뜻합니다. 여기에는 언어 모델에는 없는 근본적 제약이 있습니다.\n\n**언어 모델은 인터넷의 텍스트를 그냥 읽으면 됩니다. 그런데 로봇은 물건을 집는 법을 배우려면 실제로 집어봐야 합니다.** 실패하면 물건이 깨지고, 로봇이 망가지고, 시간이 걸립니다. **데이터를 모으는 비용이 비교할 수 없이 큽니다.**\n\n그래서 나온 해법이 **시뮬레이션**이고, 두 방향의 다리가 필요합니다.\n\n**Real-to-sim** — **현실을 시뮬레이터 안으로 옮기는 것.** 실제 공장이나 주방을 스캔해 가상 환경으로 재현합니다. 여기서 로봇은 **부수고 넘어져도 비용이 0인 상태로 수백만 번 연습**할 수 있습니다.\n\n**Sim-to-real** — **시뮬레이터에서 배운 것을 실제 로봇으로 옮기는 것.** 여기서 **reality gap(현실 격차)** 이라는 고전적 난제가 등장합니다. 시뮬레이터의 마찰·무게·빛이 현실과 조금만 달라도 **가상에서 완벽하던 동작이 현실에서 실패**합니다.\n\n**월드 파운데이션 모델**은 그 격차를 좁히려는 시도입니다. **물리 법칙과 인과관계를 이해하는 범용 모델**을 만들어, 로봇이 **\"이렇게 하면 어떻게 될까\"를 미리 예측**할 수 있게 하는 것이죠.\n\nJensen의 통찰이 인상적인 이유는 **경로를 뒤집었기 때문**입니다. 비디오 생성 AI를 보고 **\"손이 유리잔을 집는 영상을 만들 수 있다면, 그 동작을 로봇에게 시킬 수도 있다\"**고 연결한 것입니다. **영상 생성 능력이 곧 동작 생성 능력**이라는 발상이죠.",
+        "en": "**Physical AI** means **AI that operates in the physical world rather than on a screen** — which carries a constraint language models don't have.\n\n**A language model can simply read the internet. A robot has to actually pick things up to learn picking things up.** Failures break objects, damage the robot, and take real time. **The cost of collecting data is incomparably higher.**\n\nThe answer is **simulation**, which requires bridges in two directions.\n\n**Real-to-sim** — **bringing reality into the simulator.** Scan an actual factory or kitchen and reconstruct it virtually, where a robot can **practice millions of times at zero cost for every crash and fall.**\n\n**Sim-to-real** — **transferring what was learned in simulation onto a physical robot.** Here the classic problem is **the reality gap**: if friction, weight or lighting differ even slightly from the simulation, **a motion that was flawless virtually fails physically.**\n\nA **world foundation model** attempts to close that gap — **a general model that understands physics and causality**, letting a robot **predict what will happen if it acts.**\n\nWhat's striking about Jensen's insight is that **he inverted the path.** Seeing video-generating AI, he connected it: **if you can generate video of a hand picking up a glass, you can make a robot perform that motion.** **Video generation is motion generation.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2249,
+      "text": {
+        "ko": "**물리 AI가 경제적으로 실질적인 방식으로 처음 등장하는 곳은 어디인가요? 이미 보고 계신가요?**",
+        "en": "**Where does physical AI show up first in a way that's really economically real? Are you seeing that already?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2258,
+      "text": {
+        "ko": "**저희는 로보틱스가 올 것이라고 추측했고, 그중 첫 응용처로 세 가지 조건을 만족하는 것을 골랐습니다 — 시장이 충분히 크고, 기술이 비교적 표준화되어 있어 규모를 키우고 플라이휠을 돌릴 수 있고, 실질적인 경제 가치가 있는 것.** **그것이 자율주행차였습니다.**\n\n**Waymo 안에 NVIDIA 칩이 있습니다. Tesla에서는 차 안에 있었고, 지금은 데이터센터에 있습니다. Mercedes에서는 데이터센터에도 있고 소프트웨어 스택과 함께 차 안에도 있습니다.**",
+        "en": "**We conjectured robotics was going to come along, and chose a first application that had three things: a large enough market, relatively standardized technology so we could scale and get the flywheel going, and real economic value.** **That was self-driving cars.**\n\n**Inside Waymo are our chips from NVIDIA. At Tesla we were in the car — now we're in the data center. At Mercedes we're in the data center and in the car with a software stack.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2290,
+      "text": {
+        "ko": "그리고 **저희는 Alpamayo를 작업했고, 그것을 오픈소스로 공개했습니다.**\n\n**자율주행차 스택을 오픈소스로 공개한 이유는, 농업에도 필요하고, 우편 배달에도 필요하고, 창고의 AMR에도 필요하기 때문입니다.** **자율 주행을 적용할 수 있는 방식이 정말 많은데, 그 시장들 하나하나는 자율주행차 시장만큼 크지 않습니다.** **그래서 충분히 다양하다고 판단해 전체 스택을 만들어 공개한 것입니다.**\n\n그래서 저희는 **온갖 곳에서 자율주행차와 함께 일하고 있습니다.**",
+        "en": "**We worked on Alpamayo, and we open-sourced it.**\n\n**The reason we open-sourced the self-driving stack is that you need it for agriculture, for mail delivery, for warehouse AMRs.** **There are so many ways you could apply autonomous navigation, and none of those markets alone is big enough to be a self-driving car market.** **We thought it was sufficiently diverse that we'd create the whole stack for it.**\n\nSo **we're working with autonomous vehicles in all kinds of different places.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2323,
+      "text": {
+        "ko": "**저희 로보틱스 사업, 자율주행 사업 — 기본적으로 물리 AI 사업은 이미 거의 100억 달러 규모입니다. 이미 정말 큽니다.**\n\n**앞으로 이것은 세계에서 가장 큰 산업 중 하나가 될 것 같습니다. 2~3년보다는 오래 걸리겠지만 10년보다는 짧게 걸릴 겁니다.** **그리고 이것이 저희의 다음 1,000억 달러 사업이 될 것입니다.**",
+        "en": "**Our robotics business, autonomous vehicle business — basically our physical AI business — is probably almost $10 billion already. So it's really, really big already.**\n\n**Likely this will be one of the largest industries in the world. It'll take longer than two or three years, but less than 10.** **And this will be our next $100 billion business.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 2347,
+      "title": {
+        "ko": "오픈소스가 없었다면 현대 AI는 없었다",
+        "en": "Without Open Source, There Is No Modern AI"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2347,
+      "text": {
+        "ko": "잠깐 시간을 내고 싶은데요. **이 자리가 딱 맞는 청중인 것 같습니다 — Jensen을 X에 환영합시다.** **첫 게시물을 올리셨죠. 리더십에 감사드립니다.**",
+        "en": "I want to take a moment — **I think this is the exact right crowd to welcome Jensen to X.** **You made your first post. Thank you for your leadership.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 2358,
+      "text": {
+        "ko": "(박수)",
+        "en": "(applause)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2362,
+      "text": {
+        "ko": "**제가 얼마나 내향적인지 보여주는 대목이죠. X에 첫 게시물을 올리는 데 2026년까지 걸렸습니다. 아마 지구상에서 마지막으로 한 사람일 겁니다.**\n\n**하지만 제가 올린 내용은 저에게도, 이 산업에도, 세상에도 너무 중요했습니다. 그래서 수줍음을 이겨내고 X에 첫 글을 올렸습니다.**",
+        "en": "**That just shows you how introverted I am. It took me until 2026 to have my first post on X. I'm probably the last human on Earth to do it.**\n\n**But what I posted was too important to me, too important to the industry, and too important to the world. So I overcame my shyness and put my first thing out on X.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2393,
+      "text": {
+        "ko": "**오픈소스, 오픈 웨이트, 오픈소스 모델은 이 방의 우리 모두가 하고 싶은 일에 정말 중요합니다. 우리는 제품을 만들고 싶으니까요.**",
+        "en": "**Open source, open weights, open-source models are incredibly important for what all of us in this room want to do — we want to create products.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2400,
+      "text": {
+        "ko": "**오픈소스가 아니었다면 모바일 클라우드 산업은 결코 일어나지 않았을 겁니다.**\n\n**Linux가 없었다면, Kubernetes가 없었다면, 이 모든 플랫폼이 없었다면 — TensorFlow가, 더 중요하게는 PyTorch가 없었다면, 초기 버전의 Caffe와 Torch와 Theano가 없었다면 말입니다. 그것들은 전부 오픈소스였습니다.**\n\n**그 모든 것이 없었다면, 우리가 어떻게 현대 AI를 갖게 됐겠습니까?**",
+        "en": "**If not for open source, the mobile cloud industry would never have happened.**\n\n**If not for Linux, if not for Kubernetes, if not for all of these platforms — if not for TensorFlow, or more importantly PyTorch, and the early versions of Caffe and Torch and Theano. Those were all open source.**\n\n**If not for all of that, how would we have modern AI?**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 2432,
+      "text": {
+        "ko": "(박수)",
+        "en": "(applause)"
+      }
+    },
+    {
+      "type": "section",
+      "t": 2438,
+      "title": {
+        "ko": "젊은이는 지금 무엇을 배워야 하나",
+        "en": "What Should a Young Person Learn Now?"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2438,
+      "text": {
+        "ko": "마치기 전에, **당신의 이야기에 정말 공감합니다.** 여기 계신 모두가 **당신의 여정에서 나온 지혜**를 듣고 싶어 할 것 같습니다.\n\n**지금 보고 계신 모든 것, 앞으로 사회에 자리 잡을 모든 알고리즘을 고려할 때 — 젊은 사람이 지금 무엇을 배워야 앞으로도 여전히 중요할까요?**",
+        "en": "Before we go — **I really resonate with your story**, and everyone here would love **the wisdom of your journey.**\n\n**Given all the things you're seeing, all the algorithms that are going to take hold in society — what should a young person learn now that will still matter?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2460,
+      "text": {
+        "ko": "**오늘 제가 본 것들과 만난 창업자들이 정말 고무적이었습니다.**\n\n**큰 결론은 물론, 단순한 것들은 자동화될 것이라는 겁니다.** 단순한 것이라 하면 **소프트웨어, 코딩** 같은 것입니다.\n\n**컴퓨터 앞에 앉아서 코드를 직접 써서 문제를 해결한다는 개념은 명백히 자동화될 것입니다.**",
+        "en": "**Some of the things I saw today and some of the founders I met were really quite encouraging.**\n\n**The big takeaway is, of course, that the simple stuff is going to get automated away.** And by simple stuff I mean **software, coding.**\n\n**The idea that you would solve a problem by sitting in front of a computer actually writing code — that concept is obviously going to get automated away.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2487,
+      "text": {
+        "ko": "**제 세대에서 자랄 때는 긴 나눗셈을 손으로 해야 했습니다. 세상에, 이제 누가 긴 나눗셈을 배워야 합니까?** **그것도 자동화되어 사라졌습니다.**\n\n**그러니 단순한 것들은 자동화되겠지만, 어려운 문제들 — 어려운 과학, 물리학, 화학, 생물학, 컴퓨터 과학, 컴퓨터 공학, 시스템 사고 — 그리고 특히 그것들이 서로 교차하는 영역들, 그런 어려운 문제들은 결코 사라지지 않을 것입니다.**",
+        "en": "**In my generation, growing up, we had to do long division. For God's sake, who has to learn long division now?** **That got automated away.**\n\n**So the simple stuff is going to get automated away — but the hard problems, the hard sciences: physics, chemistry, biology, computer science, computer engineering, systems thinking — and particularly the domains that intersect — those hard problems will never go away.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2523,
+      "text": {
+        "ko": "**AI는 우리를 훨씬 더 야심 차게 만들어주는 놀라운 도구입니다.** **이 엄청나게 크고 어려운 문제들을 푸는 데 대해 예전보다 훨씬 더 조급해지게 만들어 주죠.**\n\n**제 세대를 보면, 제가 처음 졸업했을 때 칩 설계자는 트랜지스터 1,000개짜리 칩을 설계했고, 그건 아주 큰 칩이었습니다.**\n\n**지금은 1조 개 트랜지스터 칩을 설계하는 게 별일도 아닙니다.** 누가 저에게 **\"Jensen, 우리 다음 칩은 1조 트랜지스터입니다\"**라고 하면 저는 그냥 **\"그래요\"**라고 합니다. **대수롭지 않은 일이 된 거죠.**",
+        "en": "**AI is an incredible tool that helps us become even more ambitious** — **even more impatient about solving these extraordinarily large and incredibly hard problems than before.**\n\n**In my generation, when I first graduated, a chip designer would design a chip with maybe a thousand transistors, and that was a very large chip.**\n\n**Now designing a trillion-transistor chip isn't even a thing.** If somebody told me **\"Jensen, our next chip is a trillion transistors,\"** I'd say **\"okay.\"** **It's not a thing.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2560,
+      "text": {
+        "ko": "**그 이유는 우리가 지금 너무나 야심 차기 때문입니다. 문제의 규모, 작업의 규모는 더 이상 문제가 되지 않습니다.**\n\n**그래서 코딩을 얼마나 해야 하는지, 엔지니어가 몇 명 필요한지 걱정할 필요가 없습니다. 그런 것들은 더 이상 생각하지 않아도 됩니다.** **그저 풀어야 할 문제가 무엇인지만 생각하면 됩니다.**",
+        "en": "**The reason is that we are so ambitious now — the scale of the problem, the scale of the task, no longer matters.**\n\n**So you don't have to worry about how much coding, how many engineers. You don't have to think about those things anymore.** **You just have to think about what is the problem you have to solve.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2578,
+      "text": {
+        "ko": "**그래서 저는 깊은 기술, 깊은 과학, 기술과 사회 문제의 교차점을 이해하는 것, 시장의 빈틈과 기회를 이해하는 것 — 그 모든 것이 여전히 존재한다고 생각합니다.**\n\n**그리고 시스템 사고를 잘할수록, 수백만 개의 에이전트가 자율적으로 문제를 풀도록 조율할 수 있게 됩니다.** **그래서 시스템 사고가 그토록 중요해질 겁니다.**\n\n**그 외에는 세상이 우리가 풀어야 할 훌륭한 도전들을 계속 가져다줄 겁니다. 예전과 똑같이 학교에 가세요. 학교에 계속 다니세요.**",
+        "en": "**So I think the deep tech stuff, the deep science stuff, understanding the intersection between technology and social issues, understanding market gaps and opportunities — all of that still exists.**\n\n**And the better you are at systems thinking, so you can orchestrate millions of agents solving problems autonomously, the better off you are.** **That's why systems thinking is going to be so important.**\n\n**Otherwise, the world is going to continue to have a lot of great challenges for us to solve. Go to school the same old way. Stay in school.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 2618,
+      "text": {
+        "ko": "(박수)",
+        "en": "(applause)"
+      }
+    },
+    {
+      "type": "section",
+      "t": 2625,
+      "title": {
+        "ko": "18살의 자신에게 보내는 전보",
+        "en": "A Telegram to His 18-Year-Old Self"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2625,
+      "text": {
+        "ko": "마무리 질문입니다. **저는 이 청중을 볼 때, 우리와 다르지 않은 사람들이 보인다**고 오프닝에서 말씀드렸는데요. **우리는 그저 기술적이고 시스템을 사랑하는 사람들일 뿐이죠.**\n\n**당신도 이 방에서 자신의 모습을 보실 것 같은데 — 18살에서 22살의 자신에게 전보를, 메시지를 보낼 수 있다면 무엇을 보내시겠습니까?**",
+        "en": "To close — I opened by saying that **when I look at this crowd I see people who aren't different from us.** **We're just technical and love systems.**\n\n**You see yourself in this room — so if you could send a telegram, a message to the 18-to-22-year-old version of yourself, what would that be?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2665,
+      "text": {
+        "ko": "**NVIDIA를 창업하고 우리 셋이 시작했을 때 제가 어떻게 느꼈는지 정확히 말씀드릴 수 있습니다.**\n\n**그때 제가 느낀 것은, 제가 알아야 할 것이 너무 많고 배워야 할 것이 너무 많은데, 저는 그것을 모른다는 것이었습니다.**\n\n아까 말씀드렸듯 **그 시절엔 YouTube도 없었고, YC도 없었고, 회사를 어떻게 시작하는지 가르쳐주는 사람이 아무도 없었습니다.**",
+        "en": "**I can tell you exactly how I felt when NVIDIA was founded and the three of us started.**\n\n**What I felt at the time was that there was so much for me to know and so much for me to learn — and I didn't know it.**\n\nAs I was telling you earlier, **at the time there was no YouTube, no YC, nobody teaching you how to start a company.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2695,
+      "text": {
+        "ko": "**그래서 서점에 가서 책을 한 권 샀는데, 제목이 \"회사 창업하는 법\"이었습니다.** **불행히도 그 책이 500페이지쯤 됐어요.**\n\n**그래서 제가 그걸 다 읽을 때쯤이면 이미 사업을 접었을 거고, 아내 Lori와 저는 돈이 다 떨어져 있겠구나 싶었습니다. 그러니 읽을 이유가 없었죠.**",
+        "en": "**So I went to the bookstore and bought a book, and the book said \"How to Start a Company.\"** **Unfortunately the book was like 500 pages long.**\n\n**I figured by the time I read it, I'd be out of business — Lori and I would be out of money. So there was no sense reading it.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2714,
+      "text": {
+        "ko": "**하지만 제가 아주 생생하게 기억하는 것은, 돈을 모으러 가는 게 얼마나 무서웠는가입니다.**\n\n**한 무리의 사람들과 이야기를 하게 될 텐데 그들의 질문에 답하는 법을 모른다고 느꼈기 때문입니다. 그리고 그건 사실이었습니다.**\n\n**심지어 오늘날에도 저는 그들의 질문에 답하는 법을 거의 모릅니다.**",
+        "en": "**But what I remember very vividly is how scared I was to go raise money.**\n\n**Because I felt I was about to talk to a bunch of people and I didn't know how to answer their questions. And it's true.**\n\n**I barely know how to answer their questions even today.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2739,
+      "text": {
+        "ko": "**하지만 제가 배운 것은, 그 모든 것이 중요하지 않다는 것입니다. 알고 보니 그랬습니다.**\n\n**여러분은 언제나 모르는 것들을 갖고 있게 될 겁니다. 그리고 매일 세상은 변하고 기술은 변합니다.**\n\n**명백히 지금은 지난 60년 중 회사를 시작하기 가장 좋은 때입니다. 산업 전체가 바뀌었습니다. 기술 관점에서 완전한 리셋입니다.**\n\n**인류 역사상 가장 중요한 기술인 컴퓨터가 완전히 리셋됐습니다. 그래서 지금은 절대적으로 회사를 시작하기 가장 좋은 단 하나의 시기입니다.**\n\n**그리고 저는 여러분 모두가 부럽습니다. 여러분 앞에 놓인 기회들이요. 정말 굉장할 겁니다.**",
+        "en": "**But the thing I learned is that none of that stuff matters. As it turns out.**\n\n**You're always going to have things you don't know. And every single day the world's changing, technology's changing.**\n\n**Obviously this is the greatest time in the last 60 years to start a company. The whole industry has changed — it's a complete reset from a technology perspective.**\n\n**The single most important technology in human history, the computer, has been completely reset. So this is absolutely the single greatest time to start a company.**\n\n**And I'm jealous of all of you — and the opportunities you have ahead. It's going to be incredible.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2784,
+      "text": {
+        "ko": "**한편으로는 완벽한 시기이고, 다른 한편으로는 기술이 너무 빠르게 변합니다. 그래서 질문은, 당신에게 맞는 감정이 무엇인가 하는 것입니다.**\n\n**제가 교과서를 사러 갔던 이야기를 해드렸죠. 오늘 모든 새로운 경험, 새로운 기술, 새로운 시장, 새로운 역학에 대해 제가 갖는 심리와 감정은 이렇습니다 — 이건 중요하다. 가서 배워야겠다. 그리고 뭔가 해야겠다. 그리고 최대한 빨리 착수해야겠다.**\n\n**그리고 그게 얼마나 어렵겠어?**",
+        "en": "**So it's the perfect time on the one hand. On the other hand, the technology is changing so fast. And the question is, what's the right feeling for you?**\n\n**I told you the story of me buying the textbook. The psychology and the feeling I have today about all the new experiences, new technology, new markets, new dynamics is: this is important. I've got to go learn it. And I've got to go do something about it. And I'd better get to it as fast as I can.**\n\n**And — how hard can it be?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2820,
+      "text": {
+        "ko": "**저는 늘 이 감각을 갖고 있었습니다. \"그게 얼마나 어렵겠어?\"**\n\n**그리고 솔직히 말하면, 생각하는 것보다 훨씬 더 어렵습니다.** **하지만 당신의 마음이 거기에 가 있기를 원하지는 않을 겁니다. 당신의 마음은 \"그게 얼마나 어렵겠어?\"에 있어야 합니다.**\n\n**그리고 고통은 조금씩 나눠서 오게 두세요.** **얼마나 어려울지를 미리 상상해서, 그 전부를 불안으로 바꿔놓고 아무것도 하지 않게 되는 일은 만들지 마세요.**\n\n**머릿속에서는 \"그게 얼마나 어렵겠어?\"라고 상상하세요. 어차피 저를 도와주는 AI 에이전트도 잔뜩 있는데요. 그러니 그게 얼마나 어렵겠어? 그리고 착수해서 일을 시작하는 겁니다.**",
+        "en": "**I always had this feeling: how hard can it be?**\n\n**And truth be told, it is way harder than you think.** **But you don't want your mind to be there. You want your mind to be: how hard can it be?**\n\n**And let the suffering come to you a little bit at a time.** **Don't imagine how hard it's going to be and let all of that turn into anxiety and not doing something about it.**\n\n**You want to imagine in your head: how hard can it be? I've got a bunch of AI agents helping me anyway. So how hard can it be? And then you get going on working on it.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "\"그게 얼마나 어렵겠어?\" (How hard can it be?)",
+      "kr": {
+        "ko": "낙관이 아니라 심리 기법",
+        "en": "not optimism — a psychological technique"
+      },
+      "body": {
+        "ko": "이 문장은 **NVIDIA의 문화를 상징하는 표현**으로 알려져 있지만, Jensen 본인의 설명은 통념과 다릅니다. **이것은 낙관주의가 아닙니다.**\n\n그는 곧바로 단서를 답니다 — **\"솔직히 말하면, 생각하는 것보다 훨씬 더 어렵습니다.\"** 즉 **그는 어렵다는 것을 알고 있습니다.** 그럼에도 그 문장을 되뇌는 이유는 따로 있습니다.\n\n**\"당신의 마음이 거기에 가 있기를 원하지는 않을 겁니다.\"**\n\n이것이 핵심입니다. **난이도를 정확히 예측하는 것과, 그 예측을 마음에 담아두는 것은 다른 문제**입니다. 어려움의 총량을 미리 다 계산해 버리면 **그것이 불안으로 전환되고, 불안은 착수 자체를 막습니다.** 그가 **\"고통은 조금씩 나눠서 오게 두라\"**고 말하는 이유입니다.\n\n대담 전체를 관통하는 세 요소가 여기서 합쳐집니다.\n\n**① 1995년 교과서 사건** — 기술이 틀렸다는 현실을 정면으로 마주하고, **모른다는 사실을 인정한 뒤 배우러 갔습니다.**\n**② \"배움이 가장 큰 초능력\"** — 그래서 기술 자체는 중요하지 않다고 말할 수 있습니다.\n**③ 회복탄력성** — 그리고 그 배움을 **매일 아침 다시 시작하는 힘.**\n\n뒤이어 나오는 **\"인생 전체를 하루에 극복할 필요는 없습니다. 그날 아침만 극복하면 됩니다\"**가 이 기법의 완성입니다. **문제를 시간 단위로 잘라내면, 각 조각은 감당 가능해집니다.**",
+        "en": "The phrase is known as **emblematic of NVIDIA's culture**, but Jensen's own explanation differs from the usual reading. **It is not optimism.**\n\nHe immediately qualifies it: **\"truth be told, it is way harder than you think.\"** **He knows it's hard.** The reason he repeats the phrase anyway lies elsewhere.\n\n**\"You don't want your mind to be there.\"**\n\nThat's the crux. **Accurately predicting difficulty and holding that prediction in your mind are different things.** Tally the full weight of the difficulty in advance and **it converts into anxiety, and anxiety blocks starting at all.** Hence **\"let the suffering come to you a little bit at a time.\"**\n\nThree threads of the whole conversation converge here.\n\n**① The 1995 textbook** — confronting the reality that the technology was wrong, **admitting he didn't know, and going to learn.**\n**② \"Learning is the single greatest superpower\"** — which is why he can say the technology itself doesn't matter.\n**③ Resilience** — the strength to **begin that learning again every morning.**\n\nWhat follows completes the technique: **\"you don't have to overcome life in one day — you just have to overcome that morning.\"** **Slice the problem by time, and each slice becomes survivable.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2853,
+      "text": {
+        "ko": "**그게 아마도 창업자의 태도일 겁니다.**\n\n**가는 길에 여러 가지를 배워야 한다는 것을 알고, 자신의 배우는 능력을 믿는 것.** **배움이야말로 단 하나의 가장 큰 초능력이니까요.**\n\n**그리고 \"그게 얼마나 어렵겠어? 누구든 할 수 있다면 나도 할 수 있다\"는 태도로 들어가되, 실제로는 어려울 것이고 매일 그것을 이겨낼 회복탄력성이 필요하다는 것을 그저 인정하는 것.**",
+        "en": "**That's probably the attitude of an entrepreneur.**\n\n**You know you have to learn a bunch of stuff along the way, and you believe in your ability to learn.** **Learning is the single greatest superpower.**\n\n**And you go into it with the attitude: how hard can it be? If anybody can do it, I can do it. And you just realize that it will be hard, and you have to have the resilience to overcome it every single day.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2878,
+      "text": {
+        "ko": "**인생 전체를 하루에 극복할 필요는 없습니다. 그저 그날 아침을 극복하면 됩니다.**\n\n**오늘은 오늘만 이겨내면 됩니다. 그러니 별일 아닙니다. 그냥 오늘을 통과하세요. 그리고 내일을 향해 나아가세요.**\n\n**계속 꿈을 좇으세요. 그리고 나머지는 — 충분히 오래 버티면, NVIDIA 같은 일이 일어납니다.**",
+        "en": "**You don't have to overcome life in one day. You just have to overcome that morning.**\n\n**You have to overcome today, today. So it's not a big deal — just get through today. And work toward tomorrow.**\n\n**Keep following your dreams. And the rest of it — if you stick with it long enough, NVIDIA happens.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2902,
+      "text": {
+        "ko": "**그래서 제가 드릴 수 있는 지혜가 있다면, 회복탄력성이 아마도 단 하나의 가장 중요한 것입니다.**\n\n**그리고 무언가를 믿는다면 그냥 착수하세요. 두려움이나 불안, 자신감 부족 같은 것 때문에 스스로 그것을 좇지 못하게 막는 일에서 마음을 빼내세요.**\n\n**그리고 스스로에게 이렇게 말하는 겁니다 — 나는 배워서 거기까지 갈 것이다.**",
+        "en": "**So if there's any wisdom I can give — resilience is probably the single most important thing.**\n\n**And if you believe in something, just get going on it. Get your mind out of keeping yourself from pursuing it because of fear or anxiety or lack of confidence.**\n\n**And then you just tell yourself: I'm going to learn my way there.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2930,
+      "text": {
+        "ko": "**Jensen Huang이었습니다, 여러분.**",
+        "en": "**Jensen Huang, everybody.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2934,
+      "text": {
+        "ko": "감사합니다, 여러분.",
+        "en": "All right, guys. Thank you."
+      }
+    },
+    {
+      "type": "beat",
+      "t": 2938,
+      "text": {
+        "ko": "(환호와 박수)",
+        "en": "(cheering and applause)"
+      }
+    }
+  ]
+}

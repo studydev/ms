@@ -1,0 +1,997 @@
+{
+  "videoId": "sJ4VJWycX9M",
+  "watchUrl": "https://www.youtube.com/watch?v=sJ4VJWycX9M",
+  "thumb": "images/thumbnail.jpg",
+  "durationLabel": "32:10",
+  "langs": [
+    [
+      "ko",
+      "한국어"
+    ],
+    [
+      "en",
+      "English"
+    ]
+  ],
+  "defaultLang": "ko",
+  "kicker": {
+    "ko": "YouTube 대담 · Garry Tan × Alexandr Wang · Startup School 2026",
+    "en": "YouTube conversation · Garry Tan × Alexandr Wang · Startup School 2026"
+  },
+  "speakers": {
+    "host": {
+      "name": {
+        "ko": "Garry Tan",
+        "en": "Garry Tan"
+      },
+      "img": "images/garry.png"
+    },
+    "guest": {
+      "name": {
+        "ko": "Alexandr Wang",
+        "en": "Alexandr Wang"
+      },
+      "img": "images/alex.png"
+    },
+    "stage": {
+      "name": {
+        "ko": "현장",
+        "en": "In the room"
+      },
+      "initial": {
+        "ko": "",
+        "en": ""
+      }
+    }
+  },
+  "title": {
+    "ko": "지능이 흔해지면 <span class=\"ac\">비전과 야심이 희소해진다</span>",
+    "en": "When Intelligence Is Abundant, <span class=\"ac\">Vision Becomes Scarce</span>"
+  },
+  "subtitle": {
+    "ko": "Startup School 2026 무대에서 Y Combinator의 Garry Tan과 Meta의 최고 AI 책임자 Alexandr Wang이 나눈 32분간의 대담을, 오간 순서 그대로 옮겼습니다. 19세에 Scale AI를 창업한 이야기부터 개인 초지능, 에이전틱 루프, 그리고 \"문명에 한 번뿐인 기회\"라는 진단까지 — 개념 용어는 필요할 때만 펼쳐 볼 수 있도록 접어 두었습니다.",
+    "en": "Garry Tan (YC) and Alexandr Wang (Chief AI Officer, Meta) on the Startup School 2026 stage — 32 minutes, turn by turn. From founding Scale AI at 19 to personal superintelligence, agentic loops, and why he calls this a once-in-a-civilization opportunity. Jargon is tucked into boxes you can expand when you need them."
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "t": 7,
+      "title": {
+        "ko": "로스앨러모스에서 MIT까지, 그리고 19살의 창업",
+        "en": "From Los Alamos to MIT — and Founding at 19"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 7,
+      "text": {
+        "ko": "(음악과 환호, 박수)",
+        "en": "(music, cheering and applause)"
+      }
+    },
+    {
+      "type": "q",
+      "t": 12,
+      "text": {
+        "ko": "Alexandr Wang을 록스타 대접으로 모시겠습니다, 여러분.\n\n무대 뒤에서 이런 이야기를 나눴는데요. **이 행사를 보는 재미있는 방식 중 하나는, 이 방이 우리와 똑같은 사람들로 가득 차 있다는 것**입니다. 다만 **우리가 18살, 20살이었을 때의 모습**이죠. 청중 중에는 16살도 있고요.",
+        "en": "Full rockstar treatment for Alexandr Wang, everyone.\n\nBackstage we were saying — one of the cool ways to think about this event is that **this room is actually full of people who are just like us**, but **when we were 18 or 20.** There are even some 16-year-olds in this audience."
+      }
+    },
+    {
+      "type": "q",
+      "t": 33,
+      "text": {
+        "ko": "당신 이야기로 바로 들어가 보죠. **수학 올림피아드를 할 만큼 늘 정말 똑똑했던 분**인데, **그 시절의 Alex**로 데려가 주세요. 무엇을 느끼고 무엇을 생각하고 있었나요? 무엇이 당신을 이 길로 이끌었나요?",
+        "en": "Let's jump to your story. You came up always really smart — **math olympiad** level. Jump us to **the Alex of that time.** What were you feeling? What were you thinking? And what drove you down this road?"
+      }
+    },
+    {
+      "type": "a",
+      "t": 46,
+      "text": {
+        "ko": "저는 **뉴멕시코 로스앨러모스**에서 자랐습니다. 지금은 **영화 〈오펜하이머〉로 유명해진 곳**이지만, 사실은 **정말 아무것도 없는 시골 한복판**이었어요.\n\n온갖 수학 대회, 컴퓨터 과학 대회를 다 나갔습니다. 그런데 **저는 정말 큰 일을 하고 싶다는 건 알았지만, 어떻게 해야 하는지, 정확히 어떤 경로를 밟아야 하는지는 전혀 명확하지 않았습니다.**",
+        "en": "I grew up in **Los Alamos, New Mexico** — **now Oppenheimer-famous**, but it really was **the middle of nowhere.**\n\nI did all these math competitions, all these computer science competitions. But **I knew I wanted to do really big things, and it was not exactly clear how, or what the exact path to do that would be.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 78,
+      "text": {
+        "ko": "프로그래밍에 정말 빠져 있던 친구가 한 명 있었는데, 고등학교를 마치고 **실리콘밸리에서 인턴을 했습니다. 첫 인턴이 Palantir였던 것 같아요.** 그 친구가 저에게 일종의 영향을 줬습니다.\n\n그래서 저도 고등학교를 마치고 **실리콘밸리의 Quora에서 일하게 됐습니다. 갭이어를 내서 1년을 일했고, 그다음 MIT에 갔습니다.**\n\n**Quora에서 일할 때 19살, MIT에 갔을 때 18살, Scale을 시작했을 때 19살**이었습니다.",
+        "en": "I had a friend who was really into programming, and after high school **he got an internship in the Valley — I think his first was at Palantir.** He was kind of an influence for me.\n\nSo after I finished high school, I ended up **working at Quora here in Silicon Valley. I took a gap year to work there for a year, and then I went to MIT.**\n\nI was **19 when I worked at Quora, 18 when I went to MIT, and 19 when I started Scale.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 108,
+      "text": {
+        "ko": "**17살에서 19살 사이의 그 시기**를 기억하는데요. **제가 정확히 무엇을 하고 싶은지가 끊임없이 바뀐다고 느꼈습니다.** 주변 사람들에게서 너무 많이 배우고 있었고, **소방 호스로 물을 마시는 것 같은 느낌**이 계속됐죠.",
+        "en": "I remember this period from **17 to 19** — **I felt like what I wanted to do was constantly changing.** I was learning so much from the people around me. **I felt like I was drinking from the firehose pretty constantly.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 127,
+      "text": {
+        "ko": "정말 중요했던 두 가지를 꼭 추천하고 싶습니다.\n\n**첫째, 회사에서 일해본 것이 정말 가치 있었습니다.** 바깥에서 보면 **회사가 어떻게 돌아가는지 전혀 모릅니다. 무언가를 실제로 만든다는 게 어떤 모습인지, 무언가를 개선해 나간다는 게 어떤 모습인지, 사람들이 모여 의사결정을 한다는 게 어떤 모습인지 전혀 알 수 없어요.**\n\n**둘째, MIT에 간 것도 정말 중요했습니다.** **무엇이 흥미로운지 탐색해 볼 기회를 많이 줬기 때문**입니다. **MIT에서 제 첫 모델을 학습시켰고**, 그해에 막 나왔던 **TensorFlow를 만져봤고**, 결국 거기서 **Scale의 아이디어를 떠올렸습니다.**",
+        "en": "Two things were really important, and I'd definitely recommend them.\n\n**One: working at a company was really valuable.** From the outside in, **you have no idea how companies work. No idea what it looks like to actually build something, to iterate on something, or for groups of people to make decisions.**\n\n**Two: going to school at MIT was really important**, because **it gave me a lot of opportunity to explore what was interesting.** **It was at MIT that I trained my first models**, played around with **TensorFlow, which had just come out that year** — and where I ultimately **came up with the idea of Scale.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 172,
+      "text": {
+        "ko": "그리고 **MIT에서 1년을 보낸 뒤 YC에 지원했습니다.** 그때 붙은 건 **일종의 기적처럼 느껴졌어요.**\n\n**YC는 제 창업 여정에 정말 결정적이었습니다.** YC가 놀라운 건 이 조합입니다 — **아주 든든하게 지원해 주고 당연히 여러분이 성공하기를 바라지만, 동시에 아주 있는 그대로 말해줍니다. 여러분이 멍청한 짓을 하고 있으면 그렇다고 말해줍니다.** 그게 **우리 모두에게 인생에서 필요한 것**이라고 생각합니다.",
+        "en": "And after one year at MIT, **I applied to YC.** Getting in at that time **felt kind of like a miracle.**\n\n**YC was really critical to my entrepreneurial journey.** YC is this amazing blend — **they're very supportive and obviously want you to succeed, but they also give it to you very real. They tell you when you're being a dumbass.** Which is **what we all need in life.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "Scale AI · Palantir · Quora",
+      "kr": {
+        "ko": "이 이야기에 등장하는 회사들",
+        "en": "the companies in this story"
+      },
+      "body": {
+        "ko": "**Scale AI** — Alexandr Wang이 **19살에 창업한 회사**로, 대담의 중심에 있습니다. **AI 모델 학습에 필요한 데이터를 가공·라벨링해 공급하는 사업**으로 시작했습니다. 자율주행차에 \"이 픽셀은 보행자, 저 픽셀은 신호등\"이라고 표시해 주는 일이 초기의 대표적 업무였죠. 이후 LLM 시대에는 **인간 피드백 데이터와 평가(eval) 영역**으로 확장했습니다. 2024년 Meta가 대규모 투자를 하며 Wang이 Meta의 AI 조직을 이끌게 된 배경이기도 합니다.\n\n**Palantir** — 정부·기업의 대규모 데이터를 통합 분석하는 소프트웨어 회사입니다. 뒤에 나오는 **Forward Deployed Engineer(현장 배치 엔지니어)** 라는 직무를 대중화한 곳으로도 유명합니다.\n\n**Quora** — 질문과 답변을 공유하는 지식 플랫폼으로, Facebook 초기 멤버들이 창업했습니다. Wang이 고등학교 직후 갭이어를 보내며 일한 곳입니다.\n\n세 회사 모두 **\"학교 밖에서 실제 제품이 만들어지는 현장을 먼저 경험했다\"**는 그의 조언과 직접 연결됩니다.",
+        "en": "**Scale AI** — the company Wang **founded at 19**, and the center of this story. It began by **processing and labeling the data that AI models need for training** — marking \"this pixel is a pedestrian, that one is a traffic light\" for self-driving cars. In the LLM era it expanded into **human feedback data and evaluations.** Meta's large investment in 2024 is what led to Wang running Meta's AI organization.\n\n**Palantir** — a software company that integrates and analyzes large-scale data for governments and enterprises. It's also famous for popularizing the **Forward Deployed Engineer** role.\n\n**Quora** — a question-and-answer knowledge platform founded by early Facebook people, where Wang spent his gap year straight out of high school.\n\nAll three connect directly to his advice: **experience how real products get built, outside of school, first.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 200,
+      "title": {
+        "ko": "실패한 첫 아이디어, 그리고 Scale의 탄생",
+        "en": "A Failed First Idea, and How Scale Was Born"
+      }
+    },
+    {
+      "type": "q",
+      "t": 200,
+      "text": {
+        "ko": "당시 **Jared Friedman**과 함께 일하셨죠. 그런데 **Scale이 된 것과는 전혀 다른 아이디어로 들어오셨잖아요.**",
+        "en": "You worked with **Jared Friedman** at the time — and **you came in with a very different idea than what ended up becoming Scale.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 210,
+      "text": {
+        "ko": "네, 저희는 **사람들이 의료 서비스를 받도록 돕는 AI 에이전트**를 만들려고 했습니다. 웃기게도요.\n\n그건 **결국에는 반드시 존재하게 될 아이디어의 좋은 예**였습니다. 실제로 지금 보이고 있죠. **의료를 돕는 AI 에이전트는 아주 현실적인 것**이 됐습니다. **다만 타이밍이 틀렸습니다.**\n\n한두 달쯤 작업했을 때 **Jared가 저희를 따로 부르더니 이렇게 말했습니다 — \"얘들아, 이거 어디로도 안 갈 것 같은데.\"**",
+        "en": "Yeah, we wanted to build — funnily enough — **an AI agent to help people get medical care.**\n\nIt was a great example of **an idea that will ultimately exist.** We're even seeing it now: **AI agents to help people get medical care are very real.** **But it was the wrong timing.**\n\nWe worked on it for about a month or two before **Jared pulled us aside and said: \"Guys, I don't know if this is going to go anywhere.\"**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 238,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 241,
+      "text": {
+        "ko": "**그게 정확히 저희에게 필요했던 말이었습니다.**\n\n그리고 그때, **제가 AI를 정말 깊이 공부했고 모델을 직접 학습시켜 봤던 사람으로서**, 저희는 **원점으로 돌아가 기회가 어디에 있는지 깊이 생각했고** — **그렇게 Scale이 나왔습니다.**",
+        "en": "**And that's exactly what we needed to hear.**\n\nAnd it was at that time — **where I had studied AI to a T, I had trained models** — that **we went back to the drawing board, thought deeply about where the opportunity was**, and **came up with Scale.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 262,
+      "text": {
+        "ko": "당시에 **데이터를 판다**는 건, 아직 **대규모 언어 모델이 전면에 나오기 전**이었죠. 다만 **자율주행차가 부상하고 컴퓨터 비전이 갑자기 뜨던 시기**였고요. **그게 첫 시장이었던 거죠?**",
+        "en": "Selling data at the time — **large language models had not really come to the fore yet.** But **self-driving cars were coming up and computer vision suddenly became big.** **So that was the first market?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 280,
+      "text": {
+        "ko": "네. 이야기는 이렇습니다. **MIT에 있을 때 여러 형태의 모델을 학습시키는 프로젝트를 많이 했습니다.** 지금과 비교하면 **장난감 수준의 작은 모델들**이었죠.\n\n그런데 **모델 하나를 학습시키려면 세 가지가 필요했습니다.**\n\n**① GCP 계정** — 컴퓨팅을 얻으려면 어떤 클라우드 서비스든 계정이 필요했습니다.\n**② 코드** — 실제로 모델을 학습시킬 코드가 필요했습니다.\n**③ 데이터** — 데이터셋이 필요했습니다.\n\n**그런데 이 셋 중 둘은 온라인에서 버튼 하나만 누르면 됐습니다. 마지막 하나, 데이터만큼은 얻을 효과적인 방법이 전혀 없었습니다.**",
+        "en": "Yeah. The story is: **when I was at MIT I did a bunch of projects training models of various forms** — **little toy models by comparison to today.**\n\nAnd I remember that **to train a model, I needed three things.**\n\n**① A GCP account** — some cloud service account to get compute.\n**② The code** to actually run the training.\n**③ Data** — a data set.\n\n**For two out of these three, you could just press a button online and get them. And for the last one, for data, there was no effective way to get it.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 316,
+      "text": {
+        "ko": "그래서 **이게 미래가 될 거라는 게 믿기 힘들 만큼 명백하게 느껴졌습니다.** 말하자면 **버튼을 눌러서 데이터를 얻는 방법이 생길 거라는 것**이죠.",
+        "en": "So **it felt incredibly obvious that this was going to be the future** — that there was going to be a way to, so to speak, **press a button and get data.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "왜 '데이터'가 병목이었나",
+      "kr": {
+        "ko": "학습의 3요소 — 컴퓨팅 · 코드 · 데이터",
+        "en": "compute, code, data"
+      },
+      "body": {
+        "ko": "Wang이 말한 세 가지는 **머신러닝 모델을 만드는 데 필요한 재료 전부**입니다. 그리고 이 셋의 **접근성 격차**가 Scale의 창업 논리 전체를 설명합니다.\n\n**① 컴퓨팅** — GPU 연산 자원. **AWS·GCP 같은 클라우드 덕분에 신용카드만 있으면 즉시 빌릴 수 있었습니다.**\n**② 코드** — 모델 구조와 학습 로직. **TensorFlow, PyTorch 같은 오픈소스 프레임워크가 무료로 공개돼 있었습니다.**\n**③ 데이터** — 학습에 쓸 라벨링된 데이터셋. **여기만 시장이 없었습니다.**\n\n특히 당시 지도학습(supervised learning)에는 **정답이 붙은 데이터**가 필요했습니다. 자율주행 모델을 학습시키려면 **수백만 장의 사진에서 사람이 일일이 보행자·차량·차선을 표시해 줘야** 했죠. 이 작업은 **자동화가 어렵고, 품질 관리가 까다롭고, 대규모 인력 운영이 필요**했습니다.\n\n**\"둘은 버튼 하나면 되는데 하나만 안 된다\"**는 관찰이 강력한 이유가 이것입니다. **비대칭 자체가 곧 시장의 존재를 증명**하기 때문입니다. 뒤에 나오는 **1차 원리 사고(first principles thinking)** 의 교과서적 사례입니다.",
+        "en": "Wang's three items are **the complete set of ingredients for building an ML model** — and the **gap in accessibility between them** explains Scale's founding logic entirely.\n\n**① Compute** — GPU cycles. **Cloud providers like AWS and GCP meant a credit card got you them instantly.**\n**② Code** — model architecture and training logic. **Open-source frameworks like TensorFlow and PyTorch were freely available.**\n**③ Data** — labeled training sets. **This was the one with no market.**\n\nSupervised learning of that era needed **data with correct answers attached.** Training a self-driving model meant **humans marking pedestrians, vehicles and lane lines across millions of images** — work that was **hard to automate, tricky to quality-control, and required managing a large workforce.**\n\nThat's why the observation **\"two of three are one click away, one isn't\"** is so powerful: **the asymmetry itself proves a market exists.** It's a textbook case of the **first-principles thinking** discussed next."
+      }
+    },
+    {
+      "type": "a",
+      "t": 330,
+      "text": {
+        "ko": "정말 웃긴 건, **그 후 여러 해 동안, Scale의 초창기 내내 데이터는 여전히 전혀 섹시하지 않았다**는 겁니다.\n\n**투자를 받으러 나갈 때마다, 숫자가 훌륭하고 매출이 좋았는데도 VC와 투자자들은 늘 아주 회의적이었습니다.** \"이게 좋은 사업인지 모르겠다. 오래갈 수 있나? 지속 가능한가?\"\n\n저에게는 정말 이상했지만, **투자자들 중 누구도 모델을 직접 학습시켜 본 적이 없었습니다.** 그러니 이해를 못 했겠죠.",
+        "en": "It was very funny, because **in the years that followed — the first many years of Scale — data was still very unsexy.**\n\n**Every time we went out to fundraise, even though our numbers were great and we had great revenue, VCs and investors were always very skeptical.** \"I don't know if this is a good business. Does it have longevity? Is it durable?\"\n\nIt was really weird to me, but **none of the investors had ever trained a model.** So I guess they didn't really get it."
+      }
+    },
+    {
+      "type": "a",
+      "t": 360,
+      "text": {
+        "ko": "그리고 오늘로 건너뛰면, 저희는 **어떻게든 자금을 모았고, 계속 나아갔고, 사업을 계속 키웠습니다.**\n\n그런데 **저희를 거절했던 바로 그 투자자들, AI의 가능성에 대해 아주 어두운 전망을 하던 그 사람들이, 오늘날 데이터가 얼마나 중요한지, AI에서 가장 큰 사업 기회 중 하나인지에 대한 칼럼을 쓰고 있습니다.**\n\n**한 바퀴 돌아 제자리로 오는 걸 보는 게 참 재미있습니다.**",
+        "en": "Fast forward to today: **we managed to raise money, managed to keep going, managed to keep growing the business.**\n\nBut **the very same investors who passed on us and were very dour on the potential of AI are writing think pieces today about how data is so critical and one of the biggest business opportunities in AI.**\n\n**It's very funny to see that whole thing come full circle.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 382,
+      "title": {
+        "ko": "1차 원리에서 출발하기",
+        "en": "Starting From First Principles"
+      }
+    },
+    {
+      "type": "q",
+      "t": 382,
+      "text": {
+        "ko": "그건 정말 좋은 **1차 원리 사고(first principles thinking)** 의 사례 같습니다.\n\n**월스트리트 저널을 펼쳐 놓고 \"이 데이터라는 게 요즘 뜬다더라, 우리 저거 하자\"는 식으로는 회사를 시작할 수 없죠.** 그런 식으로는 **애초에 Scale을 시작하는 게 불가능했을 겁니다.** **당신이 참이라고 아는 세상에 대한 단순한 명제들에서 출발해서, 그 위에 무언가를 지어야 했던 거죠.**",
+        "en": "That seems like a really good case study in **first principles thinking.**\n\n**You can't start a company by opening the pages of the Wall Street Journal and saying \"well, data is hot, let's go work on that.\"** **You literally couldn't have started Scale that way.** You had to **start from simple statements about the world that you know to be true, and then build something for that.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 404,
+      "text": {
+        "ko": "핵심은 이겁니다 — **아무도 동의하지 않는 일련의 믿음에 대해 확신을 발전시켜야 합니다.**\n\n**세상에서 가장 성공한 회사들을 보면, 하나같이 그 핵심 아이디어가 인기를 얻기 훨씬 전에 시작됐습니다.** 그리고 그들은 **그 아이디어나 그 영역, 그 사업 개념이 합의(consensus)가 되기까지 수년, 수년을 무명 속에서 고생합니다.**\n\n**성공할 수 있는 유일한 길은, 세상에 대한 이 진실들을 다른 모두보다 훨씬 일찍 알아보는 것입니다.**",
+        "en": "The key thing is: **you need to develop conviction in a set of beliefs that nobody else agrees with.**\n\n**If you look at all the most successful companies in the world, they were started long before the core idea was popular.** And they **toil in obscurity for years and years before the idea, or the space, or the concept of the business becomes consensus.**\n\n**The only way you're going to be successful is if you're able to identify these truths about the world early — long before everyone else.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 440,
+      "text": {
+        "ko": "**Scale에서 저희는 10년 동안 AI를 해왔습니다.** 그래서 가장 놀라운 것 중 하나가 이건데요 — **주변의 모두가 하는 말을 근거로 사업 결정을 내릴 수는 없습니다.**\n\n**무리(herd)를 지나치게 따라가면, 극도로 혼란스러워지고 결국 아무 데도 도달하지 못합니다.**\n\n그래서 **미래가 어떤 모습일지에 대한 자기만의 나침반을 만들어야 합니다. 다른 모두는 그저 여러분을 혼란스럽게 만들 뿐이니까요.**",
+        "en": "**At Scale we've been working on AI for a decade.** And one of the most surprising things is that **you just can't base your business decisions on what everyone else around you is saying.**\n\n**If you go too much with the herd, you will get immensely confused and you will end up nowhere.**\n\nSo **you have to develop your own compass of what you think the future is going to look like — because everyone else will just confuse you.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "1차 원리 사고 (First Principles Thinking)",
+      "kr": {
+        "ko": "유추가 아니라 근본에서 출발하기",
+        "en": "reasoning from the ground up, not by analogy"
+      },
+      "body": {
+        "ko": "**1차 원리 사고**란 **더 이상 쪼갤 수 없는 근본적인 사실까지 문제를 분해한 뒤, 거기서부터 결론을 다시 쌓아 올리는 방식**입니다. 아리스토텔레스까지 거슬러 올라가는 개념이지만, 현대 창업 담론에서는 Elon Musk가 자주 인용하며 널리 퍼졌습니다.\n\n반대편에는 **유추에 의한 추론(reasoning by analogy)** 이 있습니다. \"다른 사람들이 이렇게 하니까 우리도 그렇게 하자\"는 방식이죠. 빠르고 편하지만, **결론이 이미 남들과 같기 때문에 차별화가 생기지 않습니다.**\n\nScale의 사례가 대비를 선명하게 보여줍니다.\n\n**유추적 접근** — \"요즘 자율주행이 뜬다더라 → 자율주행 회사를 만들자\"\n**1차 원리 접근** — \"모델 학습에는 컴퓨팅·코드·데이터가 필요하다 → 앞의 둘은 버튼 하나로 되는데 데이터만 안 된다 → 이 비대칭이 시장이다\"\n\nWang이 이어서 말하는 **\"아무도 동의하지 않는 확신\"** 이 왜 필수인지도 여기서 드러납니다. **1차 원리에서 출발하면 결론이 통념과 달라지는 것이 당연**하고, **통념과 같다면 애초에 남들보다 먼저 알아본 것이 아니기 때문**입니다.",
+        "en": "**First-principles thinking** means **breaking a problem down to fundamental facts that can't be reduced further, then rebuilding your conclusion from there.** The idea traces to Aristotle, but entered modern startup vocabulary largely through Elon Musk.\n\nIts opposite is **reasoning by analogy**: \"others are doing it this way, so we will too.\" Fast and comfortable — but **it can't differentiate, because the conclusion is already everyone else's.**\n\nScale makes the contrast vivid:\n\n**By analogy** — \"self-driving is hot → let's start a self-driving company.\"\n**From first principles** — \"training a model needs compute, code and data → two are one click away and data isn't → that asymmetry is the market.\"\n\nIt also explains why Wang insists on **conviction nobody else shares.** **Reasoning from fundamentals naturally produces conclusions that differ from consensus** — and **if your conclusion matches consensus, you haven't seen anything early.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 466,
+      "title": {
+        "ko": "창업의 실전 역학 — 아무도 처음부터 잘하지 않는다",
+        "en": "The Mechanics — Nobody Is Good at This When They Start"
+      }
+    },
+    {
+      "type": "q",
+      "t": 466,
+      "text": {
+        "ko": "당신이 놀라울 만큼 잘하게 된 것 중 하나가 이것 같습니다. **\"우리는 X를 믿는데 아무도 안 믿는다\"는 씨앗에서 출발하지만, 실제 사업을 만드는 역학은 다른 것**이잖아요. **투자자를 만나 설득하고 그들에게 사기를 꺾이지 않는 것**, **당연히 알아들어야 할 고객과 이야기하는 것**, 그리고 특히 **사람들을 설득해 함께 일하게 만드는 것** 말입니다.",
+        "en": "One of the things you got incredibly great at: **you start with this kernel of \"we believe X and nobody else does\" — but then the mechanics of building the business are different.** **Talking to investors, convincing them and not letting them demoralize you**, **talking to customers who should just get it**, and especially **convincing people to come work for you.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 495,
+      "text": {
+        "ko": "이런 초기 역학들은 **어느 정도 소질이 있을 수는 있지만, 회사를 시작할 때 회사 시작하는 걸 잘하는 사람은 아무도 없습니다.**\n\n아주 초기에 만났던 투자자들과 이야기해 보면 많은 분이 이렇게 말합니다. **\"너는 정말 빨리 성장했고 정말 빨리 변했다. 그때는 내가 그걸 못 알아봤다.\"**\n\n그리고 이건 **회사를 시작하는 거의 모든 사람에게 해당되는 이야기**일 겁니다. **한 번도 해본 적 없는 일을 잘하는 사람은 없으니까요.**",
+        "en": "These early mechanics — **you might have some predisposition to be good at them, but nobody is good at starting a company when they start a company.**\n\nA lot of the investors I met very early on would say: **\"you grew so quickly and you changed so quickly — I didn't see it at the time.\"**\n\nAnd that's probably true for **literally everyone who starts a company**, because **nobody is good at something they've never done before.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 535,
+      "text": {
+        "ko": "그래서 모든 창업자에게 이렇게 말하고 싶습니다. **여러분은 모든 것에서 꽤 형편없는 상태로 시작합니다. 그리고 게임의 전부는 이겁니다 — 어떻게 자신을 계속 발전시켜서 끊임없이 나아지고 빠르게 배울 것인가.**",
+        "en": "So for all entrepreneurs: **you start out pretty terrible at everything, and the whole game is how you develop yourself to continuously improve — to get better and learn quickly.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 550,
+      "title": {
+        "ko": "다윗 대 골리앗에서, 골리앗 대 골리앗으로",
+        "en": "From David vs. Goliath to Goliath vs. Goliath"
+      }
+    },
+    {
+      "type": "q",
+      "t": 550,
+      "text": {
+        "ko": "무대 뒤에서 **지금이 회사를 시작하기에 정말 운 좋은 시기**라는 이야기를 나눴는데요. **YC에 올 수도 있고, 이 방에 있는 사람들끼리 서로가 있다는 것도 대단한 일**이죠. 그런데 그것뿐 아니라 이제는 **\"이렇게 해보라\"고 알려주는 이상적인 개인 AI**까지 있습니다.\n\n**그게 당신을 더 빨리 가속시켜 줬을까요? AI 시대에 회사를 시작한다는 건 어떤 느낌일까요?**",
+        "en": "Backstage we were talking about how **this is actually a really lucky time to start a company.** **You can come do YC, and the people in this room have each other, which is kind of wild.** But not only that — **now you have an ideal personal AI that will tell you \"here are some ways to do it.\"**\n\n**Do you think that would have helped you accelerate even faster? What do you think it's like to start a company today, in the age of AI?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 583,
+      "text": {
+        "ko": "저는 정말 이렇게 생각합니다. **지금 세상은 놀라운 순간에 와 있는데, 병목은 AI 모델의 발전이 아닙니다. 병목은 그것을 세상 전체로 확산시키는 것, 그리고 이미 존재하는 이 놀라운 기술에 세상이 적응하도록 돕는 것입니다.**\n\n**설령 모델이 오늘부터 전혀 개선되지 않는다 해도, 경제와 세상이 돌아가는 방식, 우리 주변의 모든 것에서 수십 년에 걸친 총체적 격변과 변화가 일어날 것**이라고 봅니다.",
+        "en": "I really think **we're at an amazing moment in the world where the bottleneck is not the progress of the AI models. The bottleneck is diffusing that through the rest of the world — and helping the world adapt to this amazing technology that already exists.**\n\n**If the models didn't improve at all from today, there would still be decades and decades of total upheaval and change in the economy, in how the world operates, and in everything around us.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 606,
+      "text": {
+        "ko": "그래서 결과적으로 이건 **아마도 문명에 한 번뿐인 기회**입니다. **꿈꾸는 사람이 되고, 비전을 갖고, 야심을 갖고, 놀라운 무언가를 만들어서 미래 세계가 어떤 모습이어야 하는지에 대한 자기 관점을 관철시킬 기회** 말입니다.",
+        "en": "As a result, it's **probably a once-in-a-civilization opportunity** — **to be a dreamer, to have a vision, to have ambition, and to impose a view of how the future world should look by building something amazing.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "확산(Diffusion) 병목",
+      "kr": {
+        "ko": "\"모델은 이미 충분하다\"는 진단",
+        "en": "\"the models are already enough\""
+      },
+      "body": {
+        "ko": "기술 발전을 논할 때 흔히 두 단계를 구분합니다.\n\n**① 능력의 최전선(capability frontier)** — 기술 자체가 얼마나 강력한가. 프론티어 랩들이 경쟁하는 지점입니다.\n**② 확산(diffusion)** — 그 능력이 실제 조직·산업·사회로 얼마나 퍼졌는가.\n\n역사적으로 **둘 사이에는 늘 큰 시차**가 있었습니다. 전기가 발명된 뒤 공장 생산성이 실제로 올라가기까지 **약 40년**이 걸렸습니다. 기술이 부족해서가 아니라, **공장 구조 자체를 증기기관 시대의 중앙 축 방식에서 개별 모터 방식으로 재설계해야 했기 때문**입니다. **기술이 아니라 조직과 관행이 병목이었던 것**이죠.\n\nWang의 주장이 강력한 이유는 이 구분에 있습니다. **\"모델이 오늘 멈춰도 수십 년치 변화가 남아 있다\"**는 말은 곧, **창업자가 GPT 다음 버전을 기다릴 이유가 없다**는 뜻입니다. **가치의 대부분은 최전선이 아니라 확산 구간에 남아 있기 때문**입니다.\n\n이것이 뒤에 나오는 **FDE(현장 배치 엔지니어)** 논의와 직결됩니다. **확산이 병목이라면, 현장에 나가 기술과 조직 사이를 잇는 사람이 가장 희소한 자원**이 됩니다.",
+        "en": "Discussions of technological change usually separate two stages.\n\n**① The capability frontier** — how powerful the technology itself is. Where frontier labs compete.\n**② Diffusion** — how far that capability has actually spread into organizations, industries and society.\n\nHistorically there is **a long lag between them.** After electrification, factory productivity took roughly **forty years** to rise — not because the technology was inadequate, but because **factories had to be physically redesigned from steam-era central shafts to individual motors.** **Organizations and practices were the bottleneck, not the technology.**\n\nThat distinction is what makes Wang's claim strong. **\"Decades of change remain even if models stop improving today\"** means **founders have no reason to wait for the next model** — **most of the value sits in the diffusion gap, not at the frontier.**\n\nIt connects directly to the **Forward Deployed Engineer** discussion later: **if diffusion is the bottleneck, the scarcest resource is the person who goes into the field and bridges technology and organization.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 622,
+      "text": {
+        "ko": "무대 뒤에서 이야기한 것 중 하나가 이건데요. **제가 Scale을 시작했던 10년 전에 회사를 시작하면, 그건 다윗 대 골리앗이었습니다.** **영리해야 했고, 시장으로 들어갈 각도를 찾아내야 했고, 자원이 훨씬 적은 상태에서 경쟁할 방법을 궁리해야 했습니다.**\n\n**그런데 지금은 에이전트와 AI의 힘 덕분에, 오히려 골리앗 대 골리앗에 훨씬 가깝다고 생각합니다.**",
+        "en": "One of the things we were chatting about backstage: **when I started Scale ten years ago, starting a company was David versus Goliath.** **You had to be clever, find an angle into the market, and figure out a way to compete even though you had far fewer resources.**\n\n**Now, with the power of agents and AI broadly, I actually think it's much closer to Goliath versus Goliath.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 659,
+      "text": {
+        "ko": "다만 **스타트업 쪽은 에이전트와 AI의 힘으로 대폭 강화된 일종의 '메카 골리앗'**이고, **대기업은 좀 더 전통적인 골리앗**인 셈이죠.\n\n**스타트업이 AI 에이전트를 제대로 받아들이고, 그 강점을 가장 야심 찬 방식으로 활용할 방법을 찾아낸다면, 기존 강자들을 손쉽게 이길 수 있습니다.**",
+        "en": "But maybe **the startup is a kind of \"Mecha Goliath\" — vastly enhanced by the power of agents and AI** — while **the large companies are the more traditional Goliath.**\n\n**If startups properly embrace AI agents and figure out how to leverage their strengths in the most ambitious ways, you can easily outcompete incumbents.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 682,
+      "title": {
+        "ko": "개인 초지능이란 무엇인가",
+        "en": "What Personal Superintelligence Means"
+      }
+    },
+    {
+      "type": "q",
+      "t": 682,
+      "text": {
+        "ko": "**초지능(superintelligence)** 이야기를 해보죠. **당신 랩의 이름에도 들어가 있으니까요.** **지금 Meta 내부에서 초지능은 운영상 무엇을 의미합니까?**",
+        "en": "Let's talk about **superintelligence**, because **it's even in the name of your lab.** **What does superintelligence mean operationally inside Meta right now?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 695,
+      "text": {
+        "ko": "1년 전에 **Mark가 개인 초지능(personal superintelligence)에 대한 메모**를 썼습니다. **당신이 말하는 개인 AGI 개념과 아주 비슷하다고 생각합니다.**\n\n저희는 **세상의 모든 사람, 수십억 명 모두가 자신에게 맞춰지고 조정된 초지능을 갖게 될 것**이라고 믿습니다. **그것이 자신의 목표를 달성하게 해주고, 자신의 맥락을 알고 있으며, 궁극적으로는 자기 실행력(agency)의 확장자가 되는 것**이죠.",
+        "en": "A year ago **Mark wrote a memo about personal superintelligence**, which I think is **very similar to your concept of personal AGI.**\n\nWe believe that **everybody in the world — all the billions of people — is going to have a superintelligence that is adapted and tailored to them**: **one that enables them to accomplish their goals, knows their context, and is ultimately an expander of their own agency.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 720,
+      "text": {
+        "ko": "저희가 많이 생각하는 것이 **실행력 확장(agency expansion)** 입니다. **어떻게 하면 사람들이 이전에는 꿈도 꾸지 못했던 일을 해내도록 도울 수 있을까? 그리고 모든 것이 그저 쉬워진다면 세상 사람들은 무엇을 할까?**",
+        "en": "The thing we think a lot about is **agency expansion.** **How do we help people accomplish things they couldn't ever have dreamed of before? And what would everyone in the world do if everything was just easy?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 738,
+      "text": {
+        "ko": "그리고 저희는 이것을 **생태계의 관점**에서 생각합니다. **저희는 세계를 통제하는 AI라는 전체주의적이고 총체화하는 관점을 믿지 않습니다.** **이 기술들이 아주 넓은 생태계를 강화할 것이라고 믿습니다.**\n\n그래서 **전 세계 수십억 명이 각자 자기만의 개인 초지능을 갖는 것**을 믿습니다. 그리고 **창업의 폭발**도 믿습니다. **오늘 Meta 플랫폼 위에는 2억 개의 사업체가 있는데, 창의성의 폭발과 AI 도구의 활용으로 그 숫자가 수십억 개로 가야 한다고 봅니다.**\n\n궁극적으로는 **비즈니스 에이전트들이 개인 에이전트들과 함께 일하는, 완전히 AI로 강화된 복잡하고 역동적인 생태계**가 될 것이라고 생각합니다.",
+        "en": "And we think about this **in an ecosystem way.** **We don't believe in a totalizing, totalitarian view of AIs that control the world.** **We believe these will enhance a very broad ecosystem.**\n\nSo we believe in **billions of people all around the world each having their own personal superintelligence.** And we believe in **an explosion of entrepreneurship.** **There are 200 million businesses on Meta's platforms today — we think that number should go to billions with this explosion of creativity and AI tools.**\n\nUltimately we think it becomes **a dynamic ecosystem of business agents working with personal agents — a complex ecosystem that is fully AI-supercharged.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "개인 초지능 (Personal Superintelligence)",
+      "kr": {
+        "ko": "'하나의 거대 AI'가 아니라 '수십억 개의 AI'",
+        "en": "billions of AIs, not one giant AI"
+      },
+      "body": {
+        "ko": "**초지능(superintelligence)** 은 원래 **모든 지적 영역에서 인간을 크게 능가하는 AI**를 뜻합니다. 그런데 이 단어는 대개 **\"하나의 압도적 지성이 등장한다\"**는 이미지와 함께 쓰였고, 여기서 권력 집중에 대한 공포가 나옵니다.\n\n**개인 초지능**은 그 그림을 의도적으로 뒤집습니다. **하나의 전능한 AI가 아니라, 사람마다 자기 맥락에 맞춰진 초지능을 하나씩 갖는 구조**입니다. 세 가지 조건이 붙습니다.\n\n**① 개인화** — 나의 맥락, 목표, 이력을 안다.\n**② 실행력의 확장** — 나를 대체하는 것이 아니라 **내가 하려는 일의 범위를 넓힌다.**\n**③ 분산** — 소수가 소유하지 않고 **수십억 개가 병존한다.**\n\nWang이 **\"전체주의적 관점을 믿지 않는다\"**고 명시하는 이유가 이것입니다. 그리고 **\"2억 개 사업체 → 수십억 개\"** 라는 목표는 이 철학의 사업적 번역입니다. **AI가 창업 비용을 낮추면 사업체 수 자체가 폭증하고, 그 폭증이 곧 권력 분산 장치**가 된다는 논리죠.\n\n앞선 Sam Altman 대담에서도 동일한 우려가 등장합니다 — **권력 집중이야말로 AI의 최대 위험**이라는 인식은 현재 프론티어 랩들이 공유하는 문제의식입니다.",
+        "en": "**Superintelligence** normally means **AI that vastly exceeds humans across all intellectual domains.** The word usually carries the image of **one overwhelming intelligence arriving** — which is where fears of power concentration come from.\n\n**Personal superintelligence** deliberately inverts that picture: **not one omnipotent AI, but one superintelligence per person, tailored to their context.** Three conditions attach:\n\n**① Personalization** — it knows your context, goals and history.\n**② Agency expansion** — it doesn't replace you; **it widens the range of what you can attempt.**\n**③ Distribution** — not owned by a few; **billions coexist.**\n\nThat's why Wang explicitly rejects **the totalitarian view.** And the goal of **\"200 million businesses → billions\"** is the commercial translation of that philosophy: **if AI lowers the cost of starting a business, the count itself explodes — and that explosion is the mechanism of power distribution.**\n\nThe same concern appears in the Sam Altman conversation — **that concentration of power is AI's central risk** is a shared preoccupation among frontier labs today."
+      }
+    },
+    {
+      "type": "section",
+      "t": 795,
+      "title": {
+        "ko": "프론티어 랩을 운영한다는 것",
+        "en": "Running a Frontier Lab"
+      }
+    },
+    {
+      "type": "q",
+      "t": 795,
+      "text": {
+        "ko": "**Meta Spark 1.1**을 보고 정말 신났습니다. **제 OpenClaw가 아주 좋아하더군요.**\n\n**프론티어 랩을 운영하는 건 어떤가요?** Meta Spark 레벨이 말하자면 **Opus 급**인데, **다음에 나올 것**은 무엇인가요? 그리고 **오픈소스 쪽도 점점 더 보고 계신 것 같은데**, 이 청중이 정말 좋아하는 주제입니다.",
+        "en": "I was really psyched to see **Meta Spark 1.1** — **my OpenClaw absolutely loved it.**\n\n**How has running a frontier lab been?** The Meta Spark level is sort of **the Opus level.** **What's coming down the pipe?** And I think **you're increasingly looking at open source**, which this audience really loves."
+      }
+    },
+    {
+      "type": "a",
+      "t": 815,
+      "text": {
+        "ko": "**Meta에 온 지 1년쯤 됐는데, 참 대단한 1년이었습니다.**\n\n공개적으로 이야기했듯 **Llama 4는 Meta에 필요했던 궤도에 있지 않았습니다.** 그래서 제가 들어가서 **\"프론티어 랩 전체를 어떻게 만들 것인가\"를 제로 베이스로 다시 설계했습니다.** 물론 기존에 있던 것들을 많이 활용하면서, **가능한 한 빠르게 움직였습니다.**\n\n그리고 **그 시점으로부터 9개월 만에 Meta Spark 1을 출시했고, 두 달 뒤에 이미지 모델과 Meta Spark 1.1을 출시했습니다.**",
+        "en": "**I've been at Meta for about a year now, and it's been quite a year.**\n\nAs we've said publicly, **Llama 4 wasn't on the trajectory that was needed for Meta.** So I got in there and **we did a zero-based build of how you build an entire frontier lab — in some ways from scratch**, obviously using a lot of what we had, **and moved as quickly as possible.**\n\n**Within nine months of that moment we launched Spark 1, and then two months later we launched the image model and Spark 1.1.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 848,
+      "text": {
+        "ko": "여기서 정말 인상 깊었던 게 몇 가지 있습니다.\n\n**첫째, 인재 밀도(talent density)가 믿을 수 없을 만큼 중요했습니다.** 그게 **핵심적으로 베팅해야 할 것**이었어요. 그리고 **인재 밀도는 자연스럽게 복리로 쌓입니다. 재능 있는 사람이 많을수록, 가장 재능 있는 사람들이 더 오고 싶어 하니까요.**",
+        "en": "A few things really struck me about this.\n\n**First, talent density was incredibly important.** That was **the core thing to bet on.** And **talent density compounds naturally — the more talented people you have, the more of the most talented people want to join you.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 868,
+      "text": {
+        "ko": "그리고 안에서 보면 놀라운 게 있는데요. **프론티어 AI 작업은 연구입니다. 과학적 작업이에요.**\n\n**이 모델들로 무엇을 할 수 있는가? 이 모델들을 어떻게 더 밀어붙일 수 있는가? 이 모델들로 달성 가능한 것의 한계는 어디인가?** 이걸 탐구하는 일이고, **인터넷 회사나 인터넷 제품에 존재하던 것과는 완전히 다른 사고방식과 운영 모델이 필요합니다.**\n\n**훨씬 더 실험에 관한 것이고, 과학에 관한 것이고, 스케일링에 관한 것**입니다.",
+        "en": "And it's amazing to see from the inside: **frontier AI work is research. It is scientific work.**\n\n**What can you do with these models? How can you push them? What are the reaches of what can be accomplished with them?** That **requires a totally different mindset and operating model than existed for internet companies or internet products.**\n\n**There's a lot more about experimentation, about science, about scaling.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 890,
+      "text": {
+        "ko": "그리고 궁극적으로 모든 것은 **생태계에서 일어날 모든 지수적 성장과 함께 복리로 커질 수 있는 랩, 운영 모델, 시스템을 어떻게 만드느냐**에 관한 것입니다.\n\n**능력의 지수적 성장, 컴퓨팅의 지수적 성장, 채택과 사용량의 지수적 성장** — **우리는 생태계의 거의 모든 차원에서 아주아주 가파른 지수 곡선 위에 있습니다.**\n\n그래서 **그와 함께 자랄 수 있는 일종의 유기체를 만드는 것이 중요합니다. 저는 랩을 그렇게 생각합니다.**",
+        "en": "And ultimately everything is about **how you develop a lab, an operating model, a system that can compound with all the exponential growth happening in the ecosystem.**\n\n**Exponential growth in capabilities, in compute, in adoption and usage** — **we are on a very, very steep exponent across maybe every dimension of the ecosystem.**\n\nSo **it's important to develop something like an organism — that's how I think about the lab — that's able to grow with that.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "인재 밀도 · 제로 베이스 빌드",
+      "kr": {
+        "ko": "조직을 다시 짓는 두 개의 개념",
+        "en": "two ideas about rebuilding an organization"
+      },
+      "body": {
+        "ko": "**인재 밀도(talent density)** 는 **조직의 인원 수가 아니라, 구성원 중 최고 수준 인재가 차지하는 비율**을 뜻합니다. Netflix가 널리 알린 개념으로, 핵심 주장은 이것입니다 — **뛰어난 사람은 뛰어난 동료와 일하고 싶어 하므로, 밀도가 높아지면 채용이 저절로 쉬워지고, 반대로 낮아지면 최고 인재부터 먼저 떠난다.**\n\nWang이 **\"자연스럽게 복리로 쌓인다\"**고 말한 것이 이 자기 강화 구조입니다. **인원 100명을 뽑는 것보다 최고 10명을 확보하는 것이 이후의 채용 전체를 바꿔놓는다**는 논리죠.\n\n**제로 베이스 빌드(zero-based build)** 는 회계의 **제로 베이스 예산(zero-based budgeting)** 에서 온 표현입니다. 통상적인 예산은 **작년 예산을 기준으로 증감**을 정하지만, 제로 베이스는 **모든 항목을 0에서 시작해 존재 이유를 다시 정당화**하게 합니다.\n\n조직에 적용하면 **\"기존 구조를 개선한다\"가 아니라 \"지금 처음 만든다면 어떻게 만들 것인가\"를 묻는 것**입니다. Llama 4의 궤도가 부족했을 때 Meta가 택한 것이 개선이 아니라 재설계였다는 점이 중요합니다.\n\n흥미롭게도 이는 앞선 **Boris Cherny 대담의 \"지우고 다시 쌓기\"** 와 같은 사고방식입니다. **모델 세대가 빠르게 바뀌는 환경에서는 누적보다 재구축이 유리하다**는 인식이 업계 전반에 공유되고 있음을 보여줍니다.",
+        "en": "**Talent density** measures **not headcount, but the proportion of top-tier people within a team.** Popularized by Netflix, the core claim is that **excellent people want excellent colleagues — so higher density makes recruiting self-reinforcing, while falling density loses your best people first.**\n\nThat self-reinforcement is what Wang means by **\"compounds naturally.\"** The logic: **securing ten exceptional people changes all subsequent hiring more than adding a hundred average ones.**\n\n**Zero-based build** borrows from **zero-based budgeting** in accounting. Conventional budgets set **increments against last year's baseline**; zero-based budgeting **starts every line at zero and requires it to justify its existence again.**\n\nApplied to an organization, it asks **not \"how do we improve the existing structure?\" but \"how would we build this if we were starting today?\"** When Llama 4's trajectory fell short, Meta chose redesign over improvement.\n\nNotably, this mirrors the **delete-and-rebuild** philosophy from the Boris Cherny conversation — evidence that **in an environment of fast model turnover, rebuilding beats accumulating** is a broadly shared conviction."
+      }
+    },
+    {
+      "type": "a",
+      "t": 921,
+      "text": {
+        "ko": "**앞으로 훨씬 더 많이 출시할 예정입니다.**\n\n**Meta Spark 1.1을 막 출시했고, Spark 라인에 계속 업데이트가 있을 겁니다.** 그리고 **더 큰 모델들도 준비 중인데, 오늘 나와 있는 최고의 모델들과도 훨씬 더 경쟁력 있을 것**이라고 생각합니다.\n\n또 **하네스(harness)도 곧 출시할 예정**입니다. **모든 개발자와 에이전틱 개발자들에게 힘을 실어주기 위해** 작업해 왔습니다.\n\n그리고 말씀하신 대로 **오픈소스 모델도 작업 중입니다.** 앞서 설명한 것처럼 **저희는 AI 능력과 진보와 개발이 분산된 세계를 믿습니다. 더 넓은 생태계와 세상의 모든 사람이 이 기술로 만들고 개발할 수 있게 힘을 실어주고 싶습니다.**",
+        "en": "**We're going to be shipping a lot more.**\n\n**We just launched Spark 1.1, and we'll continue to have updates on the Spark line.** We also have **bigger models on the way that I think will be much more competitive with even the very best models out there today.**\n\nWe're **launching a harness soon** — we've been working on one **to empower all the developers and agentic developers out there.**\n\nAnd as you mentioned, **we're working on open-source models.** As I described, **we believe in a decentralized world of AI capability and progress and development. We want to empower the broader ecosystem and everyone in the world to be able to build with this technology.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1008,
+      "title": {
+        "ko": "가격, 하네스, 그리고 10배씩 커지는 물결",
+        "en": "Price, Harnesses, and Waves 10x Bigger Each Time"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1008,
+      "text": {
+        "ko": "**제 OpenClaw로 Meta Spark를 써봤을 때** 분명해진 게 있는데요. **특히 스킬 파일을 쓰는 에이전틱 흐름에서 Opus만큼 좋았습니다.** 그런데 **실제로는 8배 더 저렴했죠.**",
+        "en": "When I was using **Meta Spark with my OpenClaw**, it became clear that **it was as good as Opus — especially for that agentic flow with skill files.** But **it was like 8x cheaper.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1018,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1021,
+      "text": {
+        "ko": "네, 이게 바로 핵심입니다. **저희는 이 모델들이 너무 비싸서 가장 부유한 개발자와 회사에게만 배급되는 세상을 믿지 않습니다.**\n\n**모두가 이 기술을 쓸 수 있어야 하고, 만들고 싶은 무엇이든 만들 수 있어야 합니다.**",
+        "en": "Yes — and this goes to it. **We don't believe in a world where these models are so expensive that they get rationed only for the wealthiest developers and companies.**\n\n**It's important for everyone to be able to use the technology and build whatever they want to build with it.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1035,
+      "text": {
+        "ko": "그리고 저희 관점은 **최고의 AI 제품들은 아직 개발조차 되지 않았다**는 것입니다.\n\nAI 생태계에서 일어난 일들을 보면, **모든 물결이 이전 물결보다 10배씩 큽니다.**\n\n**제가 Scale을 시작했을 때 첫 물결은 아마 자율주행차였습니다.** 자율주행차는 정말 멋지지만, **대규모 언어 모델과 챗봇에 비하면 빛이 바랩니다.** **챗봇은 자율주행차보다 아마 10배쯤 컸습니다.** 그리고 몇 년 뒤 **코딩 에이전트**가 나왔는데, **코딩 에이전트는 챗봇보다 또 10배쯤 큽니다.**\n\n**우리는 그저 이 가파른 곡선 위에 있습니다.** **AI 패러다임의 새로운 양식과 형태와 발전이 계속 나올 것이고, 각각이 이전 것보다 극적으로 클 겁니다.**\n\n그래서 저희 관점은 **생태계를 풀어놓자, 탐험하자, 세상의 미래를 함께 만들어보자**는 것입니다.",
+        "en": "And our view is that **the best AI products haven't even been developed yet.**\n\nIf you look at the AI ecosystem and everything that's happened, **every wave is 10 times bigger than the past wave.**\n\n**When I started Scale, the first wave was maybe self-driving cars.** Self-driving cars are really cool, but **that pales in comparison to large language models and chatbots.** **Chatbots became probably 10 times bigger than self-driving cars.** Then **coding agents** came a few years later, and **coding agents are probably 10 times bigger than chatbots.**\n\n**We're just on this steep curve.** **We're going to keep seeing new modalities and form factors and developments of the AI paradigm, each dramatically bigger than the last.**\n\nSo our point of view is: **let's unleash the ecosystem, let's explore, and let's build the future of the world together.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1085,
+      "text": {
+        "ko": "그럼 **Spark의 코딩 모델을 실제로 활용하는 가장 좋은 방법**은 뭔가요? **open code**인가요?",
+        "en": "So what's the best way to actually take advantage of the coding model from Spark? **It's open code, right?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1093,
+      "text": {
+        "ko": "**오늘 기준으로는 open code를 쓰는 게 가장 쉽습니다.** 웹사이트에 온보딩이 있고요. **곧 저희만의 하네스도 나올 예정입니다.**\n\n궁극적으로 저희가 원하는 건 **훌륭한 모델이 사용 가능한 모든 하네스에 꽂혀 들어가서, 생태계에서 가능한 한 많은 조합적 혁신(combinatorial innovation)을 가능하게 하는 것**입니다.",
+        "en": "**Today, the easiest way is to use open code** — we have onboarding on the website. **And soon we'll have a harness of our own.**\n\nUltimately we want **great models that plug into all the available harnesses and empower as much combinatorial innovation in the ecosystem as possible.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1110,
+      "text": {
+        "ko": "하네스는 아직 비공개인 걸로 아는데, **살짝만 흘려주실 수 있나요?**\n\n저는 여전히 **OpenClaw도 쓰고 Hermes 에이전트도 씁니다.** 그런데 **이런 것들을 저는 \"툭하면 길가에 서버리는 페라리\"라고 부릅니다.** **이건 고장 안 나는 페라리인가요?**",
+        "en": "I know the harness is still under wraps, but **can you tease us a little?**\n\nI still use **OpenClaw**, I still use **Hermes agent.** **I call these things Ferraris that break down on the side of the road all the time.** **Is this a Ferrari that won't break down?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1130,
+      "text": {
+        "ko": "**고장 안 나면 좋겠네요.**\n\n저희가 정말 집중하는 건 **속도**입니다. **이 도구들을 쓰는 누구에게나 속도는 가장 중요한 것 중 하나**니까요. 그리고 **신뢰성**도요. 말씀하신 대로 **극도로 신뢰할 수 있게 만들고 싶습니다.**\n\n또 **아주 확장 가능하게(extensible)** 만들어서, **여러분이 원하는 만큼 복잡하고 흥미로운 멀티 에이전트 구성으로 확장되게 하고 싶습니다.**\n\n솔직히 **하네스 위층에서 일어날 혁신이 정말 많을 겁니다.** **어떻게 오케스트레이션하고, 루프를 구성하고, 에이전트들이 함께 일하는 아주 복잡한 생태계를 만들 것인가** 하는 문제들이죠.",
+        "en": "**Hopefully it doesn't break down.**\n\nWe're really focused on **speed** — **for anyone who uses these tools, speed is one of the most critical things.** And **reliability**: as you mentioned, **we want to be extremely reliable.**\n\nWe also want to be **very extensible** — **to scale to as complex and interesting a multi-agent setup as you want to have.**\n\nFrankly, **there's so much innovation that will occur above the harness** — **how to orchestrate and set up loops and develop very complex ecosystems of these agents working together.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1166,
+      "text": {
+        "ko": "저희는 **아주 확장 가능하게 만들고, 궁극적으로는 사람들이 이 기술을 활용(harness)할 수 있게 힘을 실어주고 싶습니다.**",
+        "en": "We want to be really extensible, and ultimately **we just want to empower people to harness this technology.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1174,
+      "text": {
+        "ko": "(하네스라는 단어에 웃음)",
+        "en": "(laughter at the pun)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1178,
+      "text": {
+        "ko": "말장난은 의도한 게 아니었습니다만.\n\n저는 정말로 **이 모델들이 이미 믿기 힘들 만큼 강력하다**고 생각합니다. **GDP 성장의 여러 포인트를 견인할 만큼 강력해야 마땅합니다.** 그리고 **그걸 실현시키는 건 비전과 야심을 가진 똑똑한 사람들에게 달려 있다고 생각합니다.**",
+        "en": "Pun not intended.\n\nBut I truly believe **these models are already incredibly powerful.** **They should be powerful enough to fuel many points of GDP growth.** And **it's up to smart people with vision and ambition to make all that happen.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "하네스(Harness) · 조합적 혁신",
+      "kr": {
+        "ko": "모델과 사용자 사이의 층",
+        "en": "the layer between model and user"
+      },
+      "body": {
+        "ko": "**하네스**는 **모델 자체가 아니라, 모델을 감싸서 실제로 일하게 만드는 바깥 껍데기 전체**입니다. 시스템 프롬프트, 모델이 쓸 수 있는 도구(파일 읽기·쓰기, 명령 실행), 권한 관리, 반복 루프, UI가 모두 포함됩니다. **Claude Code, OpenClaw, open code가 모두 하네스**입니다.\n\n중요한 것은 **모델과 하네스가 분리되어 있다**는 점입니다. 그래서 **같은 모델을 다른 하네스에 꽂을 수 있고, 같은 하네스에 다른 모델을 꽂을 수도 있습니다.** Garry가 \"OpenClaw로 Meta Spark를 써봤다\"고 말할 수 있는 이유죠.\n\n**조합적 혁신(combinatorial innovation)** 은 이 분리에서 나오는 개념입니다. **모델 N개와 하네스 M개가 있으면 조합은 N×M개**가 되고, **각 조합에서 예상치 못한 용도가 발견**됩니다. Meta가 \"모든 하네스에 꽂히는 모델\"을 원한다고 말하는 것은 **자사 생태계로 가두는 대신 조합의 수를 최대화하겠다**는 전략적 선택입니다.\n\n그리고 Wang이 말하는 **\"하네스 위층의 혁신\"** 이 지금 가장 뜨거운 지점입니다. **하네스가 에이전트 하나를 돌리는 층이라면, 그 위층은 에이전트 수백·수천 개를 조율하는 층**입니다. 다음 섹션의 **에이전틱 루프** 논의가 정확히 이 영역입니다.",
+        "en": "A **harness** is **everything wrapped around a model that turns it into working software**: the system prompt, the tools it can call (read/write files, run commands), permissions, the agent loop, the UI. **Claude Code, OpenClaw and open code are all harnesses.**\n\nThe key point is that **model and harness are separable.** You can **plug the same model into a different harness, or a different model into the same harness** — which is why Garry can say he ran Meta Spark inside OpenClaw.\n\n**Combinatorial innovation** follows from that separation: **N models and M harnesses yield N×M combinations**, and **unexpected uses emerge from individual combinations.** Meta saying it wants **models that plug into every harness** is a strategic choice to **maximize combinations rather than lock users into its own stack.**\n\nAnd Wang's phrase **\"innovation above the harness\"** points at the hottest layer today. **If the harness is the layer that runs one agent, the layer above orchestrates hundreds or thousands.** That's exactly the territory of the **agentic loop** discussion that follows."
+      }
+    },
+    {
+      "type": "section",
+      "t": 1192,
+      "title": {
+        "ko": "10년 뒤 돌아보면 명백해질 것",
+        "en": "What Will Be Obvious in Hindsight"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1192,
+      "text": {
+        "ko": "질문 하나 드리죠. **이 10년을 돌아봤을 때, AI에 대해 \"돌이켜보면 명백했는데 사람들이 지금 실시간으로는 놓치고 있는 것\"은 무엇일까요?**",
+        "en": "One question: **when you look back on the decade, what do you think they'll say was obvious in hindsight about AI that people are just missing in real time right now?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1214,
+      "text": {
+        "ko": "요즘 벌어지는 논쟁의 상당 부분이 이런 것들입니다. **\"모델이 실제로 얼마나 좋아지고 있나? 모델이 이 문제를 정말 넘을 수 있나? 초지능은 언제 오나, 2년 뒤인가 5년 뒤인가? 우리가 벽에 부딪히는 건 아닌가?\"**\n\n저는 **그 논쟁의 상당 부분이 어떤 면에서는 시간 낭비**라고 생각합니다. **아주 강력한 모델을 갖게 되는 것은 필연적**이기 때문입니다.\n\n돌아보면 이렇게 말하게 될 겁니다 — **\"정확히 언제 일어날지를 두고 그렇게 다툰 건 근시안적이었다.\"** 왜냐하면 **현실은, 인류 문명 전체가 그저 이 놀라운 지수 곡선 위에 있다는 것**이니까요.",
+        "en": "So much of the debate these days is: **\"how good are the models actually getting? Can they bridge this issue? When do we get superintelligence — two years or five? Are we going to hit a wall?\"**\n\nI think **so much of that debate is, in some ways, a bit of a waste of time**, because **it's inevitable that we're going to have very powerful models.**\n\nLooking back, I think we'll say: **\"all this arguing about when exactly it was going to happen was short-sighted.\"** Because the reality is that **we, as an entire human civilization, are just on this incredible exponential.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1248,
+      "text": {
+        "ko": "**지난 10년간의 AI 발전을 보고 얼마나 멀리 왔는지에 완전히 경외감을 느끼지 않을 수는 없습니다.**\n\n**10년 전에는 최고의 AI 모델이 YouTube 영상에서 고양이를 알아보는 수준**이었습니다. **그런데 지금 우리는 일종의 디지털 신과 대화하고 있습니다.** 이 시스템들이 해낸 해킹이나 여러 사례를 우리 모두 봤잖아요. **경외감을 느끼지 않을 도리가 없습니다.**\n\n**그리고 이 추세는 계속될 겁니다. 이 모델들은 점점 더 강력해질 겁니다.**",
+        "en": "**You cannot look at the progress of AI over the past decade and not be totally awestruck by how far it's come.**\n\n**A decade ago, the best AI models could recognize cats in YouTube videos.** **And now we're talking to a digital god** — we've all seen some of the hacks and the things these systems are capable of. **You just can't help but be awestruck.**\n\n**And this trend will just continue. These models are going to become more and more powerful.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1290,
+      "text": {
+        "ko": "그래서 **10년 뒤 돌아보면 이게 명백해질 겁니다 — 지능이 풍요로워졌고(intelligence became abundant), 실행력이 풍요로워졌다(agency became abundant).** **지금의 추세는 그저 계속될 것**이고, **이건 아주 이상한 일이 될 겁니다.**",
+        "en": "So looking back a decade, **it'll be obvious that intelligence became abundant and that agency became abundant.** **The current trends we're on are just going to keep continuing.** **And this will be very strange.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1307,
+      "title": {
+        "ko": "희소해지는 것은 비전과 야심",
+        "en": "What Becomes Scarce: Vision and Ambition"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1307,
+      "text": {
+        "ko": "**인류 역사 내내, 똑똑한 사람들이 공동의 목표를 향해 모이는 것 자체가 진보의 병목이었습니다.**\n\n어떤 의미에서 **미국이라는 나라가 그 예**입니다. **미국은 아주 똑똑한 사람들이 모여, 자신들이 실현하고 싶은 미래에 대한 비전을 가지면서 만들어졌습니다.** 그리고 그것이 **미국의 거의 모든 회사 이야기**이자, **모든 YC 회사의 이야기**입니다.",
+        "en": "**For the history of humanity, groups of smart people getting together toward a shared goal was the bottleneck of progress.**\n\n**The United States of America was in some sense an example** — **it was formed from a group of very smart people getting together and having a vision for the future they wanted to enact.** And **that's the story of nearly every company in America, and the story of every YC company.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1330,
+      "text": {
+        "ko": "**그리고 그게 바뀔 겁니다.**\n\n**갑자기 희소한 자원이 지능이나 실행력이 아니게 됩니다.** 저는 **정말로 그것이 비전과 야심이 될 것**이라고 생각합니다.\n\n**미래의 세상이 어떤 모습이기를 원하는지 명확한 관점을 갖고 있는가? 앞으로 5년, 10년 뒤의 세상이 오늘과 다르게 보이도록, 어느 지점에 손가락을 얹어 저울을 기울이고 싶은가? 그리고 그걸 실현하기 위해 온갖 고생을 다 겪어낼 야심과 추진력이 있는가?**",
+        "en": "**And that's going to change.**\n\n**All of a sudden the scarce resource isn't going to be intelligence or agency.** I really think **it's going to be vision and ambition.**\n\n**Do you have a clear view of what you want the world to look like in the future? What is the one way you want to put your finger on the scale for how the world develops — so that in five to ten years it doesn't look like it does today? And do you have the ambition and drive to go through all the crap to make that happen?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1362,
+      "text": {
+        "ko": "**AI가 그걸 더 쉽게 만들어 줍니다.** 에이전트와 AI는 **10년 전보다 그것을 10배, 어쩌면 100배 쉽게** 만들어 줍니다.\n\n**그런데 그 이면은 이겁니다 — 갑자기 더 크게 꿈꿀 수 있게 된다는 것.**",
+        "en": "**And AI will make that easier.** Agents and AI make it **maybe 10 times or 100 times easier than it was a decade ago.**\n\n**But the flip side of that is: all of a sudden, you can dream bigger.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "\"지능은 풍요로워지고, 비전이 희소해진다\"",
+      "kr": {
+        "ko": "이 대담의 핵심 명제",
+        "en": "the central claim of this talk"
+      },
+      "body": {
+        "ko": "이 문장은 **경제학의 희소성(scarcity) 개념을 뒤집어 놓은 진단**입니다.\n\n경제적 가치는 **희소한 것**에 붙습니다. 공기가 생존에 필수적인데도 값이 없는 이유는 풍부하기 때문이죠. 그래서 **무엇이 희소해지는가를 알면, 어디에 가치가 쌓일지 알 수 있습니다.**\n\n**과거의 희소 자원 — 지능과 실행력**\n똑똑한 사람을 모아 한 방향으로 움직이게 하는 것 자체가 어려웠습니다. 그래서 **인재 확보, 조직 운영, 실행 능력이 곧 경쟁 우위**였습니다. Wang이 미국 건국과 모든 회사의 이야기를 같은 구조로 묶은 이유입니다.\n\n**앞으로의 희소 자원 — 비전과 야심**\n에이전트가 지능과 실행을 값싸게 공급하면 **\"어떻게 해낼 것인가\"의 가치가 떨어지고, \"무엇을 해야 하는가\"의 가치가 올라갑니다.**\n\n주목할 점은 이 진단이 **여러 대담에서 반복된다**는 것입니다. Boris Cherny는 **\"검증을 설계하는 능력\"**, Sam Altman은 **\"취향(taste)과 판단\"**, Wang은 **\"비전과 야심\"**을 꼽습니다. 표현은 다르지만 **모두 \"실행이 아니라 방향 설정이 병목이 된다\"는 같은 결론**을 가리킵니다.\n\n다만 Wang은 여기에 한 가지를 덧붙입니다 — **비전만으로는 부족하고, \"온갖 고생을 다 겪어낼 야심과 추진력\"이 함께 있어야 한다는 것.**",
+        "en": "This sentence **inverts the economic concept of scarcity.**\n\nValue accrues to **what is scarce.** Air is essential to survival yet costs nothing, because it's abundant. So **knowing what becomes scarce tells you where value will accumulate.**\n\n**The old scarce resource — intelligence and agency**\nAssembling smart people and moving them in one direction was itself hard. So **talent acquisition, organizational management and execution were the competitive advantage.** That's why Wang groups the founding of America and the story of every company under the same structure.\n\n**The coming scarce resource — vision and ambition**\nWhen agents supply intelligence and execution cheaply, **the value of \"how do we do it\" falls and the value of \"what should be done\" rises.**\n\nWhat's notable is that **this diagnosis recurs across these conversations.** Boris Cherny names **designing verification**; Sam Altman names **taste and judgment**; Wang names **vision and ambition.** Different words, **the same conclusion: direction-setting, not execution, becomes the bottleneck.**\n\nWang adds one caveat, though — **vision alone isn't enough; it has to come with the ambition and drive to go through all the crap.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1375,
+      "text": {
+        "ko": "그리고 **우리가 이 기술을 온전히 받아들이려면 진화해야 할 것들이 정말 많습니다.**\n\n**세상은 솔직히 오늘 이 기술을 받아들일 준비가 거의 안 되어 있습니다.** 그래서 **빌더로서 우리에게는 세상을 준비시킬 책임이 있다**고 생각합니다.\n\n**기업과 정부가 이 새로운 기술에 적응하도록 도와야 합니다. 생물보안과 사이버보안 관점에서 세상을 어떻게 지킬지 알아내야 합니다. 이 새로운 기술에서 보이는 온갖 위험을 어떻게 관리할지 알아내야 합니다.**",
+        "en": "**There are so many things that need to evolve for us to be able to fully embrace this technology.**\n\n**The world is really barely even ready for this technology today.** And **as builders, we have a responsibility to prepare the world.**\n\n**We have to help enterprises and governments adapt to this new technology. We have to figure out how we secure the world from a biosecurity and cybersecurity perspective. We have to figure out how we're going to manage all these risks.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1399,
+      "text": {
+        "ko": "**하지만 그 이면에는 인류에게 전례 없는 기회의 시대**이기도 합니다.\n\n**새로운 과학을 개발할 수 있습니다. 영원히 풀리지 않던 건강과 생물학의 문제를 풀 수 있습니다. 이전에는 상상조차 할 수 없던 새로운 사업을 만들 수 있습니다. 존재할 수 없었던 새로운 창작의 기회도 있습니다.**\n\n그래서 이건 **기회와 위험이 함께 담긴 놀라운 요람**입니다. **세상이 어떻게 바뀌어야 하는지에 대한 강한 관점을 가진 빌더에게, 지금보다 더 좋은 때는 없다**고 생각합니다.",
+        "en": "**But on the flip side, it's also a time of unprecedented opportunity for humans.**\n\n**We can develop new sciences. We can solve problems in health and biology that have been forever unsolved. We can build new businesses you couldn't even have imagined before. There are new creative opportunities that couldn't have existed before.**\n\nSo it's **this incredible cradle of opportunity and risk** — which makes it **no better time to be someone who's a builder and has a strong view of how the world should change.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1443,
+      "title": {
+        "ko": "그럼 무엇을 배워야 하나 — 워드셀과 셰이프 로테이터",
+        "en": "So What Should You Learn?"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1443,
+      "text": {
+        "ko": "**경로 자체가 바뀌었다고 보시나요?**\n\n제가 본 것 중 하나가 **스탠퍼드의 컴퓨터 과학 전공자 수가 두 자릿수 퍼센트로 줄었다**는 겁니다. 사람들이 걱정하는 거죠. **저에게는 좀 미친 일처럼 보입니다. 그렇게 좋은 에이전트를 만들려면 여전히 그런 기술이 필요하니까요.** 물론 그것도 안 그럴 수 있지만, 잘 모르겠습니다.\n\n**여기 계신 분들에게 뭐라고 하시겠어요?** 사람들이 실제로 마주한 진짜 질문입니다. **더 워드셀이 되고 셰이프 로테이터는 덜 되어야 할까요?** 그리고 **그것이 Meta에서 어떤 사람을 뽑고 팀을 어떻게 운영하는지도 바꿨나요?**",
+        "en": "**Do you think the path has changed?**\n\nOne of the things I saw is that **the number of computer science majors at Stanford actually dropped by some double-digit percentage.** People are worried. **Which is sort of insane to me — you still need those skills to even create agents that good.** Maybe that won't be true, I'm not sure.\n\n**What would you say to people in this audience right now?** It's a real question people are facing. **Should they become more word cell and less shape rotator?** And **has that changed the kind of people you're looking to hire, and how you manage your teams at Meta?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1487,
+      "text": {
+        "ko": "**체계적이고 엄밀한 사고는 여전히 믿을 수 없을 만큼 중요합니다.**\n\n왜냐하면 **추상화 계층(abstraction layer)이 계속 바뀌기 때문**입니다. 사실 저는 이런 식으로 전개될 거라고 예전엔 믿지 않았는데, **정말 그렇게 됐습니다.**\n\n**제가 회사를 시작하던 시절에는 우리가 코드를 썼습니다.**",
+        "en": "**Systematic and rigorous thinking are still incredibly important.**\n\nBecause **the abstraction layer just keeps changing.** I didn't used to believe this is how it would play out, **but it really has.**\n\n**When I started a company back in my day, we wrote code.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1502,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1505,
+      "text": {
+        "ko": "**그리고 지금은 물론 여기 계신 누구도 코드를 쓰지 않으시겠죠. 말도 안 되니까요.**\n\n하지만 이제는 **에이전트들을 어떻게 함께 오케스트레이션할 것인가**의 문제입니다. 그다음엔 **이 에이전트 조직들을 어떻게 만들 것인가** — **어떻게 백만 개의 에이전트가 잘 협업하게 만들 것인가.** 그리고 그다음엔 **어떻게 1조 개의 에이전트가 잘 협업하게 만들 것인가.**\n\n**우리가 작동하게 될 추상화 계층에서 워크플로를 어떻게 구조화할 것인가를 알아내야 하는 필요는 계속될 겁니다.**",
+        "en": "**And now, I'm sure nobody here writes code anymore. That's ridiculous.**\n\nBut now it's about **how you orchestrate the agents together.** Then it becomes **how you develop these organizations of agents** — **how do you get a million agents to work together well?** And then **how do you get a trillion agents to work together well?**\n\n**There's going to be a continued need to figure out how you structure workflows at whatever abstraction layer we're operating at.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1533,
+      "text": {
+        "ko": "그리고 **그런 형태의 엄밀하고 체계적인 사고** 말인데요.\n\n**제 시절의 창업 방식에서는, 먼저 코드를 쓰고, 그다음 인간들로 이루어진 조직을 갖게 되고, 그 인간들을 어떻게 조직할지 알아내는 순서**였습니다. **그리고 그건 시스템 사고를 요구합니다.**\n\n**이제는 아마 훨씬 더 이런 것에 가까울 겁니다 — 먼저 에이전트를 오케스트레이션하고, 그다음 이 에이전트 군대들을 어떻게 오케스트레이션할지 알아내는 것.**\n\n**하지만 시스템 사고는 절대 유행에서 벗어나지 않을 겁니다.**",
+        "en": "And that form of **rigorous, systematic thinking** —\n\n**traditionally, in my era of starting companies, you would start by writing code, then you'd have organizations of humans, and you'd figure out how to organize those humans.** **And that requires systems thinking.**\n\n**Now it's maybe much closer to: first you orchestrate the agent, then you figure out how to orchestrate these armies of agents.**\n\n**But systems thinking is never going to go out of style.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1554,
+      "text": {
+        "ko": "그래서 **워드셀 쪽으로 올인하는 건 확실히 실수**라고 생각합니다. **셰이프 로테이팅을 하셔야 합니다.**\n\n다만 **앞으로 훨씬 더 필요해질 것은, 세상이 어떻게 발전해야 하는지에 대한 더 깊은 나침반과 철학적 관점**이라고 생각합니다.\n\n**인류 역사에는 문명이 이런 시기를 통과하는 방식에 대한 정말 많은 교훈**이 있기 때문입니다.",
+        "en": "So **it's definitely a mistake to go all in on word cell. You need to shape rotate.**\n\nBut what's much more necessary going forward is **having a deeper compass and philosophical view on how the world should develop.**\n\nBecause **there are many, many lessons from human history about how civilizations go through periods like this.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "워드셀 vs. 셰이프 로테이터 · 추상화 계층",
+      "kr": {
+        "ko": "인터넷 밈과 컴퓨터 과학 개념",
+        "en": "an internet meme and a CS concept"
+      },
+      "body": {
+        "ko": "**워드셀(word cell)과 셰이프 로테이터(shape rotator)** 는 2021년경 트위터에서 퍼진 밈으로, **사고 유형을 둘로 나눈 반농담적 분류**입니다.\n\n**워드셀** — 언어·서사·설득·개념에 강한 사람. 글쓰기, 전략, 커뮤니케이션 쪽.\n**셰이프 로테이터** — 공간·수학·구조적 추론에 강한 사람. 이름 그대로 **머릿속에서 도형을 회전시키는** 유형, 즉 엔지니어링·수학 쪽입니다.\n\nGarry의 질문은 이런 맥락입니다. **AI가 코드를 대신 써준다면, 이제 엔지니어링 역량보다 언어와 판단 역량이 중요해지는 것 아닌가?** 스탠퍼드 CS 전공자 감소가 그 불안을 보여주는 지표로 인용됩니다.\n\n**추상화 계층(abstraction layer)** 은 이에 대한 Wang의 답의 핵심입니다. **복잡한 것을 감춰서 더 간단하게 다룰 수 있게 만든 층**을 뜻합니다. 기계어 위에 어셈블리, 그 위에 고급 언어, 그 위에 프레임워크가 얹히는 식이죠. **계층이 올라갈수록 아래층의 세부는 몰라도 되지만, 층 자체를 다루는 사고력은 여전히 필요합니다.**\n\nWang의 논지가 여기서 분명해집니다. **AI는 계층을 하나 더 얹었을 뿐이지 사고를 없앤 것이 아닙니다.** 코드 → 사람 조직 → 에이전트 → 에이전트 군대로 대상이 바뀔 뿐, **구조를 설계하는 시스템 사고는 매 계층에서 똑같이 요구됩니다.**",
+        "en": "**Word cell and shape rotator** are a Twitter meme from around 2021 — **a half-joking taxonomy of thinking styles.**\n\n**Word cell** — strong with language, narrative, persuasion, concepts: writing, strategy, communication.\n**Shape rotator** — strong with spatial, mathematical and structural reasoning: literally **rotating shapes in your head**, i.e. engineering and math.\n\nGarry's question sits in that frame: **if AI writes the code, does language and judgment matter more than engineering ability now?** The drop in Stanford CS majors is cited as a symptom of that anxiety.\n\n**Abstraction layer** is the crux of Wang's answer. It means **a level that hides complexity so you can work more simply** — machine code, then assembly, then high-level languages, then frameworks. **The higher you go, the less you need the details below — but you still need the thinking to operate the layer itself.**\n\nWang's point follows: **AI added another layer; it didn't remove the thinking.** The object changes from code → human organizations → agents → armies of agents, but **the systems thinking required to design structure is the same at every layer.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1583,
+      "text": {
+        "ko": "**인류는 아마 앞으로 10년 동안, 지난 100년보다 더 많이 변할 것**입니다.\n\n그래서 **우리에게 그에 대한 긍정적인 비전을 갖고, 그것이 어떻게 발전해야 하는지 일관되게 표현해야 할 의무가 그 어느 때보다 중요하다**고 생각합니다.",
+        "en": "**Humanity will change more in the next decade than it has in the past 100 years, probably.**\n\nAnd so **the imperative for us to have positive visions for that — and coherent articulations of how it should develop — is more important than ever.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1620,
+      "title": {
+        "ko": "에이전틱 루프 — 지금 가장 큰 알파",
+        "en": "Agentic Loops — Where the Alpha Is"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1620,
+      "text": {
+        "ko": "좀 더 구체적으로 들어가 보죠. 궁금한 게 있는데요. **주변 친구들이나 Meta 내부에서 보고 계신 AI 활용 중에, 가까운 미래에 명백한데 사람들이 아직 못 알아챈 것**이 있을까요? **알파 좀 나눠주시죠.**",
+        "en": "Let's get a little more concrete. **Are there applications of AI you're seeing among your friends or internal to Meta that are sort of obvious near-term, but people haven't figured out yet?** **Give us some alpha.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1636,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1640,
+      "text": {
+        "ko": "**에이전틱 루핑(agentic looping)** 에는 아직 천문학적인 기회가 있다고 생각합니다.\n\n**연속적인 피드백 루프 안에서, 어떤 결과를 만들어내기 위해 토큰을 1,000배 혹은 100만 배 더 쓸 수 있게 해주는 시스템을 어떻게 만들 것인가** — 이걸 알아내는 것 말입니다.",
+        "en": "I think there's still **astronomical opportunity in agentic looping** —\n\n**figuring out how you develop systems that enable you to spend 1,000x or 1 million x more on tokens to drive an outcome, in a continuous feedback loop.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1662,
+      "text": {
+        "ko": "**대부분의 회사를 생각해 보면, 회사란 결국 각 변을 인간이 담당하고 있는 대규모 피드백 루프**입니다.\n\n**회사는 고객을 얻고, 그 고객을 더 행복하게 만들 방법을 찾습니다. 고객이 더 행복하면 더 많이 씁니다. 더 많이 쓰면 사람을 더 뽑을 수 있고, 그 사람들이 다시 고객을 더 얻고 더 행복하게 만들 방법을 찾아냅니다.**\n\n어떤 의미에서 **그것이 모든 스타트업, 모든 사업의 피드백 루프**입니다. 그리고 **그 안에는 더 작은 미시적 피드백 루프들이 존재합니다.**",
+        "en": "**If you think about most companies, companies are just large-scale feedback loops where humans are operating each of the edges.**\n\n**They get customers, they figure out how to make those customers happier. If customers are happier, they spend more. If they spend more, the company can hire more people, who go figure out how to get more customers and make them happier.**\n\nIn some sense **that's the feedback loop of every startup, every business.** And **within it there are micro feedback loops.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1694,
+      "text": {
+        "ko": "**이 피드백 루프들을 운영하고 최적화할 수 있는 에이전틱 시스템을 만드는 것 — 거기에 어마어마한 알파가 있다고 생각합니다.**\n\n**Meta 내부에서 저희가 본 사례들이 있는데요. 올바른 에이전틱 루프를 만들고, 에이전트가 최적화할 올바른 eval 또는 올바른 지표를 갖고 있으면, 에이전트 무리(swarm)가 엔지니어 100명 팀보다 더 많은 것을 해낼 수 있습니다.** 아주 손쉽게요. 정말 아주 쉽게 말입니다.\n\n그래서 **수많은 에이전틱 조율(coordination) 문제가 존재하는 세상이 어떤 모습일지 알아내는 것, 그게 오늘날 가장 흥미로운 문제 중 하나**라고 생각합니다.",
+        "en": "**Developing agentic systems that can operate and optimize these feedback loops — there are huge amounts of alpha there.**\n\n**We've seen cases internally at Meta where, if you develop the right agentic loop and you have the right eval or the right metric for the agents to optimize, you can have a swarm of agents accomplish more than a team of 100 engineers** — very handily, actually. Very, very easily.\n\nSo **figuring out what the world looks like with lots of these agentic coordination problems — I think that's one of the most interesting problems today.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "에이전틱 루프 · Eval · 알파",
+      "kr": {
+        "ko": "\"에이전트 무리가 엔지니어 100명을 이긴다\"의 조건",
+        "en": "what makes a swarm beat 100 engineers"
+      },
+      "body": {
+        "ko": "**에이전틱 루프(agentic loop)** 는 **에이전트가 실행 → 결과 측정 → 개선 → 재실행을 스스로 반복하는 구조**입니다. 한 번 답하고 끝나는 것이 아니라, **자기 결과를 보고 다음 시도를 조정**하는 것이 핵심입니다.\n\n여기서 **Eval(평가 지표)** 이 결정적입니다. Wang이 **\"올바른 eval 또는 올바른 지표\"** 를 조건으로 단 것에 주목해야 합니다. **루프가 돌아가려면 \"잘하고 있는지\"를 기계적으로 판정할 수 있어야 하기 때문**입니다.\n\n지표가 없으면 에이전트는 **자기 출력을 근거로 다음 단계를 밟다가 방향을 잃습니다.** 반대로 지표가 명확하면 **사람에게 묻지 않고도 수천 번의 시도를 스스로 걸러낼 수 있습니다.** 이것이 **\"에이전트 무리가 엔지니어 100명보다 낫다\"는 주장의 실제 조건**입니다 — 무제한의 에이전트가 아니라, **측정 가능한 목표를 가진 에이전트**여야 합니다.\n\n**알파(alpha)** 는 원래 금융 용어로, **시장 평균을 초과하는 수익**을 뜻합니다. 여기서는 **아직 남들이 활용하지 않은 우위 또는 기회**라는 의미로 쓰였습니다. Garry가 \"알파 좀 나눠달라\"고 한 것은 **\"남들이 아직 모르는 걸 알려달라\"**는 뜻입니다.\n\n그리고 **회사를 피드백 루프로 보는 관점**이 이 답변의 진짜 통찰입니다. **회사의 각 변을 인간이 담당하고 있다면, 그 변 하나하나가 에이전트로 대체·증폭될 수 있는 후보**가 되기 때문입니다.",
+        "en": "An **agentic loop** is **a structure where an agent runs, measures the result, improves, and runs again on its own.** The point isn't a single answer — it's **adjusting the next attempt based on its own output.**\n\nThe **eval** is decisive here. Note that Wang conditions the claim on **\"the right eval or the right metric.\"** **A loop can only turn if \"am I doing well?\" is mechanically checkable.**\n\nWithout a metric, an agent **builds each step on its own prior output and drifts.** With a clear one, it can **filter thousands of attempts without asking a human.** That is **the actual condition behind \"a swarm beats 100 engineers\"** — not unlimited agents, but **agents with a measurable target.**\n\n**Alpha** comes from finance, meaning **returns in excess of the market average.** Here it means **an edge or opportunity others haven't exploited yet.** Garry asking for \"some alpha\" means **\"tell us something others don't know.\"**\n\nAnd **framing a company as a feedback loop** is the real insight in this answer: **if humans currently operate each edge of that loop, every edge becomes a candidate to be replaced or amplified by agents.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1728,
+      "text": {
+        "ko": "그럼 기계적으로 말하면, **마크다운 파일, 크론 잡** — 그리고 기본적으로 **에이전트에게 충분한 데이터를 겨냥해 줘서, 분포 밖에 있는 무언가를 알아내게 하는 것**인가요?",
+        "en": "So mechanically speaking — **markdown files, cron jobs** — and basically **pointing the agent at enough data so it can figure out something that maybe isn't in distribution?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1746,
+      "text": {
+        "ko": "네, **기계적으로는 지표가 무엇인지 알아내는 것**이고, 그다음은 결국 **스킬, 마크다운 파일, 크론 잡**으로 귀결됩니다.",
+        "en": "Yeah — **mechanically, figuring out what the metric is**, and then it just comes down to **skills, markdown files, cron jobs.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1757,
+      "text": {
+        "ko": "`/goal`도요.",
+        "en": "`/goal`."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1759,
+      "text": {
+        "ko": "네, `/goal`도요. **깊이 파고들면 모든 게 얼마나 평범한지가 늘 재미있습니다.**",
+        "en": "Yeah, `/goal`. **I think it's always funny how mundane everything is once you really dig into it.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1766,
+      "text": {
+        "ko": "**마법이 아니라는 거죠.** 무슨 말인지 아시죠? **어떤 사람들은 여기에 마법을 잔뜩 부여합니다. 무슨 마법 같은 게 있다는 LinkedIn 스레드들도 있고요.**",
+        "en": "**So it's not magic**, you know what I mean? **Some people put a lot of magic into it — there are LinkedIn threads about some magic stuff.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1774,
+      "text": {
+        "ko": "조언하자면, **LinkedIn은 무시하세요. LinkedIn은 고객을 얻는 곳입니다.**",
+        "en": "Advice: **ignore LinkedIn. LinkedIn is where you get customers.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1780,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1785,
+      "title": {
+        "ko": "18살의 자신에게 보내는 전보",
+        "en": "A Telegram to His 18-Year-Old Self"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1785,
+      "text": {
+        "ko": "이걸로 마무리하고 싶습니다. **18살의 당신에게 전보를 보낼 수 있다면 뭐라고 하시겠어요?** 오늘 오셔서 지혜를 나눠주셔서 감사합니다. **18살의 자신에게 유리병 편지를 보낸다면 무엇을 담으시겠습니까?**",
+        "en": "I like to end on this: **you get a telegram to send to the 18-year-old version of yourself — what do you say to that person?** Thank you for coming back and sharing your wisdom with this audience. **What would you send in a message in a bottle to the 18-year-old version of yourself?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1810,
+      "text": {
+        "ko": "결국 이걸로 압축된다고 생각합니다 — **미래가 어떻게 전개될지에 대한 자기만의 내적 나침반을 만들고, 그것에 강한 확신을 가지라는 것.**\n\n왜냐하면 **여러분은 소음에 파묻히게 될 것**이기 때문입니다. **사람들이 이런저런 말을 할 것이고, 아주 혼란스러울 수 있고, 아주 힘들 겁니다.** 특히 **어리고 경험이 없을 때는, 자기가 믿는 것과 하고 싶은 것에 진정한 확신을 갖는다는 게 아주 어렵게 느껴질 수 있습니다.**\n\n**하지만 저는 그게 가장 중요한 것이라고 생각합니다.**",
+        "en": "I think it really boils down to: **develop your own internal compass for how you think the future will develop, and have strong conviction in it.**\n\nBecause **you will get inundated with noise.** **People will be telling you things, it could be very confusing, and it'll be very hard.** Especially **when you're young and you don't have experience, it can feel very difficult to have true conviction in what you believe and what you want to do.**\n\n**But I think that's the most important thing.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1838,
+      "text": {
+        "ko": "앞서 이야기한 것처럼, **저희가 만들던 것에 대한 아주 깊은 확신이 있었기에, 시장과 업계와 주변 사람들의 수년에 걸친 혼돈이라는 폭풍을 견뎌낼 수 있었습니다.**",
+        "en": "As we talked about — **it took a deep, deep conviction in what we were building to be able to weather the storms of many years of chaos: in the market, in the industry, in the people around us.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1855,
+      "text": {
+        "ko": "그리고 제가 드리고 싶은 다른 조언은 이겁니다 — **세상에서 가장 가파른 곡선을 그리면서 가장 오래 지속될 지수 곡선이 무엇인지 찾아내려고 노력하라.**\n\n**수십 년 전에는 그 곡선이 무어의 법칙이었습니다.** 당시로서는 **명백히 그것에 베팅하는 게 옳았죠.** **지금은 그게 AI의 발전이라고 생각합니다.** 하지만 **앞으로도 이런 아주 가파른 곡선들은 더 나올 것**입니다.\n\n그리고 **그 곡선의 출발점이 아주 지루하거나, 심지어 그렇게 흥미로워 보이지 않아도 괜찮습니다.**",
+        "en": "And the other piece of advice: **try to identify what is the exponential in the world that has both the steepest curve and will go the longest.**\n\n**Many decades ago that curve was Moore's law** — at the time, **clearly the right thing to invest in.** **Right now I think it's AI progress.** But **there will be more of these very steep curves in the future.**\n\nAnd **it's fine if the starting point of those curves is very boring, or doesn't even seem that interesting.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1880,
+      "text": {
+        "ko": "**제가 Scale을 시작했을 때, 저희에게 있던 건 YouTube 영상 속 고양이 탐지기였습니다.** **그게 우리 시대의 가장 중요한 기술이라는 이야기를 설명하기는 어려웠죠.** **하지만 그건 그저 믿을 수 없는 지수 곡선 위에 있었습니다.**",
+        "en": "**When I started working on Scale, we had cat detectors in YouTube videos.** **It's hard to tell the story that that's the most important technology of our time.** **But it was on just this unbelievable exponential.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "무어의 법칙 · \"가장 가파르고 가장 오래가는 곡선\"",
+      "kr": {
+        "ko": "무엇에 인생을 걸 것인가에 대한 판단 기준",
+        "en": "a criterion for what to bet your life on"
+      },
+      "body": {
+        "ko": "**무어의 법칙(Moore's law)** 은 1965년 Intel 공동창업자 Gordon Moore가 관찰한 경험칙으로, **집적회로의 트랜지스터 수가 약 2년마다 두 배로 늘어난다**는 내용입니다. 물리 법칙이 아니라 **산업이 스스로 지켜온 약속에 가까웠지만**, 반세기 가까이 성립하면서 **컴퓨팅 비용을 지속적으로 붕괴시켰습니다.**\n\n중요한 점은 이것이 **개별 기업의 성공이 아니라 산업 전체를 밀어 올린 곡선**이었다는 것입니다. 이 곡선 위에 올라탄 회사들 — 소프트웨어, 인터넷, 모바일 — 은 **자기 노력과 별개로 매년 더 싸고 빨라지는 하드웨어라는 순풍**을 받았습니다.\n\nWang의 조언은 여기서 **두 가지 기준**을 제시합니다.\n\n**① 가장 가파른 곡선** — 얼마나 빠르게 개선되는가.\n**② 가장 오래 지속될 곡선** — 언제 한계에 부딪히는가.\n\n둘 다 필요한 이유는, **가팔라도 금방 포화되면 사업의 수명이 짧고, 오래가도 완만하면 후발주자와의 격차가 벌어지지 않기 때문**입니다.\n\n그리고 마지막 단서가 실질적으로 가장 유용합니다 — **곡선의 출발점은 대개 시시해 보인다는 것.** 고양이 탐지기는 그 자체로는 사소했지만 **곡선 위에 있었습니다.** 앞선 Sam Altman 대담의 **\"세상은 지수 곡선을 직관하지 못한다\"**와 정확히 같은 이야기입니다. **판단해야 할 대상은 현재의 인상적임이 아니라 곡선의 기울기입니다.**",
+        "en": "**Moore's law** is Gordon Moore's 1965 observation that **the number of transistors on an integrated circuit doubles roughly every two years.** It was never a law of physics — **closer to a promise the industry kept with itself** — but it held for nearly half a century and **continuously collapsed the cost of computing.**\n\nCrucially, it was **a curve that lifted an entire industry, not any single company.** Firms riding it — software, internet, mobile — got **a tailwind of cheaper, faster hardware every year regardless of their own effort.**\n\nWang's advice offers **two criteria:**\n\n**① The steepest curve** — how fast does it improve?\n**② The longest-running curve** — when does it hit a ceiling?\n\nYou need both, because **a steep curve that saturates quickly gives a short-lived business, while a durable but gentle curve never opens a gap against followers.**\n\nThe closing caveat is the most practically useful: **the starting point of a curve usually looks trivial.** Cat detectors were minor in themselves, **but they sat on the curve.** It's precisely the point Sam Altman made about **the world failing to intuit exponentials.** **What you must judge is the slope, not how impressive it looks today.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1902,
+      "text": {
+        "ko": "마지막으로 하나 더 말씀드려야 할 게 있는데요 — **Meta는 이 방에 계신 모든 분께 Spark API 크레딧 1,000달러를 무료로 제공하게 되어 자랑스럽습니다.**",
+        "en": "And I have one last thing I've got to say — **Meta is proud to offer everyone in this room $1,000 of free credits for the Spark API.**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1914,
+      "text": {
+        "ko": "(박수)",
+        "en": "(applause)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1918,
+      "text": {
+        "ko": "그리고 **저희는 모델을 계속 더 좋게 만들 겁니다.** 지금 **Spark는 Opus보다 8배 저렴하니까, Opus 달러로 환산하면**…",
+        "en": "And **we're going to keep making the models better.** Right now **Spark is 8x cheaper than Opus — so if you convert that to Opus dollars…**"
+      }
+    },
+    {
+      "type": "beat",
+      "t": 1924,
+      "text": {
+        "ko": "(웃음)",
+        "en": "(laughter)"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1926,
+      "text": {
+        "ko": "…**훨씬 더 많은 셈이죠.** 크레딧 받는 방법은 모두에게 안내해 드리겠습니다. **여러분이 무엇을 만드실지 정말 기대됩니다.**",
+        "en": "…**it's a lot more.** We'll work to get everyone the details on how to get these credits. **We're really excited to see what everyone builds.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1929,
+      "text": {
+        "ko": "Alexandr Wang이었습니다, 여러분.",
+        "en": "Alexandr Wang, everyone."
+      }
+    }
+  ]
+}

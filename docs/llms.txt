@@ -28,4 +28,6 @@
 ## Sessions
 
 - [지금이 스타트업을 시작하기 가장 좋은 시기다 — Sam Altman x Garry Tan](https://ms.studydev.com/sessions/best_time_startup/): Startup School 2026 무대에서 Y Combinator의 Garry Tan과 OpenAI의 Sam Altman이 나눈 39분간의 대담을 한국어로 정리했습니다. AGI 시대에 스타트업이 왜 지금 가장 유리한지, product overhang과 안전 문제까지 다룹니다.
+- [지능이 흔해지면 비전과 야심이 희소해진다 — Alexandr Wang x Garry Tan](https://ms.studydev.com/sessions/civilization_opportunity/): Startup School 2026 무대에서 Y Combinator의 Garry Tan과 Meta의 최고 AI 책임자 Alexandr Wang이 나눈 32분간의 대담을 한국어로 정리했습니다. 19세에 Scale AI를 창업한 이야기부터 개인 초지능, 에이전틱 루프, 그리고 문명에 한 번뿐인 기회까지 다룹니다.
 - [모델이 똑똑해질수록 프롬프트는 지워라 — Boris Cherny x Diana Hu](https://ms.studydev.com/sessions/claude_opus5/): Opus 5 출시 다음 날, Claude Code를 만든 Boris Cherny와 Diana Hu가 나눈 35분간의 대화. 시스템 프롬프트 80% 삭제, 언하블링, 검증 루프, 수천 개의 에이전트 오케스트레이션까지 한국어로 정리했습니다.
+- [그게 얼마나 어렵겠어? — Jensen Huang x Garry Tan](https://ms.studydev.com/sessions/how_hard_can_it_be/): Startup School 2026 무대에서 Y Combinator의 Garry Tan과 NVIDIA 창업자 Jensen Huang이 나눈 49분간의 대담을 한국어로 정리했습니다. 1995년 창업 기술이 틀렸다는 깨달음부터 에이전틱 시대의 시스템 사고, 물리 AI까지 다룹니다.
