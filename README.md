@@ -16,7 +16,7 @@
 | ☁️ **Azure** | [`docs/azure/`](docs/azure/) | Azure Foundry, AI Agent, Cosmos DB, App Service, Functions, AKS 등 |
 | 🟧 **Microsoft 365** | [`docs/m365/`](docs/m365/) | Copilot, Graph API, Teams, SharePoint, Power Platform 등 |
 | 🐙 **GitHub** | [`docs/github/`](docs/github/) | Actions, Copilot, Codespaces, Advanced Security 등 |
-| 🧠 **Models** | [`docs/models/`](docs/models/) | Claude · GPT 등 최신 LLM 모델의 릴리스, 벤치마크, 활용 인사이트 |
+| 🎬 **Sessions** | [`docs/sessions/`](docs/sessions/) | 유명 AI 트렌드·컨퍼런스 대담, 유튜브 세션 영상 정리 |
 
 각 카테고리 하위에는 주제별 폴더(snake_case)가 있고, 폴더마다 진입점 `index.html`이 있습니다.
 
@@ -36,7 +36,7 @@ docs/                          # GitHub Pages 루트 (https://ms.studydev.com/)
 ├── azure/      ├── index.html + <slug>/index.html ...
 ├── m365/       ├── index.html + <slug>/index.html ...
 ├── github/     ├── index.html + <slug>/index.html ...
-└── models/     ├── index.html + <slug>/index.html ...
+└── sessions/   ├── index.html + <slug>/index.html ...
 
 scripts/
 └── generate_manifest.py       # docs/ 스캔 → manifest.json 재생성
@@ -61,7 +61,7 @@ python3 -m http.server 8000 --directory docs
 
 ## ✍️ 새 문서 추가
 
-1. 카테고리 결정: **Azure / M365 / GitHub / Models** 중 하나
+1. 카테고리 결정: **Azure / M365 / GitHub / Sessions** 중 하나
 2. 폴더 생성: `docs/<category>/<slug>/index.html` (slug는 snake_case)
 3. **공용 CSS/JS 참조**: 인라인 `<style>`·`<script>` 금지, 항상 `css/site.css`와 `js/site.js`를 상대 경로로 연결
 4. 커밋 & 푸시 — GitHub Actions가 `docs/manifest.json`을 자동 재생성하여 랜딩 페이지의 네비게이션에 반영

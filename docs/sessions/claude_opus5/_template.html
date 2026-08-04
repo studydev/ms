@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f5f5f7; --bg3:#fbfbfd;
+  --fg:#1d1d1f; --fg2:#424245; --fg3:#6e6e73;
+  --ac:#0066cc; --ac2:#0071e3;
+  --line:rgba(0,0,0,.09);
+  --qbg:#f0f4f9; --qbd:#d6e3f2;
+  --abg:#ffffff; --abd:rgba(0,0,0,.08);
+  --tbg:#fffaf0; --tbd:#f0dfb8; --tac:#9a6a00;
+  --shadow:0 18px 50px rgba(0,0,0,.10);
+}
+html[data-theme="dark"]{
+  --bg:#000000; --bg2:#0b0b0d; --bg3:#111114;
+  --fg:#f5f5f7; --fg2:#c8c8cd; --fg3:#8e8e93;
+  --ac:#4da3ff; --ac2:#4da3ff;
+  --line:rgba(255,255,255,.12);
+  --qbg:#121a24; --qbd:#20344a;
+  --abg:#141416; --abd:rgba(255,255,255,.09);
+  --tbg:#1c1708; --tbd:#463a19; --tac:#e3b757;
+  --shadow:0 18px 50px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI","Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--ac);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);
+}
+.bar-in{max-width:1080px;margin:0 auto;padding:11px 24px;display:flex;align-items:center;gap:14px}
+.bar-home{font-size:12.5px;font-weight:600;color:var(--fg2);flex:none;white-space:nowrap}
+.bar-home:hover{color:var(--ac);text-decoration:none}
+.kicker{font-size:12.5px;color:var(--fg3);letter-spacing:.01em;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.seg{display:flex;background:var(--bg2);border-radius:980px;padding:3px}
+.seg button{
+  border:0;background:transparent;color:var(--fg3);font:inherit;font-size:12.5px;
+  padding:5px 13px;border-radius:980px;cursor:pointer;transition:.18s;
+}
+.seg button.on{background:var(--ac);color:#fff;font-weight:600}
+.icobtn{border:1px solid var(--line);background:transparent;color:var(--fg2);width:32px;height:32px;
+  border-radius:50%;cursor:pointer;font-size:14px;line-height:1;display:grid;place-items:center}
+
+/* ---------- hero ---------- */
+.hero{max-width:900px;margin:0 auto;padding:74px 24px 30px;text-align:center}
+.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin-bottom:20px}
+h1{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Pretendard","Apple SD Gothic Neo",sans-serif;
+  font-size:clamp(34px,5.6vw,62px);line-height:1.08;letter-spacing:-.028em;font-weight:700;margin:0 0 24px;
+}
+h1 .ac{color:var(--ac)}
+.sub{font-size:clamp(16px,2vw,20px);line-height:1.62;color:var(--fg2);max-width:720px;margin:0 auto}
+.meta{margin-top:28px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+.pill{border:1px solid var(--line);border-radius:980px;padding:8px 16px;font-size:13px;color:var(--fg3)}
+.pill b{color:var(--fg);font-weight:600}
+.btn{background:var(--ac);color:#fff;border-radius:980px;padding:9px 20px;font-size:13.5px;font-weight:600}
+.btn:hover{text-decoration:none;opacity:.9}
+
+/* ---------- thumbnail ---------- */
+.thumbwrap{max-width:940px;margin:16px auto 0;padding:0 24px}
+.thumb{position:relative;display:block;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);line-height:0}
+.thumb img{width:100%;height:auto;display:block}
+.thumb .play{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.45));
+  opacity:0;transition:.25s
+}
+.thumb:hover .play{opacity:1}
+.thumb .play span{
+  background:rgba(255,255,255,.95);color:#111;border-radius:980px;padding:11px 22px;
+  font-size:14px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.3)
+}
+.cap{text-align:center;font-size:12.5px;color:var(--fg3);margin-top:12px}
+
+/* ---------- toc ---------- */
+.toc{max-width:940px;margin:56px auto 0;padding:0 24px}
+.toc h3{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg3);margin:0 0 14px;font-weight:600}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.toc a{display:flex;gap:11px;align-items:baseline;padding:12px 15px;border:1px solid var(--line);border-radius:13px;
+  color:var(--fg2);font-size:14.5px;background:var(--bg3);transition:.18s}
+.toc a:hover{text-decoration:none;border-color:var(--ac);color:var(--fg)}
+.toc .n{color:var(--ac);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;flex:none}
+
+/* ---------- conversation ---------- */
+main{max-width:860px;margin:0 auto;padding:0 24px 120px}
+.sec{margin-top:88px;scroll-margin-top:70px}
+.sec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:16px;margin-bottom:34px;border-bottom:1px solid var(--line)}
+.sec-n{font-size:12px;font-weight:700;color:var(--ac);font-variant-numeric:tabular-nums;letter-spacing:.08em}
+.sec-t{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Pretendard",sans-serif;
+  font-size:clamp(22px,3.2vw,30px);letter-spacing:-.02em;font-weight:700;margin:0;flex:1}
+.sec-time{font-size:12.5px;color:var(--fg3);font-variant-numeric:tabular-nums;flex:none}
+
+.turn{display:flex;gap:14px;margin:0 0 26px}
+.turn.a{flex-direction:row-reverse}
+.av{flex:none;width:44px;height:44px;border-radius:50%;overflow:hidden;margin-top:2px;
+  display:grid;place-items:center;font-size:12px;font-weight:700;
+  border:1px solid var(--line);background:var(--bg2)}
+.av img{width:100%;height:100%;object-fit:cover;display:block}
+.body{flex:1;min-width:0;display:flex;flex-direction:column}
+.turn.a .body{align-items:flex-end}
+.who{display:flex;align-items:baseline;gap:9px;margin-bottom:7px}
+.turn.a .who{flex-direction:row-reverse}
+.who b{font-size:13.5px;font-weight:600;letter-spacing:-.01em}
+.turn.q .who b{color:var(--fg2)}
+.turn.a .who b{color:var(--fg)}
+.ts{font-size:11.5px;color:var(--fg3);font-variant-numeric:tabular-nums;
+  border:1px solid var(--line);border-radius:980px;padding:1px 8px}
+a.ts:hover{border-color:var(--ac);color:var(--ac);text-decoration:none}
+.bub{border-radius:16px;padding:16px 19px;font-size:16.5px;line-height:1.78;letter-spacing:-.003em;
+  max-width:92%;text-align:left}
+.turn.q .bub{background:var(--qbg);border:1px solid var(--qbd);color:var(--fg2);font-size:16px;
+  border-top-left-radius:5px}
+.turn.a .bub{background:var(--abg);border:1px solid var(--abd);color:var(--fg);
+  box-shadow:0 1px 2px rgba(0,0,0,.03);border-top-right-radius:5px}
+.bub p{margin:0 0 13px}
+.bub p:last-child{margin:0}
+.bub strong{color:var(--ac);font-weight:600}
+html[data-theme="dark"] .bub strong{color:var(--ac)}
+.bub em{font-style:normal;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--ac) 20%,transparent) 0);
+  padding:0 2px;font-weight:500}
+.bub code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.87em;
+  background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+.turn.beat{justify-content:center;margin:8px 0 26px}
+.turn.beat .av{display:none}
+.turn.beat .body{align-items:center;flex:none}
+.turn.beat .who{display:none}
+.turn.beat .bub{background:transparent;border:0;padding:2px 0;color:var(--fg3);font-size:13.5px;font-style:italic;max-width:none}
+
+/* ---------- term box (collapsible) ---------- */
+.term{
+  margin:30px auto 30px;max-width:96%;background:var(--tbg);border:1px solid var(--tbd);
+  border-radius:16px;overflow:hidden;
+}
+.term>summary{
+  list-style:none;cursor:pointer;padding:15px 20px;display:flex;align-items:center;gap:10px;
+  flex-wrap:wrap;user-select:none;transition:background .15s;
+}
+.term>summary::-webkit-details-marker{display:none}
+.term>summary:hover{background:color-mix(in srgb,var(--tbd) 22%,transparent)}
+.term-tag{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tac);
+  border:1px solid var(--tbd);border-radius:980px;padding:3px 9px;flex:none}
+.term>summary b{font-size:16px;letter-spacing:-.015em}
+.term>summary .kr{font-size:13px;color:var(--fg3);flex:1;min-width:0}
+.term .chev{flex:none;color:var(--tac);font-size:12px;transition:transform .2s;margin-left:auto}
+.term[open] .chev{transform:rotate(180deg)}
+.term-b{font-size:15px;line-height:1.75;color:var(--fg2);padding:2px 20px 19px;
+  border-top:1px solid color-mix(in srgb,var(--tbd) 60%,transparent);margin-top:0;padding-top:16px}
+.term-b p{margin:0 0 11px}
+.term-b p:last-child{margin:0}
+.term-b strong{color:var(--fg);font-weight:600}
+.term-b code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.87em;
+  background:color-mix(in srgb,var(--bg) 55%,transparent);border:1px solid var(--tbd);border-radius:6px;padding:1px 6px}
+.term-src{margin-top:12px;font-size:12px;color:var(--fg3)}
+
+/* ---------- outro ---------- */
+.outro{max-width:860px;margin:96px auto 0;padding:44px 24px;border-top:1px solid var(--line);text-align:center}
+.outro p{color:var(--fg3);font-size:13.5px;line-height:1.7;margin:0 0 8px}
+
+@media(max-width:640px){
+  .term{margin-left:0}
+  .turn{gap:10px}
+  .av{width:32px;height:32px;font-size:11px}
+  .bub{font-size:15.5px;padding:14px 16px}
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="bar-home" href="../">← SD Tech / Sessions</a>
+  <div class="kicker" id="kicker"></div>
+  <div class="seg" id="langseg"></div>
+  <button class="icobtn" id="themebtn" title="theme">◐</button>
+</div></div>
+
+<header class="hero">
+  <div class="eyebrow" id="eyebrow"></div>
+  <h1 id="h1"></h1>
+  <p class="sub" id="sub"></p>
+  <div class="meta">
+    <span class="pill" id="pill"></span>
+    <a class="btn" id="watch" target="_blank" rel="noopener"></a>
+  </div>
+</header>
+
+<div class="thumbwrap">
+  <a class="thumb" id="thumblink" target="_blank" rel="noopener">
+    <img id="thumbimg" alt="">
+    <span class="play"><span id="playtxt"></span></span>
+  </a>
+  <div class="cap" id="cap"></div>
+</div>
+
+<nav class="toc"><h3 id="toch"></h3><ol id="tocl"></ol></nav>
+
+<main id="main"></main>
+
+<footer class="outro"><p id="outro1"></p><p id="outro2"></p></footer>
+
+<script id="payload" type="application/json">__DATA__</script>
+<script>
+const D = JSON.parse(document.getElementById('payload').textContent);
+let LANG = D.defaultLang || 'ko';
+
+const UI = {
+  ko:{watch:'YouTube에서 보기', play:'▶  영상 열기', toc:'대화의 흐름',
+      cap:'위 썸네일 또는 각 발언의 타임코드를 누르면 해당 지점의 영상이 열립니다.',
+      o1:'이 페이지는 영상의 대화 흐름을 한국어로 옮기고, 개념 용어에는 설명 상자를 덧붙인 학습용 정리본입니다.',
+      o2:'원문 발언의 취지를 살린 의역이며, 정확한 표현은 원본 영상을 확인하세요.'},
+  en:{watch:'Watch on YouTube', play:'▶  Open the video', toc:'How the conversation flows',
+      cap:'Click the thumbnail, or any timecode, to open the video at that moment.',
+      o1:'A study companion that follows the conversation turn by turn and annotates the jargon.',
+      o2:'Paraphrased for clarity — check the original video for exact wording.'}
+};
+
+function T(o){ if(o==null) return ''; return (typeof o==='string')?o:(o[LANG]??o.ko??o.en??''); }
+function mmss(t){const m=Math.floor(t/60),s=t%60;return m+':'+String(s).padStart(2,'0');}
+function yt(t){return D.watchUrl+'&t='+t+'s';}
+
+function rich(s){
+  s = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  s = s.replace(/`([^`]+)`/g,'<code>$1</code>');
+  s = s.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  s = s.replace(/__([^_]+)__/g,'<em>$1</em>');
+  s = s.replace(/\((\d{1,2}):(\d{2})\)/g,(m,a,b)=>{
+    const sec=parseInt(a,10)*60+parseInt(b,10);
+    return '(<a href="'+yt(sec)+'" target="_blank" rel="noopener">'+a+':'+b+'</a>)';
+  });
+  return s.split(/\n\n+/).map(p=>'<p>'+p.replace(/\n/g,'<br>')+'</p>').join('');
+}
+
+function render(){
+  document.documentElement.lang = LANG;
+  const u = UI[LANG]||UI.ko;
+  document.title = T(D.title).replace(/<[^>]+>/g,'');
+  kicker.textContent = T(D.kicker);
+  eyebrow.textContent = T(D.kicker);
+  h1.innerHTML = T(D.title);
+  sub.textContent = T(D.subtitle);
+  pill.innerHTML = '<b>'+D.durationLabel+'</b> · '+D.blocks.filter(b=>b.type==='q'||b.type==='a').length+(LANG==='ko'?' 발언':' turns');
+  watch.textContent = u.watch; watch.href = D.watchUrl;
+  thumblink.href = D.watchUrl; thumbimg.src = D.thumb; thumbimg.alt = T(D.title).replace(/<[^>]+>/g,'');
+  playtxt.textContent = u.play; cap.textContent = u.cap;
+  toch.textContent = u.toc; outro1.textContent = u.o1; outro2.textContent = u.o2;
+
+  // TOC
+  let n=0; tocl.innerHTML='';
+  D.blocks.filter(b=>b.type==='section').forEach(b=>{
+    n++; const li=document.createElement('li');
+    li.innerHTML='<a href="#s'+n+'"><span class="n">'+String(n).padStart(2,'0')+'</span><span>'+T(b.title)+'</span></a>';
+    tocl.appendChild(li);
+  });
+
+  // body
+  let html='', sn=0;
+  for(const b of D.blocks){
+    if(b.type==='section'){
+      sn++;
+      html+='<section class="sec" id="s'+sn+'"><div class="sec-head">'
+          + '<span class="sec-n">'+String(sn).padStart(2,'0')+'</span>'
+          + '<h2 class="sec-t">'+T(b.title)+'</h2>'
+          + '<a class="ts sec-time" href="'+yt(b.t)+'" target="_blank" rel="noopener">'+mmss(b.t)+'</a>'
+          + '</div>';
+    } else if(b.type==='q'||b.type==='a'||b.type==='beat'){
+      const sp = b.type==='q' ? D.speakers.host : (b.type==='a'? D.speakers.guest : D.speakers.stage);
+      const who = T(sp.name);
+      const av = sp.img ? '<img src="'+sp.img+'" alt="'+who+'">' : (T(sp.initial)||'');
+      html+='<div class="turn '+b.type+'"><div class="av">'+av+'</div><div class="body">'
+          + '<div class="who"><b>'+who+'</b>'
+          + (b.t!=null?'<a class="ts" href="'+yt(b.t)+'" target="_blank" rel="noopener">'+mmss(b.t)+'</a>':'')
+          + '</div><div class="bub">'+rich(T(b.text))+'</div></div></div>';
+    } else if(b.type==='term'){
+      html+='<details class="term"><summary>'
+          + '<span class="term-tag">'+(LANG==='ko'?'용어':'TERM')+'</span>'
+          + '<b>'+b.term+'</b>'+(b.kr?'<span class="kr">'+T(b.kr)+'</span>':'')
+          + '<span class="chev">▼</span>'
+          + '</summary><div class="term-b">'+rich(T(b.body))+'</div>'
+          + (b.src?'<div class="term-b term-src" style="border:0;padding-top:0">'+b.src+'</div>':'')
+          + '</details>';
+    }
+  }
+  html+='</section>';
+  main.innerHTML = html;
+}
+
+// lang buttons
+(D.langs||[['ko','한국어'],['en','English']]).forEach(([c,l])=>{
+  const b=document.createElement('button'); b.textContent=l; b.dataset.c=c;
+  b.onclick=()=>{LANG=c;[...langseg.children].forEach(x=>x.classList.toggle('on',x.dataset.c===c));render();};
+  if(c===LANG) b.classList.add('on');
+  langseg.appendChild(b);
+});
+
+// theme
+const saved = localStorage.getItem('y2h-theme');
+if(saved) document.documentElement.dataset.theme = saved;
+else if(matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.dataset.theme='dark';
+themebtn.onclick=()=>{
+  const n = document.documentElement.dataset.theme==='dark'?'light':'dark';
+  document.documentElement.dataset.theme=n; localStorage.setItem('y2h-theme',n);
+};
+
+render();
+</script>
+</body>
+</html>

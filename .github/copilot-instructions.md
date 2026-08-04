@@ -58,7 +58,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 # ms.studydev.com/docs Copilot Guidelines
 
-이 저장소(`studydev/ms`)는 StudyDev가 관리하는 개인 블로그입니다. **Microsoft 기술 전반(Azure · M365 · GitHub)과 최신 LLM 모델(Models)**에 대한 한국어 학습 자료를 정적 웹사이트로 공개하는 프로젝트입니다.
+이 저장소(`studydev/ms`)는 StudyDev가 관리하는 개인 블로그입니다. **Microsoft 기술 전반(Azure · M365 · GitHub)과 화제의 AI 트렌드·세션(Sessions)**에 대한 한국어 학습 자료를 정적 웹사이트로 공개하는 프로젝트입니다.
 사이트는 `docs/` 디렉토리를 루트로 하여 **https://ms.studydev.com** 으로 서비스 됩니다 (GitHub Pages + CNAME + HTTPS).
 
 Copilot이 콘텐츠를 생성하거나 편집할 때 아래 규칙을 **반드시** 따릅니다.
@@ -81,7 +81,7 @@ docs/                          # GitHub Pages 루트
 │       └── (그 외 관련 파일)
 ├── m365/                      # Microsoft 365 카테고리 (구조 동일)
 ├── github/                   # GitHub 카테고리 (구조 동일)
-└── models/                   # Models 카테고리 (구조 동일)
+└── sessions/                  # Sessions 카테고리 (구조 동일)
 ```
 
 ### 카테고리 분류 — 4가지만 사용
@@ -91,7 +91,7 @@ docs/                          # GitHub Pages 루트
 | Azure | `docs/azure/` | Azure Foundry, AI, Cosmos DB, App Service, Functions, AKS 등 모든 Azure 리소스 |
 | Microsoft 365 | `docs/m365/` | Copilot, Graph API, Teams, SharePoint, Outlook, Power Platform 등 |
 | GitHub | `docs/github/` | GitHub Actions, Copilot, Codespaces, Advanced Security 등 |
-| Models | `docs/models/` | Claude · GPT 등 최신 LLM 모델의 릴리스, 벤치마크, 활용 인사이트 |
+| Sessions | `docs/sessions/` | 유명 AI 트렌드·컨퍼런스 대담, 유튜브 세션 영상 정리 |
 
 > 새 문서 생성 요청이 들어오면 **반드시 위 4개 중 하나**를 선택해 하위에 배치합니다.
 > 예: "Hosted Agent 가이드" → `docs/azure/hosted_agent/`

@@ -31,14 +31,14 @@ LLMS = DOCS / "llms.txt"
 # Canonical site origin (matches docs/CNAME). No trailing slash.
 SITE_URL = "https://ms.studydev.com"
 SITE_TITLE = "SD Tech"
-SITE_TAGLINE = "Microsoft 기술(Azure · Microsoft 365 · GitHub)과 최신 LLM 모델(Models) 한국어 학습 자료 모음."
+SITE_TAGLINE = "Microsoft 기술(Azure · Microsoft 365 · GitHub)과 화제의 AI 트렌드 세션(Sessions) 한국어 학습 자료 모음."
 SITE_AUTHOR = "Hyounsoo Kim"
 
 CATEGORIES = {
-    "azure":  {"label": "Azure",         "description": "Azure Foundry, AI Agent, Cosmos DB, App Service 등 Azure 전반."},
-    "m365":   {"label": "Microsoft 365", "description": "Copilot, Graph API, Teams, SharePoint 등."},
-    "github": {"label": "GitHub",        "description": "GitHub Actions, Copilot, Codespaces 등."},
-    "models": {"label": "Models",        "description": "Claude · GPT 등 최신 LLM 모델의 릴리스, 벤치마크, 활용 인사이트."},
+    "azure":    {"label": "Azure",         "description": "Azure Foundry, AI Agent, Cosmos DB, App Service 등 Azure 전반."},
+    "m365":     {"label": "Microsoft 365", "description": "Copilot, Graph API, Teams, SharePoint 등."},
+    "github":   {"label": "GitHub",        "description": "GitHub Actions, Copilot, Codespaces 등."},
+    "sessions": {"label": "Sessions",      "description": "화제가 된 AI 트렌드 대담과 세션 영상을 한국어로 정리한 아카이브."},
 }
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.IGNORECASE | re.DOTALL)
@@ -381,7 +381,7 @@ def write_llms(manifest: dict) -> None:
         "",
         (
             "모든 문서는 한국어로 작성되며, 기술 용어는 영문을 그대로 사용합니다. "
-            "각 항목은 Azure · Microsoft 365 · GitHub · Models 네 카테고리로 분류됩니다."
+            "각 항목은 Azure · Microsoft 365 · GitHub · Sessions 네 카테고리로 분류됩니다."
         ),
         "",
     ]
