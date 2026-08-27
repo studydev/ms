@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-08-04T04:12:20Z",
+    "generatedAt": "2026-08-27T00:26:09Z",
     "categories": {
         "azure": {
             "label": "Azure",
@@ -112,6 +112,18 @@
                     "title": "모델이 똑똑해질수록 프롬프트는 지워라 — Boris Cherny x Diana Hu",
                     "description": "Opus 5 출시 다음 날, Claude Code를 만든 Boris Cherny와 Diana Hu가 나눈 35분간의 대화. 시스템 프롬프트 80% 삭제, 언하블링, 검증 루프, 수천 개의 에이전트 오케스트레이션까지 한국어로 정리했습니다.",
                     "path": "sessions/claude_opus5/"
+                },
+                {
+                    "slug": "geo_seo_halox",
+                    "title": "GPT·Claude가 우리 브랜드를 추천하게 만드는 법 — 빌더조쉬 x 헤일로X 이재철",
+                    "description": "SEO 전문가이자 헤일로X 대표인 이재철 님에게 GEO의 기본 원리부터 실제 웹사이트 공개 진단과 최적화 방법까지 배우는 45분간의 대담을 한국어로 정리했습니다.",
+                    "path": "sessions/geo_seo_halox/"
+                },
+                {
+                    "slug": "geo_seo_optimization",
+                    "title": "GPT가 우리 브랜드를 추천하게 만드는 법 — SEO에서 GEO까지",
+                    "description": "헤일로X 이재철 대표가 설명하는 SEO 기본 원리, GEO 최적화, 실제 웹사이트 공개 진단과 상용 SaaS 데모를 장면별 이미지와 함께 정리한 학습 콘텐츠입니다.",
+                    "path": "sessions/geo_seo_optimization/"
                 },
                 {
                     "slug": "how_hard_can_it_be",

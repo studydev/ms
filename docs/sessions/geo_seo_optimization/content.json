@@ -1,0 +1,1065 @@
+{
+  "videoId": "6S_3OfKM-No",
+  "url": "https://www.youtube.com/watch?v=6S_3OfKM-No",
+  "watchUrl": "https://www.youtube.com/watch?v=6S_3OfKM-No",
+  "kicker": "YouTube · 빌더 조쉬 Builder Josh 학습 콘텐츠",
+  "durationLabel": "45:56",
+  "langs": [
+    [
+      "ko",
+      "한국어"
+    ],
+    [
+      "en",
+      "English"
+    ]
+  ],
+  "defaultLang": "ko",
+  "title": {
+    "ko": "GPT가 우리 브랜드를 <span class=\"ac\">추천하게 만드는 법</span> — SEO에서 GEO까지",
+    "en": "How to Make GPT <span class=\"ac\">Recommend Your Brand</span> — From SEO to GEO"
+  },
+  "subtitle": {
+    "ko": "헤일로X 이재철 대표가 SEO의 기본 원리부터 GEO 최적화, 실제 웹사이트 공개 진단, 그리고 상용 SaaS 데모까지 45분 동안 풀어놓은 내용을 영상 없이도 그대로 익힐 수 있게 정리했습니다.",
+    "en": "HaloX founder Jaechul Lee walks through SEO fundamentals, GEO optimization, a live teardown of a real website, and a full SaaS demo — all 46 minutes distilled so you can learn it without pressing play."
+  },
+  "shots": [
+    {
+      "t": 48,
+      "tLabel": "0:48",
+      "img": "images/shot-01.png",
+      "title": {
+        "ko": "오늘의 게스트: 헤일로X 이재철 대표",
+        "en": "Today's Guest: Jaechul Lee of HaloX"
+      },
+      "desc": {
+        "ko": "빌더 조쉬 팟캐스트에 **헤일로X(HaloX)** 의 이재철 대표가 게스트로 등장합니다. 그는 SEO 관련 솔루션을 만드는 **솔로프리너 컴퍼니 빌더**로, 오랜 기간 퍼포먼스 마케팅·SEO·그로스·CRM 등 데이터 기반 마케팅을 해 온 사람입니다. AI를 활용해 반복적인 마케팅 업무의 생산성을 높이고 자동화하고 싶다는 고민에서 출발해, 그 첫 타깃으로 SEO를 잡고 솔루션을 만들어 서비스를 운영하고 있다고 소개합니다. 이 영상은 크게 세 파트로 흘러갑니다 — 개념 정리, 실제 웹사이트 공개 진단 (10:40), 그리고 그가 만든 SaaS 데모 (25:42).",
+        "en": "The Builder Josh podcast welcomes Jaechul Lee, founder of **HaloX**, a solopreneur company builder shipping SEO tooling. His background is data-driven marketing — performance, SEO, growth, CRM — and HaloX came out of wanting to automate the repetitive parts of that work with AI, starting with SEO. The episode runs in three acts: the concepts, a live teardown of a real website (10:40), and a full demo of the product he built (25:42)."
+      },
+      "script": {
+        "ko": "\"저는 헤일로X라는 SEO 관련 솔루션을 만드는 솔로프리너 컴퍼니 빌더로 일하고 있습니다.\"",
+        "en": "\"I'm a solopreneur company builder running HaloX, an SEO solution.\""
+      }
+    },
+    {
+      "t": 120,
+      "tLabel": "2:00",
+      "img": "images/shot-02.png",
+      "title": {
+        "ko": "SEO란 무엇인가 — 돈이 아니라 시간과 노력",
+        "en": "What SEO Really Is — Time and Effort, Not Money"
+      },
+      "desc": {
+        "ko": "SEO는 **Search Engine Optimization**, 즉 검색 엔진 최적화의 약자입니다. 구글이나 네이버에서 특정 키워드가 검색됐을 때 내 제품·브랜드가 노출되기를 기대하는 활동이죠. 이재철 대표가 강조하는 핵심 차이는 **비용이 들지 않는다**는 점입니다. 광고비 대신 시간과 노력이 투입되기 때문에, 자금은 부족하지만 시간과 노력이라는 자원은 풍부한 **스타트업과 솔로프리너에게 최적의 마케팅 방법**이라고 말합니다. 흔히 SEO를 \"블로그 글 많이 쓰기\"로 이해하지만, 그건 절반짜리 이해라는 게 뒤 (02:50) 이야기의 출발점입니다.",
+        "en": "SEO stands for **Search Engine Optimization** — the practice of getting your product to surface when someone searches a keyword on Google or Naver. The key property Lee highlights: **it costs no ad money**. It costs time and effort instead, which makes it the ideal channel for startups and solopreneurs who are rich in time but poor in budget. Most people equate SEO with \"write lots of blog posts,\" and that half-understanding is exactly where the conversation goes next (02:50)."
+      },
+      "script": {
+        "ko": "\"여기에는 비용이 들진 않아요. 시간과 노력이 드는 거죠. 그래서 시간과 노력이라는 재원이 풍부한 솔로프리너에게는 최적의 마케팅 방법입니다.\"",
+        "en": "\"It doesn't cost money — it costs time and effort. Which makes it the ideal marketing channel for a solopreneur, who has plenty of both.\""
+      }
+    },
+    {
+      "t": 195,
+      "tLabel": "3:15",
+      "img": "images/shot-03.png",
+      "title": {
+        "ko": "콘텐츠 SEO의 본질은 '주제 권위'",
+        "en": "Content SEO Is Really About Topical Authority"
+      },
+      "desc": {
+        "ko": "\"블로그에 글을 많이 써 놓는 것\"이 SEO냐는 질문에 이재철 대표는 반은 맞다고 답합니다. 오랫동안 좋은 콘텐츠를 만들어 왔다면 SEO 관점에서 **그 사이트의 신뢰도와 권위가 특정 주제에 대해 쌓였다**고 볼 수 있기 때문입니다. 그래서 콘텐츠 SEO는 충분히 매력적인 전략입니다. 다만 그는 곧바로 선을 긋습니다 — **SEO라는 워크플로 안에는 콘텐츠만 있는 게 아니다.** 검색 엔진을 최적화한다는 말은 콘텐츠(색인 최적화)와 테크니컬(크롤 최적화) 두 축이 함께 움직여야 한다는 뜻이고, 대부분의 기업이 후자를 통째로 비워 두고 있다는 것이 이 영상 전체를 관통하는 문제의식입니다 (09:03).",
+        "en": "Asked whether SEO is just \"publishing a lot of blog posts,\" Lee says that's half right: a long history of good content does build **credibility and authority on a topic**, which is genuinely valuable. But he immediately draws a line — **content is not the whole SEO workflow**. Optimizing for a search engine means optimizing both indexing (content) and crawling (technical), and most companies leave the second axis completely empty. That gap is the thesis of the whole episode (09:03)."
+      },
+      "script": {
+        "ko": "\"오랫동안 좋은 콘텐츠를 만들어 봤다면 SEO 관점에서는 이 사이트의 신뢰도와 권위가 어떤 주제에 대해서 쌓였다고 볼 수 있습니다. 근데 SEO라는 워크플로 내에서 콘텐츠만 해당되진 않습니다.\"",
+        "en": "\"Years of good content do build authority on a topic. But content isn't the only thing inside the SEO workflow.\""
+      }
+    },
+    {
+      "t": 225,
+      "tLabel": "3:45",
+      "img": "images/shot-04.png",
+      "title": {
+        "ko": "검색 엔진의 3단계: 크롤 → 색인 → 랭킹",
+        "en": "The Engine's Three Steps: Crawl → Index → Rank"
+      },
+      "desc": {
+        "ko": "이 영상에서 가장 중요한 개념 하나를 꼽으라면 이 3단계입니다. 사람이 구글에 \"AX 정의\"라고 검색했을 때 사이트가 노출되는 이유는 이렇습니다. 먼저 **구글 봇이 사이트에 접근(크롤)** 하고, 그 봇이 사이트의 콘텐츠를 읽어 **색인(indexing)** 하며, 마지막으로 어떤 키워드에 노출하면 좋을지 **랭킹**을 매깁니다. 여기서 콘텐츠 SEO는 \"어떤 정보를 색인시킬 것인가\"에 해당하고, **\"어떤 봇이 어떻게 들어와서 사이트를 이해할 것인가\"라는 크롤 영역이 비어 있는 것**이 바로 테크니컬 SEO입니다. 이 두 가지가 함께 잘 돼야 랭킹이 올라갑니다. 그리고 뒤에서 밝혀지듯, GPT·클로드 같은 LLM도 **똑같은 워크플로**를 따릅니다 (07:28).",
+        "en": "If you take one framework from this video, take this one. A page shows up for \"AX definition\" because: Google's bot **crawls** the site, reads and **indexes** its content, then **ranks** it for keywords. Content SEO governs *what gets indexed*; technical SEO governs *how a bot enters and understands the site* — and that crawl layer is what most sites leave empty. Rankings rise only when both work. Crucially, as the episode reveals later, LLMs like GPT and Claude follow **the same workflow** (07:28)."
+      },
+      "script": {
+        "ko": "\"크롤하고 색인하고 랭킹하는 과정이 있거든요. 콘텐츠는 그중에서 색인의 최적화라는 겁니다. 어떤 봇이 어떻게 들어와서 사이트를 이해할 건가라는 이 크롤 영역이 아직 비어 있는 거죠.\"",
+        "en": "\"There's crawl, index, and rank. Content only optimizes the index step. The crawl step — how a bot enters and comprehends your site — is the part still sitting empty.\""
+      }
+    },
+    {
+      "t": 258,
+      "tLabel": "4:18",
+      "img": "images/shot-05.png",
+      "title": {
+        "ko": "테크니컬 SEO: 봇만 보는 콘텐츠가 따로 있다",
+        "en": "Technical SEO: There's Content Only Bots See"
+      },
+      "desc": {
+        "ko": "그럼 테크니컬 SEO는 구체적으로 무엇을 잘해 놓는 걸까요? 첫째, **사이트 속도**가 좋아야 합니다. 둘째 — 그리고 이게 핵심입니다 — **사람이 보는 콘텐츠 외에 봇이 보는 콘텐츠가 따로 존재합니다.** 이를 메타 정보라고 하며 **타이틀, 디스크립션, 스키마(schema)** 정보가 여기에 해당합니다. 셋째로 **URL 구조** 같은 사이트의 뼈대도 테크니컬 영역입니다. 즉 화면에 예쁘게 보이는 것과 봇이 이해하는 것은 완전히 다른 층위이며, 뒤의 실제 사이트 진단 (13:44) 에서 이 항목들이 하나씩 무너지는 걸 직접 보게 됩니다.",
+        "en": "So what does technical SEO actually cover? First, **site speed**. Second — and this is the crux — **there is content that only bots see**, called meta information: **title, description, and schema markup**. Third, structural things like **URL architecture**. In other words, what looks good on screen and what a bot can comprehend are two entirely different layers — and the live teardown later (13:44) shows each of these failing one by one on a real site."
+      },
+      "script": {
+        "ko": "\"사람들이 보는 콘텐츠 외에 봇이 보는 콘텐츠가 더 존재합니다. 그래서 메타 정보라고 하죠. 타이틀, 디스크립션, 스키마 정보 이런 것들이 해당됩니다.\"",
+        "en": "\"Beyond the content people see, there's more content that bots see — meta information: title, description, schema.\""
+      }
+    },
+    {
+      "t": 305,
+      "tLabel": "5:05",
+      "img": "images/shot-06.png",
+      "title": {
+        "ko": "B2B라면 네이버보다 구글",
+        "en": "For B2B, Bet on Google Over Naver"
+      },
+      "desc": {
+        "ko": "국내 검색 시장은 네이버와 구글의 양강 구도입니다. 그렇다면 B2B 기업은 어디에 먼저 집중해야 할까요? 이재철 대표의 답은 명확합니다. **B2B 기업은 특정 버티컬에 대한 전문성을 가진 기업**이고, 그 분야의 카테고리 전문 정보는 이미 우리 스스로도 네이버보다 구글에서 더 자주 찾습니다. 자료 조사 기반으로 볼 때 국내 전체 점유율은 네이버가 높지만, **전문성 높은 버티컬 영역에서는 구글의 점유율이 압도적으로 높게** 나옵니다. 결론은 간단합니다 — 내 검색 패턴이 곧 내 고객의 검색 패턴이라면, B2B는 구글 기반으로 최적화하는 것이 맞습니다.",
+        "en": "Korea's search market is a Naver-vs-Google duopoly, so where should a B2B company start? Lee is decisive: **a B2B company is by definition a vertical expert**, and expert category information is something even *we* look up on Google rather than Naver. Research shows Naver leads overall share domestically, but **in high-expertise verticals Google's share is overwhelmingly higher**. The logic is simple — if your own search pattern is your customer's search pattern, B2B should optimize for Google."
+      },
+      "script": {
+        "ko": "\"전문성 높은 버티컬에서는 구글의 점유율이 훨씬 압도적으로 높은 걸로 나왔습니다. 저희의 검색 패턴을 보더라도 구글이 맞다.\"",
+        "en": "\"In high-expertise verticals, Google's share came out overwhelmingly higher. Even looking at our own search behavior, Google is the answer.\""
+      }
+    },
+    {
+      "t": 368,
+      "tLabel": "6:08",
+      "img": "images/shot-07.png",
+      "title": {
+        "ko": "GEO의 정의 — 검색이 구글에서 LLM으로",
+        "en": "Defining GEO — Search Is Migrating to LLMs"
+      },
+      "desc": {
+        "ko": "SEO가 Search Engine Optimization이었다면, **GEO는 Generative Engine Optimization**의 약자입니다. 핵심 전제는 **검색 패턴이 구글에서 LLM으로 넘어가고 있다**는 것입니다. 어떤 정보를 탐색하고, 이해하고, 비교하는 과정에서 사람들은 구글·네이버 대신 **GPT, 클로드, 퍼플렉시티**를 씁니다. 그러면 브랜드 입장에서 고민이 생깁니다. 지금까지는 구글과 네이버의 특정 검색어에서 우리 브랜드가 비교되고 노출되기를 기대했는데, 이제는 **GPT의 답변 안에서도 우리 브랜드가 노출되기를 기대**하게 된 것이죠. 이 논의는 작년 말부터 급격히 화두가 되었다고 진행자도 짚습니다.",
+        "en": "If SEO was Search Engine Optimization, **GEO is Generative Engine Optimization**. The premise: **search behavior is migrating from Google to LLMs**. When people explore, understand, and compare options, they increasingly reach for **GPT, Claude, and Perplexity** instead of Google or Naver. That creates a new brand problem: you used to want to appear for a keyword on Google — now you want **your brand to appear inside GPT's answer**. The host notes this became a hot topic starting late last year."
+      },
+      "script": {
+        "ko": "\"GEO는 제너레이티브 엔진 옵티마이제이션으로, GPT·클로드·퍼플렉시티로 저희가 검색하는 패턴이 구글에서 LLM으로 넘어가고 있다는 겁니다.\"",
+        "en": "\"GEO is Generative Engine Optimization — our search behavior is moving from Google over to LLMs like GPT, Claude, and Perplexity.\""
+      }
+    },
+    {
+      "t": 415,
+      "tLabel": "6:55",
+      "img": "images/shot-08.png",
+      "title": {
+        "ko": "질문을 바꿔라: \"GPT는 왜 이렇게 답했을까?\"",
+        "en": "Reframe the Question: \"Why Did GPT Answer That Way?\""
+      },
+      "desc": {
+        "ko": "GEO의 사고방식은 SEO와 구조적으로 똑같습니다. SEO가 **구글의 알고리즘을 이해하고 고민해서 상위에 노출되는 전략**이었다면, GEO는 **GPT의 답변 결과 안에서 우리 브랜드가 노출되도록 고민하는 전략**입니다. 그래서 실무자가 던져야 할 단 하나의 질문은 이것입니다 — **\"GPT는 왜 이 답변을 이렇게 했을까?\"** 이 질문을 역산해 들어가면, 답변을 구성한 소스와 인용이 어디서 왔는지 (12:56), 어떤 문장과 도메인을 선호하는지 (41:03) 가 보이기 시작합니다. GEO는 마법이 아니라 **역공학(reverse engineering)** 이라는 것이 이재철 대표의 일관된 태도입니다.",
+        "en": "GEO's mental model is structurally identical to SEO's. Where SEO meant **studying Google's algorithm to rank higher**, GEO means **engineering your brand into GPT's generated answer**. So the single operative question becomes: **\"Why did GPT answer that way?\"** Work backwards from it and you start seeing where its sources and citations came from (12:56) and which sentences and domains it favors (41:03). Lee's consistent framing: GEO isn't magic, it's **reverse engineering**."
+      },
+      "script": {
+        "ko": "\"GPT의 답변의 결과 내에서 우리 브랜드가 노출되길 기대하는 전략을 고민해 보는 겁니다. 즉 GPT는 왜 이 답변을 이렇게 했을까를 고민하는 겁니다.\"",
+        "en": "\"You work on getting your brand to appear inside GPT's answer. Which means asking: why did GPT answer this way?\""
+      }
+    },
+    {
+      "t": 465,
+      "tLabel": "7:45",
+      "img": "images/shot-09.png",
+      "title": {
+        "ko": "LLM도 결국 크롤·색인·랭킹을 따른다",
+        "en": "LLMs Follow the Same Crawl-Index-Rank Loop"
+      },
+      "desc": {
+        "ko": "GEO를 위해 무엇을 최적화해야 하느냐는 질문에 대한 답은 다소 의외입니다. **GEO는 결국 SEO와 맞닿아 있습니다.** GPT·제미나이·퍼플렉시티·클로드의 검색 패턴을 실제로 관찰해 보면, 이들은 사용자의 **자연어 질문에 답할 만한 소스를 검색을 통해 찾아옵니다.** 그리고 그 검색 패턴의 결과를 뜯어보면 **구글이 해 왔던 크롤 → 색인 → 랭킹 워크플로를 그대로 따르고 있고, 구글 검색 결과와의 일치율도 생각보다 높습니다.** 엔진마다 조금씩 차이는 있지만 (37:32), 큰 틀은 동일하다는 것이 수많은 실험으로 확인된 결론입니다.",
+        "en": "The answer to \"what do you optimize for GEO?\" is unexpectedly plain: **GEO ends up touching SEO.** Watch how GPT, Gemini, Perplexity, and Claude actually behave and you'll see them **searching for sources capable of answering a natural-language question**. Pull apart those results and they **follow Google's crawl → index → rank workflow almost exactly, with a surprisingly high overlap with Google's own results**. Engines differ at the margins (37:32), but the shape is the same — a conclusion reached through many experiments."
+      },
+      "script": {
+        "ko": "\"결국은 구글이 했었던 크롤과 색인과 랭킹이라는 이 워크플로를 그대로 따르고 있고 구글과의 일치율도 생각보다 높은 편입니다.\"",
+        "en": "\"They follow exactly the crawl-index-rank workflow Google established, and the overlap with Google's results is higher than you'd think.\""
+      }
+    },
+    {
+      "t": 495,
+      "tLabel": "8:15",
+      "img": "images/shot-10.png",
+      "title": {
+        "ko": "구글 상위 = GPT 노출 확률",
+        "en": "Rank on Google, Surface in GPT"
+      },
+      "desc": {
+        "ko": "여기서 이 영상의 가장 실용적인 결론 하나가 나옵니다. 수많은 실험으로 밝혀진 GEO 알고리즘을 한 줄로 요약하면 — **구글 상단에 노출되는 콘텐츠라면 GPT에 노출될 확률이 높아진다**는 것입니다. 이유는 단순합니다. **GPT가 새로운 랭킹 알고리즘을 처음부터 짜는 건 사실 어렵고**, 사람들이 어떤 키워드를 검색했을 때 무엇을 선호하는지에 대한 알고리즘은 이미 구글이 오랜 시간 만들어 놓았기 때문입니다. 나중에 달라지거나 바뀔 수는 있겠지만, 지금으로서는 **GPT 최적화를 SEO 관점에서 시작하는 것이 올바른 방향**이라는 게 그의 결론입니다.",
+        "en": "Here lands the single most actionable takeaway of the episode. Summarizing everything experiments have surfaced about GEO: **if your content ranks at the top of Google, its odds of appearing in GPT go way up.** The reason is mundane — **building a ranking algorithm from scratch is hard**, and Google already spent decades encoding what people prefer for a given query. That could change someday, but for now **starting GPT optimization from an SEO foundation is the right direction**."
+      },
+      "script": {
+        "ko": "\"구글의 상단에 노출되는 콘텐츠라면 GPT에 노출될 확률이 높아진다는 겁니다. GPT가 새로운 알고리즘을 짜는 건 사실 어렵고, 구글이 이미 다 알고리즘 만들어 놨죠.\"",
+        "en": "\"Content that ranks at the top of Google is far more likely to show up in GPT. Building a brand-new algorithm is hard — Google already built one.\""
+      }
+    },
+    {
+      "t": 550,
+      "tLabel": "9:10",
+      "img": "images/shot-11.png",
+      "title": {
+        "ko": "가장 흔한 실수 — 주제가 흐린 콘텐츠",
+        "en": "The Most Common Mistake — Unfocused Content"
+      },
+      "desc": {
+        "ko": "기업들이 저지르는 대표적인 실수를 묻자, 이재철 대표는 아주 구체적인 사고 실험을 던집니다. \"AX 정의\"를 구글에서 검색해 어떤 사이트에 들어갔는데, **AX 정의 관련 콘텐츠는 딱 하나뿐이고 나머지는 전부 보험 콘텐츠**라면 어떤 느낌일까요? 진행자는 즉시 답합니다 — \"신뢰도가 확 떨어지죠. 얘 검색 걸리려고 해 놨구나.\" 그리고 결정적인 문장이 이어집니다. **사람이 인식하는 것, 구글이 인식하는 것, GPT가 인식하는 것은 결국 똑같습니다.** 콘텐츠를 많이 발행하는 것과 **어떤 주제로 권위를 가졌느냐는 완전히 다른 문제**이며, 그래서 콘텐츠 전략이 중요합니다.",
+        "en": "Asked what companies get wrong, Lee poses a concrete thought experiment. You search \"AX definition,\" land on a site, and find **exactly one page about AX while everything else is insurance content**. How does that read? The host answers instantly: \"Credibility collapses — this site is obviously just fishing for search traffic.\" Then the punchline: **what a human perceives, what Google perceives, and what GPT perceives are the same thing.** Publishing a lot and **owning authority on a topic are completely different problems** — which is why content strategy matters."
+      },
+      "script": {
+        "ko": "\"이거는 사람들이 인식하는 거랑 구글이 인식하는 거랑 결국 GPT가 인식하는 거랑 똑같다는 거. 콘텐츠가 많이 발행되는 건 좋은데 어떤 주제로 권위를 가졌냐는 건 다른 문제입니다.\"",
+        "en": "\"What humans perceive, what Google perceives, and what GPT perceives are the same. Publishing a lot is fine — but which topic you own authority in is a separate question.\""
+      }
+    },
+    {
+      "t": 600,
+      "tLabel": "10:00",
+      "img": "images/shot-12.png",
+      "title": {
+        "ko": "전략 없는 AI 콘텐츠 양산의 함정",
+        "en": "The Trap of Strategy-Free AI Content"
+      },
+      "desc": {
+        "ko": "\"AI로 블로그 글을 자동으로 쭉쭉 발행해 두면 언젠가 쌓여서 SEO가 되겠지\" — 많은 사람이 이렇게 생각합니다. 이재철 대표는 명확히 아니라고 답합니다. 예전보다 **콘텐츠를 만들어내는 일은 훨씬 쉬워졌고**, SEO 관점에서 좋은 콘텐츠를 많이 만드는 게 좋다는 인식이 퍼져 있다 보니 GPT나 클로드로 대량 생산하는 사례가 많습니다. 하지만 결론은 냉정합니다 — **전략 없는 콘텐츠는 특정 키워드를 점유하지 못할 확률이 높습니다.** 양이 아니라 **어떤 키워드 클러스터를 어떤 순서로 점유할 것인가**라는 설계가 먼저이며, 그 실전 방법이 뒤의 키워드 전략 파트 (22:19) 와 땅따먹기 전략 (35:12) 에서 이어집니다.",
+        "en": "\"Just auto-publish AI blog posts and eventually SEO will happen\" — a very common belief. Lee flatly disagrees. **Producing content has never been easier**, and since everyone knows good content helps SEO, mass-generation via GPT or Claude is rampant. But the verdict is blunt: **content without strategy probably won't capture any keyword at all.** What matters isn't volume but **which keyword cluster you capture, in which order** — a plan he unpacks in the keyword strategy section (22:19) and the land-grab tactic (35:12)."
+      },
+      "script": {
+        "ko": "\"전략 없는 콘텐츠는 특정한 키워드를 점유하지 못할 확률이 높습니다.\"",
+        "en": "\"Content without a strategy most likely captures no keyword at all.\""
+      }
+    },
+    {
+      "t": 648,
+      "tLabel": "10:48",
+      "img": "images/shot-13.png",
+      "title": {
+        "ko": "파트 2 — 진행자의 웹사이트를 공개 해부",
+        "en": "Part 2 — A Live Teardown of the Host's Own Website"
+      },
+      "desc": {
+        "ko": "여기서부터 영상의 성격이 바뀝니다. 진행자가 **\"제가 마루타가 되겠다\"** 며 자기 회사(조슈아앤컴퍼니)의 웹사이트를 그대로 열어 놓고, 이재철 대표가 실시간으로 SEO/GEO 진단을 시작합니다. 앞부분이 개념이었다면 이 파트는 **체크리스트가 그대로 흐르는 실전 데모**입니다. 먼저 진단 전 기본 수칙 하나 — **구글과 GPT는 모두 개인화(personalization)되어 있어 사람마다 검색 결과 순서가 바뀝니다.** 그래서 모니터링할 때는 반드시 **게스트 모드(시크릿 창)** 로 확인해야 왜곡 없는 결과를 볼 수 있습니다.",
+        "en": "The video changes gear here. The host volunteers his own company site (Joshua & Company) as **the guinea pig**, and Lee runs a live SEO/GEO teardown on it. Where the first act was concepts, this act is **the checklist executed in real time**. First ground rule before diagnosing anything: **both Google and GPT are personalized**, so result ordering differs per person. Always check in **guest / incognito mode** to see an undistorted ranking."
+      },
+      "script": {
+        "ko": "\"구글과 GPT는 모두 다 개인화가 되어 있다 보니까 검색 결과 순서가 바뀝니다. 가능하면 게스트 모드 같은 걸로 해 보시면 좋을 것 같고요.\"",
+        "en": "\"Google and GPT are both personalized, so result order shifts per user. Check in guest mode whenever you can.\""
+      }
+    },
+    {
+      "t": 675,
+      "tLabel": "11:15",
+      "img": "images/shot-14.png",
+      "title": {
+        "ko": "첫 번째 지적: 파비콘이 없다",
+        "en": "First Finding: No Favicon"
+      },
+      "desc": {
+        "ko": "검색 결과 화면을 열자마자 첫 번째 문제가 드러납니다 — **조슈아앤컴퍼니의 로고, 즉 파비콘(favicon)이 없습니다.** 최근에 사이트를 개편했지만 파비콘 설정이 누락된 상태였습니다. 사소해 보이지만 사용자 심리에는 즉각 작용합니다. **파비콘이 있는 사이트는 신뢰감을 주고, 없으면 바로 신뢰감이 떨어집니다.** 진행자는 그 자리에서 \"바로 고치겠습니다\"라고 답합니다. 검색 결과라는 좁은 지면에서 브랜드가 차지할 수 있는 시각적 자산이 몇 개 되지 않기 때문에, **로고·타이틀·디스크립션·사이트 이름** 네 가지는 기본 중의 기본입니다.",
+        "en": "The very first thing visible on the results page is a miss — **Joshua & Company has no favicon**. The site was redesigned recently but the favicon was never set. It looks trivial and lands instantly on the user: **a site with a favicon reads as trustworthy; a site without one loses credibility on sight.** The host commits to fixing it immediately. Search results give a brand very few visual assets, so **logo, title, description, and site name** are the absolute baseline."
+      },
+      "script": {
+        "ko": "\"파비콘이 있는 사이트들은 신뢰감이 생기지만 [없으면] 바로 신뢰감 떨어지죠.\"",
+        "en": "\"Sites with a favicon feel trustworthy; without one, credibility drops right away.\""
+      }
+    },
+    {
+      "t": 718,
+      "tLabel": "11:58",
+      "img": "images/shot-15.png",
+      "title": {
+        "ko": "\"AI가 썼다\"가 눈에 걸리는 문장",
+        "en": "When Copy Visibly Reads as AI-Written"
+      },
+      "desc": {
+        "ko": "다음 지적은 카피 자체입니다. 이재철 대표는 사이트를 보자마자 **\"클로드를 쓰셨을 것 같다\"** 고 말하고, 진행자는 **클로드 코드로 만들었다**고 인정합니다. AI를 많이 다뤄 본 사람은 특유의 문체가 **\"눈에 걸린다, 거슬린다\"** 는 표현을 씁니다. 여기서 중요한 건 취향 문제가 아니라 신뢰 문제입니다. **지금의 독자보다 앞으로의 독자를 대응한다면, AI가 쓴 글보다 사람이 쓴 글이 훨씬 더 신뢰감을 줄 수밖에 없습니다.** 이는 뒤에 나오는 **페르소나 기반 콘텐츠 생성** (41:24) 과 정확히 연결되는 문제의식입니다 — AI를 쓰되, 우리 브랜드의 목소리로 써야 한다는 것.",
+        "en": "Next up is the copy itself. Lee looks at the site and says **\"you probably used Claude\"** — and the host confirms it was built with Claude Code. Anyone who works with AI a lot finds the telltale voice **\"catches your eye, and grates.\"** This isn't a taste issue but a trust issue: **if you're writing for tomorrow's readers rather than today's, human-written prose will simply carry more credibility than AI-written prose.** It ties directly to the persona-based generation shown later (41:24) — use AI, but write in your brand's own voice."
+      },
+      "script": {
+        "ko": "\"AI가 썼다기보다는 사람이 썼다는 글이 훨씬 더 신뢰감을 줄 수밖에 없죠.\"",
+        "en": "\"Writing that reads as human-written will always carry more trust than writing that reads as AI-generated.\""
+      }
+    },
+    {
+      "t": 755,
+      "tLabel": "12:35",
+      "img": "images/shot-16.png",
+      "title": {
+        "ko": "AI 오버뷰와 AEO — SEO와 GEO 사이의 영역",
+        "en": "AI Overviews and AEO — The Layer Between SEO and GEO"
+      },
+      "desc": {
+        "ko": "구글 검색 결과 상단에 나오는 **AI 오버뷰(AI Overview)** 영역이 등장합니다. 이재철 대표는 이 영역을 **AEO(Answer Engine Optimization, 앤서 엔진 최적화)** 라고 부르며, **SEO와 GEO 사이에 걸쳐 있는 제3의 영역**으로 규정합니다. 화면에서는 구글이 조슈아앤컴퍼니의 기본 정보를 이 영역에 이미 가지고 있고, **AI 서밋 같은 외부 사이트들에서 정보를 가져와 문장을 구성**하고 있다고 명시적으로 밝히고 있습니다. 즉 내 사이트가 아니라 **제3의 사이트가 우리 브랜드를 설명하고 있는 상태**이며, 이 구조를 이해하는 것이 다음 개념인 '소스와 인용'의 출발점입니다 (12:56).",
+        "en": "The **AI Overview** block at the top of Google's results comes into view. Lee calls this **AEO — Answer Engine Optimization**, a third layer sitting **between SEO and GEO**. On screen, Google already holds baseline facts about Joshua & Company here, and it explicitly states it composed those sentences **by pulling from outside sites like AI Summit**. In other words, **third-party pages are currently describing your brand**, not your own site — which sets up the next concept, sources and citations (12:56)."
+      },
+      "script": {
+        "ko": "\"SEO와 GEO의 영역 사이에는 이제 AI 오버뷰 혹은 요즘에는 AEO 영역이라고 합니다. 앤서 엔진 최적화 영역이라고 합니다.\"",
+        "en": "\"Between SEO and GEO sits AI Overview, or as it's now called, AEO — answer engine optimization.\""
+      }
+    },
+    {
+      "t": 790,
+      "tLabel": "13:10",
+      "img": "images/shot-17.png",
+      "title": {
+        "ko": "소스와 인용 — AI 답변의 재료를 추적하기",
+        "en": "Sources and Citations — Tracing the Answer's Ingredients"
+      },
+      "desc": {
+        "ko": "AI 오버뷰가 문장을 만들 때 참조한 사이트들을 **소스(source)와 인용(citation)** 이라고 부릅니다. 그렇다면 AI 오버뷰를 최적화하고 싶을 때 해야 할 일은 명확해집니다. 첫째, **AI 오버뷰에 등장하는 이 사이트들이 어떤 순서로 나왔는지** 확인합니다. 둘째, **그 사이트들이 검색 결과 탑 10에 존재하는지** 확인합니다. 셋째, **탑 10에 있다면 왜 거기 노출됐는지**를 고민합니다. 이 세 단계가 AEO 최적화의 실무 루틴입니다. 뒤에 나오는 헤일로X의 프롬프트 현황 기능 (36:22) 은 정확히 이 작업 — 멘션·소스·인용 추적 — 을 여러 엔진에 걸쳐 자동화한 것입니다.",
+        "en": "The sites an AI Overview leaned on when composing its sentences are called **sources and citations**. That makes the optimization routine concrete: first, check **in what order those sites appear inside the AI Overview**; second, check **whether they sit in the organic top 10**; third, work out **why they earned that position**. Those three steps are the working loop of AEO. HaloX's prompt-tracking feature later (36:22) is precisely this loop — mention, source, citation — automated across multiple engines."
+      },
+      "script": {
+        "ko": "\"이 문장에 대한 정보는 이 사이트들로 가지고 온다고 해서 얘를 인용 혹은 소스라고 합니다. 소스와 인용을 해서 문장을 구성한다.\"",
+        "en": "\"The pages it pulled those sentences from are called sources and citations — the answer is assembled out of them.\""
+      }
+    },
+    {
+      "t": 830,
+      "tLabel": "13:50",
+      "img": "images/shot-18.png",
+      "title": {
+        "ko": "사이트 이름(site name)이 설정되지 않았다",
+        "en": "The Site Name Was Never Set"
+      },
+      "desc": {
+        "ko": "다음 발견은 더 노골적입니다. 검색 결과에 표시되는 **사이트 이름(site name)** 자리에 회사명이 아니라 엉뚱한 문자열이 들어가 있었습니다. 의도한 것이냐는 질문에 진행자는 \"전혀 아니다\"라고 답합니다. **설정 자체가 안 돼 있는 상태**였던 것이죠. 원래는 \"조슈아앤컴퍼니\"가 등장해야 합니다. 이재철 대표는 이것 역시 **테크니컬 영역**이라고 못 박습니다 — **타이틀, 디스크립션, 사이트 이름**은 모두 봇에게 명시적으로 선언해 주어야 하는 정보이며, 선언하지 않으면 검색 엔진이 알아서 아무거나 추측해 채워 넣습니다.",
+        "en": "The next finding is more blatant: the **site name** displayed in the search result wasn't the company name at all but a stray string. Asked whether it was intentional, the host says absolutely not — **it simply was never configured**. \"Joshua & Company\" should be appearing there. Lee flags this as **technical territory** too: **title, description, and site name** must all be declared explicitly to the bot, and if you don't declare them the engine will guess and fill in whatever it likes."
+      },
+      "script": {
+        "ko": "\"요런 사이트 이름도 아마 지금 설정이 안 돼 있는 상태. 조슈아앤컴퍼니가 등장해야 되죠. 이게 이제 모두 다 테크니컬 영역.\"",
+        "en": "\"The site name simply isn't configured. It should be showing 'Joshua & Company.' This is all technical territory.\""
+      }
+    },
+    {
+      "t": 862,
+      "tLabel": "14:22",
+      "img": "images/shot-19.png",
+      "title": {
+        "ko": "스키마 마크업 — 구글에게 구조를 알려 주는 법",
+        "en": "Schema Markup — Handing Google the Structure"
+      },
+      "desc": {
+        "ko": "검색 결과에 노출되는 영역들은 기본적으로 구글이 스스로 판단해서 만들지만, 브랜드가 개입할 수 있는 수단이 있습니다. 바로 **스키마(schema) 마크업**입니다. **JSON-LD를 포함한 스키마 정보가 잘 구축되어 있으면**, 검색 결과에 우리가 의도한 형태로 정보가 노출됩니다. 이는 앞서 나온 테크니컬 SEO 체크리스트 (04:18) 의 세 번째 항목이자, 뒤에 나오는 헤일로X 진단 화면에서 **점수 산정의 핵심 항목** (31:08) 으로 다시 등장합니다. 요약하면 — **구조화된 데이터를 선언하지 않으면, 구글은 우리 사이트를 추측으로 이해합니다.**",
+        "en": "The blocks that appear in a search result are ultimately Google's call, but there is a lever brands can pull: **schema markup**. **When schema information including JSON-LD is properly implemented**, your information surfaces in the shape you intended. This is item three on the technical checklist from earlier (04:18) and reappears as a **core scoring component** in the HaloX diagnostic later (31:08). The summary: **if you don't declare structured data, Google understands your site by guessing.**"
+      },
+      "script": {
+        "ko": "\"스키마 마커들이 JSON을 포함한 스키마 정보들이 잘 구축되어 있으면 여기에 이런 식으로 노출이 됩니다.\"",
+        "en": "\"When your schema markup, including JSON-LD, is properly built out, your information surfaces here in exactly this shape.\""
+      }
+    },
+    {
+      "t": 895,
+      "tLabel": "14:55",
+      "img": "images/shot-20.png",
+      "title": {
+        "ko": "\"클로드 코드에게 SEO 최적화해 달라\"의 한계",
+        "en": "The Limits of \"Claude Code, Optimize My SEO\""
+      },
+      "desc": {
+        "ko": "진행자는 클로드 코드에게 **\"SEO 최적화 한번 해봐\"** 라고 딱 한 번 시켰다고 고백합니다. 결과는 앞서 본 그대로 — 파비콘 없음, 사이트 이름 미설정, 스키마 부실. 이재철 대표의 진단은 실무자에게 매우 유용한 경고입니다. **요즘 클로드 코드에게 SEO 최적화를 시키면 해 주는 것처럼 보입니다. 하지만 완벽하게 해 주지는 못하고, 아무리 푸시해도 결국 놓치는 부분이 존재합니다.** AI 코딩 도구는 SEO의 '형태'는 만들어 주지만, **어떤 키워드로 무엇을 점유할지에 대한 전략과 디테일한 검증**은 여전히 사람의 몫이라는 뜻입니다.",
+        "en": "The host admits he told Claude Code **\"go optimize the SEO\"** exactly once. The result is everything we just saw: no favicon, no site name, thin schema. Lee's read is a genuinely useful warning: **ask Claude Code to do SEO today and it will look like it did. But it won't do it completely, and no matter how hard you push, gaps remain.** AI coding tools can produce the *shape* of SEO, but **the strategy of which keywords to own and the detailed verification** still belong to a human."
+      },
+      "script": {
+        "ko": "\"클로드 코드한테 SEO 최적화 해줘 하면 해 주는 것처럼 보이죠? 완벽하게 해 주지 못하더라고요. 아무리 푸시를 하더라도 결국 놓치는 부분들이 존재하더라고요.\"",
+        "en": "\"Ask Claude Code to optimize SEO and it looks like it did — but it never does it completely. Push all you want; things still slip through.\""
+      }
+    },
+    {
+      "t": 935,
+      "tLabel": "15:35",
+      "img": "images/shot-21.png",
+      "title": {
+        "ko": "실무 도구: SEO Meta in 1 Click",
+        "en": "The Working Tool: SEO Meta in 1 Click"
+      },
+      "desc": {
+        "ko": "여기서 누구나 바로 쓸 수 있는 무료 도구가 소개됩니다. **크롬 확장 프로그램 \"SEO Meta in 1 Click\"** 입니다. 이재철 대표는 자사 솔루션도 쓰지만, **사이트의 정보를 빠르게 이해할 때는 이런 크롬 확장 프로그램을 선호**한다고 말합니다. 클릭 한 번으로 그 페이지의 **타이틀, 디스크립션, 헤딩 구조, 이미지 alt** 같은 메타 정보를 한눈에 펼쳐 보여 주기 때문에, 경쟁사 사이트를 훑거나 우리 페이지를 즉석에서 점검할 때 가장 빠릅니다. 이후 몇 분간의 진단 (16:12 이후) 은 전부 이 확장 프로그램 화면 위에서 진행됩니다.",
+        "en": "Here comes a free tool anyone can pick up today: the Chrome extension **\"SEO Meta in 1 Click.\"** Lee uses his own product too, but says **for quickly understanding a page he prefers a Chrome extension like this one**. One click unfolds that page's **title, description, heading structure, and image alt text** in a single panel, which makes it the fastest way to scan a competitor or spot-check your own page. Everything in the next several minutes (from 16:12) happens inside this extension's UI."
+      },
+      "script": {
+        "ko": "\"SEO 메타 인 원클릭이라고, 이 제품을 써서 사이트에 진단을 하는 걸 좀 선호합니다. 빠르게 이 사이트의 정보를 이해하는 데 좋거든요.\"",
+        "en": "\"It's called SEO Meta in 1 Click — I prefer diagnosing a site with it because it's the fastest way to understand a page.\""
+      }
+    },
+    {
+      "t": 978,
+      "tLabel": "16:18",
+      "img": "images/shot-22.png",
+      "title": {
+        "ko": "메타 타이틀과 디스크립션 실제로 확인하기",
+        "en": "Actually Reading the Meta Title and Description"
+      },
+      "desc": {
+        "ko": "확장 프로그램을 켜자 그 페이지의 **타이틀과 디스크립션 메타 정보**가 그대로 펼쳐집니다. 이재철 대표는 검색 결과에 노출되는 문구가 **여기 선언된 메타 정보에서 나온다**는 대응 관계를 화면에서 직접 짚어 줍니다. 다만 정직한 단서도 덧붙입니다 — 검색 결과에 보이는 문구가 반드시 디스크립션 그대로는 아닐 수 있고, 구글이 질의에 맞게 재작성하기도 합니다. 그래도 **기본적으로는 디스크립션을 바탕으로 노출된다**고 보면 됩니다. 요컨대 이 한 화면으로 **우리 사이트가 AI와 구글에 어떤 정보로 노출되고 있는지 현황을 한 판에** 볼 수 있습니다.",
+        "en": "With the extension open, the page's **meta title and description** are laid out directly. Lee points at the screen to show the correspondence: the copy shown in the search result **comes from the meta information declared here**. He adds an honest caveat — the displayed snippet isn't always the description verbatim, since Google sometimes rewrites it for the query. Still, **it's fundamentally driven by your description**. The upshot: this one panel shows **the current state of how your site is being surfaced to both AI and Google**."
+      },
+      "script": {
+        "ko": "\"그런 식으로 이 사이트의 정보들이 AI와 구글에 잘 노출되는지, 노출된다면 어떤 정보들로 노출되고 있는지 현황을 한 판에 볼 수 있는 겁니다.\"",
+        "en": "\"That's how you see, in one panel, whether your site is surfacing well to AI and Google — and with what information.\""
+      }
+    },
+    {
+      "t": 1002,
+      "tLabel": "16:42",
+      "img": "images/shot-23.png",
+      "title": {
+        "ko": "H1·H2·H3 — 봇이 읽는 정보의 위계",
+        "en": "H1, H2, H3 — The Hierarchy Bots Read"
+      },
+      "desc": {
+        "ko": "다음으로 확인할 것은 **헤딩 태그의 위계**입니다. 사이트에 들어온 봇은 **H1 = 대제목, H2 = 중제목, H3 = 소제목**이라는 구조로 정보의 위계를 이해합니다. 그래서 점검 질문은 단순합니다 — **\"우리 사이트에서 이게 정말 중제목이 맞는가? 의도한 구조인가?\"** 봇이 중제목으로 이해하면 그에 맞춰 소제목까지 이해할 수 있는 구조를 만들어 줘야 하는데, **이 부분을 놓치는 분들이 굉장히 많다**고 지적합니다. 시각적으로 글자 크기만 조절하고 헤딩 태그를 아무렇게나 쓰면, 사람 눈에는 멀쩡해 보여도 봇에게는 뒤죽박죽인 문서가 됩니다.",
+        "en": "Next is **heading hierarchy**. A bot entering your site reads structure as **H1 = main heading, H2 = subheading, H3 = sub-subheading**. So the check is simple: **\"is this actually a subheading on our site? Was this intended?\"** If the bot reads something as an H2, the H3s beneath it need to make sense in that frame — and Lee notes **a great many people get this wrong**. Style your text with font sizes while using heading tags arbitrarily and the page looks fine to humans but reads as scrambled to a bot."
+      },
+      "script": {
+        "ko": "\"H1 태그, H2 태그, H3는 말 그대로 대제목, 중제목, 소제목이에요. 그러면 우리 사이트는 이게 중제목이 맞는지를 이해하고, 거기에 맞춰 소제목으로 이해할 수 있는 구조를 만들어 줘야 되는데 이 부분을 많이 놓치시는 분들도 많고요.\"",
+        "en": "\"H1, H2, H3 are literally main, sub, and sub-sub headings. You have to build a structure the bot can read that way — and a lot of people miss this.\""
+      }
+    },
+    {
+      "t": 1042,
+      "tLabel": "17:22",
+      "img": "images/shot-24.png",
+      "title": {
+        "ko": "robots.txt — 봇에게 여는 대문",
+        "en": "robots.txt — The Front Door You Open to Bots"
+      },
+      "desc": {
+        "ko": "여기서 진행자가 \"처음 알았어요\"라고 감탄하는 개념이 나옵니다. 사이트에 들어와 판단하는 주체는 사람이 아니라 **구글 봇, GPT 봇, 클로드 봇**입니다. 그 봇들에게 **어떤 정보를 봐도 되고 보지 않았으면 좋겠는지를 명시적으로 선언하는 문서가 robots.txt** 입니다. 모든 사이트에 존재하며 도메인 뒤에 `/robots.txt`를 붙이면 누구나 확인할 수 있습니다. 진행자의 사이트는 사실상 **비어 있는 상태**였는데, 그 의미는 **\"모든 로봇 환영해, 그냥 마음대로 들어와\"** 라는 선언과 같습니다. 이게 좋은지 나쁜지는 다음 (19:10) 에서 트래픽 관점으로 이어집니다.",
+        "en": "Here the host reacts with \"I had no idea this existed.\" The entities judging your site aren't people — they're the **Google bot, the GPT bot, the Claude bot**. **robots.txt is the document that explicitly declares what those bots may and may not look at.** Every site has one; append `/robots.txt` to any domain and you can read it. The host's file was essentially **empty**, which amounts to declaring **\"all robots welcome, come in and do whatever.\"** Whether that's good or bad turns into a traffic question next (19:10)."
+      },
+      "script": {
+        "ko": "\"그 봇들이 이 사이트에 들어와서 어떤 정보를 봐도 돼, 보지 않았으면 좋겠어라는 것들을 명시적으로 선언하는 로봇 문서입니다.\"",
+        "en": "\"It's the robots file — where you explicitly declare which information those bots may and may not look at.\""
+      }
+    },
+    {
+      "t": 1072,
+      "tLabel": "17:52",
+      "img": "images/shot-25.png",
+      "title": {
+        "ko": "잘 쓴 예시: 링크드인의 robots.txt",
+        "en": "A Well-Written Example: LinkedIn's robots.txt"
+      },
+      "desc": {
+        "ko": "\"그러면 잘 돼 있는 곳은 어떤 모습이냐\"는 흐름에서 **링크드인(LinkedIn)의 robots.txt**를 직접 열어 봅니다. 화면을 본 진행자가 놀랄 만큼 **엄청나게 디테일하게** 작성돼 있습니다. **어떤 봇은 걸렸으면 좋겠고, 어떤 봇은 걸리지 않았으면 좋겠는지**, 그리고 봇별로 **어떤 경로는 접근 허용하고 어떤 경로는 막을지**를 매우 세밀하게 지정해 두었습니다. 대형 서비스일수록 이 파일이 정교한 이유는, 이것이 단순한 예의 표시가 아니라 **크롤 예산(crawl budget)과 서버 트래픽을 통제하는 실질적인 정책 문서**이기 때문입니다.",
+        "en": "To show what \"done well\" looks like, they open **LinkedIn's robots.txt** live. The host is visibly startled by how **granular** it is: it specifies **which bots are welcome and which are not**, and per bot, **which paths are allowed and which are blocked**, in painstaking detail. Big services write this file carefully because it isn't a courtesy note — it's **a real policy document controlling crawl budget and server traffic**."
+      },
+      "script": {
+        "ko": "\"링크드인 같은 경우는 로봇 정보가 엄청 디테일하게 되어 있는 겁니다. 어떤 곳은 걸렸으면 좋겠고 어떤 곳은 걸리지 않았으면 좋겠고를 엄청 디테일하게 줄 수도 있다는 거예요.\"",
+        "en": "\"LinkedIn's robots file is extraordinarily detailed. You can specify at that level which paths you want crawled and which you don't.\""
+      }
+    },
+    {
+      "t": 1098,
+      "tLabel": "18:18",
+      "img": "images/shot-26.png",
+      "title": {
+        "ko": "sitemap.xml — 봇에게 건네는 지도",
+        "en": "sitemap.xml — The Map You Hand the Bot"
+      },
+      "desc": {
+        "ko": "robots.txt가 **대문**이라면, **사이트맵(sitemap.xml)은 그 문으로 들어온 봇에게 건네는 지도**입니다. 이재철 대표의 비유가 명쾌합니다 — 로봇이 들어와도 되는지가 대문이라면, 들어왔을 때 **\"우리 사이트의 URL은 이러이러하니 이걸 보고 참고해\"** 라고 알려 주는 것이 사이트맵입니다. 사이트맵에는 세 가지 정보가 담깁니다. **(1) 사이트에 존재하는 URL 목록, (2) 각 페이지가 언제 만들어지고 최신 업데이트되었는지, (3) 각 URL의 우선순위(priority)와 중요도.** 정리하면 — **봇을 들이고, 사이트를 이해할 정보를 주고, 지도를 그려 주고, 그 안에서 정보의 위계를 세우는 것**이 테크니컬 SEO의 골격입니다.",
+        "en": "If robots.txt is the **front door**, **sitemap.xml is the map you hand a bot once it's inside**. Lee's analogy is clean: the door decides whether the robot may enter; the sitemap tells it **\"here are our URLs — use these as your reference.\"** A sitemap carries three things: **(1) the list of URLs on the site, (2) when each page was created and last updated, and (3) each URL's priority and importance.** Put together — **let the bot in, give it information to understand you, draw it a map, and establish hierarchy inside that map** — and you have the skeleton of technical SEO."
+      },
+      "script": {
+        "ko": "\"로봇이 들어오고, 로봇이 사이트를 이해할 수 있게 정보를 주고, 대문을 만들고, 사이트의 맵 정보를 만들어 준다. 그때의 정보의 위계인 거고요.\"",
+        "en": "\"Let the robot in, give it information to understand the site, build the door, build the map — and inside that, the hierarchy of information.\""
+      }
+    },
+    {
+      "t": 1162,
+      "tLabel": "19:22",
+      "img": "images/shot-27.png",
+      "title": {
+        "ko": "robots는 트래픽 최적화이기도 하다",
+        "en": "robots.txt Is Also Traffic Optimization"
+      },
+      "desc": {
+        "ko": "\"모든 로봇 환영\" 상태가 왜 문제가 될 수 있는지에 대한 설명이 이어집니다. 로봇이 사이트에 들어오는 것은 **사람이 방문하고 이해하는 과정과는 별개의, 불필요한 트래픽**이 될 수 있습니다. 실제로 **봇은 생각보다 많은 트래픽을 가져갑니다.** 그래서 정교한 robots.txt는 두 가지를 합니다 — **불필요한 봇에게는 \"오지 마\"** 라고 하고, **들어온 봇에게도 \"불필요한 경로는 가지 마\"** 라고 지정합니다. 즉 robots.txt는 SEO 문서인 동시에 **트래픽 최적화(비용 최적화) 문서**에 가깝습니다. 물론 무엇이 불필요한지는 그 사이트를 운영하는 사람이 판단해야 할 문제라고 덧붙입니다.",
+        "en": "Why is \"all robots welcome\" potentially a problem? Because bot visits are **traffic entirely separate from humans browsing and understanding your site — and often unnecessary**. In practice, **bots consume far more traffic than people expect.** So a well-tuned robots.txt does two jobs: it tells unnecessary bots **\"don't come,\"** and tells the ones that do come **\"don't wander down these paths.\"** Which means robots.txt is as much a **traffic (and cost) optimization document** as an SEO one — though what counts as unnecessary is a judgment call for whoever runs the site."
+      },
+      "script": {
+        "ko": "\"로봇은 생각보다 많은 트래픽을 가져가다 보니까 로봇 중에서도 불필요한 로봇들은 오지 마, 들어왔다고 하더라도 불필요한 경로는 가지 마라고 해서 최적화를 하는 겁니다. 이건 트래픽 최적화에 가깝습니다.\"",
+        "en": "\"Bots eat more traffic than you'd think, so you tell the unnecessary ones not to come, and tell the rest not to wander. That's closer to traffic optimization.\""
+      }
+    },
+    {
+      "t": 1202,
+      "tLabel": "20:02",
+      "img": "images/shot-28.png",
+      "title": {
+        "ko": "URL 구조 = 콘텐츠 클러스터",
+        "en": "URL Structure Equals Content Clustering"
+      },
+      "desc": {
+        "ko": "다음 점검 항목은 **URL 구조**입니다. 원칙은 명확합니다 — **사이트의 정보는 URL의 패스(path) 단위로 클러스터가 되는 것이 기본**입니다. 화면의 사이트를 훑으며 \"아, 이 사이트는 work 단위로 있구나, education 단위로 있구나, solution 단위로 넘어가는구나\"라고 즉시 파악하는 모습을 보여 줍니다. 즉 **URL만 봐도 이 사이트가 어떤 주제 영역을 갖고 있는지 봇도 사람도 알 수 있어야** 합니다. 이 사이트에는 아직 **블로그가 없었고**, 진행자는 인블로그(자체 블로그) 도입을 검토 중이라고 답합니다. 이재철 대표는 **블로그를 만든다면 반드시 본 사이트에서 넘어갈 수 있는 내부 링크를 만들어 두라**고 조언합니다.",
+        "en": "Next up is **URL structure**, and the principle is clean: **a site's information should cluster along URL paths**. Scanning the site, Lee immediately reads it off — \"this one is organized under /work, under /education, and moves into /solution.\" In other words, **the URL alone should tell a bot and a human which topic areas the site owns**. The site had **no blog yet**; the host says he's considering an on-site blog. Lee's advice: if you build one, **make sure there's an internal link from the main site into it**."
+      },
+      "script": {
+        "ko": "\"기본적으로 사이트의 정보는 URL의 패스 단위로 어떤 클러스터가 되는 게 기본이라고 봐 주시면 될 것 같습니다. 이 사이트는 work 단위로 있구나, 에듀케이션 단위로 있구나.\"",
+        "en": "\"As a baseline, a site's information clusters at the level of URL paths — this one lives under /work, this under /education.\""
+      }
+    },
+    {
+      "t": 1258,
+      "tLabel": "20:58",
+      "img": "images/shot-29.png",
+      "title": {
+        "ko": "이미지 alt 텍스트 — 삼성 로고 사례",
+        "en": "Image Alt Text — The Samsung Logo Case"
+      },
+      "desc": {
+        "ko": "이 파트에서 가장 실전적인 사례가 나옵니다. 사이트에 **삼성 로고 이미지**를 쓰면서 alt 텍스트에 그대로 \"삼성\"이라고 적어 놓은 것을 발견합니다. 이재철 대표는 이렇게 되묻습니다 — **\"우리는 이 이미지가 '삼성'으로 검색되기를 원하는 건가요, 아니면 '조슈아앤컴퍼니'가 노출되기를 원하는 건가요?\"** 당연히 후자입니다. 그렇다면 **alt에는 삼성이 아니라 조슈아앤컴퍼니가 함께 들어가야** 합니다. 원칙은 한 문장으로 정리됩니다 — **이미지의 alt 정보는 우리가 노출시키고 싶은 키워드로 채워야 합니다.** 로고, 스크린샷, 다이어그램 하나하나가 검색 유입 자산이라는 관점의 전환입니다.",
+        "en": "The most practical example of the teardown appears here. The site uses a **Samsung logo image** with alt text literally reading \"Samsung.\" Lee asks the decisive question: **\"Do we want this image to be found under 'Samsung,' or do we want 'Joshua & Company' to surface?\"** Obviously the latter — so the alt text should carry **Joshua & Company**, not just Samsung. The rule condenses to one line: **fill image alt text with the keywords you want to rank for.** It reframes every logo, screenshot, and diagram as a search-acquisition asset."
+      },
+      "script": {
+        "ko": "\"삼성 로고를 알트 텍스트로 쓴다는 건 삼성이 검색됐을 때 이 이미지를 통해 넘어올 수 있게 하는 거거든요. 이미지에 대한 알트 정보들은 저희가 노출시키고 싶은 키워드로 하는 겁니다.\"",
+        "en": "\"Alt text saying 'Samsung' means the image is a doorway from Samsung searches. Alt text should carry the keyword you actually want to surface for.\""
+      }
+    },
+    {
+      "t": 1310,
+      "tLabel": "21:50",
+      "img": "images/shot-30.png",
+      "title": {
+        "ko": "SEO는 악마의 디테일과의 싸움",
+        "en": "SEO Is a War of Devilish Detail"
+      },
+      "desc": {
+        "ko": "여기까지의 진단을 진행자가 이렇게 요약합니다 — **\"SEO는 진짜 악마의 디테일과의 싸움이다\"** 라는 말을 들었는데 이제 체감이 된다고요. 이재철 대표도 동의합니다. **\"정말 여기는 디테일의 싸움이라고 생각합니다.\"** 지금까지 발견된 문제를 나열해 보면 — 파비콘 없음 (11:23), AI 티가 나는 카피 (11:58), 사이트 이름 미설정 (13:50), 스키마 부실 (14:22), robots.txt 사실상 공백 (17:22), 이미지 alt 오사용 (20:58). 어느 것 하나 대단한 기술이 필요하지 않지만, **하나도 자동으로 해결되지 않는다**는 것이 핵심입니다. 그래서 다음 파트에서 이 점검을 자동화한 제품이 등장합니다 (25:42).",
+        "en": "The host sums the teardown up: he'd heard **\"SEO is a war against devilish detail\"** and now he feels it. Lee agrees — **\"I really do think this is a war of details.\"** Tally what's been found: no favicon (11:23), AI-tells in the copy (11:58), unset site name (13:50), thin schema (14:22), a functionally empty robots.txt (17:22), and misused image alt text (20:58). None of these require advanced skill, and **none of them fix themselves automatically** — which is exactly why a product that automates the checking shows up next (25:42)."
+      },
+      "script": {
+        "ko": "\"SEO는 진짜 악마의 디테일과의 싸움이다. — 정말 여기는 이제 디테일의 싸움이라고 저는 생각을 하고 있습니다.\"",
+        "en": "\"'SEO is a war against devilish detail.' — I really do believe this is a war of details.\""
+      }
+    },
+    {
+      "t": 1352,
+      "tLabel": "22:32",
+      "img": "images/shot-31.png",
+      "title": {
+        "ko": "키워드 하나 잡기 — \"제조 AX\"부터 시작",
+        "en": "Picking One Keyword — Starting with \"Manufacturing AX\""
+      },
+      "desc": {
+        "ko": "진행자가 실제 고민을 꺼냅니다. 회사가 지금은 브로드한 영역을 다루지만 **버티컬 AX, 특히 제조·산업 AX**로 방향을 잡고 있는데, **키워드를 하나 잡는다면 어떻게 시작해야 할까요?** 이재철 대표의 절차는 네 단계입니다. **(1)** \"제조 AX\"를 실제로 검색해 본다. **(2)** 그 검색어에 **AI 오버뷰가 존재하는지**, 존재한다면 **어떤 도메인들이 노출되는지** 확인한다. **(3)** 우리가 그 자리에 들어갈 수 있는지 **경쟁 강도**를 판단한다. **(4)** **연관 키워드**를 확인한다. 전략은 상상이 아니라 **검색 결과 화면 자체를 읽는 것**에서 시작한다는 점이 핵심입니다.",
+        "en": "The host brings a real problem: his company covers broad ground today but is steering toward **vertical AX — specifically manufacturing and industrial AX**. If he had to pick one keyword, how should he begin? Lee's procedure has four steps: **(1)** actually search \"manufacturing AX\"; **(2)** check **whether an AI Overview exists** for it and **which domains appear** in it; **(3)** judge the **competitive intensity** of getting into that slot; **(4)** examine the **related keywords**. The key idea: strategy starts not from imagination but from **reading the results page itself**."
+      },
+      "script": {
+        "ko": "\"제조 AX를 검색했을 때 나오는 AI 오버뷰가 있는지 볼 거고, 그때 어떤 도메인들이 노출되고 있는지 확인할 거고, 우리가 노출을 할 수 있는 경쟁 강도가 있는지 확인할 거고, 그다음에 관련 키워드.\"",
+        "en": "\"Search it, see whether an AI Overview exists, see which domains show up there, gauge whether we can compete for that slot, then look at related keywords.\""
+      }
+    },
+    {
+      "t": 1398,
+      "tLabel": "23:18",
+      "img": "images/shot-32.png",
+      "title": {
+        "ko": "검색 여정 5단계 — 이해·탐색·비교·추천·결정",
+        "en": "The 5-Stage Search Journey"
+      },
+      "desc": {
+        "ko": "이 영상에서 가장 실용적인 프레임워크가 여기 나옵니다. 사람들이 정보를 습득하는 데는 단계가 존재하며, 이를 **검색 여정(search journey)** 이라고 부릅니다. 순서는 **이해 → 탐색 → 비교 → 추천 → 결정** 입니다. \"제조 AX\"를 예로 들면 이렇게 흘러갑니다. **\"제조 AX가 뭐야?\"(이해) → \"제조 AX 사례는 뭐가 있어?\"(탐색) → \"그걸 잘하는 곳은 어디야?\"(비교) → \"제조 AX 컨설팅 어디가 좋아?\"(추천) → 계약(결정).** 핵심 통찰은 **연관 키워드가 이 여정의 단서**라는 것입니다. 즉 연관 검색어를 모으면 **우리 고객의 여정 맵을 그대로 그려 낼 수 있습니다** (34:23).",
+        "en": "The single most usable framework in the video lands here. People acquire information in stages — a **search journey** — running **understand → explore → compare → get recommendations → decide**. For \"manufacturing AX\" it plays out as: **\"what is manufacturing AX?\" (understand) → \"what are real examples?\" (explore) → \"who does this well?\" (compare) → \"which manufacturing AX consultancy is best?\" (recommend) → signing (decide).** The key insight: **related keywords are the fingerprints of that journey.** Collect them and you can **reconstruct your customer's journey map directly** (34:23)."
+      },
+      "script": {
+        "ko": "\"먼저 이 정보에 대한 이해, 뜻을 알아야 될 거고, 이것들을 하고 있는 곳들을 탐색하고 비교하고 추천을 받고 결정을 하게 되죠. 이런 식으로 고객들의 검색 여정 단서가 될 수 있는 게 연관 키워드에서 얻을 수 있다는 겁니다.\"",
+        "en": "\"First you need to understand the term, then you explore who does it, compare, get a recommendation, and decide. Related keywords are the clues to that customer journey.\""
+      }
+    },
+    {
+      "t": 1462,
+      "tLabel": "24:22",
+      "img": "images/shot-33.png",
+      "title": {
+        "ko": "PAA(People Also Ask) — 사람들이 실제로 묻는 자연어",
+        "en": "PAA (People Also Ask) — The Questions People Actually Type"
+      },
+      "desc": {
+        "ko": "최근 검색은 **단어 위주에서 자연어 위주로** 바뀌었습니다. LLM이 자연어로 대답해 주기 때문이죠. 구글 검색 결과에는 이 변화를 반영한 영역이 있는데, 바로 **PAA(People Also Ask)** — 한국어로는 \"사람들이 함께 찾는 질문\" 영역입니다. 모든 키워드에 나타나지는 않지만, 나타나는 키워드에서는 **사람들이 이 키워드를 기반으로 실제로 무엇을 질문하고 있는지**를 그대로 보여 줍니다. \"AX가 뭐야?\", \"DX와 차이가 뭐야?\", \"트렌드는 뭐야?\" 같은 질문들이 나열되면, 진행자가 무릎을 칩니다 — **\"저게 그냥 우리 사이트의 콘텐츠로 있으면 되는 거잖아요.\"** 정확히 그렇습니다.",
+        "en": "Search has shifted **from keywords to natural language**, because LLMs answer in natural language. Google's results page reflects that with the **PAA (People Also Ask)** block. It doesn't appear for every query, but where it does it shows **exactly what people are asking around that keyword**. When questions like \"what is AX?\", \"how is it different from DX?\", \"what are the trends?\" appear, the host gets it instantly: **\"those should just be pages on our site.\"** Exactly right."
+      },
+      "script": {
+        "ko": "\"특정 키워드에서 노출되는 피플 올소 애스크, PAA라는 영역입니다. 사람들이 실제로 이 키워드를 기반으로 어떤 것들을 질문하고 있어, 역시 단서로 들 수 있고.\"",
+        "en": "\"That block is People Also Ask — PAA. It shows what people are actually asking around this keyword, and it's another clue.\""
+      }
+    },
+    {
+      "t": 1508,
+      "tLabel": "25:08",
+      "img": "images/shot-34.png",
+      "title": {
+        "ko": "키워드는 곧 트래픽 — 그 자리에 답을 놓아라",
+        "en": "Keywords Are Traffic — Put the Answer There"
+      },
+      "desc": {
+        "ko": "여기서 진행자가 파트 2의 전체 논리를 스스로 정리합니다. **키워드는 결국 트래픽입니다.** 그리고 PAA에 사람들의 질문이 그대로 나열되어 있으니, **그 질문 그대로를 우리 콘텐츠로 만들어 답해 주면 됩니다.** 그렇게 들어온 방문자에게 **신뢰를 쌓게끔 웹사이트가 잘 구비되어 있으면**(= 앞서 진단한 테크니컬·콘텐츠 항목들이 갖춰져 있으면) 그것이 **리드(lead)가 들어오는 과정**입니다. 즉 SEO/GEO는 신비한 기술이 아니라 **질문 → 답변 → 신뢰 → 문의**라는 아주 단순한 파이프라인이고, 검색 결과 화면이 그 설계도를 무료로 공개하고 있는 셈입니다.",
+        "en": "The host summarizes the whole second act himself. **A keyword is traffic.** And since PAA lays out people's exact questions, **you simply build content that answers those questions.** Then, if your site is **built to earn trust** once they arrive — i.e. the technical and content items diagnosed earlier are in place — **that's how leads come in**. SEO/GEO isn't arcane: it's a plain pipeline of **question → answer → trust → inquiry**, and the results page publishes the blueprint for free."
+      },
+      "script": {
+        "ko": "\"그 키워드는 결국은 트래픽이니까, 그거에 연계되는 콘텐츠가 저 질문대로 그대로 있으니 그냥 우리가 그걸 알려 주면 되는 거고, 거기서 신뢰를 쌓게끔 웹사이트가 잘 구비되어 있으면 된다라는 부분이네요.\"",
+        "en": "\"The keyword is traffic. The questions are right there, so we just answer them — and if the site is built to earn trust, that's the whole funnel.\""
+      }
+    },
+    {
+      "t": 1548,
+      "tLabel": "25:48",
+      "img": "images/shot-35.png",
+      "title": {
+        "ko": "파트 3 — 헤일로X: 왜 솔루션이 필요한가",
+        "en": "Part 3 — HaloX: Why a Tool Becomes Necessary"
+      },
+      "desc": {
+        "ko": "세 번째 파트에서 이재철 대표가 만든 **헤일로X(HaloX)** 데모가 시작됩니다. 도입 논리가 설득력 있습니다. 지금까지 보여 준 것처럼 **하나씩 검색해서 찾아가는 방식도 좋지만**, 현실에서 **모니터링해야 하는 키워드는 수십~수백 개**이고, **추적해야 하는 질문(PAA)도 수십~수백 개**이며, **사이트에는 페이지가 하나가 아니라 수십·수백 개**라 페이지마다 전부 점검해야 합니다. **이 모든 것을 사람이 한 번에 하기는 쉽지 않기 때문에** 솔루션을 만들었다는 것입니다. 즉 헤일로X는 새로운 개념이 아니라 **앞의 45분간 배운 체크리스트를 스케일로 자동화한 것**입니다.",
+        "en": "Act three opens with a demo of **HaloX**, Lee's own product, and the framing is persuasive. Doing it manually the way he just demonstrated works fine — but in reality **you have dozens to hundreds of keywords to monitor**, **dozens to hundreds of PAA questions to track**, and **not one page but dozens or hundreds of pages** each needing its own audit. **No human does all of that at once**, so he built a tool. HaloX introduces no new concepts — it's **the checklist you just learned, automated at scale**."
+      },
+      "script": {
+        "ko": "\"결국 찾아야 되는 키워드, 모니터링 해야 되는 키워드가 수십 개 수백 개일 겁니다. 사이트가 하나의 페이지만 존재하지 않을 거고 여러 페이지마다 모두 다 점검해 나가야 될 겁니다. 이 모든 것들을 한 번에 하긴 쉽지 않다 보니까.\"",
+        "en": "\"You'll have dozens or hundreds of keywords to monitor, and not one page but many, each needing a check. Doing all of that at once isn't easy.\""
+      }
+    },
+    {
+      "t": 1588,
+      "tLabel": "26:28",
+      "img": "images/shot-36.png",
+      "title": {
+        "ko": "충격 포인트: 이 상용 SaaS는 Lovable로 만들어졌다",
+        "en": "The Twist: This Commercial SaaS Was Built with Lovable"
+      },
+      "desc": {
+        "ko": "진행자가 \"후문으로 놀라운 소식을 들었다\"며 폭탄을 던집니다 — 이 제품을 **무엇으로 만들었느냐**는 질문의 답은 **Lovable(러버블)** 입니다. 여러분이 아는 그 바이브 코딩 도구로 **상용 SaaS 서비스**를 만든 것입니다. 진행자는 \"이건 진짜 말이 안 된다고 속으로 생각했다\"고 솔직히 말합니다. 이재철 대표는 자신이 **Lovable 앰배서더로 활동 중**이며, 그래서 **Lovable을 최대한 많이 활용해 서비스를 만드는 것을 좋아한다**고 밝힙니다. 이 대목은 이 영상의 숨은 메시지이기도 합니다 — 도메인 전문성만 있다면 **솔로프리너 한 명이 노코드/AI 도구로 상용 제품을 만들어 파는 시대**라는 것.",
+        "en": "The host drops the reveal he'd heard \"through the grapevine\": the product was built with **Lovable**. Yes, that vibe-coding tool — running a **commercial SaaS**. He admits he thought \"this can't be real.\" Lee explains he's a **Lovable ambassador** and enjoys **building services with it as much as possible**. This moment carries the episode's quiet subtext: with genuine domain expertise, **a single solopreneur can now ship and sell a commercial product using AI/no-code tooling**."
+      },
+      "script": {
+        "ko": "\"이걸 뭘로 만드셨다고요? — 러버블로 만들었어요. 여러분이 아시는 그 러버블로 이걸 만드셨어요. 상용 SaaS 서비스인데.\"",
+        "en": "\"What did you build this with? — Lovable. Yes, that Lovable. And it's a commercial SaaS.\""
+      }
+    },
+    {
+      "t": 1632,
+      "tLabel": "27:12",
+      "img": "images/shot-37.png",
+      "title": {
+        "ko": "기능 ①: 테크니컬 진단 대시보드",
+        "en": "Feature 1: The Technical Audit Dashboard"
+      },
+      "desc": {
+        "ko": "첫 번째 기능은 **사이트의 테크니컬 진단**입니다. 앞서 사람 손으로 하나씩 확인했던 항목들이 여기서는 자동으로 한 번에 점검됩니다 — **타이틀, 디스크립션, H1, 캐노니컬(canonical) 태그, 깨진 링크, 중복 콘텐츠**, 그리고 **robots.txt 유무와 그 안의 선언이 제대로 되어 있는지**, **사이트맵의 구조와 이상 여부**까지. 이재철 대표는 \"제가 아까 다 말씀드리지 못했던 수많은 테크니컬한 부분들이 있다 보니 그 부분들을 모두 점검할 수 있게 했다\"고 설명합니다. 앞의 공개 진단 (10:48~21:50) 이 이 화면의 항목들을 하나씩 손으로 밟아 본 것이라고 보면 정확합니다.",
+        "en": "Feature one is the **technical site audit**. Everything checked by hand earlier is now verified automatically in one pass — **title, description, H1, canonical tags, broken links, duplicate content**, plus **whether robots.txt exists and is declared correctly**, and **whether the sitemap's structure is sound**. Lee notes there are \"many more technical items I couldn't cover in conversation, so I made it check all of them.\" The live teardown (10:48–21:50) was effectively a manual walk through this very screen."
+      },
+      "script": {
+        "ko": "\"타이틀, 디스크립션, H1은 어때? 캐노니컬은 어때? 깨진 링크는 없어? 중복 콘텐츠는 없어? 이런 것들을 모두 다 보실 수 있게 해 놨습니다.\"",
+        "en": "\"How's the title, the description, the H1? What about canonicals, broken links, duplicate content? It surfaces all of it.\""
+      }
+    },
+    {
+      "t": 1678,
+      "tLabel": "27:58",
+      "img": "images/shot-38.png",
+      "title": {
+        "ko": "GEO의 결정적 변수: CSR vs SSR",
+        "en": "GEO's Decisive Variable: CSR vs SSR"
+      },
+      "desc": {
+        "ko": "여기서 **GEO가 SEO와 갈라지는 가장 중요한 기술 포인트**가 나옵니다. 사이트의 렌더링 구조는 크게 **CSR(Client-Side Rendering)** 과 **SSR(Server-Side Rendering)** 두 가지입니다. **구글은 어느 방식이든 결국 로딩이 끝날 때까지 기다렸다가 정보를 다 가져갑니다.** 하지만 다른 봇들은 다릅니다 — **봇은 기다리지 않을 수도 있고, 기다려도 못 받아 갈 수도 있습니다.** 그래서 **사람이 보는 정보의 양과 봇이 볼 수 있는 정보의 양이 달라질 수 있다**는 것이 핵심입니다. 그리고 **GEO는 특히 이 부분에 훨씬 예민합니다.**",
+        "en": "Here comes **the technical point where GEO diverges most sharply from SEO**. A site renders in one of two broad modes: **CSR (client-side rendering)** or **SSR (server-side rendering)**. **Google will wait for loading to finish either way and take everything.** Other bots won't: **a bot may not wait, and even if it waits it may not receive the content.** The consequence is that **the amount of information a human sees and the amount a bot can see may differ** — and **GEO is far more sensitive to this than SEO.**"
+      },
+      "script": {
+        "ko": "\"구글은 이 두 가지 방식이 뭐든 간에 결국 이 정보를 다 기다렸다 다 가져가거든요. 근데 봇은 안 기다릴 수도 있고 기다려도 못 받아 갈 수도 있다는 겁니다.\"",
+        "en": "\"Google waits either way and takes it all. But a bot might not wait — and even waiting, it might not get the content.\""
+      }
+    },
+    {
+      "t": 1722,
+      "tLabel": "28:42",
+      "img": "images/shot-39.png",
+      "title": {
+        "ko": "CSR이면 GPT 봇은 아무것도 못 본다",
+        "en": "If It's CSR, the GPT Bot Sees Nothing"
+      },
+      "desc": {
+        "ko": "이 영상에서 가장 충격적인 한 문장이 여기 있습니다. **CSR 구조에서는 사람이 볼 수 있는 정보는 존재하지만, GPT 봇은 그 정보를 넘겨받지 못합니다. 말 그대로 GPT가 이 사이트에 들어와도 아무런 정보를 못 봅니다.** SSR이면 가져가고, CSR이면 못 가져간다는 것이죠. 문제는 **CSR이 개발 편의성이 높다**는 점입니다. 개발이 편한 대신 **사이드 이펙트로 봇에게 전달되는 정보가 늦게 도달하거나, 아예 도달하지 못할 수 있습니다.** 심지어 SSR이라 해도 안심할 수 없습니다 — **서스펜스(Suspense) SSR처럼 정보를 늦게 보내거나 순서가 달라지는 경우, 같은 SSR이어도 GPT가 못 받는 경우가 있습니다** (30:47).",
+        "en": "The most alarming sentence in the video lands here. **In a CSR architecture, the content exists for humans but the GPT bot never receives it — literally, GPT can visit your site and see nothing at all.** SSR gets picked up; CSR does not. The catch is that **CSR is far more convenient to develop**. That convenience carries a side effect: **information reaches bots late, or never arrives.** And SSR isn't automatically safe either — **with patterns like Suspense SSR, content ships late or out of order, and even an SSR site can fail to reach GPT** (30:47)."
+      },
+      "script": {
+        "ko": "\"클라이언트 사이드 렌더링 구조로 사람이 볼 수 있는 정보는 존재하는데, 봇 중에 GPT 봇은 이 정보를 넘겨받지 못하는 구조. 말 그대로 GPT는 이 사이트에 들어와도 아무런 정보를 못 본다는 거예요.\"",
+        "en": "\"With client-side rendering the content exists for people, but the GPT bot never receives it. GPT can enter the site and see literally nothing.\""
+      }
+    },
+    {
+      "t": 1792,
+      "tLabel": "29:52",
+      "img": "images/shot-40.png",
+      "title": {
+        "ko": "커머스의 딜레마 — 이미지로 된 상세페이지",
+        "en": "The Commerce Dilemma — Detail Pages Made of Images"
+      },
+      "desc": {
+        "ko": "그렇다면 CSR을 안 쓰면 되지 않느냐는 질문에 대한 현실적인 답변입니다. **커머스 같은 사이트는 SSR만으로 구축하기가 어렵습니다.** 수많은 상품 정보를 전부 서버 사이드에서 가져오기보다 클라이언트에서 가져와 정리해 보여 주는 방식이 대부분이기 때문입니다. 게다가 한국 커머스에는 더 큰 문제가 있습니다 — **상품 상세페이지가 통째로 이미지와 영상으로 되어 있어서** 봇이 **그 안의 정보를 아예 가져가지도, 이해하지도 못합니다.** 그래서 요즘 커머스 업계가 고민하는 것이 **상품 상세페이지의 정보를 텍스트로 구축하는 일**입니다.",
+        "en": "So why not just avoid CSR? Because reality intervenes: **commerce sites are hard to build purely with SSR.** Rather than fetching every product's data server-side, most pull it client-side and assemble it in the browser. And Korean commerce has a bigger problem on top: **product detail pages are typically one big stack of images and video**, so a bot **can neither retrieve nor comprehend what's inside them.** Which is why commerce teams are now working on **rebuilding product detail information as text**."
+      },
+      "script": {
+        "ko": "\"커머스가 이미지로만, 또 영상 그게 쫙 설명이 되어 있는데 그것들은 못 가져올 거 아니에요. 거기 있는 정보를 그대로 가져가서 이해하지도 못하고요.\"",
+        "en": "\"Commerce pages are explained entirely in images and video — a bot can't fetch that, and it can't understand what's in there either.\""
+      }
+    },
+    {
+      "t": 1822,
+      "tLabel": "30:22",
+      "img": "images/shot-41.png",
+      "title": {
+        "ko": "해법: 이미지처럼 보이는 HTML/CSS 상세페이지",
+        "en": "The Fix: HTML/CSS Detail Pages That Look Like Images"
+      },
+      "desc": {
+        "ko": "실제 현장에서 쓰이는 영리한 해법이 소개됩니다. **배경 이미지만 깔고, 그 위에 상품 상세 내용을 CSS와 HTML 텍스트로 얹어서** 시각적으로는 기존 이미지 상세페이지처럼 보이게 만드는 방식입니다. 사람 눈에는 똑같은 상세페이지지만, **봇에게는 텍스트로 임베딩된 HTML 페이지**가 됩니다. 그 결과 **AI에 최적화된 사이트**가 되는 것이죠. 이 사례는 GEO 최적화가 마케팅 부서만의 일이 아니라 **프론트엔드 아키텍처 결정과 직결된 문제**임을 보여 주는 가장 좋은 예시입니다. 진행자도 \"우리도 고려해 봐야겠다\"고 반응합니다.",
+        "en": "A clever workaround from the field: **lay down only the background as an image, then overlay the actual product details as CSS-and-HTML text**, so it still *looks* like a conventional image-based detail page. To a human it's identical; to a bot it's **an HTML page with the text embedded**. The result is **a site optimized for AI**. It's the sharpest illustration that GEO isn't a marketing-department concern but **a question tied directly to front-end architecture decisions** — the host immediately says he should consider it too."
+      },
+      "script": {
+        "ko": "\"배경만 만들고 거기에 상품 상세 페이지처럼 CSS랑 HTML로 다 깔아놓는 겁니다. 배경과 콘텐츠를 텍스트로 임베딩된 HTML 페이지를 쫙 깔아 놓는 거군요. 그런 식으로 하면 AI에 최적화된 사이트가 될 수 있는 거죠.\"",
+        "en": "\"You lay down just the background, then build the detail page itself in CSS and HTML — text embedded in the page. Do that and you get a site optimized for AI.\""
+      }
+    },
+    {
+      "t": 1885,
+      "tLabel": "31:25",
+      "img": "images/shot-42.png",
+      "title": {
+        "ko": "기능 ②: SEO 종합 점수의 구성 요소",
+        "en": "Feature 2: What Goes into the SEO Score"
+      },
+      "desc": {
+        "ko": "헤일로X는 렌더링 구조까지 판별해 **이 사이트가 정보를 가져갈 수 있는지, 가져갔다면 몇 퍼센트나 가져갔는지**를 보여 줍니다. 그리고 이를 포함한 종합 **점수(score)** 를 산출합니다. 점수의 근거는 임의적이지 않습니다 — **SEO에서 오랫동안 만들어진 테크니컬 기준과 구글이 제시한 기준을 차용**해 점수화했습니다. 구성 항목은 **봇 접근성, 구조화된 데이터(스키마 구조), 콘텐츠와 HTML의 타이틀·메타 정보 유무, 기술적인 사이트 속도** 등입니다. 즉 앞서 배운 모든 개념 — 크롤 (03:45), 스키마 (14:22), 메타 (16:18), 렌더링 (27:58) — 이 하나의 숫자로 수렴합니다.",
+        "en": "HaloX detects the rendering architecture and reports **whether the site's content can be retrieved at all, and if so what percentage got through**. It rolls that into a composite **score**, and the basis isn't arbitrary: it **borrows the technical criteria SEO has accumulated over the years plus Google's own published standards**. Components include **bot accessibility, structured data / schema, presence of content and HTML title-and-meta information, and technical site speed**. Every concept covered so far — crawl (03:45), schema (14:22), meta (16:18), rendering (27:58) — converges into one number."
+      },
+      "script": {
+        "ko": "\"봇 접근성, 구조화된 데이터, 스키마 구조, 그리고 콘텐츠의 HTML의 타이틀 메타 정보 있는지 없는지, 기술적으로 사이트가 빠른지 느린지 이런 것들을 모두 다 판단해서 종합 점수를 내립니다.\"",
+        "en": "\"Bot accessibility, structured data, schema, whether the HTML carries title and meta information, whether the site is technically fast — it scores all of it together.\""
+      }
+    },
+    {
+      "t": 1930,
+      "tLabel": "32:10",
+      "img": "images/shot-43.png",
+      "title": {
+        "ko": "진단 기록 — 사이트 건강도를 추적하기",
+        "en": "Audit History — Tracking Site Health Over Time"
+      },
+      "desc": {
+        "ko": "점수보다 더 중요한 것이 **진단 기록(audit history)** 입니다. 사이트를 개선한 뒤 다시 진단하면 **이전 대비 무엇이 달라졌는지, 실제로 개선됐는지**를 확인할 수 있습니다. 진행자는 여기서 크게 반응합니다 — **\"이게 건강도 추이를 내가 계속 트래킹해서 더 최적화를 해 볼 수 있다는 뜻이잖아요.\"** 정확합니다. 결과는 **이슈 단위**로도, **페이지 단위**로도 볼 수 있습니다. 페이지 단위에서는 **CSR인지 SSR인지, 타이틀·디스크립션·스키마가 있는지 없는지, 있다면 이슈가 몇 개인지**까지 한 화면에 정리됩니다. SEO를 감이 아니라 **관측 가능한 지표**로 다루게 만드는 지점입니다.",
+        "en": "More important than the score itself is the **audit history**. Re-run the audit after making fixes and you see **what changed versus last time and whether it actually improved**. The host lights up here: **\"so I can keep tracking the health trend and keep optimizing against it.\"** Exactly. Results break down **by issue** and **by page** — and at the page level you get **CSR vs SSR, whether title, description and schema exist, and how many issues each has**, all on one screen. This is the point where SEO stops being intuition and becomes **an observable metric**."
+      },
+      "script": {
+        "ko": "\"사이트가 개선됐다면 진단 기록에서 이전 대비 변화된 것들이 있는지 실제로 개선됐는지 — 건강도 추이를 계속 트래킹해서 더 최적화를 해 볼 수 있다는 뜻이죠.\"",
+        "en": "\"If the site improved, the audit history shows what changed versus before — you can keep tracking the health trend and keep optimizing.\""
+      }
+    },
+    {
+      "t": 1972,
+      "tLabel": "32:52",
+      "img": "images/shot-44.png",
+      "title": {
+        "ko": "\"70점은 좋은 건가요?\" — 절대 기준은 없다",
+        "en": "\"Is 70 a Good Score?\" — There Is No Absolute Benchmark"
+      },
+      "desc": {
+        "ko": "누구나 하게 되는 질문입니다 — 진단해 보니 우리 점수가 70점인데, **좋은 건가요?** 86점은 좋은 건가요? 이재철 대표의 답은 솔직하고 실용적입니다. **점수의 절대적인 벤치마크는 존재하지 않습니다.** 중요한 것은 **우리 사이트가 이전 대비 좋아지는 방향으로 개선되고 있는가**입니다. 즉 **과거의 우리를 기준선으로 잡고, 개선했을 때 점수가 올라가는 형태로 운영하는 것**이 올바른 사용법입니다. 다만 그는 이 도구가 **처음 보는 개념이 많아** 배경 지식 없이 쓰기는 어렵다는 점도 인정하며, 그래서 컨설팅을 함께 제공한다고 뒤에서 설명합니다 (42:36).",
+        "en": "Everyone asks it: our audit says 70 — **is that good?** Is 86 good? Lee's answer is honest and practical: **there is no absolute benchmark for the score.** What matters is **whether your site is trending better than it was**. Treat **your own past self as the baseline and run it so the score rises as you fix things**. He does concede the tool involves **a lot of unfamiliar concepts**, making it hard to use without background — which is why he pairs it with consulting, discussed later (42:36)."
+      },
+      "script": {
+        "ko": "\"점수의 절대적인 벤치마크가 존재하는 건 아니고, 그냥 우리 사이트가 이전 대비 좋아지는 방향으로 개선을 하는 게 좋은 방향일 것 같습니다.\"",
+        "en": "\"There's no absolute benchmark for the score. The right direction is simply improving relative to where your own site was before.\""
+      }
+    },
+    {
+      "t": 2012,
+      "tLabel": "33:32",
+      "img": "images/shot-45.png",
+      "title": {
+        "ko": "기능 ③: 키워드 모니터링 보드",
+        "en": "Feature 3: The Keyword Monitoring Board"
+      },
+      "desc": {
+        "ko": "\"제조 AX\" 사례에서 봤듯 실제로 관리해야 할 키워드는 아주 많습니다. 헤일로X는 그 키워드들을 넣어 두면 **한 판에** 다음을 보여 줍니다 — **우리 사이트는 몇 등인지, 경쟁사는 몇 등인지, 그 키워드에 AI 오버뷰가 존재하는지(모든 키워드에 있는 건 아닙니다), 있다면 우리가 그 안에 들어갔는지, 경쟁사가 들어가 있는지, 검색량과 트렌드는 어떤지.** 여기에 더해 앞서 개념으로 배운 **키워드의 검색 의도(search intent)** 와 **연관 키워드**까지 함께 표시합니다. 진행자는 이 시점에서 \"알고 보니까 되게 좋다\"며 처음의 심드렁함을 거둡니다.",
+        "en": "As the \"manufacturing AX\" example showed, the real keyword set is large. Load them into HaloX and **a single board** shows: **your rank, the competitor's rank, whether an AI Overview exists for that query (it doesn't for all of them), whether you're inside it, whether competitors are, and the search volume and trend.** On top of that it surfaces the **search intent** behind each keyword and its **related keywords** — the concepts taught earlier. This is the point where the host drops his initial skepticism: \"okay, now that I understand it, this is really good.\""
+      },
+      "script": {
+        "ko": "\"키워드들을 넣었을 때 우리 사이트가 몇 등인지, 경쟁사가 몇 등인지, AI 오버뷰가 있다면 있는지 없는지, 그중에서 우리가 AI 오버뷰에 들어갔는지, 검색은 어떤지 트렌드는 어떤지.\"",
+        "en": "\"Load the keywords and you see your rank, the competitor's rank, whether an AI Overview exists, whether you're in it, the search volume, the trend.\""
+      }
+    },
+    {
+      "t": 2100,
+      "tLabel": "35:00",
+      "img": "images/shot-46.png",
+      "title": {
+        "ko": "고객 여정 맵을 네트워크로 시각화",
+        "en": "Visualizing the Customer Journey as a Network"
+      },
+      "desc": {
+        "ko": "앞서 개념으로만 설명했던 **검색 여정** (23:18) 이 여기서 실제 화면이 됩니다. 키워드는 기본적으로 연관 키워드와 연결되므로, 이를 **네트워크 그래프**로 그리면 **고객 여정 맵을 한눈에** 볼 수 있습니다. 이 지도 위에서 확인할 수 있는 것은 세 가지입니다 — **어떤 곳에서 우리가 지금 이기고 있는지, 어디서 지고 있는지, 그리고 앞으로 어떤 키워드를 점유하고 싶은지.** 데모 화면에서는 특정 노드는 **이미 우리가 먹고 있는 영역**으로, 다른 노드는 **경쟁 중(경합)** 인 상태로 색이 구분되어 표시됩니다. 추상적인 '키워드 리스트'가 **전장 지도**로 바뀌는 순간입니다.",
+        "en": "The **search journey** taught conceptually earlier (23:18) becomes an actual screen here. Since keywords connect to related keywords, drawing them as a **network graph** gives you **the customer journey map at a glance**. Three things become readable on that map: **where you're currently winning, where you're losing, and which keywords you want to take next.** In the demo, some nodes are colored as **territory you already own** while others show as **contested**. It's the moment an abstract keyword list turns into **a battlefield map**."
+      },
+      "script": {
+        "ko": "\"고객 여정 맵을 네트워크 같은 데서 한 번에 보면서 어떤 곳에서 우리가 지금 이기고 있는지 지고 있는지, 이기고 있다면 어떤 키워드를 또 점유하고 싶은지 같이 보실 수 있습니다.\"",
+        "en": "\"You view the customer journey map as a network — where you're winning, where you're losing, and which keyword you want to capture next.\""
+      }
+    },
+    {
+      "t": 2118,
+      "tLabel": "35:18",
+      "img": "images/shot-47.png",
+      "title": {
+        "ko": "땅따먹기 전략 — 큰 키워드는 돌아서 공략한다",
+        "en": "The Land-Grab Strategy — Take Big Keywords Sideways"
+      },
+      "desc": {
+        "ko": "이 영상에서 가장 실전적인 전략이 여기 있습니다. 예를 들어 **\"CRM 마케팅 성공 사례\"** 라는 키워드를 먹고 싶은데 경쟁이 너무 세다면? **정면으로 붙지 말고, 그와 연결된 다른 연관 키워드들을 먼저 점유한 뒤 이 키워드로 진격하는 \"땅따먹기\" 전략**을 씁니다. 여정 맵에서 **1차 연관 키워드**를 먼저 먹고, 그것도 너무 크다면 **2차 연관 키워드로 확장해서 다시 땅따먹기**를 시작합니다. 앞서 (10:00) 지적한 \"전략 없는 콘텐츠 양산\"의 정반대가 바로 이것입니다 — **어떤 키워드를 어떤 순서로 점유할지 설계한 다음에 콘텐츠를 만드는 것.**",
+        "en": "The most tactical idea in the video. Say you want the keyword **\"CRM marketing success stories\"** but competition is brutal. Don't attack head-on: **capture the related keywords around it first, then march on the big one — a land-grab strategy.** On the journey map you take the **first-degree related keywords** first, and if those are still too big, **expand to second-degree related keywords and start the land grab there**. This is the exact opposite of the strategy-free content dump criticized earlier (10:00): **design the order of capture first, then produce the content.**"
+      },
+      "script": {
+        "ko": "\"얘는 조금 어려울 수 있어요. 다른 연관된 키워드들을 먼저 먹고 얘를 먹어 나가는 땅따먹기 전략을 취할 수도 있겠네요. 1차 연관 키워드와 2차 연관 키워드까지 하면서 너무 크다면 2차 연관 키워드로 확장해서 다시 땅따먹기.\"",
+        "en": "\"That one might be too hard. Capture the related keywords first, then take it — a land-grab. First-degree, then second-degree if it's still too big.\""
+      }
+    },
+    {
+      "t": 2158,
+      "tLabel": "35:58",
+      "img": "images/shot-48.png",
+      "title": {
+        "ko": "왜 탑 10인가 — AI 인용의 약 60%",
+        "en": "Why Top 10 — Roughly 60% of AI Citations"
+      },
+      "desc": {
+        "ko": "여기서 GEO 전략을 정당화하는 **숫자**가 나옵니다. 모니터링 중인 키워드들 가운데 **탑 10 순위에 몇 개나 들어가 있는지**가 핵심 지표인데, 그 이유가 명확합니다 — **AI 오버뷰에 올라가는 콘텐츠 중 약 60%가 검색 결과 탑 10에서 나옵니다.** 그러므로 **일단 탑 10에 드는 것이 첫 번째 기준선**입니다. 그 다음 단계로 **AI 요약에 인용되었는지**, 그중에서 **자사의 순위는 어떻게 되는지**, 그리고 **평균 순위는 어떤지**를 보면서 점진적으로 개선해 나갑니다. 앞서 개념으로 말했던 \"구글 상위 = GPT 노출 확률\" (08:15) 이 여기서 정량적 근거를 얻습니다.",
+        "en": "Here's the **number** that justifies the whole GEO playbook. The headline metric is **how many of your monitored keywords sit in the top 10**, and the reason is concrete: **roughly 60% of what gets pulled into an AI Overview comes from the organic top 10.** So **cracking the top 10 is the first threshold.** From there you track **whether you were cited in the AI summary**, **where you rank among those cited**, and **your average position**, improving incrementally. The earlier claim that ranking on Google drives GPT visibility (08:15) gets its quantitative backing here."
+      },
+      "script": {
+        "ko": "\"탑 10에 올라가 있는 게 중요한 이유는 AI 오버뷰, 여기에 올라가는 것들 중에 약 60%가 탑 10 검색 결과예요. 그러다 보니까 일단 탑 10이 먼저 중요한 기준.\"",
+        "en": "\"Top 10 matters because about 60% of what lands in an AI Overview comes from the top 10 results. So top 10 is the first bar to clear.\""
+      }
+    },
+    {
+      "t": 2198,
+      "tLabel": "36:38",
+      "img": "images/shot-49.png",
+      "title": {
+        "ko": "기능 ④: 프롬프트 현황 — 멘션(M) 추적",
+        "en": "Feature 4: Prompt Tracking — Mentions (M)"
+      },
+      "desc": {
+        "ko": "GEO 전용 기능인 **프롬프트 현황**입니다. **GPT, 제미나이, 퍼플렉시티, 클로드**에 특정 질문(프롬프트)을 던지면 각 엔진이 답변을 생성합니다. 헤일로X는 그 답변을 파싱해 **인용과 소스 중에 우리 도메인이 있는지 없는지**, 그리고 **문장 내에서 우리 도메인·브랜드를 언급하고 있는지**를 자동으로 추적합니다. 데모 화면에서는 우리가 타깃하는 브랜드가 답변 문장 안에 등장하면 **초록색으로 하이라이트**되고, 이를 **멘션(Mention), 약자로 M** 이라고 부릅니다. 검색 순위 대신 **\"AI가 우리를 말해 주는가\"** 를 지표로 삼는 것이 GEO 측정의 출발점입니다.",
+        "en": "This is the GEO-native feature: **prompt tracking**. Fire a given prompt at **GPT, Gemini, Perplexity, and Claude** and each generates an answer. HaloX parses those answers to track **whether your domain appears among the sources and citations**, and **whether your domain or brand is named inside the sentences themselves**. In the demo, when the target brand appears in the answer text it's **highlighted in green** — that's a **Mention, tagged M**. Replacing rank with **\"is the AI talking about us?\"** is where GEO measurement begins."
+      },
+      "script": {
+        "ko": "\"문장 내 우리가 타겟하고 싶은 브랜드가 존재한다면 이런 식으로 초록색으로 뜨고, 이걸 멘션과 언급이라고 합니다. 그래서 M으로 체크합니다.\"",
+        "en": "\"If the brand you're targeting appears in the sentence, it lights up green — that's a mention, tagged M.\""
+      }
+    },
+    {
+      "t": 2232,
+      "tLabel": "37:12",
+      "img": "images/shot-50.png",
+      "title": {
+        "ko": "소스(S)와 인용(C) — 무엇이 URL을 얻는가",
+        "en": "Sources (S) and Citations (C) — What Earns the URL"
+      },
+      "desc": {
+        "ko": "멘션 다음 단계는 **소스**와 **인용**입니다. LLM은 문장을 구성할 때 다양한 곳에서 정보를 가져오는데, 그 출처를 **소스(Source)** 라고 합니다. 그리고 결정적인 부분은 이것입니다 — **그 소스들 중에서도 컨피던스 레벨이 높은 문장이고, 도메인 권위가 높다고 판단되면 문장 끝에 URL을 붙입니다.** GPT 답변 끝에 붙는 그 링크가 바로 **인용(Citation)** 입니다. 그래서 GEO의 측정 축은 세 겹입니다 — **① 멘션되었는가? ② 소스로 활용되었는가? ③ 그중에서 인용되었는가?** 여기에 **멘션되었다면 경쟁사 대비 몇 위로 추천되고 있는가**라는 순위 축이 더해져 **멘션 노출·소스 노출·인용 노출·멘션 순위**로 관리됩니다.",
+        "en": "After mentions come **sources** and **citations**. An LLM composes answers by pulling from many places; those origins are **sources**. The decisive detail: **when a sentence has high confidence and the domain is judged authoritative, the model attaches a URL at the end of the sentence.** That link at the end of a GPT answer is a **citation**. So GEO measurement has three layers — **① were you mentioned? ② were you used as a source? ③ were you actually cited?** — plus a ranking axis: **if mentioned, at what position versus competitors?** Together: mention rate, source rate, citation rate, and mention rank."
+      },
+      "script": {
+        "ko": "\"소스들 중에 컨피던스 레벨이 높은 문장, 그리고 도메인 권위가 높다고 판단되면 문장 끝에 URL을 붙여요. 그래서 이걸 인용이라고 하는 겁니다. 멘션 노출, 소스 노출, 인용 노출, 멘션 순위로 보는 겁니다.\"",
+        "en": "\"When a sentence has high confidence and the domain reads as authoritative, it appends a URL — that's a citation. You track mention rate, source rate, citation rate, and mention rank.\""
+      }
+    },
+    {
+      "t": 2272,
+      "tLabel": "37:52",
+      "img": "images/shot-51.png",
+      "title": {
+        "ko": "엔진별 편차와 언드 채널 전략",
+        "en": "Per-Engine Variance and Earned-Channel Strategy"
+      },
+      "desc": {
+        "ko": "이 파트에서 가장 흥미로운 발견은 **엔진마다 노출되는 정도와 인용하는 정도가 다르다**는 점입니다. 그래서 **엔진별 특성을 관찰하는 것 자체가 전략 자산**이 됩니다. 여기서 실전 응용이 나옵니다 — 데이터를 보다가 **\"허브스팟은 잘 노출되네, 위키피디아는 잘 되네\"** 를 발견하면, **\"그럼 위키피디아에 우리 브랜드를 노출시키는 전략을 써 볼까?\"** 라는 판단으로 이어집니다. 즉 우리 사이트(온드 채널)만 최적화하는 게 아니라, **AI가 신뢰하는 제3의 매체를 언드(earned) 채널 또는 보조 채널로 공략**하는 것입니다. 위키피디아 문서 기여, 해당 매체 컨택, 기고 등이 그 실행 수단이 됩니다.",
+        "en": "The most interesting finding here is that **each engine surfaces and cites at different rates**. Observing per-engine behavior therefore becomes **a strategic asset in itself**. The practical move: you look at the data, notice **\"HubSpot surfaces well, Wikipedia surfaces well,\"** and conclude **\"let's run a strategy to get our brand onto Wikipedia.\"** In other words, don't optimize only your owned site — **go after the third-party media the AI trusts, as earned or supporting channels**. Contributing to Wikipedia entries, contacting those outlets, and guest-writing become the execution tactics."
+      },
+      "script": {
+        "ko": "\"엔진별로 노출되는 정도, 저희를 인용하는 정도가 다르거든요. 그중에서 우리가 어떤 매체를 언드 채널로 쓸 건지, 허브스팟은 잘 노출되네, 위키피디아는 잘 되네. 그럼 위키피디아에 우리 브랜드 노출시키는 전략 한번 써 볼까?\"",
+        "en": "\"Engines differ in how much they surface and cite you. So which outlet do you use as an earned channel? HubSpot surfaces well, Wikipedia surfaces well — shall we run a Wikipedia strategy?\""
+      }
+    },
+    {
+      "t": 2328,
+      "tLabel": "38:48",
+      "img": "images/shot-52.png",
+      "title": {
+        "ko": "기능 ⑤: 콘텐츠 제작소",
+        "en": "Feature 5: The Content Studio"
+      },
+      "desc": {
+        "ko": "모니터링을 통해 **어떤 키워드를 점유해야 하는지** 결정했다면, SEO든 GEO든 결국 **콘텐츠가 필요**합니다. 그래서 마지막 기능이 **콘텐츠 제작소**입니다. 다만 그냥 글을 뽑아 주는 도구가 아닙니다. 콘텐츠를 쓰기 전에 이 도구는 해당 키워드에 대해 **자사 순위와 경쟁사 순위, 검색 볼륨, 경쟁 정도, 검색 결과에 등장하는 도메인과 그들의 타이틀·디스크립션, 그리고 AI 요약이 있다면 그 요약의 내용까지** 전부 확인합니다. 즉 **\"SEO가 좋아하는 콘텐츠\"를 만들기 위해 먼저 현재 그 자리를 차지한 콘텐츠를 해부**하는 구조입니다.",
+        "en": "Once monitoring tells you **which keyword to capture**, both SEO and GEO still require **content**. Hence the final feature: a **content studio**. But it isn't a text generator. Before writing anything it gathers, for that keyword, **your rank and competitors' ranks, search volume, competitive intensity, the domains appearing in results along with their titles and descriptions, and — if an AI summary exists — the content of that summary too.** In short, to write **content search engines like**, it first **dissects the content currently occupying that slot**."
+      },
+      "script": {
+        "ko": "\"결국은 모니터링 했고 어떤 키워드를 점유해야 되겠다라고 한다면 SEO든 GEO든 결국 콘텐츠가 필요하죠. 그러면 SEO가 좋아하는 콘텐츠를 만드는 게 중요합니다.\"",
+        "en": "\"Once monitoring tells you which keyword to capture, SEO or GEO, you still need content — content the engines like.\""
+      }
+    },
+    {
+      "t": 2368,
+      "tLabel": "39:28",
+      "img": "images/shot-53.png",
+      "title": {
+        "ko": "키워드마다 맞는 콘텐츠 형식이 다르다",
+        "en": "Each Keyword Wants a Different Content Format"
+      },
+      "desc": {
+        "ko": "여기서 나오는 통찰은 콘텐츠 기획자에게 특히 유용합니다. 현재 그 키워드로 **노출되고 있는 URL들의 콘텐츠 형식을 분석하면**, 그 키워드에 어떤 형식이 맞는지가 드러납니다 — **가이드형이 좋겠다, 리뷰형이 좋겠다, 비교형이 좋겠다, 하우투(How-to)형이 좋겠다.** 즉 같은 주제라도 검색 의도에 따라 이겨야 할 콘텐츠 형식이 다르다는 뜻입니다. 여기에 더해 **그 키워드를 검색하는 사람들이 느끼는 페인포인트**까지 뽑아내 콘텐츠의 단서로 제공합니다. \"일단 블로그 글을 쓰자\"가 아니라 **\"이 키워드는 비교표가 있는 비교형 글로 이겨야 한다\"** 는 수준의 의사결정입니다.",
+        "en": "A genuinely useful insight for content planners: **analyze the content format of the URLs currently ranking** for a keyword and the right format reveals itself — **a guide, a review, a comparison, or a how-to.** The same topic demands different formats depending on search intent. On top of that, the tool extracts **the pain points felt by people searching that keyword** and hands them over as raw material. This upgrades the decision from \"let's write a blog post\" to **\"this keyword must be won with a comparison piece containing a comparison table.\"**"
+      },
+      "script": {
+        "ko": "\"노출되고 있는 URL들의 콘텐츠 형식을 보니 이 키워드는 가이드형이 좋겠다, 리뷰형이 좋겠다, 비교형이 좋겠다, 하우투형이 좋겠다라는 것들을 제안하고요.\"",
+        "en": "\"Looking at the content formats of the ranking URLs, it suggests: this keyword wants a guide, or a review, or a comparison, or a how-to.\""
+      }
+    },
+    {
+      "t": 2402,
+      "tLabel": "40:02",
+      "img": "images/shot-54.png",
+      "title": {
+        "ko": "목차 설계 — SERP와 PAA에 답하는 구조",
+        "en": "Outline Design — Answering the SERP and the PAA"
+      },
+      "desc": {
+        "ko": "**목차를 짜는 것이 되게 중요하다**고 이재철 대표는 강조합니다. 좋은 목차의 조건은 두 가지입니다. 첫째, **각 목차 항목이 어떤 질문에 대한 답변이 되는 것.** 둘째, **타이틀·디스크립션에서 반복적으로 등장한 문장을 차용하는 것.** 그래서 도구는 **SERP(검색 결과)에 대응하는 목차인지, PAA 질문에 대응하는 목차인지**를 구분해 제안하고, 나아가 **AI 오버뷰와 PAA를 지금 커버하고 있는지 못 하고 있는지**까지 짚어 줍니다. 이는 앞서 진행자가 스스로 깨달은 **\"PAA 질문을 그대로 콘텐츠로 만들면 된다\"** (24:22) 를 자동화한 것입니다. 여기에 **통계 숫자**를 넣으라는 조언도 덧붙습니다 — **AI와 구글은 통계적인 숫자를 좋아합니다.**",
+        "en": "Lee stresses that **designing the outline matters a great deal**. A good outline satisfies two conditions: **each section answers a specific question**, and **it borrows phrasing that recurs across the ranking titles and descriptions**. So the tool proposes outlines distinguished by **whether a section responds to the SERP or to a PAA question**, and flags **whether you're currently covering the AI Overview and PAA or missing them**. It's the automation of what the host worked out himself (24:22). One more tip: include **statistics** — **AI and Google both favor statistical numbers.**"
+      },
+      "script": {
+        "ko": "\"목차들은 보통 가장 좋은 건 이런 질문에 대한 답변이 되는 것. 그리고 타이틀 디스크립션에서 반복적으로 등장한 문장을 차용하면 좋습니다. 서프에 대응하는 목차이냐, PAA 질문에 대응하는 목차이냐.\"",
+        "en": "\"The best outline sections are answers to questions, and they borrow phrasing that recurs in the ranking titles and descriptions — responding either to the SERP or to a PAA question.\""
+      }
+    },
+    {
+      "t": 2452,
+      "tLabel": "40:52",
+      "img": "images/shot-55.png",
+      "title": {
+        "ko": "GPT는 중립성을 좋아한다 — 비교 콘텐츠의 힘",
+        "en": "GPT Likes Neutrality — The Power of Comparison Content"
+      },
+      "desc": {
+        "ko": "제품을 콘텐츠에 녹이는 방법에 대한 조언입니다. 핵심 원리는 하나 — **GPT는 중립성을 좋아합니다.** 그래서 자사 제품을 홍보하고 싶을수록 오히려 **비교 콘텐츠를 쓰는 것이 유리합니다.** 도구는 자사 제품을 **균형적으로 다룰지, 자사 중심으로 다룰지**, 그리고 **본문 중간에 표 형식으로 노출할지, 마지막에 간략하게 노출할지**까지 선택지로 제공합니다. 노골적인 자사 홍보 글은 LLM이 인용하지 않고, **여러 대안을 공정하게 비교한 글은 인용될 확률이 높아진다**는 것 — 전통적인 콘텐츠 마케팅의 상식이 GEO 시대에는 **측정 가능한 전술**이 됩니다.",
+        "en": "Advice on weaving your product into content, built on one principle: **GPT likes neutrality.** So the more you want to promote your product, the more **writing comparison content works in your favor**. The tool offers choices: handle your product **even-handedly or self-centeredly**, and place it **as a comparison table mid-article or as a brief mention at the end**. Nakedly promotional posts don't get cited; **pieces that compare several options fairly are far more likely to be**. Classic content-marketing wisdom becomes **a measurable tactic** in the GEO era."
+      },
+      "script": {
+        "ko": "\"GPT가 중립성을 좋아하다 보니까 비교 콘텐츠를 쓰는 걸 좋아합니다. 혹은 균형적으로, 혹은 자사 중심적으로 쓸 수도 있겠죠.\"",
+        "en": "\"Because GPT favors neutrality, comparison content works well. You can also go balanced, or lean toward your own product.\""
+      }
+    },
+    {
+      "t": 2482,
+      "tLabel": "41:22",
+      "img": "images/shot-56.png",
+      "title": {
+        "ko": "AI가 좋아하는 도메인과 문장을 수집해 두었다",
+        "en": "A Collected Library of AI-Favored Domains and Sentences"
+      },
+      "desc": {
+        "ko": "영상 도입부의 훅으로 쓰였던 문장이 여기서 완성됩니다. **AI에는 좋아하는 도메인과 좋아하는 문장이 존재합니다.** 헤일로X는 그 **AI가 좋아하는 도메인과 문장을 모두 수집해 놓았습니다.** 그리고 콘텐츠를 쓸 때 **이미 AI가 선호하는 것으로 검증된 문장 구조와 도메인을 활용하면, 훨씬 더 노출될 확률이 높아진다**는 것이 핵심 주장입니다. 이는 앞의 **\"GPT는 왜 이렇게 답했을까\"** (06:55) 라는 질문을 데이터로 답한 결과물이기도 합니다 — 답변을 만든 재료를 역으로 수집해 두고, 그 재료로 다시 콘텐츠를 만드는 순환 구조입니다.",
+        "en": "The line used as the video's opening hook completes here: **AI has domains it likes and sentences it likes.** HaloX has **collected that library of AI-favored domains and sentence patterns**. The claim is that writing with **structures and domains already validated as AI-preferred substantially raises your odds of surfacing**. This is also the data-driven answer to the earlier question **\"why did GPT answer that way?\"** (06:55) — harvest the ingredients that produced the answers, then compose new content out of those same ingredients."
+      },
+      "script": {
+        "ko": "\"AI가 좋아하는 도메인, AI가 좋아하는 문장들입니다. 이 문장과 도메인을 가지고 콘텐츠를 쓰면 훨씬 더 노출될 확률이 높다는 겁니다.\"",
+        "en": "\"These are the domains AI likes and the sentences AI likes. Write with them and your odds of surfacing go up substantially.\""
+      }
+    },
+    {
+      "t": 2516,
+      "tLabel": "41:56",
+      "img": "images/shot-57.png",
+      "title": {
+        "ko": "페르소나 — 우리 브랜드의 문체를 유지하기",
+        "en": "Persona — Preserving Your Brand's Own Voice"
+      },
+      "desc": {
+        "ko": "마지막 조립 단계입니다. 오랫동안 써 온 **콘텐츠 스타일을 페르소나(persona)로 만들어 두고**, 여기에 추가적인 컨텍스트를 더해 콘텐츠를 생성합니다. 이는 앞서 지적된 **\"AI가 쓴 티가 나는 글은 신뢰가 떨어진다\"** (11:58) 는 문제를 정면으로 해결하는 장치입니다. 최종 산출물은 구조까지 갖춰 나옵니다 — **TLDR(요약)부터 소개, 개념, 분석, 그리고 AI가 좋아하는 비교표, 마지막으로 레퍼런스(출처) 표기**까지. 즉 사람이 읽기에도 좋고 **LLM이 인용하기에도 좋은 형식**으로 완성됩니다. 진행자는 이 지점에서 \"되게 과학적으로 접근하신다\"고 평하고, 이재철 대표는 \"숫자와 원리를 좋아하는 편\"이라고 답합니다.",
+        "en": "The final assembly step. Your long-standing **writing style is captured as a persona**, then additional context is layered on to generate the piece. This directly addresses the earlier complaint that **AI-sounding copy erodes trust** (11:58). The output arrives fully structured: **a TLDR, an intro, concepts, analysis, an AI-friendly comparison table, and reference citations at the end.** In other words, a format that reads well for humans and is **easy for an LLM to cite**. The host calls the approach \"remarkably scientific\"; Lee replies that he simply \"likes numbers and first principles.\""
+      },
+      "script": {
+        "ko": "\"이미 오랫동안 썼던 콘텐츠 스타일이 존재하겠죠. 그걸 페르소나로 만들어 놓은 거고요. 그렇게 콘텐츠를 만들면 TLDR부터 소개, 개념, 분석, 비교표, 레퍼런스 같은 걸 찍어 주는 겁니다.\"",
+        "en": "\"You already have a long-standing writing style — that becomes the persona. The output then comes as a TLDR, intro, concepts, analysis, comparison table, and references.\""
+      }
+    },
+    {
+      "t": 2568,
+      "tLabel": "42:48",
+      "img": "images/shot-58.png",
+      "title": {
+        "ko": "누구에게 맞는 도구인가",
+        "en": "Who Is This Tool Actually For?"
+      },
+      "desc": {
+        "ko": "솔직한 답변이 이어집니다. 지금까지 보여 준 것처럼 **정보와 개념, 특히 SEO에 대한 테크니컬한 배경 지식이 없으면 이 도구를 쓰기는 사실 어렵습니다.** 그래서 대상은 이렇게 나뉩니다 — **이 분야를 어느 정도 고민하고 최적화해 온 사람이라면 어렵지 않게 쓸 수 있고**, 그렇지 않다면 **컨설팅을 함께 진행하며 도와주는 방식**을 제공합니다. 나아가 그는 SEO 자체에 대해 이렇게 정리합니다 — **SEO는 스타트업부터 대기업까지 막론하고 중요하고, 최근 각광받기 시작한 GEO 영역에 대응해야 한다면 반드시 해야 하는 영역**이며, 모든 기업이 관심을 갖고 시도해 보기를 권합니다.",
+        "en": "A candid answer follows: given how much information and concept load it carries — **especially technical SEO background — the tool is genuinely hard to use without that grounding.** So the audience splits: **anyone who has already wrestled with and optimized in this space can pick it up easily**, and everyone else is offered **consulting alongside the product**. He generalizes about SEO itself too: **it matters from startups to enterprises, and if you need to respond to the newly hot GEO space, it's simply mandatory** — he'd like every company to take an interest and try."
+      },
+      "script": {
+        "ko": "\"SEO에 대한 테크니컬한 정보들이 바탕이 되지 않으면 사실 좀 쓰기는 어렵습니다. SEO는 스타트업부터 대기업까지 막론하고 중요하고, 특히 GEO 영역을 대응해야 된다면 꼭 해야 되는 영역이라고 생각하고 있습니다.\"",
+        "en": "\"Without technical SEO grounding it's genuinely hard to use. SEO matters from startups to enterprises, and if you have to respond to GEO, it's mandatory.\""
+      }
+    },
+    {
+      "t": 2628,
+      "tLabel": "43:48",
+      "img": "images/shot-59.png",
+      "title": {
+        "ko": "자원 배분 — 데려오는 마케팅 vs 머무르게 하는 마케팅",
+        "en": "Allocating Resources — Acquisition vs Retention Marketing"
+      },
+      "desc": {
+        "ko": "마지막 질문은 현실적인 고민입니다. **자원은 한정되어 있는데** 퍼포먼스 마케팅도, CRM도, SEO도 다 해야 할 것 같을 때 어떻게 배분해야 할까요? 이재철 대표는 마케팅을 **두 부류**로 나눕니다 — **고객을 데리고 오는 마케팅**과 **고객을 머무르게 하는 마케팅**입니다. **SEO와 퍼포먼스 마케팅은 데려오는 쪽**, **CRM 마케팅은 머무르게 하는 쪽**입니다. 그리고 핵심은 **둘 중 하나를 고르는 것이 아니라는 점**입니다. 어느 정도 어퀴지션을 부어서 **들어온 고객이 실제로 머무르는지 보면서 사이트를 개선해 나가야** 하므로, **이 두 가지는 계속 반복해야** 합니다.",
+        "en": "The closing question is a practical one: **resources are finite**, yet performance marketing, CRM, and SEO all feel mandatory — how do you allocate? Lee splits marketing into **two families**: **marketing that brings customers in** and **marketing that keeps them**. **SEO and performance marketing are acquisition; CRM is retention.** The crucial point is that **it isn't a choice between them**. You pour in some acquisition, then **watch whether arriving customers actually stay and improve the site accordingly** — so **the two must be run in a continuous loop.**"
+      },
+      "script": {
+        "ko": "\"마케팅은 크게 두 부류로 나눠집니다. 고객을 데리고 오는 마케팅, 그리고 고객을 머무르게 하는 마케팅. SEO와 퍼포먼스 마케팅은 데려오는 쪽, CRM 마케팅은 머무르게 하는 쪽입니다.\"",
+        "en": "\"Marketing splits in two: marketing that brings customers in, and marketing that keeps them. SEO and performance bring them in; CRM keeps them.\""
+      }
+    },
+    {
+      "t": 2672,
+      "tLabel": "44:32",
+      "img": "images/shot-60.png",
+      "title": {
+        "ko": "SEO는 장기전 — 1~6개월, 그래서 병행하라",
+        "en": "SEO Is a Long Game — 1 to 6 Months, So Run It in Parallel"
+      },
+      "desc": {
+        "ko": "실행 순서에 대한 구체적인 답이 나옵니다. **SEO는 당연히 처음부터 시작하되, 결과와 성과를 보는 데까지 오래 걸립니다 — 짧으면 한두 달, 길면 6개월씩 걸리는 대작업입니다.** 그래서 권장 조합은 이렇습니다. **① SEO는 처음부터 시작해 두고**, **② 빠르게 성과를 보고 판단하고 서비스를 개선해야 한다면 퍼포먼스 마케팅으로 트래픽을 부어 주고**, **③ CRM으로 그 유저들이 떠나지 않게 하는 작업을 동시에** 합니다. 즉 **SEO의 느린 복리 효과와 퍼포먼스의 빠른 피드백 루프를 함께 돌리는 것**이 자원이 한정된 조직의 현실적인 해법입니다. 진행자는 웃으며 \"할 일이 많네요\"라고 답합니다.",
+        "en": "A concrete answer on sequencing: **start SEO from day one, but expect a long wait for results — one or two months at best, up to six months for the full effect.** So the recommended mix is: **① begin SEO immediately**, **② if you need fast signal to judge and iterate on the product, pour traffic in with performance marketing**, and **③ simultaneously use CRM to keep those users from leaving.** In other words, **run SEO's slow compounding alongside performance marketing's fast feedback loop** — the realistic answer for a resource-constrained team. The host laughs: \"that's a lot of work.\""
+      },
+      "script": {
+        "ko": "\"SEO는 결과를 보는 데까지 좀 오래 걸립니다. 짧으면 한두 달, 길면 6개월씩 걸리는 대작업이고요. 처음부터 SEO를 시작하되, 퍼포먼스로 트래픽을 부어 주고 CRM으로 그 유저들이 떠나지 않게 하는 작업을 동시에 해야 되죠.\"",
+        "en": "\"SEO takes a long time to show results — one or two months at best, six at worst. Start it from day one, but pour traffic in with performance marketing and use CRM to keep those users.\""
+      }
+    },
+    {
+      "t": 2720,
+      "tLabel": "45:20",
+      "img": "images/shot-61.png",
+      "title": {
+        "ko": "마무리 — 한국의 GEO는 이제 시작이다",
+        "en": "Closing — GEO in Korea Is Only Beginning"
+      },
+      "desc": {
+        "ko": "마지막 메시지에서 이재철 대표는 시장 현실을 짚습니다. **SEO와 GEO는 한국 시장이 해외 대비 확실히 많이 뒤처져 있고**, 다른 마케팅 영역에 비해 관심이 덜한 영역이었습니다. 다만 **GEO로 넘어오면서 관심이 많이 생기고 있으며**, 그는 **플레이어들이 더 많이 생기고, 많은 공부를 통해 이 산업 자체가 확장되기를** 바란다고 말합니다. 진행자도 **\"GEO는 곧 메인스트림이 되지 않을까, 아니 이미 메인스트림으로 자리 잡았다고 본다\"** 며 마무리합니다. 이 영상 전체를 한 문장으로 요약하면 이렇습니다 — **GEO는 새로운 마법이 아니라, 제대로 된 SEO 위에 \"AI가 우리를 어떻게 읽고 인용하는가\"라는 측정 축을 하나 더 얹는 일입니다.**",
+        "en": "In his closing message Lee names the market reality: **Korea lags noticeably behind other markets on SEO and GEO**, and the field has drawn less attention than other marketing disciplines. But **interest is rising as GEO arrives**, and he hopes **more players enter and the industry expands through serious study**. The host signs off saying **\"GEO will soon be mainstream — actually, I think it already is.\"** The whole episode compresses to one sentence: **GEO isn't new magic; it's proper SEO plus one more measurement axis — how AI reads and cites you.**"
+      },
+      "script": {
+        "ko": "\"SEO와 GEO가 한국 시장이 해외 대비 확실히 좀 많이 뒤쳐져 있긴 합니다. 이제 GEO가 넘어오면서 관심이 많이 생기고 있는 것 같습니다. 많이 공부해 보시고 많이 관심 가져 주시면 좋을 것 같습니다.\"",
+        "en": "\"Korea is clearly behind other markets on SEO and GEO. Interest is growing now that GEO has arrived — I hope people study it and pay attention.\""
+      }
+    }
+  ]
+}

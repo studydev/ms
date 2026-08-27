@@ -1,0 +1,1309 @@
+{
+  "videoId": "6S_3OfKM-No",
+  "watchUrl": "https://www.youtube.com/watch?v=6S_3OfKM-No",
+  "thumb": "images/thumbnail.jpg",
+  "durationLabel": "45:56",
+  "langs": [
+    [
+      "ko",
+      "한국어"
+    ],
+    [
+      "en",
+      "English"
+    ]
+  ],
+  "defaultLang": "ko",
+  "kicker": {
+    "ko": "YouTube 팟캐스트 · 빌더조쉬 × 헤일로X 이재철 대표",
+    "en": "YouTube podcast · Builder Josh × Jaecheol Lee, CEO of HaloX"
+  },
+  "speakers": {
+    "host": {
+      "name": {
+        "ko": "빌더조쉬",
+        "en": "Builder Josh"
+      },
+      "img": "images/josh.png"
+    },
+    "guest": {
+      "name": {
+        "ko": "이재철 대표",
+        "en": "Jaecheol Lee"
+      },
+      "img": "images/jaecheol.png"
+    },
+    "stage": {
+      "name": {
+        "ko": "현장",
+        "en": "In the room"
+      },
+      "initial": {
+        "ko": "",
+        "en": ""
+      }
+    }
+  },
+  "title": {
+    "ko": "GPT·Claude가 <span class=\"ac\">우리 브랜드를 추천하게</span> 만드는 법",
+    "en": "How to Make GPT and Claude <span class=\"ac\">Recommend Your Brand</span>"
+  },
+  "subtitle": {
+    "ko": "SEO 전문가이자 헤일로X 대표인 이재철 님에게 GEO(생성형 엔진 최적화)를 처음부터 배웁니다. 실제 웹사이트를 라이브로 진단받는 과정까지 오간 순서 그대로 옮겼습니다. 개념 용어는 필요할 때만 펼쳐 볼 수 있도록 접어 두었습니다.",
+    "en": "Learning GEO (Generative Engine Optimization) from scratch with Jaecheol Lee, SEO specialist and founder of HaloX — including a live audit of a real website. Reproduced turn by turn, with jargon tucked into boxes you can expand when you need them."
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "t": 26,
+      "title": {
+        "ko": "오프닝 — 오늘의 게스트",
+        "en": "Opening — Today's Guest"
+      }
+    },
+    {
+      "type": "q",
+      "t": 26,
+      "text": {
+        "ko": "안녕하세요 구독자 여러분. **오늘 팟캐스트에는 헤일로X의 이재철 대표님을 모셨습니다.**\n\n여러분 **SEO, GEO** 많이 궁금하셨잖아요. 오늘 큰 기대해 주셨으면 좋겠습니다. 대표님, 소개 부탁드립니다.",
+        "en": "Hello, subscribers. **Today we have Jaecheol Lee, CEO of HaloX, joining the podcast.**\n\nYou've all been curious about **SEO and GEO** — I hope you're looking forward to this. Please introduce yourself."
+      }
+    },
+    {
+      "type": "a",
+      "t": 60,
+      "text": {
+        "ko": "안녕하세요. 저는 현재 **헤일로X라는 SEO 관련 솔루션을 만드는 솔로프리너 컴퍼니 빌더**로 일하고 있습니다.\n\n오랫동안 마케팅 일을 해왔고, 마케팅에서 **퍼포먼스, SEO, 그로스, CRM 등 특히 데이터 기반의 마케팅**을 많이 해왔습니다.\n\n그 과정에서 **AI를 활용해서 반복되는 일들의 생산성을 높이고 자동화하면 좋겠다**는 고민을 하다 보니, **SEO를 먼저 타깃으로 잡아 솔루션으로 만들어 서비스하고 있습니다.**",
+        "en": "Hello. I currently work as **a solopreneur company builder making an SEO solution called HaloX.**\n\nI've been in marketing for a long time — **performance marketing, SEO, growth, CRM, and especially data-driven marketing.**\n\nAlong the way I kept thinking about **using AI to raise productivity and automate the repetitive parts.** That led me to **target SEO first and build it into a product.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 105,
+      "title": {
+        "ko": "SEO란 무엇인가 — 크롤·색인·랭킹",
+        "en": "What Is SEO — Crawl, Index, Rank"
+      }
+    },
+    {
+      "type": "q",
+      "t": 105,
+      "text": {
+        "ko": "오늘 얘기하고자 하는 건 **SEO, GEO 관련된 부분**인데요. **SEO가 뭐고 GEO가 뭔지 아예 모르시는 분들도 계실 것 같아서**, 한번 말씀해 주실 수 있을까요?",
+        "en": "What we want to talk about today is **SEO and GEO.** **Some people may not know what either of them is** — could you explain?"
+      }
+    },
+    {
+      "type": "a",
+      "t": 115,
+      "text": {
+        "ko": "좋습니다. **SEO는 Search Engine Optimization의 약자**입니다. **검색 엔진을 최적화해서, 특정 키워드가 검색됐을 때 내 제품이 노출되기를 기대하는 것**이죠. 예를 들어 구글과 네이버에서요.\n\n여기에는 **비용이 들지 않습니다. 시간과 노력이 드는 거죠.**\n\n그래서 **시간과 노력이라는 자원이 상대적으로 풍부한 솔로프리너에게는 최적의 마케팅 방법**입니다.",
+        "en": "**SEO stands for Search Engine Optimization.** **You optimize for the search engine so that when a particular keyword is searched, your product shows up** — on Google or Naver, for example.\n\n**It doesn't cost money. It costs time and effort.**\n\nWhich makes it **an ideal marketing method for a solopreneur**, who tends to have relatively more of those two resources."
+      }
+    },
+    {
+      "type": "q",
+      "t": 145,
+      "text": {
+        "ko": "쉽게 풀어보면, **검색 결과 상위에 노출되기 위해 해야 할 활동**이 제가 알기로는 **블로그에 글을 많이 써놓는 것, 콘텐츠를 많이 쌓아놓는 것** 같은데요. **단순히 그렇게만 봐도 되나요?**",
+        "en": "To put it simply — my understanding is that **the work of ranking higher in search is mostly writing lots of blog posts and accumulating content.** **Is it really just that?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 163,
+      "text": {
+        "ko": "그렇게 봐도 괜찮은데요. **오랫동안 좋은 콘텐츠를 만들어 왔다면, SEO 관점에서는 이 사이트의 신뢰도와 권위가 어떤 주제에 대해 쌓였다고 볼 수 있습니다.** 그래서 **콘텐츠 SEO라는 관점에서는 충분히 매력적이죠.**\n\n**그런데 SEO라는 워크플로 안에 콘텐츠만 해당되지는 않습니다.**",
+        "en": "That's a fair way to see it. **If you've made good content for a long time, from an SEO perspective you've built up the site's trust and authority on a given topic.** So **as content SEO, it's plenty attractive.**\n\n**But content isn't the whole of the SEO workflow.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 191,
+      "text": {
+        "ko": "SEO는 **검색 엔진을 최적화한다**고 했죠. 구글을 예로 들어 **\"AX 정의\"** 라는 키워드로 검색한다고 해봅시다. 그러면 결과가 순서대로 노출될 겁니다.\n\n노출되는 이유는 이렇습니다. **먼저 구글 봇이 사이트에 접근하고, 그 봇이 사이트의 콘텐츠를 읽어서 색인(index)하고, 어떤 키워드에 노출하면 좋겠다고 랭킹을 매깁니다.**\n\n**즉 크롤(crawl)하고, 색인(index)하고, 랭킹(rank)하는 과정이 있는 겁니다.**",
+        "en": "SEO means **optimizing for the search engine.** Say someone searches Google for **\"definition of AX.\"** Results appear in some order.\n\nHere's why. **First Google's bot reaches the site, reads its content, indexes it, and assigns a ranking for which keywords it should appear under.**\n\n**So there's a process: crawl, index, rank.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 221,
+      "text": {
+        "ko": "**콘텐츠는 그중에서 '색인'의 최적화입니다. 어떤 정보를 색인할 것인가.**\n\n**그런데 '어떤 봇이 어떻게 들어와서 사이트를 이해할 것인가' 하는 크롤 영역이 아직 비어 있는 거죠. 이게 테크니컬 SEO입니다.**\n\n**그래서 이 두 가지가 잘되면 랭킹이 높아진다는 겁니다.**",
+        "en": "**Content optimizes the indexing part — what information gets indexed.**\n\n**But the crawl side — how a bot enters and understands your site — is still empty. That's technical SEO.**\n\n**When both are done well, your ranking rises.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "크롤 · 색인 · 랭킹 (Crawl · Index · Rank)",
+      "kr": {
+        "ko": "검색 엔진이 작동하는 3단계",
+        "en": "the three stages of a search engine"
+      },
+      "body": {
+        "ko": "검색 엔진은 **세 단계**로 작동합니다. 이 구분을 알면 SEO 작업이 왜 두 갈래로 나뉘는지 명확해집니다.\n\n**① 크롤(Crawl) — 수집**\n검색 엔진의 **봇(크롤러)** 이 웹을 돌아다니며 페이지를 방문합니다. 여기서 막히면 **아무리 좋은 콘텐츠도 존재하지 않는 것과 같습니다.** 사이트 속도, URL 구조, robots.txt, 렌더링 방식이 이 단계에 영향을 줍니다.\n\n**② 색인(Index) — 저장과 이해**\n수집한 페이지의 내용을 **읽고 분류해 거대한 데이터베이스에 저장**합니다. \"이 페이지는 어떤 주제에 관한 것인가\"를 판단하는 단계죠. **콘텐츠의 질과 주제 일관성이 여기서 작동합니다.**\n\n**③ 랭킹(Rank) — 순위 결정**\n사용자가 검색했을 때 **색인된 것들 중 무엇을 먼저 보여줄지 정합니다.**\n\n대담에서 이재철 대표가 짚는 핵심은 이것입니다. **대부분의 사람이 ②번(콘텐츠)만 신경 쓰지만, ①번(테크니컬)이 막혀 있으면 ②번은 시작조차 되지 않습니다.** 그래서 **테크니컬 SEO가 콘텐츠보다 선행 조건**인 것입니다.",
+        "en": "A search engine works in **three stages.** Understanding them clarifies why SEO work splits into two branches.\n\n**① Crawl — collection**\nThe engine's **bot (crawler)** travels the web visiting pages. If it's blocked here, **even excellent content effectively doesn't exist.** Site speed, URL structure, robots.txt and rendering method all act at this stage.\n\n**② Index — storage and comprehension**\nThe collected pages are **read, classified and stored in a vast database.** This is where \"what topic is this page about?\" gets decided — **content quality and topical consistency operate here.**\n\n**③ Rank — ordering**\nWhen a user searches, the engine decides **which of the indexed pages to show first.**\n\nThe key point Lee makes: **most people only attend to ② (content), but if ① (technical) is blocked, ② never even begins.** **Technical SEO is a precondition for content SEO.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 249,
+      "text": {
+        "ko": "**테크니컬 SEO는 예를 들면 뭘 잘해 놔야 되나요?**",
+        "en": "**What does technical SEO actually involve?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 255,
+      "text": {
+        "ko": "**사이트 속도가 좋아야 하는 것**이 당연히 포함되고요.\n\n그다음에 **사람이 보는 콘텐츠 외에 봇이 보는 콘텐츠가 따로 존재합니다.** **메타 정보**라고 하죠. **타이틀, 디스크립션, 스키마 정보** 같은 것들이 해당됩니다.\n\n그 외에도 **사이트의 기본적인 URL 구조** 같은 것들도 마찬가지로 테크니컬한 부분입니다.",
+        "en": "**Site speed**, obviously.\n\nThen there's **content the bot sees that humans don't** — the **meta information**: **title, description, schema data.**\n\nBeyond that, things like **the site's basic URL structure** are also part of the technical layer."
+      }
+    },
+    {
+      "type": "q",
+      "t": 277,
+      "text": {
+        "ko": "국내 검색 엔진이라면 **네이버와 구글** 투 톱이 있잖아요. **저 같은 B2B 기업이라면 어느 쪽을 먼저 신경 쓰는 게 좋을까요?**",
+        "en": "In Korea the two big search engines are **Naver and Google.** **For a B2B company like mine, which should I focus on first?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 288,
+      "text": {
+        "ko": "**B2B 기업이라면 어떤 버티컬 비즈니스에 대한 전문성을 가진 기업**이란 말이에요. 그러면 **그 분야 카테고리에 대한 전문 정보는, 우리 자신부터가 네이버보다 구글을 검색하는 빈도가 이미 높습니다.**\n\n**우리의 검색 패턴을 보더라도 구글이 맞다**는 거죠.",
+        "en": "**A B2B company has expertise in some vertical business.** And **for specialist information in that category, we ourselves already search Google more often than Naver.**\n\n**Even just looking at our own search behavior, Google is the answer.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 310,
+      "text": {
+        "ko": "**국내 네이버·구글의 점유율이 정확하게 나온 건 아니지만**, 자료 조사를 바탕으로 보면 **전체적으로는 네이버 점유율이 높긴 하지만, 이런 전문성 높은 버티컬에서는 구글의 점유율이 훨씬 압도적으로 높은 것**으로 나왔습니다.",
+        "en": "**There's no exact figure for Naver versus Google share in Korea**, but based on the research available, **Naver's overall share is higher — yet in these high-expertise verticals, Google's share is overwhelmingly dominant.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 340,
+      "title": {
+        "ko": "GEO란 무엇인가 — 그리고 왜 SEO와 맞닿아 있는가",
+        "en": "What Is GEO — and Why It Meets SEO"
+      }
+    },
+    {
+      "type": "q",
+      "t": 340,
+      "text": {
+        "ko": "다음 질문은 **GEO**입니다. 요즘 핫하죠. **SEO 다음 단계로 많은 화두가 된 게 사실인 것 같아요.** 특히 작년 말부터였던 것 같고요.\n\n**대표님은 뭐라고 정의하시고, 어떻게 하면 잘할 수 있다고 말씀하시는지 궁금해요.**",
+        "en": "The next question is **GEO** — it's hot right now. **It's become a big topic as the next stage after SEO**, especially since late last year.\n\n**How do you define it, and how do you say one does it well?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 361,
+      "text": {
+        "ko": "**SEO가 Search Engine Optimization의 약자였던 것처럼, GEO는 Generative Engine Optimization**입니다.\n\n**LLM으로 대표되는 GPT, Claude, 퍼플렉시티로 우리가 검색하는 패턴이 넘어가고 있다는 겁니다.** **어떤 정보를 탐색하고 이해하고 비교하는 과정에서, 우리는 구글·네이버보다 이제 GPT로 넘어가는 과정에 있는 거죠.**",
+        "en": "**Just as SEO stands for Search Engine Optimization, GEO is Generative Engine Optimization.**\n\n**Our search behavior is shifting to LLMs — GPT, Claude, Perplexity.** **In the process of exploring, understanding and comparing information, we're moving from Google and Naver to GPT.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 385,
+      "text": {
+        "ko": "그 과정에서 브랜드나 비즈니스는 고민이 되는 거죠. **결국 구글과 네이버에서 우리 브랜드가 특정 검색어에서 비교되고 노출되길 기대했었다면, 이제 당연히 GPT에서도 노출되면 좋겠다는 겁니다.**\n\n**SEO가 구글의 알고리즘을 이해해서 상위에 노출하는 전략을 취했다면, 똑같은 겁니다. GPT의 답변 결과 안에서 우리 브랜드가 노출되길 기대하는 전략을 고민해 보는 것.**\n\n**즉, \"GPT는 왜 이 답변을 이렇게 했을까?\"를 고민하는 겁니다.**",
+        "en": "That creates a question for brands and businesses. **If you used to hope your brand would be compared and shown for certain queries on Google and Naver, now you naturally want to show up in GPT too.**\n\n**SEO meant understanding Google's algorithm to rank higher. This is the same thing** — **thinking about how to get your brand to appear inside GPT's answers.**\n\n**In other words: \"why did GPT answer this way?\"**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 419,
+      "text": {
+        "ko": "**SEO 작업이 콘텐츠나 테크니컬한 부분을 최적화하는 형태였다면, GEO는 대체적으로 어떤 걸 최적화해야 하나요?**",
+        "en": "**If SEO work meant optimizing content and technical elements, what does GEO optimization consist of?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 432,
+      "text": {
+        "ko": "**GEO는 결국 SEO와 맞닿아 있습니다.**\n\n**GPT나 제미나이, 퍼플렉시티, Claude의 검색 패턴을 보면, 결국 어딘가에 가서 검색을 통해 사람들이 자연어로 질문한 것에 답할 만한 소스를 찾아옵니다.**\n\n**그 검색 패턴의 결과들을 보다 보면, 결국 구글이 해왔던 크롤·색인·랭킹이라는 워크플로를 그대로 따르고 있고, 구글과의 일치율도 생각보다 높은 편입니다.** 물론 엔진마다 조금씩 다르긴 하지만요.",
+        "en": "**GEO ultimately meets SEO.**\n\n**If you look at how GPT, Gemini, Perplexity and Claude search, they go somewhere and retrieve sources capable of answering the natural-language question a person asked.**\n\n**Studying those results, they follow the same crawl-index-rank workflow Google established, and the overlap with Google is higher than you'd expect** — though it varies somewhat by engine."
+      }
+    },
+    {
+      "type": "a",
+      "t": 465,
+      "text": {
+        "ko": "그래서 **지금까지의 수많은 실험으로 조금 밝혀진 알고리즘이라고 한다면 — 구글 상단에 노출되는 콘텐츠라면 GPT에 노출될 확률이 높아진다**는 겁니다.\n\n**왜냐하면 GPT가 새로운 알고리즘을 짜는 건 사실 어렵고, 이미 사람들이 수많은 검색 패턴 속에서 어떤 키워드를 검색했을 때의 선호도는 구글이 이미 다 알고리즘으로 만들어 놨죠.**\n\n**그러면 구글의 알고리즘을 벗어나긴 쉽지 않을 겁니다.** 물론 나중에 다를 수도 있고 바뀔 수도 있겠죠.\n\n**그러면 GPT의 알고리즘을 SEO 관점에서 시작하는 게 제가 생각하는 최적화의 방향입니다.**",
+        "en": "So **if there's an algorithm that many experiments have partly revealed, it's this: content that ranks high on Google is more likely to appear in GPT.**\n\n**Because writing an entirely new algorithm is genuinely hard, and Google has already encoded, across countless search patterns, what people prefer for a given keyword.**\n\n**Escaping Google's algorithm won't be easy** — though it could differ or change later.\n\n**So starting from GPT's algorithm through an SEO lens is the direction of optimization I'd recommend.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "GEO · AEO · LLM 검색",
+      "kr": {
+        "ko": "SEO 다음에 붙은 이름들",
+        "en": "the names that came after SEO"
+      },
+      "body": {
+        "ko": "최근 몇 년 사이 SEO 옆에 **비슷한 약어들**이 여럿 생겼습니다. 정리하면 이렇습니다.\n\n**SEO (Search Engine Optimization)** — **검색 엔진 최적화.** 구글·네이버 같은 전통적 검색 결과에서 상위에 오르는 것.\n\n**AEO (Answer Engine Optimization)** — **답변 엔진 최적화.** 구글이 검색 결과 맨 위에 보여주는 **AI 오버뷰** 같은 요약 답변에 인용되는 것을 노립니다. 대담에서 \"SEO와 GEO 사이의 영역\"이라고 표현된 부분입니다.\n\n**GEO (Generative Engine Optimization)** — **생성형 엔진 최적화.** GPT, Claude, 퍼플렉시티 같은 LLM이 답변을 만들 때 우리 브랜드를 언급하거나 인용하게 만드는 것.\n\n**중요한 것은 이 셋이 별개가 아니라는 점**입니다. 이재철 대표의 논지는 명확합니다 — **LLM은 답변을 만들 때 웹을 검색해 소스를 가져오는데, 그 검색이 구글의 크롤·색인·랭킹 구조를 상당 부분 따릅니다.** 따라서 **구글 상위 노출은 GEO의 결과가 아니라 전제 조건**에 가깝습니다.\n\n뒤에 나오는 통계가 이를 뒷받침합니다 — **AI 요약에 인용되는 것의 약 60%가 검색 결과 상위 10위 안에서 나온다**는 것입니다.",
+        "en": "Several **similar acronyms** have appeared alongside SEO in recent years:\n\n**SEO (Search Engine Optimization)** — ranking high in traditional search results on Google or Naver.\n\n**AEO (Answer Engine Optimization)** — aiming to be cited in the summarized answers engines place above results, such as Google's **AI Overview.** This is what the conversation calls \"the territory between SEO and GEO.\"\n\n**GEO (Generative Engine Optimization)** — getting LLMs like GPT, Claude and Perplexity to mention or cite your brand when they compose an answer.\n\n**The crucial point is that these aren't separate.** Lee's argument is direct: **when an LLM composes an answer it searches the web for sources, and that search largely follows Google's crawl-index-rank structure.** So **ranking on Google is less a consequence of GEO than a precondition for it.**\n\nA statistic later in the talk supports this: **roughly 60% of what gets cited in AI summaries comes from the top 10 search results.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 511,
+      "title": {
+        "ko": "가장 흔한 실수 — 전략 없는 콘텐츠",
+        "en": "The Most Common Mistake — Content Without Strategy"
+      }
+    },
+    {
+      "type": "q",
+      "t": 511,
+      "text": {
+        "ko": "**최적화 과정에서 기업들이 저지르는 실수**가 있지 않을까요? **많은 회사들이 \"콘텐츠만 쌓으면 되겠지\"라고 생각하는 경향**도 있을 것 같은데요.",
+        "en": "**What mistakes do companies make in this process?** I imagine **a lot of them think \"we'll just pile up content.\"**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 528,
+      "text": {
+        "ko": "예를 들어 **\"AX 정의\"를 구글에서 검색해서 어떤 사이트에 들어갔습니다. 그런데 그 사이트에는 AX 정의 콘텐츠가 딱 하나만 있고, 나머지는 다 보험과 관련된 콘텐츠입니다. 어떻게 생각되나요?**",
+        "en": "Say you search Google for **\"definition of AX\"** and land on a site. **That site has exactly one piece of content about AX, and everything else is about insurance. What do you think?**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 553,
+      "text": {
+        "ko": "**신뢰가 확 떨어지죠.** \"얘 지금 검색 걸리려고 해놨구나.\" 아, 맞네요.",
+        "en": "**Trust drops instantly.** \"Oh, they just put this here to catch searches.\" Right."
+      }
+    },
+    {
+      "type": "a",
+      "t": 563,
+      "text": {
+        "ko": "**이건 사람이 인식하는 거랑, 구글이 인식하는 거랑, 결국 GPT가 인식하는 게 똑같다는 겁니다.**\n\n**그래서 콘텐츠가 많이 발행되는 건 좋긴 한데, 어떤 주제로 권위를 가졌느냐는 다른 문제입니다.** **그래서 콘텐츠 전략이 중요한 거죠.**",
+        "en": "**What a human perceives, what Google perceives, and what GPT perceives are the same thing.**\n\n**So publishing a lot of content is fine, but which topic you hold authority in is a separate question.** **That's why content strategy matters.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 583,
+      "text": {
+        "ko": "정말 맞는 말씀이네요. 진짜 많은 사람들이 **\"검색어 최적화 해보자, 블로그를 AI로 쭉쭉 발행해서 생각 없이도 자동으로 많이 쌓아 놓자, 그게 쌓이면 SEO가 되겠지\"**라고 생각하는데, **아니라는 거잖아요.**",
+        "en": "That really is true. A lot of people think **\"let's optimize for search — just auto-publish blog posts with AI, pile them up, and that becomes SEO.\"** **But it doesn't.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 596,
+      "text": {
+        "ko": "**예전보다 콘텐츠를 만들어내는 건 훨씬 쉬워졌죠.** SEO 관점에서 좋은 콘텐츠를 만드는 게 좋다고 다들 알려져 있다 보니, 당연히 **GPT나 Claude 같은 도구를 활용해서 많이 찍어내십니다.**\n\n**그런데 전략 없는 콘텐츠는 특정 키워드를 점유하지 못할 확률이 높습니다.**",
+        "en": "**Producing content has become far easier than before.** Since everyone knows good content matters for SEO, **people churn it out using GPT and Claude.**\n\n**But content without strategy is unlikely to ever own a keyword.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 620,
+      "title": {
+        "ko": "파트 2 — 실제 사이트 라이브 진단",
+        "en": "Part 2 — A Live Site Audit"
+      }
+    },
+    {
+      "type": "q",
+      "t": 620,
+      "text": {
+        "ko": "저희가 파트 2로 넘어가서, **여러분 제가 마루타가 되어 보기로 했습니다.**\n\n한마디로 **저희 홈페이지를 대표님께서 진단해 보시고**, 그다음에 **대표님이 만들고 계신 헤일로X라는 서비스도 같이 보려고 해요.**\n\n**저희 웹사이트가 소위 말하는 얼마나 개판인지 한번 같이 보려고 합니다.**",
+        "en": "Moving to part two — **I've volunteered to be the guinea pig.**\n\nIn short, **Jaecheol is going to audit our website**, and then **we'll also look at HaloX, the service he's building.**\n\n**We're going to find out just how bad our site is.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 650,
+      "text": {
+        "ko": "모니터링할 때 기본적으로 알아두시면 좋을 게 있는데요. **구글과 GPT는 모두 개인화가 되어 있다 보니 검색 결과 순서가 바뀝니다.**\n\n**그러다 보니 가능하면 게스트 모드 같은 걸로 확인해 보시면 좋습니다.**",
+        "en": "One thing worth knowing when you monitor: **Google and GPT are both personalized, so the order of results shifts.**\n\n**So where possible, check in something like guest mode.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 668,
+      "text": {
+        "ko": "그렇게 봤을 때 **첫 번째 문제는 조슈아앤컴퍼니의 로고가 없다는 것**입니다. **파비콘**이요.\n\n**파비콘이 있는 사이트들은 신뢰감이 생기는데, 없으면 바로 신뢰감이 떨어지죠.**",
+        "en": "Looking at it that way, **the first problem is that Joshua & Company has no logo** — **no favicon.**\n\n**Sites with a favicon feel trustworthy; without one, trust drops immediately.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 685,
+      "text": {
+        "ko": "**바로 고치겠습니다.**",
+        "en": "**I'll fix that right away.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 693,
+      "text": {
+        "ko": "그리고 **AI를 많이 하다 보니 보이는 것 중 하나는 — 아마 Claude를 쓰셨을 것 같아요.**",
+        "en": "And one thing I notice from working with AI a lot — **you probably used Claude for this.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 700,
+      "text": {
+        "ko": "**네, 맞습니다. Claude Code로 만들었습니다.**",
+        "en": "**Yes, that's right. I built it with Claude Code.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 712,
+      "text": {
+        "ko": "**Claude의 가장 큰 특징, 이제는 딱 보이죠.**\n\n**AI를 많이 쓰면 쓸수록 저는 이렇게 표현하거든요 — \"걸린다.\" 눈에 걸린다. 거슬린다에 좀 가까운 것 같습니다.**",
+        "en": "**Claude's signature style — you can just see it now.**\n\n**The more you use AI, the more I'd describe it this way: it catches your eye.** Closer to \"it grates.\""
+      }
+    },
+    {
+      "type": "a",
+      "t": 733,
+      "text": {
+        "ko": "**지금의 사람들보다 앞으로의 사람들을 대응하자면 — AI가 썼다기보다 사람이 썼다는 글이 훨씬 더 신뢰감을 줄 수밖에 없죠.**",
+        "en": "**Thinking about the audience ahead rather than the one today — writing that reads as human-written will inevitably carry more trust than writing that reads as AI-written.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 750,
+      "title": {
+        "ko": "AI 오버뷰와 AEO — 인용과 소스",
+        "en": "AI Overview and AEO — Citations and Sources"
+      }
+    },
+    {
+      "type": "a",
+      "t": 750,
+      "text": {
+        "ko": "**이것도 이제 SEO와 GEO 영역 사이에 있는 AI 오버뷰, 요즘에는 AEO 영역이라고 합니다. 앤서 엔진 최적화 영역이죠.**\n\n**조슈아앤컴퍼니의 기본적인 정보는 여기서 가지고 있다는 거고, AI 서밋 같은 사이트들에서 가져와서 문장을 구성하고 있다고 얘기를 합니다.**\n\n**이때 이 문장에 대한 정보를 이 사이트들로부터 가지고 온다고 해서, 얘를 인용 혹은 소스라고 합니다.**",
+        "en": "**This sits between SEO and GEO — the AI Overview, or what's now called AEO: Answer Engine Optimization.**\n\n**It holds basic information about Joshua & Company, and it says it's composing sentences by pulling from sites like AI Summit.**\n\n**When it draws the information for a sentence from those sites, we call that a citation or a source.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 778,
+      "text": {
+        "ko": "**그러면 우리가 고민해야 할 건 — 만약 AI 오버뷰를 최적화하고 싶다면, AI 오버뷰에 등장하는 이 사이트들이 어떤 순서로 나왔고 탑 10에 존재하는지, 그리고 탑 10에 존재한다면 왜 여기 노출됐을까에 대한 고민을 해보는 것.** 그게 **AEO 최적화를 고민하는 영역**이라고 봐주시면 될 것 같습니다.",
+        "en": "**So what you have to think about is: if you want to optimize for AI Overview, in what order did these sites appear, are they in the top 10, and if so, why did they show up here?** **That's the territory of AEO optimization.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 804,
+      "text": {
+        "ko": "그리고 **기본적으로 사이트의 이름이라고 하죠.** 지금 **\"스레드 토키딜\"** 같은 게 사이트 이름으로 잡혀 있네요. **의도하신 건가요?**",
+        "en": "And then there's **what we call the site name.** Right now something odd is registered as the site name. **Was that intentional?**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 812,
+      "text": {
+        "ko": "**아니요, 전혀요.**",
+        "en": "**No, not at all.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 818,
+      "text": {
+        "ko": "**사이트 이름도 지금 설정이 안 돼 있는 상태**입니다. **조슈아앤컴퍼니가 등장해야 되죠.**\n\n**이게 모두 다 테크니컬 영역입니다.** **타이틀, 디스크립션, 그리고 여기에 노출되는 영역들은 기본적으로 구글이 판단해서 노출되긴 하는데, 스키마 마크업 — JSON-LD를 포함한 스키마 정보가 잘 구축되어 있으면 이런 식으로 노출됩니다.**",
+        "en": "**The site name isn't configured** — **it should be showing Joshua & Company.**\n\n**All of this is the technical layer.** **Title, description, and what appears here — Google decides much of it, but when schema markup, including JSON-LD, is properly built, it displays this way.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 858,
+      "text": {
+        "ko": "**아마 그런 내용들을 Claude Code가 좀 도와줬을 확률이 높다는 거죠? 네, 한 번 했거든요. \"최적화 좀 해봐\"라고. 근데 잘 못 해줬죠, 지금.**",
+        "en": "**So Claude Code probably helped with some of that? Yes, I did ask it once — \"go optimize this.\" But it clearly didn't do it well.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 874,
+      "text": {
+        "ko": "**요즘 나오는 것 중 하나가, Claude Code한테 \"SEO 최적화 해줘\" 하면 해주는 것처럼 보이죠.**\n\n**그런데 완벽하게 해주지는 못하더라고요.** **해주는 것처럼 보이고, 아무리 푸시를 하더라도 결국 놓치는 부분들이 존재하더라고요.** **이런 식으로 디테일한 부분들이 누락될 수 있습니다.**",
+        "en": "**One thing you see these days: ask Claude Code to \"optimize SEO\" and it looks like it does.**\n\n**But it doesn't do it completely.** **It looks like it does, and no matter how much you push, there are always parts it misses.** **Details like these get dropped.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 917,
+      "title": {
+        "ko": "진단 도구와 정보의 위계",
+        "en": "Audit Tools and Information Hierarchy"
+      }
+    },
+    {
+      "type": "a",
+      "t": 917,
+      "text": {
+        "ko": "**SEO를 고민하시는 분들이 써보면 좋을 툴 중 하나**는, 저는 크롬 확장 프로그램을 많이 씁니다. **\"SEO META in 1 CLICK\"** 이라는 제품이요.\n\n**이 제품을 써서 사이트를 진단하는 걸 선호합니다.** 물론 다른 것도 쓰지만, **빠르게 이 사이트의 정보를 이해하는 데 이런 크롬 확장 프로그램들이 유용합니다.**",
+        "en": "**One tool worth using if you're working on SEO** — I use Chrome extensions a lot. There's one called **\"SEO META in 1 CLICK.\"**\n\n**I prefer auditing sites with it.** I use other things too, but **these extensions are useful for quickly understanding a site's information.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 946,
+      "text": {
+        "ko": "**이걸로 사이트의 타이틀과 디스크립션 정보가 어떤지 봅니다. 이 타이틀이라는 게 메타 정보거든요.**\n\n**그런 식으로 이 사이트의 정보들이 AI와 구글에 잘 노출되는지, 노출된다면 어떤 정보로 노출되고 있는지 현황을 한판에 볼 수 있는 겁니다.**",
+        "en": "**With it you check the site's title and description — the title being meta information.**\n\n**That way you can see at a glance whether the site's information is surfacing well to AI and Google, and if so, with what content.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 990,
+      "text": {
+        "ko": "그리고 **또 보면 좋을 건, 이 사이트에 들어온 봇들이 사이트의 정보 위계를 이런 식으로 이해할 거라는 겁니다.**\n\n**H1 태그, H2 태그, H3 태그는 말 그대로 대제목, 중제목, 소제목이에요.**\n\n**그러면 우리 사이트는 이게 중제목이 맞는지를 확인하고, 거기에 맞춰 소제목으로 이해할 수 있는 구조를 만들어 줘야 되는데 — 이 부분을 많이 놓치시는 분들이 많습니다.**",
+        "en": "**Another thing worth checking: the bots entering your site will understand its information hierarchy this way.**\n\n**H1, H2 and H3 tags are literally main heading, subheading, sub-subheading.**\n\n**So you check whether what's marked as a subheading really is one, and build a structure the bot can read accordingly — and a lot of people miss this part.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "메타 정보 · 스키마 마크업 · 헤딩 태그",
+      "kr": {
+        "ko": "봇에게만 보이는 콘텐츠",
+        "en": "the content only bots see"
+      },
+      "body": {
+        "ko": "웹페이지에는 **사람이 보는 콘텐츠**와 **봇이 읽는 콘텐츠**가 따로 있습니다. 후자를 제대로 채우는 것이 테크니컬 SEO의 큰 부분입니다.\n\n**메타 정보 (Meta tags)**\n페이지 소스에는 있지만 화면에는 안 보이는 정보입니다. **타이틀(title)** 은 검색 결과에 파란 링크로 뜨는 제목이고, **디스크립션(description)** 은 그 아래 회색 설명문입니다. **검색 결과에서 클릭할지 말지를 좌우하는 두 줄**이므로, 방치하면 구글이 알아서 아무 문장이나 골라 씁니다.\n\n**스키마 마크업 (Schema markup)**\n**\"이 페이지는 회사 소개다\", \"이건 제품이고 가격은 얼마다\", \"이건 FAQ다\"를 기계가 읽을 수 있는 형식으로 명시해 주는 코드**입니다. 주로 **JSON-LD**라는 형식으로 작성합니다. 사람에게는 그냥 글로 보이는 것을, 봇에게는 **구조화된 데이터**로 알려주는 것이죠. 검색 결과에 별점, 가격, FAQ 아코디언 같은 **리치 결과**가 뜨는 이유가 이것입니다.\n\n**헤딩 태그 (H1, H2, H3)**\n**문서의 목차 구조**입니다. 시각적으로 글자를 크게 만드는 용도가 아니라, **\"무엇이 상위 주제이고 무엇이 하위 주제인가\"를 선언하는 것**입니다. 봇은 이 위계를 따라 페이지의 논리를 파악합니다.\n\n대담에서 이재철 대표가 반복해서 짚는 지점 — **AI 코딩 도구가 만든 사이트는 보기에는 멀쩡하지만 이 층위가 비어 있는 경우가 많습니다.** 사람 눈에는 안 보이니 놓치기 쉽고, 그래서 **\"디테일의 싸움\"** 이 되는 것입니다.",
+        "en": "A web page carries **content humans see** and **content bots read.** Filling in the latter properly is much of technical SEO.\n\n**Meta tags**\nInformation present in the page source but invisible on screen. The **title** is the blue link headline in search results; the **description** is the grey text beneath it. **These two lines determine whether someone clicks**, and if you leave them empty Google will pick arbitrary sentences for you.\n\n**Schema markup**\nCode that declares, in machine-readable form, **\"this page is an organization profile,\" \"this is a product and here's the price,\" \"this is an FAQ.\"** It's usually written as **JSON-LD.** What looks like ordinary prose to a person becomes **structured data** to a bot — which is why search results can show star ratings, prices and FAQ accordions.\n\n**Heading tags (H1, H2, H3)**\nThe **table of contents structure** of a document. They aren't for making text visually larger; they **declare what is a parent topic and what is a child.** Bots follow this hierarchy to grasp the page's logic.\n\nThe point Lee keeps returning to: **sites built by AI coding tools often look fine while this layer sits empty.** It's invisible to human eyes and therefore easy to miss — which is why it becomes **\"a battle of details.\"**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1029,
+      "title": {
+        "ko": "robots.txt와 사이트맵 — 대문과 지도",
+        "en": "robots.txt and Sitemaps — the Gate and the Map"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1029,
+      "text": {
+        "ko": "**사이트에 들어오는 것들은 사람이 들어와서 판단하지 않습니다. 구글의 봇, GPT의 봇, Claude의 봇이 들어와서 판단하거든요.**\n\n**그 봇들이 이 사이트에 들어와서 \"어떤 정보를 봐도 되고, 보지 않았으면 좋겠어\"라는 것들을 명시적으로 선언하는 게 robots.txt 문서입니다.**",
+        "en": "**What arrives at your site isn't a person making judgments — it's Google's bot, GPT's bot, Claude's bot.**\n\n**The robots.txt file is where you explicitly declare what those bots may and may not look at.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1049,
+      "text": {
+        "ko": "**처음 알았어요. 아, 저게 있군요.**",
+        "en": "**I had no idea that existed.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1055,
+      "text": {
+        "ko": "**이런 정보들은 사이트마다 다 존재합니다.** 예를 들어 **링크드인 같은 경우는 robots 정보가 엄청 디테일하게 되어 있습니다.**\n\n**\"어떤 곳은 걸렸으면 좋겠고, 어떤 곳은 걸리지 않았으면 좋겠다\"를 엄청 디테일하게 줄 수도 있다는 거죠.**",
+        "en": "**Every site has this.** **LinkedIn's robots file, for instance, is extremely detailed.**\n\n**You can specify in great detail which areas you want crawled and which you don't.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1085,
+      "text": {
+        "ko": "**이거는 대문에 대한 얘기입니다.** \"로봇이 들어와도 돼, 들어왔다면 어떤 곳을 봐도 돼.\"\n\n**대문이라면, 들어왔을 때 우리 사이트가 어떻게 되어 있는지 맵을 주는 게 사이트맵입니다.** 말 그대로 **로봇이 우리 사이트를 이해할 수 있게 지도를 주는 거예요.**\n\n**\"우리 사이트의 URL은 이거니까 참고해봐\", \"이 사이트의 이 정보는 언제 최신 업데이트가 되었어\", \"이 URL들의 우선순위와 중요도는 이래\"라고 표현하고 있는 겁니다.**",
+        "en": "**That's the gate:** may the bot come in, and where may it look once inside.\n\n**If robots.txt is the gate, the sitemap is the map of what's inside.** Literally **giving the bot a map so it can understand your site.**\n\n**\"These are our URLs, take a look,\" \"this piece was last updated then,\" \"here's the priority and importance of these URLs.\"**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1122,
+      "text": {
+        "ko": "**저희는 잘 안 돼 있겠죠?**",
+        "en": "**Ours probably isn't set up well, right?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1127,
+      "text": {
+        "ko": "**아닙니다, 사이트맵은 잘 되어 있는 편입니다.**\n\n**다만 robots는 지금 어떤 상태냐면 — \"그냥 모든 로봇 환영해, 그냥 들어와, 마음대로 해\"인 겁니다.**",
+        "en": "**No — the sitemap is actually in decent shape.**\n\n**But the robots file right now says: \"all bots welcome, come on in, do whatever you like.\"**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1145,
+      "text": {
+        "ko": "**물론 이게 좋다 나쁘다는 사이트를 운영하는 사람의 입장에서 고민해야 할 것 같은데요.**\n\n**로봇이 들어오는 건 사실, 사람이 방문하고 이해하는 과정과 별개의 불필요한 트래픽으로 볼 수도 있습니다.**\n\n**실제로 로봇은 생각보다 많은 트래픽을 가져가다 보니 — \"로봇 중에서도 불필요한 로봇은 오지 마\", \"들어왔더라도 불필요한 경로는 가지 마\"라고 해서 최적화를 하는 겁니다.** **그래서 이건 트래픽 최적화에 가깝습니다.**",
+        "en": "**Whether that's good or bad is something the site owner has to weigh.**\n\n**Bot traffic can be seen as unnecessary traffic, separate from humans visiting and understanding your site.**\n\n**Bots actually consume more traffic than you'd expect — so you optimize by saying \"unnecessary bots, stay out,\" and \"even if you come in, don't go down these paths.\"** **So this is closer to traffic optimization.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "robots.txt · 사이트맵 (sitemap.xml)",
+      "kr": {
+        "ko": "봇에게 주는 두 개의 파일",
+        "en": "the two files you give the bots"
+      },
+      "body": {
+        "ko": "이재철 대표의 **대문과 지도** 비유가 이 둘의 관계를 정확히 설명합니다.\n\n**robots.txt — 대문 (출입 규칙)**\n사이트 최상단에 놓는 텍스트 파일로, **\"어떤 봇이 어디까지 들어와도 되는가\"** 를 선언합니다.\n\n주의할 점이 두 가지 있습니다. **첫째, 강제력이 없습니다.** 예의 있는 봇(구글, GPT 등)은 지키지만 악성 봇은 무시합니다. **둘째, 크롤 차단은 색인 차단이 아닙니다.** 검색 결과에서 완전히 빼려면 별도의 `noindex` 지시가 필요합니다.\n\n대담에서 나온 **트래픽 관점**도 실무적으로 중요합니다. **AI 시대에 크롤러 수가 급증하면서, 봇 트래픽이 서버 비용의 상당 부분을 차지하는 경우가 생깁니다.** 그래서 **\"어떤 AI 봇에게 우리 콘텐츠를 내줄 것인가\"** 는 이제 **최적화 문제이자 정책 결정**이 되었습니다.\n\n**sitemap.xml — 지도 (구조 안내)**\n사이트의 **URL 목록, 각 페이지의 최종 수정일, 상대적 중요도(priority)** 를 담은 XML 파일입니다.\n\n특히 유용한 경우는 **페이지가 많거나, 내부 링크로 잘 연결되지 않은 페이지가 있거나, 새로 만든 사이트라 외부 링크가 적을 때**입니다. 봇이 링크를 따라가다 못 찾는 페이지를 **명시적으로 알려주는 역할**을 하기 때문입니다.",
+        "en": "Lee's **gate and map** metaphor captures the relationship exactly.\n\n**robots.txt — the gate (access rules)**\nA text file at the site root declaring **which bots may enter and how far.**\n\nTwo cautions. **First, it isn't enforceable** — well-behaved bots (Google, GPT) obey it; malicious ones ignore it. **Second, blocking a crawl isn't blocking indexing** — removing a page from results entirely requires a separate `noindex` directive.\n\nThe **traffic angle** raised in the talk matters practically too. **As AI crawlers have multiplied, bot traffic can account for a meaningful share of server cost.** So **\"which AI bots do we serve our content to?\"** has become **both an optimization question and a policy decision.**\n\n**sitemap.xml — the map (structural guide)**\nAn XML file listing **your URLs, each page's last-modified date, and relative priority.**\n\nIt's most useful when **you have many pages, when some pages are poorly linked internally, or when the site is new and has few inbound links** — because it **explicitly surfaces pages a bot might never reach by following links.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1178,
+      "title": {
+        "ko": "URL 구조와 이미지 alt 텍스트",
+        "en": "URL Structure and Image Alt Text"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1178,
+      "text": {
+        "ko": "**사이트의 정보는 기본적으로 URL의 패스 단위로 클러스터가 되는 게 기본이라고 봐주시면 될 것 같습니다.**\n\n**\"이 사이트는 워크 단위로 있구나, 에듀케이션 단위로 있구나, 솔루션 단위로 넘어가서 보고 있구나\"** — 이렇게요.\n\n**여기는 아직 블로그가 없네요.**",
+        "en": "**A site's information clusters by URL path, as a baseline.**\n\n**\"This site organizes by work, by education, by solution\"** — that kind of reading.\n\n**There's no blog here yet.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1200,
+      "text": {
+        "ko": "**없어요, 아직 안 만들었어요.** 어떻게 해야 될지 정하고 있는데, **일단 인블로그를 할까 생각하고 있습니다.**",
+        "en": "**Not yet — haven't built it.** Still deciding how, but **thinking of doing an in-site blog first.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1215,
+      "text": {
+        "ko": "**그럼 여기에서 넘어갈 수 있는 링크를 만드셔야 할 것 같습니다.**\n\n**이 사이트의 정보 위계나 URL 구조는 지금은 깔끔한 상태로 되어 있는 것처럼 보이죠?**",
+        "en": "**Then you'll want a link from here through to it.**\n\n**The site's information hierarchy and URL structure look clean at the moment, don't they?**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1233,
+      "text": {
+        "ko": "**네. 그러면 지금 부족한 점이 또 있나요?**",
+        "en": "**Yes. So what else is lacking?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1237,
+      "text": {
+        "ko": "**지금 이미지 중에 삼성 로고를 쓰셨어요.** **삼성 로고를 alt 텍스트로 쓴다는 건, 삼성이 검색됐을 때 이 이미지를 통해 넘어올 수 있게 하는 겁니다.**\n\n**저희는 이 정보로 삼성이 검색되면 좋겠는 건가요, 아니면 조슈아앤컴퍼니가 노출됐으면 하는 건가요?**",
+        "en": "**You've used a Samsung logo among the images.** **Putting \"Samsung\" in the alt text means people can arrive via that image when they search Samsung.**\n\n**Do we want this to surface for Samsung searches, or do we want Joshua & Company to surface?**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1264,
+      "text": {
+        "ko": "**조슈아앤컴퍼니죠.**",
+        "en": "**Joshua & Company, obviously.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1268,
+      "text": {
+        "ko": "**그러면 alt에 삼성이 아니라 조슈아앤컴퍼니가 같이 들어가는 겁니다.**\n\n**이미지에 대한 alt 정보는, 우리가 노출시키고 싶은 키워드로 채우는 것.**",
+        "en": "**Then the alt text should include Joshua & Company, not just Samsung.**\n\n**Fill image alt text with the keywords you want to surface for.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1288,
+      "text": {
+        "ko": "정말 되게 많은 걸 배웁니다. **확실히 레벨이 높다는 게 느껴지네요.**",
+        "en": "I'm learning a lot. **You can really feel the depth of expertise here.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1296,
+      "text": {
+        "ko": "**여기는 이제 디테일의 싸움이라고 저는 생각하고 있습니다.**",
+        "en": "**I think of this as a battle of details.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1300,
+      "text": {
+        "ko": "제가 들었어요. **\"SEO는 진짜 악마의 디테일과의 싸움이다.\"** 그걸 확 체감하게 해주시는 것 같습니다.",
+        "en": "I've heard it said: **\"SEO is a fight with the devil in the details.\"** You're really making me feel that."
+      }
+    },
+    {
+      "type": "section",
+      "t": 1307,
+      "title": {
+        "ko": "키워드 전략 — 고객 검색 여정 그리기",
+        "en": "Keyword Strategy — Mapping the Search Journey"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1307,
+      "text": {
+        "ko": "**지금 조슈아앤컴퍼니는 되게 브로드한 여러 걸 다루고 있는데**, 저희가 새롭게 바라보고 있는 건 **버티컬한 AX**이긴 해요.\n\n그중에서도 **제조업이 상당히 관심이 크더라고요. 산업 AX 쪽이 앞으로 가야 할 방향이구나** 하는 걸 알게 됐어요.\n\n**그런 부분에서 키워드를 하나 잡아야 한다면, 어떻게 천천히 시작하면 좋을까요?**",
+        "en": "**Right now Joshua & Company covers a very broad range**, but the direction we're newly looking at is **vertical AX.**\n\nAnd within that, **manufacturing has drawn a lot of interest. Industrial AX seems to be where we should head.**\n\n**If we had to pick one keyword there, how should we start?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1338,
+      "text": {
+        "ko": "**\"우리 사이트는 어떤 키워드를 잡고 시작해서 어떤 키워드로 확장하면 좋을까\"**에 대한 고민을 많이 하시게 될 겁니다.\n\n**제조 AX를 먼저 찾아볼게요.** 검색했을 때 **나오는 AI 오버뷰가 있는지 보고, 그때 어떤 도메인들이 노출되고 있는지 확인하고, 우리가 노출될 수 있는 경쟁 강도가 있는지 확인**할 겁니다. **그다음에 관련 키워드를 봅니다.**",
+        "en": "**\"Which keyword do we start with, and which do we expand into?\"** — that's the question you'll wrestle with.\n\n**Let's search for manufacturing AX.** **We check whether an AI Overview appears, which domains are surfacing there, and whether the competitive intensity leaves room for us.** **Then we look at related keywords.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1365,
+      "text": {
+        "ko": "**사람들이 검색을 하는 데 있어서 어떤 정보를 습득하는 단계가 존재합니다. 검색 여정이라고 하는데요.**\n\n예를 들어 **어떤 정보를 얻으려고 하면 먼저 이 정보에 대한 이해, 뜻을 알아야 할 거고 → 이걸 하고 있는 곳들을 탐색하고 → 비교하고 → 추천을 받고 → 결정을 하게 되죠.**",
+        "en": "**People go through stages of acquiring information when they search. We call it the search journey.**\n\nFor example: **first you need to understand the thing and know what it means → then you explore who's doing it → compare → get recommendations → and decide.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1393,
+      "text": {
+        "ko": "**\"제조 AX가 뭐야?\" → \"제조 AX에서 실제 사례는 뭐가 있어?\" → 탐색하고 → \"그걸 하고 있는 사이트는 어디야?\" → 그래서 제조를 도와주는 컨설팅을 찾겠죠.**\n\n**컨설팅을 찾으면 관련 컨설팅 사이트들이 존재하겠죠. 그럼 이제 추천을 받는 겁니다. \"어디가 좋아?\" 그러면 결정이 되는 거죠.**\n\n**이런 식으로 고객들의 검색 여정에 단서가 될 수 있는 걸 관련 키워드로부터 얻을 수 있다는 겁니다.** **이걸 통해 \"제조 AX를 검색한 사람들은 어떻게 검색해 나갈까\"라는 여정 맵을 그려 보는 겁니다.**",
+        "en": "**\"What is manufacturing AX?\" → \"what are the actual cases?\" → exploring → \"which sites are doing this?\" → and they'll look for consulting that helps manufacturers.**\n\n**Once they're looking for consulting, consulting sites exist. Now they seek a recommendation: \"which one is good?\" And that decides it.**\n\n**Related keywords give you clues to the customer's search journey.** **From that you draw a journey map: how does someone who searched \"manufacturing AX\" search next?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1442,
+      "text": {
+        "ko": "그리고 **최근에는 단어 위주에서 자연어 위주로 검색을 하죠.**\n\n**그게 관련 질문으로 이렇게 나와 있는 겁니다.** 물론 모든 키워드에서 등장하는 건 아니고, **특정 키워드에서 노출되는 PAA(People Also Ask) 영역입니다.**\n\n**이 질문에 기반한 자연어들이 어떤 게 있고, 사람들이 실제로 이 키워드를 기반으로 무엇을 질문하고 있는지 — 역시 단서가 됩니다.**\n\n**\"AX가 뭐야?\", \"DX와 차이가 뭐야?\", \"트렌드는 뭐야?\"**",
+        "en": "And **searches have shifted from keywords to natural language.**\n\n**That shows up as related questions.** It doesn't appear for every keyword — it's the **PAA (People Also Ask) block that surfaces for certain queries.**\n\n**What natural-language questions exist around this, and what are people actually asking based on this keyword — that's another set of clues.**\n\n**\"What is AX?\" \"What's the difference from DX?\" \"What are the trends?\"**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1480,
+      "text": {
+        "ko": "**저희 사이트의 콘텐츠로 있으면 되겠네요.** 맞네요, **저게 그냥 있으면 되는 거잖아요.**\n\n**키워드는 결국 트래픽이니까, 거기에 연계되는 콘텐츠가 저 질문 그대로 있으니 우리가 그걸 알려주면 되는 거고, 거기서 신뢰를 쌓게끔 웹사이트가 잘 구비되어 있으면 된다** — 그렇게 해서 **리드가 들어오는 과정**인 거군요.",
+        "en": "**Those should just be our content.** Right — **they just need to exist.**\n\n**Keywords are traffic, and the questions are right there, so we answer them — and if the website is built to earn trust from there** — **that's how leads come in.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1508,
+      "text": {
+        "ko": "**정확히 이해하셨습니다.**",
+        "en": "**You've got it exactly.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "검색 여정 · PAA · 검색 의도",
+      "kr": {
+        "ko": "키워드를 '단어'가 아니라 '경로'로 보는 법",
+        "en": "seeing keywords as paths, not words"
+      },
+      "body": {
+        "ko": "**검색 여정(search journey)** 은 **사람이 하나의 결정에 도달하기까지 거치는 검색의 연쇄**를 뜻합니다. 대담에서 제시된 5단계가 전형적입니다.\n\n**이해 → 탐색 → 비교 → 추천 → 결정**\n\n이 구분이 중요한 이유는 **각 단계마다 검색 의도(search intent)가 다르기 때문**입니다.\n\n**정보형(informational)** — \"제조 AX가 뭐야?\" 아직 살 마음이 없습니다.\n**상업적 조사형(commercial)** — \"제조 AX 컨설팅 비교\" 후보를 좁히는 중입니다.\n**거래형(transactional)** — \"제조 AX 컨설팅 문의\" 결정 직전입니다.\n\n**흔한 실수는 거래형 키워드만 노리는 것**입니다. 그 키워드는 경쟁이 가장 치열하고 검색량은 가장 적습니다. 반면 **정보형 키워드는 경쟁이 덜하고, 그 단계에서 신뢰를 얻으면 이후 단계까지 따라옵니다.**\n\n**PAA (People Also Ask)** 는 구글 검색 결과 중간에 나타나는 **\"사람들이 함께 묻는 질문\"** 아코디언입니다. 실무적으로 **공짜 콘텐츠 기획서** 역할을 합니다. **구글이 \"이 키워드를 검색한 사람들은 실제로 이런 것들을 궁금해한다\"고 직접 알려주는 데이터**이기 때문입니다.\n\nGEO 관점에서 PAA가 더 중요해진 이유가 있습니다. **LLM에게 던지는 질문은 대부분 자연어 문장**이고, **PAA는 바로 그 자연어 질문의 목록**이기 때문입니다. 즉 **PAA에 답하는 콘텐츠를 갖추는 것이 곧 LLM 답변에 인용될 준비**가 됩니다.",
+        "en": "A **search journey** is **the chain of searches a person passes through before reaching a decision.** The five stages given in the talk are typical:\n\n**Understand → Explore → Compare → Get recommendations → Decide**\n\nThe distinction matters because **search intent differs at every stage.**\n\n**Informational** — \"what is manufacturing AX?\" No intent to buy yet.\n**Commercial** — \"comparing manufacturing AX consultancies.\" Narrowing candidates.\n**Transactional** — \"contact manufacturing AX consulting.\" On the verge of deciding.\n\n**The common mistake is chasing only transactional keywords.** Those are the most competitive and the lowest in volume. **Informational keywords face less competition, and trust earned at that stage follows the person down the funnel.**\n\n**PAA (People Also Ask)** is the accordion of related questions Google shows mid-results. Practically, it functions as **a free content brief** — **data in which Google directly tells you what people searching this keyword actually wonder about.**\n\nPAA matters more under GEO for a specific reason: **questions put to an LLM are mostly natural-language sentences, and PAA is precisely a list of such sentences.** So **having content that answers PAA questions is preparation for being cited in LLM answers.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1521,
+      "title": {
+        "ko": "헤일로X — 러버블로 만든 상용 SaaS",
+        "en": "HaloX — a Commercial SaaS Built on Lovable"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1521,
+      "text": {
+        "ko": "**대표님이 만드신 SEO 솔루션도 있다고 들었습니다. 소개를 해주시면 감사하겠습니다.**",
+        "en": "**I hear you've built an SEO solution. Could you show it to us?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1533,
+      "text": {
+        "ko": "저는 **헤일로X라는 솔루션**을 만들고 있고요.\n\n**아까 보여드린 것처럼 하나씩 찾아가고 검색을 통해 확인하는 것도 좋은데, 결국 찾아야 되는 키워드, 모니터링해야 되는 키워드가 수십 개 수백 개일 겁니다.** **찾아야 되는 질문들도 수십 개 수백 개일 거고요.**\n\n**사이트가 하나의 페이지만 존재하지 않을 거고, 여러 페이지마다 모두 점검해 나가야 될 겁니다.** **이 모든 걸 한 번에 하긴 쉽지 않다 보니, 솔루션을 만들어서 한 번에 할 수 있게 만들었습니다.**",
+        "en": "I'm building a solution called **HaloX.**\n\n**As I showed, checking things one by one through search is fine — but the keywords you need to find and monitor will number in the dozens or hundreds.** **So will the questions.**\n\n**And your site isn't one page; you have to audit every page.** **Doing all of that manually isn't easy, so I built a solution that does it in one place.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1563,
+      "text": {
+        "ko": "제가 사실 **후문으로 놀라운 소식을 들은 게 있습니다. 이걸 뭘로 만드셨다고요?**",
+        "en": "I actually **heard something surprising through the grapevine. What did you build this with?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1571,
+      "text": {
+        "ko": "**러버블(Lovable)로 만들었습니다.**",
+        "en": "**I built it with Lovable.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1574,
+      "text": {
+        "ko": "**여러분이 아시는 그 러버블로 이걸 만드셨어요.** 야, 이건 진짜 말이 안 된다고 속으로 생각했었거든요.\n\n**보시죠 여러분, 이게 러버블의 결과물이에요. 상용 SaaS 서비스인데.**",
+        "en": "**He built this with the Lovable you know.** I honestly thought to myself, this can't be real.\n\n**Look at this, everyone — this is the output of Lovable. A commercial SaaS product.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1590,
+      "text": {
+        "ko": "저는 **러버블 앰배서더로 활동하고 있습니다.** 그래서 **러버블을 최대한 많이 활용해서 서비스를 만드는 걸 좋아하고요.** 그중에서 **헤일로X를 서비스로 만들어 가고 있습니다.**",
+        "en": "I serve as a **Lovable ambassador**, so **I like to build services making the most of Lovable.** **HaloX is one of those.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1610,
+      "title": {
+        "ko": "테크니컬 진단과 렌더링 — CSR vs SSR",
+        "en": "Technical Audit and Rendering — CSR vs SSR"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1610,
+      "text": {
+        "ko": "**사이트에 크롤링이 잘되는지, 사이트의 기본적인 테크니컬한 부분들이 잘됐는지를 먼저 이런 식으로 점검합니다.**\n\n**SEO의 테크니컬한 부분, GEO의 테크니컬한 부분 — 아까 다 말씀드리지 못했던 수많은 테크니컬한 부분들을 모두 점검할 수 있게 하는 거고요.**\n\n**\"타이틀·디스크립션·H1은 어때? 캐노니컬은 어때? 깨진 링크는 없어? 중복 콘텐츠는 없어?\"** 이런 것들을 모두 보실 수 있게 해놨습니다.",
+        "en": "**First it checks whether the site crawls well and whether the basic technical elements are in place.**\n\n**The technical side of SEO and of GEO** — **all the many technical items I couldn't cover earlier can be audited here.**\n\n**\"How are the title, description and H1? What about canonicals? Any broken links? Any duplicate content?\"** All of that is visible."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1645,
+      "text": {
+        "ko": "**robots.txt 유무, 그 안에서도 잘 선언됐는지에 대한 현황, 사이트맵의 구조와 이상 유무** — 이런 것들을 모두 점검할 수 있게 해주고 있고요.",
+        "en": "**Whether robots.txt exists and whether it's properly declared, the sitemap's structure and whether it has issues** — all of that is checked."
+      }
+    },
+    {
+      "type": "a",
+      "t": 1663,
+      "text": {
+        "ko": "**그다음에 GEO가 SEO와 다른 부분 중 하나는 — 사이트의 렌더링 구조입니다.** 크게 **클라이언트 사이드 렌더링(CSR)과 서버 사이드 렌더링(SSR)** 두 가지 방식이 존재합니다.\n\n**구글은 이 두 가지 방식이 뭐든 간에 결국 이 정보를 다 기다렸다가 가져갑니다.** **그런데 사람이 보는 정보와 별개로, 봇이 볼 수 있는 정보의 양이 달라질 수 있다는 겁니다.**\n\n**우리는 로딩이 되는 걸 기다렸다가 보는 거죠. 근데 봇은 안 기다릴 수도 있고, 기다려도 못 받아갈 수도 있습니다. 사이트의 구조에 따라서요.**",
+        "en": "**One way GEO differs from SEO is the site's rendering structure.** There are broadly two: **client-side rendering (CSR) and server-side rendering (SSR).**\n\n**Google will wait and collect the information either way.** **But separately from what a human sees, the amount of information a bot can see may differ.**\n\n**We wait for things to load and then look. A bot may not wait — and even if it waits, it may not receive anything, depending on the site's structure.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1698,
+      "text": {
+        "ko": "**GEO는 특히 이게 조금 더 예민해서 — SSR인 경우에는 가져가는데, CSR인 경우에는 가져가지 못한다는 겁니다.**",
+        "en": "**GEO is more sensitive here — with SSR it collects the content, with CSR it may not.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1706,
+      "text": {
+        "ko": "**그게 무슨 말이에요?**",
+        "en": "**What does that mean exactly?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1710,
+      "text": {
+        "ko": "**CSR 구조는 사람이 볼 수 있는 정보는 존재하는데, 봇 중에 GPT 봇은 여기 있는 정보를 넘겨받지 못하는 구조입니다.**\n\n**말 그대로 GPT는 이 사이트에 들어와도 아무런 정보를 못 본다는 거죠. CSR이라면.**\n\n**CSR이 기본적으로 개발 편의성이 높다고 알고 있습니다. 그 편의성 대비 사이드 이펙트로, 봇에게 전달되는 정보가 늦게 도달되거나 도달되지 못할 수 있다는 겁니다.**",
+        "en": "**In a CSR structure the information exists for a human, but GPT's bot doesn't receive what's here.**\n\n**Literally, GPT can enter the site and see nothing. If it's CSR.**\n\n**CSR is generally easier to develop with. The side effect of that convenience is that information reaches the bot late, or not at all.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1752,
+      "text": {
+        "ko": "**어쨌든 SEO·GEO 입장에서는 CSR을 안 쓰는 게 좋네요.**",
+        "en": "**So from an SEO and GEO standpoint, it's better not to use CSR.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1756,
+      "text": {
+        "ko": "**근데 어쩔 수 없는 경우도 있어요.** 예를 들어 **커머스 같은 사이트는 SSR만으로 구축하는 게 어려운 걸로 알고 있습니다.**\n\n**상품 정보를 모두 서버 사이드에서 가져오는 것보다, 클라이언트에서 정보를 가져와 정리해서 보여주는 방식을 취하는 게 대부분입니다.**",
+        "en": "**Sometimes there's no choice.** For example, **I understand it's difficult to build a commerce site with SSR alone.**\n\n**Rather than fetching all product information server-side, most take the approach of fetching and assembling it on the client.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "CSR vs SSR — 봇이 빈 페이지를 보는 이유",
+      "kr": {
+        "ko": "렌더링 구조가 GEO를 좌우한다",
+        "en": "why rendering decides GEO"
+      },
+      "body": {
+        "ko": "웹페이지의 HTML을 **누가, 어디서 만드는가**의 차이입니다. 이 차이가 GEO에서 결정적인 이유가 있습니다.\n\n**SSR (Server-Side Rendering) — 서버가 완성해서 보냄**\n브라우저가 요청하면 **서버가 이미 내용이 채워진 HTML을 만들어서 보냅니다.** 봇이 받아보는 순간 **텍스트가 전부 거기 있습니다.**\n\n**CSR (Client-Side Rendering) — 브라우저가 조립**\n서버는 **거의 빈 껍데기 HTML과 자바스크립트 파일**만 보냅니다. 그다음 **브라우저가 자바스크립트를 실행해서 내용을 채워 넣습니다.** 사람은 잠깐 기다리면 화면을 보게 되지만, **봇이 자바스크립트를 실행하지 않으면 빈 페이지를 본 것과 같습니다.**\n\n**여기서 구글과 LLM 봇이 갈립니다.**\n\n**구글**은 오랜 기간 막대한 투자를 해서 **크롤러가 자바스크립트를 실행할 수 있게** 만들었습니다. 느리긴 해도 결국 내용을 가져갑니다.\n\n**반면 GPTBot 등 상당수 LLM 크롤러는 자바스크립트를 실행하지 않거나 제한적으로만 처리합니다.** 페이지를 받아서 **HTML 텍스트만 읽고 끝냅니다.** 그래서 **CSR 사이트는 구글에는 나오는데 GPT에는 안 나오는** 상황이 발생합니다.\n\n대담에서 언급된 **서스펜스 SSR(streaming SSR)** 도 같은 맥락입니다. **SSR이라 하더라도 내용을 나눠서 뒤늦게 보내면, 봇이 앞부분만 받고 끊을 수 있습니다.**\n\n**실무적 함의** — 커머스처럼 CSR이 불가피한 경우, 이재철 대표가 소개한 우회법이 **상품 상세를 이미지가 아니라 텍스트 기반 HTML로 구성하는 것**입니다. **이미지 안의 글자는 봇이 읽지 못하기 때문**입니다.",
+        "en": "The difference is **who builds the page's HTML, and where.** That difference is decisive for GEO.\n\n**SSR (Server-Side Rendering) — the server sends it finished**\nOn request, **the server builds HTML already filled with content and sends it.** The moment a bot receives it, **all the text is there.**\n\n**CSR (Client-Side Rendering) — the browser assembles it**\nThe server sends **a nearly empty HTML shell plus JavaScript.** **The browser then runs that JavaScript to fill in the content.** A human waits a moment and sees the page — but **a bot that doesn't execute JavaScript has effectively seen a blank page.**\n\n**This is where Google and LLM bots diverge.**\n\n**Google** invested heavily over many years so **its crawler can execute JavaScript.** It's slower, but it eventually gets the content.\n\n**Many LLM crawlers, including GPTBot, either don't execute JavaScript or handle it only partially.** They fetch the page, **read the HTML text, and stop.** Hence the situation where **a CSR site appears on Google but never in GPT.**\n\nThe **streaming (suspense) SSR** mentioned in the talk sits in the same territory: **even with SSR, if content is chunked and sent late, a bot may take only the first part and disconnect.**\n\n**Practical implication** — where CSR is unavoidable, as in commerce, the workaround Lee describes is **building product detail pages as text-based HTML rather than images**, because **bots can't read text baked into an image.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1779,
+      "text": {
+        "ko": "**오히려 커머스가 불리한 게, 이미지로만 또 영상으로 쫙 설명이 되어 있는데 그것들은 못 가져올 거 아니에요.**",
+        "en": "**Commerce is actually disadvantaged — everything is explained in images and video, and those can't be collected, right?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1789,
+      "text": {
+        "ko": "**그렇죠. 거기 있는 정보를 그대로 가져가서 이해하지도 못하고요.**\n\n**그러다 보니 커머스에서 요즘 고민하는 건, 상품 상세 페이지의 정보들을 텍스트로 된 정보로 구축하는 것**입니다.\n\n**어떤 식으로까지 하는 걸 봤냐면 — 배경만 이미지로 만들고, 거기에 상품 상세 페이지처럼 CSS와 HTML로 다 깔아놓는 겁니다.**",
+        "en": "**Right — it can't take that information in or understand it.**\n\n**So what commerce is now thinking about is rebuilding product detail information as text.**\n\n**I've seen it taken this far: make only the background an image, and lay everything else out with CSS and HTML as if it were the product detail page.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1815,
+      "text": {
+        "ko": "**배경과 콘텐츠를 텍스트로 임베딩된 HTML 페이지를 쫙 깔아 놓는 거군요. 마치 이미지처럼 보이게.**",
+        "en": "**So you lay out an HTML page with the text embedded, made to look like an image.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1825,
+      "text": {
+        "ko": "**그런 식으로 하면 AI에 최적화된 사이트가 될 수 있는 거죠.**",
+        "en": "**Do it that way and the site becomes AI-optimized.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1838,
+      "text": {
+        "ko": "**사이트의 렌더링 구조가 CSR인지 SSR인지, CSR과 SSR이라 하더라도 그 구조가 필요한 SSR인지 아니면 서스펜스 SSR인지** — **서스펜스 SSR은 좀 늦게 정보를 보내주기도 하고, 정보를 보내주는 순서가 달라지기도 합니다.**\n\n**그래서 같은 SSR이라고 하더라도 결국 GPT가 못 받는 경우가 있어요.**\n\n**그래서 렌더링 케이스와 구조에 따라 이 사이트가 정보를 가져갈 수 있는지, 가져갔다면 몇 퍼센트나 가져갔는지를 볼 수 있습니다.**",
+        "en": "**Whether the site is CSR or SSR — and even within SSR, whether it's the SSR you need or suspense SSR** — **suspense SSR sends information later, and sometimes in a different order.**\n\n**So even with SSR, there are cases where GPT doesn't receive it.**\n\n**Depending on the rendering case and structure, you can see whether the site's information can be retrieved, and if so, what percentage was retrieved.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 1866,
+      "title": {
+        "ko": "점수와 키워드 모니터링",
+        "en": "Scores and Keyword Monitoring"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1866,
+      "text": {
+        "ko": "**점수는 뭐예요?**",
+        "en": "**What's the score?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1872,
+      "text": {
+        "ko": "**SEO에서 기본적으로 테크니컬하게 가져가는 영역들이 오랫동안 만들어진 게 존재합니다. 구글에서 만들어진 기준도 있고요.** 그런 것들을 차용해서 점수화하고 있습니다.\n\n**봇 접근성, 구조화된 데이터, 스키마 구조, 콘텐츠와 HTML의 타이틀·메타 정보 유무, 기술적으로 사이트가 빠른지 느린지** — 이런 것들을 모두 판단해서 **종합 점수**를 냅니다.\n\n**그리고 사이트가 개선됐다면 진단 기록에서 이전 대비 변화된 것들이 있는지, 실제로 개선됐는지를 봅니다.**",
+        "en": "**There are long-established technical areas in SEO, including standards Google itself set.** We borrow from those to produce a score.\n\n**Bot accessibility, structured data, schema, whether title and meta information exist in the content and HTML, whether the site is technically fast or slow** — all of that is judged into **a composite score.**\n\n**And when the site improves, the audit history shows what changed versus before and whether it genuinely improved.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1912,
+      "text": {
+        "ko": "**저거 되게 좋다.** 이게 **건강도 추이를 계속 트래킹해서 계속 최적화를 해볼 수 있다는 뜻**이잖아요.",
+        "en": "**That's really good.** It means **you can keep tracking the health trend and keep optimizing.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 1943,
+      "text": {
+        "ko": "**처음부터 이런 걸 알고 보면 좋겠는데, 모르는 분들은 어떻게 해야 돼요?** **진단을 했을 때 \"우리 점수가 70점이네, 좋은 건가?\"** 싶을 것 같아요.",
+        "en": "**It's good if you know all this going in — but what about people who don't?** **You run an audit and think, \"we scored 70. Is that good?\"**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1962,
+      "text": {
+        "ko": "**\"86점이 좋은 거야 나쁜 거야?\"** 하시는데, **점수의 절대적인 벤치마크가 존재하는 건 아니고요.**\n\n**그냥 우리 사이트가 이전 대비 좋아지는 방향으로 개선하는 게 좋은 방향일 것 같습니다.**",
+        "en": "**\"Is 86 good or bad?\"** — **there isn't an absolute benchmark for the score.**\n\n**The right direction is simply improving your own site relative to where it was before.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 1990,
+      "text": {
+        "ko": "**아까 제조 AX처럼 키워드가 되게 많겠죠. 그 키워드들을 모두 모니터링해야 될 겁니다.**\n\n**키워드를 넣었을 때 우리 사이트가 몇 등인지, 경쟁사가 몇 등인지, AI 오버뷰가 있는지 없는지** — 모든 키워드에 존재하진 않으니까요.\n\n**그중에서 우리가 AI 오버뷰에 들어갔는지, 경쟁사가 있는지, 검색량은 어떤지, 트렌드는 어떤지, 키워드의 검색 의도는 어떤지, 연관 키워드가 있는지 있다면 어떤 게 있는지.**",
+        "en": "**As with manufacturing AX, you'll have many keywords, and you have to monitor all of them.**\n\n**When you enter a keyword: where do we rank, where do competitors rank, is there an AI Overview or not** — it doesn't appear for every keyword.\n\n**Are we inside that AI Overview? Are competitors? What's the search volume, the trend, the search intent, and what related keywords exist?**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2038,
+      "text": {
+        "ko": "**야, 이거 알고 보니까 되게 좋다.** 처음 소개해 주셨을 때는 몰랐어요.",
+        "en": "**Now that I understand it, this is really good.** I didn't get it when you first showed me."
+      }
+    },
+    {
+      "type": "a",
+      "t": 2043,
+      "text": {
+        "ko": "**SEO에 관련된 중요한 요소들을 보다 보면, 이게 중요하다는 걸 알게 되는 거죠.**",
+        "en": "**Once you look at the elements that matter in SEO, you come to see why this matters.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 2074,
+      "title": {
+        "ko": "고객 여정 네트워크와 땅따먹기 전략",
+        "en": "Journey Networks and the Land-Grab Strategy"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2074,
+      "text": {
+        "ko": "**키워드는 기본적으로 연관 키워드와 연결된다고 했었습니다.**\n\n**그래서 고객 여정 맵을 네트워크 형태로 한 번에 보면서 — 어떤 곳에서 우리가 지금 이기고 있는지, 지고 있는지, 어떤 키워드를 점유하고 싶은지 같이 보실 수 있습니다.**",
+        "en": "**Keywords connect to related keywords, as I mentioned.**\n\n**So you can view the customer journey map as a network — where you're winning, where you're losing, and which keywords you want to own.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2103,
+      "text": {
+        "ko": "**여기는 지금 먹고 있는 거고, 여기는 지금 경합 중인 겁니다. 경쟁 상황이죠.**\n\n**그리고 만약 \"CRM 마케팅 성공 사례\"라는 키워드를 먹고 싶다면 — 얘는 조금 어려울 수 있어요.** **다른 연관된 키워드들을 먼저 먹고 얘를 먹어 나가는, 좀 땅따먹기 전략을 취할 수도 있겠네요.**",
+        "en": "**Here we're winning; here it's contested — a competitive situation.**\n\n**And if we want to own the keyword \"CRM marketing success cases\" — that one may be difficult.** **You could take a land-grab approach: win the neighboring related keywords first, then take this one.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2138,
+      "text": {
+        "ko": "**1차 연관 키워드와 2차 연관 키워드까지 하면서, 너무 크다면 2차 연관 키워드로 확장해서 다시 땅따먹기를 하는 겁니다.**",
+        "en": "**Working through first-degree and second-degree related keywords — and if it's too big, expanding into the second-degree ones and grabbing land again.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2160,
+      "text": {
+        "ko": "**키워드를 모니터링하고, 모니터링하는 키워드 중에 탑 10 순위에 몇 개나 있는지를 봅니다.**\n\n**탑 10에 올라가 있는 게 중요한 이유는 — AI 오버뷰에 올라가는 것들 중 약 60%가 탑 10 검색 결과이기 때문입니다.**\n\n**그러다 보니 일단 탑 10이 먼저 중요한 기준입니다.** **그중에서 AI 요약에 인용됐는지, 자사의 순위는 어떻게 됐는지, 평균 순위는 어떻게 되는지를 보면서 점차적으로 개선해 나가는 거예요.**",
+        "en": "**You monitor keywords, and check how many of them sit in the top 10.**\n\n**Being in the top 10 matters because roughly 60% of what appears in AI Overviews comes from the top 10 search results.**\n\n**So the top 10 is the first important threshold.** **From there you look at whether you were cited in the AI summary, what your rank was, what your average rank is — and improve gradually.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 2205,
+      "title": {
+        "ko": "MSC — 멘션·소스·인용",
+        "en": "MSC — Mention, Source, Citation"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2205,
+      "text": {
+        "ko": "**프롬프트 현황 이런 것도 있네요.**",
+        "en": "**There's a prompt status view too.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2215,
+      "text": {
+        "ko": "**구글이면 구글, GPT, 제미나이, 퍼플렉시티, Claude에서 검색 결과가 나오겠죠.**\n\n**예를 들어 질문을 던지면 이 질문에 대한 답변이 GPT로부터 나올 겁니다.** **그때 인용과 소스가 있었다고 했었죠.**\n\n**그래서 인용과 소스들 중 우리 도메인이 있는지 없는지, 그리고 문장 내에 우리 도메인을 언급하고 있는지를 보실 수 있습니다.**",
+        "en": "**Results come from Google, GPT, Gemini, Perplexity, Claude.**\n\n**Ask a question and GPT produces an answer.** **As I said, there are citations and sources in it.**\n\n**So you can see whether our domain appears among those citations and sources, and whether the sentences mention our domain.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2243,
+      "text": {
+        "ko": "**문장 내에 우리가 타깃하고 싶은 브랜드가 존재한다면 이런 식으로 초록색으로 뜨고, 이걸 멘션(언급)이라고 합니다. M으로 체크하고요.**\n\n**문장을 구성하는 데 다양한 소스들로부터 정보를 가지고 올 겁니다. 그 정보를 가지고 오는 걸 소스라고 합니다.**\n\n**그런데 그 소스들 중에 컨피던스 레벨이 높은 문장이고 도메인 권위가 높다고 판단되면, 문장 끝에 이렇게 URL을 붙입니다. GPT 답변 끝에 보시면 있죠. 그걸 인용이라고 하는 겁니다.**",
+        "en": "**If the brand you're targeting appears in a sentence, it highlights green — we call that a mention, marked M.**\n\n**Composing a sentence pulls information from various sources. That pulling is what we call a source.**\n\n**And when a sentence is judged high-confidence and the domain high-authority, it attaches a URL at the end of the sentence — you've seen those at the end of GPT answers. That's a citation.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2295,
+      "text": {
+        "ko": "**그래서 \"멘션되었는가? 소스로 활용되고 있는가? 그중에서 인용되었는가?\" — 이 MSC**, 그리고 **멘션이 되었다면 경쟁사 대비 몇 위에 추천되고 있는가**를 봅니다.\n\n**멘션 노출, 소스 노출, 인용 노출, 멘션 순위로 보는 겁니다.**",
+        "en": "**So: was it mentioned? Was it used as a source? Was it cited? — that's MSC.** **And if mentioned, where does it rank against competitors?**\n\n**Mention exposure, source exposure, citation exposure, and mention rank.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "멘션 · 소스 · 인용 (MSC)",
+      "kr": {
+        "ko": "GEO의 측정 지표 — 순위 대신 무엇을 세는가",
+        "en": "GEO's metrics — what you count instead of rank"
+      },
+      "body": {
+        "ko": "SEO에는 **\"몇 위\"** 라는 명확한 지표가 있었습니다. **그런데 LLM 답변에는 순위가 없습니다.** 한 덩어리의 문장이 나올 뿐이죠. 그래서 **새로운 측정 단위**가 필요해졌고, 그것이 **MSC**입니다.\n\n**M — 멘션 (Mention)**\n**답변 문장 안에 우리 브랜드 이름이 등장했는가.** 링크는 없어도 됩니다. 사용자가 읽는 텍스트에 이름이 들어갔다는 것 자체가 **인지도 측면에서는 가장 직접적인 노출**입니다.\n\n**S — 소스 (Source)**\n**모델이 답변을 만들기 위해 참고한 문서 목록에 우리 사이트가 포함되었는가.** 화면에 이름이 안 보여도, **모델의 판단에 재료로 쓰였다**는 뜻입니다. 멘션으로 이어질 잠재력이 있는 상태죠.\n\n**C — 인용 (Citation)**\n**특정 문장 끝에 우리 URL이 각주처럼 붙었는가.** 이재철 대표의 설명대로 **컨피던스가 높고 도메인 권위가 높다고 판단될 때** 붙습니다. **트래픽이 실제로 유입되는 유일한 경로**이기도 합니다.\n\n**세 지표를 나눠 보는 이유**는 진단이 달라지기 때문입니다.\n\n**소스는 되는데 멘션이 안 된다** → 모델이 우리 콘텐츠를 읽기는 하는데 브랜드를 지목할 만큼 신뢰하지는 않는 상태.\n**멘션은 되는데 인용이 안 된다** → 이름은 알려졌지만 출처로 삼을 만큼 권위가 인정되지 않은 상태.\n**셋 다 안 된다** → 애초에 크롤·색인 단계에서 막혔을 가능성.\n\n여기에 **엔진별 편차**가 더해집니다. 대담에서 언급되듯 **같은 브랜드라도 GPT에서는 잘 나오는데 퍼플렉시티에서는 안 나올 수 있고**, 어떤 엔진은 위키피디아를, 어떤 엔진은 특정 미디어를 선호합니다. **그래서 \"어느 매체에 우리 이름을 심을 것인가\"가 전략이 됩니다.**",
+        "en": "SEO had a clean metric: **your rank.** **But LLM answers have no ranking** — just a block of prose. So a **new unit of measurement** was needed, and that's **MSC.**\n\n**M — Mention**\n**Did our brand name appear in the answer text?** No link required. Simply being named in what the user reads is **the most direct form of exposure for awareness.**\n\n**S — Source**\n**Was our site among the documents the model consulted to compose the answer?** Even if the name never appears on screen, it means **our content served as raw material for the model's judgment** — a state with potential to become a mention.\n\n**C — Citation**\n**Was our URL attached to a specific sentence like a footnote?** As Lee explains, this happens **when confidence is high and the domain is judged authoritative.** It's also **the only path by which traffic actually arrives.**\n\n**Separating the three matters because each implies a different diagnosis:**\n\n**Source but no mention** → the model reads your content but doesn't trust you enough to name you.\n**Mention but no citation** → your name is known but your authority isn't strong enough to be a source of record.\n**None of the three** → you were likely blocked back at the crawl or index stage.\n\nLayered on top is **variation between engines.** As the talk notes, **the same brand may surface well in GPT but not in Perplexity**; some engines favor Wikipedia, others particular publications. **Which is why \"where do we plant our name?\" becomes a strategy.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2315,
+      "text": {
+        "ko": "특히 좀 재밌는 건 **엔진별로 노출되는 정도, 저희를 인용하는 정도가 다르다**는 겁니다.\n\n**그래서 엔진별 특성을 보는 것도 재밌습니다.** **그중에서 \"우리가 어떤 매체를 언드(earned) 채널로 쓸 건지, 보조적 채널로 쓸 건지\"** — **\"허브스팟은 잘 노출되네, 위키피디아 잘 되네. 그럼 위키피디아에 우리 브랜드 노출시키는 전략 한번 써 볼까?\"** 이런 고민들을 해보는 겁니다.",
+        "en": "What's interesting is that **the degree of exposure and citation differs by engine.**\n\n**So studying each engine's characteristics is interesting too.** **From there: \"which outlet do we use as an earned channel, and which as a supporting one?\"** — **\"HubSpot surfaces well, Wikipedia surfaces well. Shall we try a strategy of getting our brand onto Wikipedia?\"**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2345,
+      "text": {
+        "ko": "**아, 저런 데 컨택을 한다든가 글을 만든다든가 여러 가지가 있겠네요. 노출도가 높으니까 저기를 공략해 보자.**",
+        "en": "**So you'd reach out to those places, or create content there. Their exposure is high, so target them.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2352,
+      "text": {
+        "ko": "**전략을 짜는 겁니다.**",
+        "en": "**You build a strategy.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 2360,
+      "title": {
+        "ko": "콘텐츠 제작소 — AI가 좋아하는 문장과 도메인",
+        "en": "The Content Studio — Sentences and Domains AI Likes"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2360,
+      "text": {
+        "ko": "**콘텐츠 제작소라고도 있는데, 저것도 어느 정도 제작이 되셨나요?** 저는 저게 또 바로 눈에 가더라고요.",
+        "en": "**There's a content studio too — how far along is that?** That's what caught my eye immediately."
+      }
+    },
+    {
+      "type": "a",
+      "t": 2372,
+      "text": {
+        "ko": "**결국 모니터링을 했고, 어떤 키워드를 점유해야겠다고 한다면 — SEO든 GEO든 결국 콘텐츠가 필요하죠.** **그러면 SEO가 좋아하는 콘텐츠를 만드는 게 중요합니다.**\n\n**이 키워드는 현재 자사 순위가 어떻고, 경쟁사는 어떻고, 검색 볼륨은 어떻고, 경쟁 정도는 어떻고, 검색 결과에서는 어떤 도메인과 어떤 타이틀·디스크립션이 등장하고 있고, AI 요약이 있다면 어떻게 나오고 있는지** — 이런 것들을 모두 확인합니다.",
+        "en": "**Once you've monitored and decided which keyword to own — whether SEO or GEO, you need content.** **So making content that search engines like matters.**\n\n**For this keyword: what's our rank, what about competitors, what's the search volume, the competitive intensity, which domains and which titles and descriptions are appearing in results, and if there's an AI summary, what does it say** — we check all of it."
+      }
+    },
+    {
+      "type": "a",
+      "t": 2412,
+      "text": {
+        "ko": "**그렇게 해서 결론적으로, 노출되고 있는 URL들의 콘텐츠 형식을 보고 — \"이 키워드는 가이드형이 좋겠다, 리뷰형이 좋겠다, 비교형이 좋겠다, 하우투형이 좋겠다\"는 것들을 제안합니다.**\n\n**그리고 이 키워드를 검색하는 사람들이 느끼는 페인 포인트 같은 것들이 콘텐츠의 단서가 될 수 있게 해주는 겁니다.**",
+        "en": "**From that, looking at the content formats of the URLs that surface, it suggests: \"this keyword calls for a guide, or a review, or a comparison, or a how-to.\"**\n\n**And it surfaces the pain points felt by people searching this keyword, as clues for the content.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2432,
+      "text": {
+        "ko": "**저런 전략도 제안을 해주는 거군요.**",
+        "en": "**So it proposes that strategy as well.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2437,
+      "text": {
+        "ko": "**목차까지 제안을 해주는 겁니다.**\n\n**제목과 디스크립션, 그리고 다른 콘텐츠들과의 차별점.** 그리고 **AI와 구글은 통계적인 숫자들을 좀 좋아합니다.** 그래서 **그런 통계, 전문성, 권위가 되는 것들과 인용들이 있는지**를 봅니다.\n\n**그다음에 목차를 짜는 것도 되게 중요하다고 했었어요.**",
+        "en": "**It even proposes the outline.**\n\n**The title and description, and what differentiates it from other content.** And **AI and Google both like statistical numbers.** So it checks **whether there are statistics, expertise, authority markers and citations.**\n\n**And as I said, structuring the outline matters a great deal.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2465,
+      "text": {
+        "ko": "**목차는 보통 가장 좋은 건 이런 질문에 대한 답변이 되는 것.** 그리고 **타이틀·디스크립션에서 반복적으로 등장한 문장, 이런 것들을 차용하면 좋습니다.**\n\n**그래서 SERP에 있는 것들에 대응하는 목차인가, PAA 질문에 대응하는 목차인가 — 이런 것들을 제안해 줍니다.**\n\n**SERP, AI 오버뷰, PAA가 있으면 PAA까지 지금 커버하고 있는지 못 하고 있는지, 그런 목차들을 보면서 제안해 주고요.**",
+        "en": "**The best outlines are usually ones that answer these questions.** And **it helps to borrow the phrasings that recur in titles and descriptions.**\n\n**So it proposes: is this outline responding to what's in the SERP, or to the PAA questions?**\n\n**Whether you're covering the SERP, the AI Overview, and the PAA — it reviews the outline against those and makes suggestions.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2500,
+      "text": {
+        "ko": "**그 목차를 가지고, 우리가 어떤 제품을 가지고 있으면 제품이 콘텐츠에 녹여져야 되잖아요.**\n\n**그리고 아시는 것처럼 GPT는 중립성을 좋아하다 보니 비교 콘텐츠를 쓰는 게 좋습니다.** 혹은 **균형적으로, 혹은 자사 중심적으로 쓸 수도 있겠죠.** **표로 노출될지, 마지막에 간략하게 노출될지 같은 것들도요.**",
+        "en": "**With that outline — if you have a product, the product has to be woven into the content.**\n\n**And as you know, GPT likes neutrality, so comparison content works well.** Or **you can write it balanced, or company-centric.** **Whether it surfaces as a table, or briefly at the end.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2528,
+      "text": {
+        "ko": "그리고 **기본적으로 AI는 좋아하는 도메인과 좋아하는 문장이 존재한다고 했었거든요.**\n\n**그래서 그 좋아하는 도메인과 문장들을 모두 수집해 놨습니다. AI가 좋아하는 도메인, AI가 좋아하는 문장들입니다.**\n\n**이 문장과 도메인을 가지고 콘텐츠를 쓰면 — 이미 AI가 좋아하는 문장과 도메인이 있다 보니 — 훨씬 더 노출될 확률이 높다는 겁니다.**",
+        "en": "And **as I said, AI has domains it likes and sentence patterns it likes.**\n\n**So we've collected all of them — the domains AI favors, the sentence forms AI favors.**\n\n**Write content using those sentences and domains, and because they're already what AI likes, the probability of surfacing is much higher.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2565,
+      "text": {
+        "ko": "그리고 **최종적으로, 이미 오랫동안 써오셨던 콘텐츠 스타일이 존재하겠죠. 그걸 페르소나로 만들어 놓은 거고요.** **거기에 추가적인 컨텍스트를 더해서 콘텐츠를 만드는 겁니다.**\n\n**그렇게 해서 콘텐츠를 만들면 TL;DR부터 소개, 개념, 분석, 그리고 비교표 같은 것들을 만들어 주고 레퍼런스를 찍어 주는 겁니다.**",
+        "en": "**And finally, you already have a content style you've written in for a long time. We've turned that into a persona.** **Add further context on top and it generates the content.**\n\n**The output runs from a TL;DR through introduction, concepts, analysis, comparison tables — and it attaches references.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "AI가 좋아하는 문장 · 콘텐츠 포맷 · E-E-A-T",
+      "kr": {
+        "ko": "왜 '비교표'와 '통계'가 잘 인용되는가",
+        "en": "why comparison tables and statistics get cited"
+      },
+      "body": {
+        "ko": "**LLM이 특정 문장을 인용하기 쉬운 데는 구조적인 이유**가 있습니다.\n\n**① 추출 가능성 (extractability)**\nLLM은 답변을 만들 때 **문서에서 \"떼어내 쓸 수 있는 조각\"** 을 찾습니다. 그래서 **정의문(\"X란 ~이다\"), 목록, 표, 숫자가 포함된 문장**이 유리합니다. 반대로 **맥락 없이는 이해되지 않는 긴 서술**은 인용되기 어렵습니다. 대담에서 **비교표, 통계 숫자, TL;DR**이 반복해서 언급되는 이유입니다.\n\n**② 검증 가능성**\n**숫자와 출처가 붙은 문장**은 모델이 **컨피던스를 높게 매기기 쉽습니다.** \"많은 기업이 도입했다\"보다 \"2024년 기준 63%가 도입했다\"가 인용되는 이유죠.\n\n**③ 중립성**\n대담에서 **\"GPT는 중립성을 좋아한다\"** 고 표현된 부분입니다. **자사 홍보 일색인 문서보다, 경쟁사까지 나란히 다룬 비교 콘텐츠가 인용에 유리합니다.** 역설적이지만 **경쟁사를 언급하는 것이 우리 브랜드가 언급될 확률을 높입니다.**\n\n**E-E-A-T**\n구글이 콘텐츠 품질 평가에 쓰는 기준으로, **Experience(경험), Expertise(전문성), Authoritativeness(권위), Trustworthiness(신뢰성)** 의 약자입니다. \"통계·전문성·권위가 되는 것들이 있는지\"를 확인한다는 대목이 이 개념과 맞닿아 있습니다.\n\n**주의할 점** — 이 기법들은 **콘텐츠가 실제로 유용할 때만 작동합니다.** 앞서 이재철 대표가 짚었듯 **주제 일관성 없이 형식만 흉내 낸 콘텐츠는 사람에게도 검색 엔진에게도 신뢰를 잃습니다.**",
+        "en": "There are **structural reasons** why LLMs find certain sentences easy to cite.\n\n**① Extractability**\nWhen composing an answer, an LLM looks for **fragments it can lift out of a document.** That favors **definitional sentences (\"X is …\"), lists, tables, and sentences containing numbers.** Conversely, **long prose that makes no sense without surrounding context** is hard to cite. Hence the repeated mentions of **comparison tables, statistics and TL;DRs.**\n\n**② Verifiability**\n**Sentences carrying numbers and sources** make it easier for a model to **assign high confidence.** \"63% had adopted it as of 2024\" gets cited where \"many companies have adopted it\" does not.\n\n**③ Neutrality**\nThis is what the talk means by **\"GPT likes neutrality.\"** **Comparison content that covers competitors alongside you tends to be cited more than pure self-promotion.** Paradoxically, **mentioning competitors raises the odds your own brand gets mentioned.**\n\n**E-E-A-T**\nGoogle's content quality framework: **Experience, Expertise, Authoritativeness, Trustworthiness.** Checking \"whether there are statistics, expertise and authority markers\" maps directly onto it.\n\n**One caution** — these techniques **only work when the content is genuinely useful.** As Lee noted earlier, **content that imitates the format without topical consistency loses trust with both humans and search engines.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2590,
+      "text": {
+        "ko": "**너무 좋은데요.** 대표님의 이런 만드는 활동이나 이런 것들 보면 **되게 과학적으로 접근을 하신다**는 느낌을 좀 받아요.",
+        "en": "**This is really good.** Watching how you build things, I get the sense that **you approach it very scientifically.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2605,
+      "text": {
+        "ko": "**저는 숫자와 원리를 좀 좋아하는 편이다 보니, 그런 것에 잘 부합하는 영역인 것 같아요.**",
+        "en": "**I lean toward numbers and underlying principles, so this happens to be a field that suits that.**"
+      }
+    },
+    {
+      "type": "section",
+      "t": 2625,
+      "title": {
+        "ko": "누구에게 필요한가, 그리고 자원 배분",
+        "en": "Who Needs This, and How to Allocate Resources"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2625,
+      "text": {
+        "ko": "**이렇게 헤일로X를 다 들여다봤는데요. 좀 어떤 분들께 추천하시나요?**",
+        "en": "**Now that we've gone through HaloX — who would you recommend it to?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2634,
+      "text": {
+        "ko": "사실 지금 보여드린 것처럼 **너무나 많은 정보와 개념, 특히 SEO에 대한 테크니컬한 정보들이 바탕이 되지 않으면 사실 좀 쓰기는 어렵습니다.**\n\n**어느 정도 이 분야에 대한 고민과 최적화를 해오셨던 분들이라면 어렵지 않게 쓰실 수 있을 거고**, **만약 그런 부분들이 잘 되어 있지 않다면 컨설팅을 함께 하면서 도와드리는 부분들이 있습니다.**",
+        "en": "As you've seen, **there's so much information and so many concepts — especially technical SEO knowledge — that without that foundation it's genuinely hard to use.**\n\n**Anyone who's already wrestled with and optimized in this field can use it without much trouble**, and **if that's not in place, we also help through consulting.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2668,
+      "text": {
+        "ko": "**SEO는 사실 스타트업부터 대기업까지 막론하고 중요하고**, **최근에 각광받기 시작한 GEO 영역을 대응해야 한다면 꼭 해야 되는 영역이라고 생각하고 있습니다.**\n\n**그래서 모든 기업들이 관심을 가지고 해보셨으면 좋겠습니다.**",
+        "en": "**SEO matters for everyone from startups to large enterprises**, and **if you need to address the GEO space that's recently come into the spotlight, I consider it essential.**\n\n**So I'd like every company to take an interest and try it.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2695,
+      "text": {
+        "ko": "근데 **저의 고민은 그거 같아요. 자원이 한정되어 있어요.**\n\n**콘텐츠 마케터가 저희 회사에 있는 것도 아니고, 당장 저걸 해야 된다면 제가 해야 되는데** — **저희는 퍼포먼스 마케팅도 해야 될 것 같고, CRM도 해야 될 것 같고, SEO도 다 해야 될 것 같다.**\n\n물론 다 상호 보완 관계가 있는데, **어떻게 이 자원을 배분하면서 마케팅 활동을 하면 좋을까요?**",
+        "en": "But **here's my dilemma: resources are limited.**\n\n**We don't have a content marketer, so if this needs doing, I have to do it** — **and we also need performance marketing, and CRM, and SEO.**\n\nThey're complementary, of course, but **how should I allocate resources across these?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2728,
+      "text": {
+        "ko": "**아 진짜 어려운 얘기네요.**\n\n**기본적으로 사이트의 상태 혹은 브랜드의 스테이지가 어떤 상태에 놓여 있느냐에 따라 다를 것 같기도 합니다.**",
+        "en": "**That's a genuinely hard question.**\n\n**It depends on the state of the site, or what stage the brand is at.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2745,
+      "text": {
+        "ko": "**기본적으로 마케팅은 크게 두 부류로 나뉩니다. 고객을 데리고 오는 마케팅, 그리고 고객을 머무르게 하는 마케팅.**\n\n**SEO와 퍼포먼스 마케팅은 고객을 데리고 오는 데 집중한 방법이고, CRM 마케팅은 고객을 머무르게 하는 데 집중한 방법입니다.**\n\n**그런데 어퀴지션을 어느 정도 부어서, 사이트에 들어온 고객들이 머무르는지를 보면서 사이트를 개선해 나가야 되거든요.** **그래서 결론적으로 이 두 가지는 계속 반복해야 됩니다.**",
+        "en": "**Marketing divides broadly into two kinds: marketing that brings customers in, and marketing that keeps them.**\n\n**SEO and performance marketing focus on bringing them in; CRM marketing focuses on keeping them.**\n\n**But you have to pour in some acquisition, watch whether the customers who arrive stay, and improve the site from that.** **So ultimately these two have to keep cycling.**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2775,
+      "text": {
+        "ko": "**처음에 만약 한다면 SEO는 당연히 시작을 하되 — 결과를 보고 성과를 보는 데까지 좀 오래 걸립니다. 짧으면 한두 달, 길면 6개월씩 걸리는 대작업이고요.**\n\n**그러다 보니 처음부터 SEO는 당연히 시작하되, 액티베이션 관점에서 빠르게 성과를 보고 판단하고 서비스를 개선해야 된다면 — 퍼포먼스로 트래픽을 부어주고, CRM으로 그 유저들이 떠나지 않게 하는 작업을 동시에 해야 되죠.**",
+        "en": "**If you're starting out, you obviously begin SEO — but it takes a long time to see results. One or two months at the short end, up to six months. It's a major undertaking.**\n\n**So start SEO from the beginning, but if you need fast signal to judge and improve the service, pour traffic in through performance marketing and use CRM to keep those users from leaving — simultaneously.**"
+      }
+    },
+    {
+      "type": "term",
+      "term": "어퀴지션 · 리텐션 · 액티베이션",
+      "kr": {
+        "ko": "SEO가 '느린 투자'인 이유",
+        "en": "why SEO is a slow investment"
+      },
+      "body": {
+        "ko": "이재철 대표가 마케팅을 **\"데리고 오는 것\"과 \"머무르게 하는 것\"** 으로 나눈 것은 그로스 마케팅의 표준 프레임과 일치합니다.\n\n**어퀴지션 (Acquisition) — 획득**\n새로운 사용자를 데려오는 활동. **SEO, 퍼포먼스 광고**가 여기 속합니다.\n\n**액티베이션 (Activation) — 활성화**\n들어온 사용자가 **첫 가치를 경험하게** 만드는 단계. 대담에서 \"빠르게 성과를 보고 판단하고 서비스를 개선\"한다고 할 때 겨냥하는 지점입니다.\n\n**리텐션 (Retention) — 유지**\n사용자가 떠나지 않고 돌아오게 하는 활동. **CRM 마케팅**이 담당합니다.\n\n**SEO와 퍼포먼스 광고는 둘 다 어퀴지션이지만 성격이 정반대**입니다.\n\n| | 퍼포먼스 광고 | SEO |\n|---|---|---|\n| 성과 확인 | 며칠 | **1~6개월** |\n| 비용 구조 | 돈을 쓰는 동안만 | 시간과 노력 |\n| 중단하면 | **즉시 0** | **자산으로 남음** |\n\n**핵심 통찰은 \"둘 중 하나를 고르는 게 아니라 역할이 다르다\"**는 것입니다. **퍼포먼스 광고는 빠른 피드백 루프를 제공해 제품을 개선하게 해주고, SEO는 시간이 걸리지만 복리로 쌓이는 자산**을 만듭니다.\n\n그래서 처방이 **\"SEO는 지금 시작하되, 그 결실을 기다리는 동안 퍼포먼스로 학습하고 CRM으로 지킨다\"**가 되는 것입니다. **SEO를 나중으로 미루면, 6개월 뒤에도 여전히 6개월이 남아 있게 됩니다.**",
+        "en": "Lee's split between **\"bringing customers in\" and \"keeping them\"** matches the standard growth marketing frame.\n\n**Acquisition**\nBringing in new users. **SEO and performance advertising** live here.\n\n**Activation**\nGetting arrivals to **experience first value.** This is what he's aiming at with \"fast signal to judge and improve the service.\"\n\n**Retention**\nKeeping users from leaving and bringing them back. **CRM marketing** owns this.\n\n**SEO and performance ads are both acquisition, but opposite in character:**\n\n| | Performance ads | SEO |\n|---|---|---|\n| Time to signal | Days | **1–6 months** |\n| Cost structure | Only while spending | Time and effort |\n| If you stop | **Immediately zero** | **Remains as an asset** |\n\n**The key insight is that these aren't alternatives — they play different roles.** **Performance advertising supplies the fast feedback loop that improves the product; SEO takes time but compounds into an asset.**\n\nHence the prescription: **start SEO now, and while waiting for it to bear fruit, learn through performance and defend through CRM.** **Postpone SEO and six months from now, you'll still be six months away.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2805,
+      "text": {
+        "ko": "**할 일이 많네요.** 너무 좋은 통찰을 주신 시간이었습니다. **저는 너무 많은 걸 배웠고요.**\n\n**마지막으로 구독자분들께 하시고 싶은 말씀 있으신가요?**",
+        "en": "**There's a lot to do.** This has been full of great insight — **I've learned so much.**\n\n**Finally, is there anything you'd like to say to our subscribers?**"
+      }
+    },
+    {
+      "type": "a",
+      "t": 2828,
+      "text": {
+        "ko": "**SEO와 GEO가, 한국 시장이 해외 대비 확실히 좀 많이 뒤처져 있긴 합니다.** **그래서 많은 분들이 다른 마케팅 영역 대비 조금 관심이 덜한 영역이었고요.**\n\n**이제 GEO로 넘어오면서 관심이 많이 생기고 있는 것 같습니다.**\n\n**플레이어들도 좀 많이 생겼으면 좋겠고, 많은 공부를 통해서 이 영역, 이 산업의 확장이 좀 됐으면 좋겠어요.** **많이 공부해 보시고 많이 관심 가져 주시면 좋을 것 같습니다. 저도 열심히 좋은 제품 만들어 보도록 하겠습니다.**",
+        "en": "**In SEO and GEO, the Korean market lags noticeably behind overseas.** **So it's been an area with less attention than other marketing disciplines.**\n\n**Now that GEO has arrived, interest seems to be growing.**\n\n**I'd like to see more players enter, and for study to expand this field and this industry.** **Please look into it and take an interest. I'll keep working on building a good product.**"
+      }
+    },
+    {
+      "type": "q",
+      "t": 2874,
+      "text": {
+        "ko": "**너무 영광입니다.**\n\n이렇게 해서 오늘 팟캐스트는 **이재철 대표님과 함께**했고요. 여러분, **GEO는 곧 메인스트림이 되지 않을까 생각합니다.** 확실히 **전 메인스트림으로 자리 잡았다고도 생각이 들고요.**\n\n**그 최전선에 지금 이재철 대표님이 계시니까 많이들 찾아 주시고**, 저희는 다음번에 또 좋은 소식으로 찾아뵙겠습니다. **감사합니다.**",
+        "en": "**It's been an honor.**\n\nThat wraps today's podcast **with Jaecheol Lee.** Everyone — **I think GEO will soon be mainstream.** Honestly, **I think it already is.**\n\n**Jaecheol is right at the front of it, so do go find him.** We'll be back next time with more. **Thank you.**"
+      }
+    }
+  ]
+}
