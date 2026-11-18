@@ -27,6 +27,7 @@
 
 ## Sessions
 
+- [All Code Is Slop (Except Mine) · Lauren Tan · 영상 싱크 대본](https://ms.studydev.com/sessions/all_code_is_slop_lauren_tan/): 한 달에 PR 3,000개를 내보내면서도 품질은 오히려 좋아졌다는 Grok Bot 엔지니어 Lauren Tan의 AI Engineer Code Summit 17분 발표를 영상과 실시간으로 맞물려 움직이는 한국어 대본으로 정리했습니다.
 - [지금이 스타트업을 시작하기 가장 좋은 시기다 — Sam Altman x Garry Tan](https://ms.studydev.com/sessions/best_time_startup/): Startup School 2026 무대에서 Y Combinator의 Garry Tan과 OpenAI의 Sam Altman이 나눈 39분간의 대담을 한국어로 정리했습니다. AGI 시대에 스타트업이 왜 지금 가장 유리한지, product overhang과 안전 문제까지 다룹니다.
 - [지능이 흔해지면 비전과 야심이 희소해진다 — Alexandr Wang x Garry Tan](https://ms.studydev.com/sessions/civilization_opportunity/): Startup School 2026 무대에서 Y Combinator의 Garry Tan과 Meta의 최고 AI 책임자 Alexandr Wang이 나눈 32분간의 대담을 한국어로 정리했습니다. 19세에 Scale AI를 창업한 이야기부터 개인 초지능, 에이전틱 루프, 그리고 문명에 한 번뿐인 기회까지 다룹니다.
 - [모델이 똑똑해질수록 프롬프트는 지워라 — Boris Cherny x Diana Hu](https://ms.studydev.com/sessions/claude_opus5/): Opus 5 출시 다음 날, Claude Code를 만든 Boris Cherny와 Diana Hu가 나눈 35분간의 대화. 시스템 프롬프트 80% 삭제, 언하블링, 검증 루프, 수천 개의 에이전트 오케스트레이션까지 한국어로 정리했습니다.

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://ms.studydev.com/</loc>
-        <lastmod>2026-11-18</lastmod>
+        <lastmod>2026-08-04</lastmod>
     </url>
     <url>
         <loc>https://ms.studydev.com/azure/</loc>
@@ -70,6 +70,10 @@
     </url>
     <url>
         <loc>https://ms.studydev.com/sessions/</loc>
+        <lastmod>2026-11-18</lastmod>
+    </url>
+    <url>
+        <loc>https://ms.studydev.com/sessions/all_code_is_slop_lauren_tan/</loc>
         <lastmod>2026-11-18</lastmod>
     </url>
     <url>

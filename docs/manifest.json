@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-11-18T05:16:05Z",
+    "generatedAt": "2026-11-18T23:39:23Z",
     "categories": {
         "azure": {
             "label": "Azure",
@@ -95,6 +95,12 @@
             "label": "Sessions",
             "description": "화제가 된 AI 트렌드 대담과 세션 영상을 한국어로 정리한 아카이브.",
             "docs": [
+                {
+                    "slug": "all_code_is_slop_lauren_tan",
+                    "title": "All Code Is Slop (Except Mine) · Lauren Tan · 영상 싱크 대본",
+                    "description": "한 달에 PR 3,000개를 내보내면서도 품질은 오히려 좋아졌다는 Grok Bot 엔지니어 Lauren Tan의 AI Engineer Code Summit 17분 발표를 영상과 실시간으로 맞물려 움직이는 한국어 대본으로 정리했습니다.",
+                    "path": "sessions/all_code_is_slop_lauren_tan/"
+                },
                 {
                     "slug": "best_time_startup",
                     "title": "지금이 스타트업을 시작하기 가장 좋은 시기다 — Sam Altman x Garry Tan",
