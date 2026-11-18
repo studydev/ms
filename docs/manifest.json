@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-08-27T00:26:09Z",
+    "generatedAt": "2026-11-18T05:16:05Z",
     "categories": {
         "azure": {
             "label": "Azure",
@@ -130,6 +130,12 @@
                     "title": "그게 얼마나 어렵겠어? — Jensen Huang x Garry Tan",
                     "description": "Startup School 2026 무대에서 Y Combinator의 Garry Tan과 NVIDIA 창업자 Jensen Huang이 나눈 49분간의 대담을 한국어로 정리했습니다. 1995년 창업 기술이 틀렸다는 깨달음부터 에이전틱 시대의 시스템 사고, 물리 AI까지 다룹니다.",
                     "path": "sessions/how_hard_can_it_be/"
+                },
+                {
+                    "slug": "ignite_2026_keynote_who_said_what",
+                    "title": "Microsoft Ignite 2026 오프닝 키노트 · 화자별 정리",
+                    "description": "Microsoft Ignite 2026 오프닝 키노트의 흐름을 27명의 발언자별로 정리했습니다. Satya Nadella부터 BNY CIO까지, 약 2시간 26분의 발언과 용어 설명을 한국어·영어로 제공합니다.",
+                    "path": "sessions/ignite_2026_keynote_who_said_what/"
                 }
             ]
         }

@@ -33,3 +33,4 @@
 - [GPT·Claude가 우리 브랜드를 추천하게 만드는 법 — 빌더조쉬 x 헤일로X 이재철](https://ms.studydev.com/sessions/geo_seo_halox/): SEO 전문가이자 헤일로X 대표인 이재철 님에게 GEO의 기본 원리부터 실제 웹사이트 공개 진단과 최적화 방법까지 배우는 45분간의 대담을 한국어로 정리했습니다.
 - [GPT가 우리 브랜드를 추천하게 만드는 법 — SEO에서 GEO까지](https://ms.studydev.com/sessions/geo_seo_optimization/): 헤일로X 이재철 대표가 설명하는 SEO 기본 원리, GEO 최적화, 실제 웹사이트 공개 진단과 상용 SaaS 데모를 장면별 이미지와 함께 정리한 학습 콘텐츠입니다.
 - [그게 얼마나 어렵겠어? — Jensen Huang x Garry Tan](https://ms.studydev.com/sessions/how_hard_can_it_be/): Startup School 2026 무대에서 Y Combinator의 Garry Tan과 NVIDIA 창업자 Jensen Huang이 나눈 49분간의 대담을 한국어로 정리했습니다. 1995년 창업 기술이 틀렸다는 깨달음부터 에이전틱 시대의 시스템 사고, 물리 AI까지 다룹니다.
+- [Microsoft Ignite 2026 오프닝 키노트 · 화자별 정리](https://ms.studydev.com/sessions/ignite_2026_keynote_who_said_what/): Microsoft Ignite 2026 오프닝 키노트의 흐름을 27명의 발언자별로 정리했습니다. Satya Nadella부터 BNY CIO까지, 약 2시간 26분의 발언과 용어 설명을 한국어·영어로 제공합니다.
