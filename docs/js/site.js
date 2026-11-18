@@ -391,4 +391,123 @@
             card.addEventListener('mouseleave', function () { togglePhase(phase, false); });
         });
     })();
+
+    (function initIgniteKeynoteSync() {
+        var playerElement = document.getElementById('igniteYoutubePlayer');
+        if (!playerElement) return;
+
+        var payloadElement = document.getElementById('payload');
+        var status = document.getElementById('syncPlayerStatus');
+        var playerPanel = document.querySelector('.sync-player-panel');
+        var toggleHint = document.querySelector('.sync-player-toggle-hint');
+        var payload = JSON.parse(payloadElement.textContent);
+        var player = null;
+        var activeCue = null;
+        var playbackTimer = null;
+
+        function setStatus(message) {
+            if (status) status.textContent = message;
+        }
+
+        function updateActiveCue(seconds) {
+            var cues = document.querySelectorAll('.sync-cue[data-sync-time]');
+            var nextCue = null;
+            var nextCueTime = -Infinity;
+
+            cues.forEach(function (cue) {
+                var cueTime = Number(cue.getAttribute('data-sync-time'));
+                if (Number.isFinite(cueTime) && cueTime <= seconds && cueTime >= nextCueTime && cue.getClientRects().length) {
+                    nextCue = cue;
+                    nextCueTime = cueTime;
+                }
+            });
+
+            if (nextCue === activeCue) return;
+            if (activeCue) activeCue.classList.remove('sync-cue-active');
+            activeCue = nextCue;
+            if (!activeCue) return;
+
+            activeCue.classList.add('sync-cue-active');
+            activeCue.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function stopPlaybackSync() {
+            if (playbackTimer !== null) {
+                window.clearInterval(playbackTimer);
+                playbackTimer = null;
+            }
+        }
+
+        function startPlaybackSync() {
+            stopPlaybackSync();
+            updateActiveCue(player.getCurrentTime());
+            playbackTimer = window.setInterval(function () {
+                updateActiveCue(player.getCurrentTime());
+            }, 500);
+        }
+
+        function createPlayer() {
+            if (player || !window.YT || !window.YT.Player) return;
+            player = new window.YT.Player(playerElement, {
+                videoId: payload.videoId,
+                playerVars: {
+                    enablejsapi: 1,
+                    origin: window.location.origin,
+                    playsinline: 1
+                },
+                events: {
+                    onReady: function () {
+                        setStatus('재생 위치에 맞춰 대본이 자동으로 이동합니다. 대본의 타임코드를 누르면 해당 지점부터 재생됩니다.');
+                    },
+                    onStateChange: function (event) {
+                        if (event.data === window.YT.PlayerState.PLAYING) {
+                            startPlaybackSync();
+                        } else {
+                            stopPlaybackSync();
+                            if (player && typeof player.getCurrentTime === 'function') {
+                                updateActiveCue(player.getCurrentTime());
+                            }
+                        }
+                    },
+                    onError: function (event) {
+                        stopPlaybackSync();
+                        setStatus('YouTube 플레이어 오류 (' + event.data + '). 상단의 YouTube에서 보기 버튼으로 영상을 열어 주세요.');
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('click', function (event) {
+            var target = event.target.nodeType === 1 ? event.target : event.target.parentElement;
+            var timeLink = target && target.closest('a.ts');
+            if (!timeLink || !player || typeof player.seekTo !== 'function') return;
+
+            var rawTime = new URL(timeLink.href).searchParams.get('t');
+            var seconds = rawTime ? Number(rawTime.replace(/s$/, '')) : NaN;
+            if (!Number.isFinite(seconds)) return;
+
+            event.preventDefault();
+            player.seekTo(seconds, true);
+            player.playVideo();
+            updateActiveCue(seconds);
+        });
+
+        if (playerPanel && toggleHint) {
+            playerPanel.addEventListener('toggle', function () {
+                toggleHint.textContent = playerPanel.open ? '접기' : '펼치기';
+            });
+        }
+
+        if (window.YT && window.YT.Player) {
+            createPlayer();
+        } else {
+            window.onYouTubeIframeAPIReady = createPlayer;
+            var apiScript = document.createElement('script');
+            apiScript.src = 'https://www.youtube.com/iframe_api';
+            apiScript.onerror = function () {
+                setStatus('YouTube 플레이어를 불러오지 못했습니다. 상단의 YouTube에서 보기 버튼으로 영상을 열어 주세요.');
+            };
+            document.head.appendChild(apiScript);
+        }
+    })();
 })();

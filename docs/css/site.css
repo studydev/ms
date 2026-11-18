@@ -2525,3 +2525,78 @@ pre .pre-copy-btn.copied { background: #d4edda; color: #155724; border-color: #a
         transform: rotate(90deg);
     }
 }
+
+/* ===== Ignite keynote video and transcript sync ===== */
+.sync-layout {
+    display: grid;
+    grid-template-columns: minmax(420px, 1.25fr) minmax(460px, 1fr);
+    align-items: start;
+    min-height: 100vh;
+}
+.sync-player {
+    position: sticky;
+    top: 16px;
+    z-index: 60;
+    min-width: 0;
+    padding: 16px;
+}
+.sync-player-panel {
+    overflow: hidden;
+    border: 1px solid rgba(128, 128, 128, 0.28);
+    border-radius: 14px;
+    background: var(--bg, #fff);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+.sync-player-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+}
+.sync-player-toggle::-webkit-details-marker { display: none; }
+.sync-player-toggle::after { content: "+"; color: var(--azure-primary); }
+.sync-player-panel[open] .sync-player-toggle::after { content: "−"; }
+.sync-player-toggle-hint { margin-left: auto; color: #777; font-size: 0.8rem; font-weight: 400; }
+.sync-player-content { padding: 0 12px 12px; }
+.sync-player-frame {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    background: #000;
+}
+.sync-player-frame iframe,
+.sync-player-frame #igniteYoutubePlayer { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sync-player-status { margin: 10px 2px 0; color: #666; font-size: 0.82rem; line-height: 1.5; }
+.sync-content { min-width: 0; border-left: 1px solid rgba(128, 128, 128, 0.2); }
+.sync-content .thumbwrap { display: none; }
+/* 대본 열을 가운데 정렬 대신 우측 열 전체로 채움 */
+.sync-content .bar-in,
+.sync-content .hero,
+.sync-content .blk,
+.sync-content main,
+.sync-content .filterbar,
+.sync-content .outro { max-width: none !important; }
+.sync-content .hero { text-align: left; padding-top: 48px; }
+.sync-content .hero h1 { font-size: clamp(30px, 3vw, 46px); }
+.sync-content .hero .sub { margin: 0; }
+.sync-content .hero .meta { justify-content: flex-start; }
+.sync-cue { scroll-margin-block: 35vh; }
+.sync-cue-active.turn .bub { box-shadow: 0 0 0 2px var(--ac, #0066cc); }
+.sync-cue-active.sec { border-top-color: var(--ac, #0066cc); }
+.sync-cue-active.beat { color: var(--ac, #0066cc); }
+.sync-cue-active a.im { border-color: var(--ac, #0066cc); }
+
+@media (max-width: 1000px) {
+    .sync-layout { grid-template-columns: minmax(0, 1fr); }
+    .sync-player { position: sticky; top: 0; padding: 8px 12px; background: var(--bg, #fff); }
+    .sync-player-panel { max-width: 720px; margin: 0 auto; }
+    .sync-content { border-left: 0; }
+    .sync-content .bar { position: static; }
+    .sync-player-status { display: none; }
+}
