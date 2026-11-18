@@ -404,9 +404,47 @@
         var player = null;
         var activeCue = null;
         var playbackTimer = null;
+        var lastUserScrollAt = 0;
+        // 사용자가 직접 스크롤하면 잠시 자동 따라가기를 멈춤
+        var USER_SCROLL_PAUSE_MS = 4000;
+
+        ['wheel', 'touchmove', 'keydown'].forEach(function (type) {
+            window.addEventListener(type, function () { lastUserScrollAt = Date.now(); }, { passive: true });
+        });
 
         function setStatus(message) {
             if (status) status.textContent = message;
+        }
+
+        // 상단에 고정(sticky)된 플레이어·상단바가 대본을 가리는 높이
+        function obstructedTop(cueRect) {
+            var top = 0;
+            document.querySelectorAll('.sync-player, .sync-content .bar').forEach(function (el) {
+                var pos = getComputedStyle(el).position;
+                if (pos !== 'sticky' && pos !== 'fixed') return;
+                var r = el.getBoundingClientRect();
+                var overlapsX = r.left < cueRect.right && r.right > cueRect.left;
+                if (overlapsX && r.top <= 1 && r.bottom > top && r.bottom < window.innerHeight * 0.6) top = r.bottom;
+            });
+            return top;
+        }
+
+        function followActiveCue() {
+            if (!activeCue || !activeCue.isConnected) return;
+            if (Date.now() - lastUserScrollAt < USER_SCROLL_PAUSE_MS) return;
+            var rect = activeCue.getBoundingClientRect();
+            var visibleTop = obstructedTop(rect);
+            var visibleHeight = window.innerHeight - visibleTop;
+            var cueOffset = rect.top - visibleTop;
+            if (cueOffset >= visibleHeight * 0.05 && cueOffset <= visibleHeight * 0.6) return;
+            var targetY = window.scrollY + cueOffset - visibleHeight * 0.2;
+            // 먼 구간 점프는 즉시 이동 (smooth 애니메이션 중 lazy 이미지 로드로 위치가 어긋나는 문제 방지)
+            var far = Math.abs(cueOffset) > window.innerHeight * 2;
+            try {
+                window.scrollTo({ top: targetY, behavior: far ? 'instant' : 'smooth' });
+            } catch (e) {
+                window.scrollTo(0, targetY);
+            }
         }
 
         function updateActiveCue(seconds) {
@@ -422,13 +460,12 @@
                 }
             });
 
-            if (nextCue === activeCue) return;
-            if (activeCue) activeCue.classList.remove('sync-cue-active');
-            activeCue = nextCue;
-            if (!activeCue) return;
-
-            activeCue.classList.add('sync-cue-active');
-            activeCue.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (nextCue !== activeCue) {
+                if (activeCue) activeCue.classList.remove('sync-cue-active');
+                activeCue = nextCue;
+                if (activeCue) activeCue.classList.add('sync-cue-active');
+            }
+            followActiveCue();
         }
 
         function stopPlaybackSync() {
